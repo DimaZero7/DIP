@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="detail-block-servis storage">Наличие на складе:
-                        <div class="detail-sub-block">1</div>
+                        <div class="detail-sub-block">{{product.warehouse}</div>
                     </div>
                     <div class="detail-block-servis delivery">Доставка в течение:
                         <div class="detail-sub-block">2</div>
@@ -51,9 +51,9 @@
                     </div>
                 </form>
                 <div class="detail-manufacturers">
-                    <img src="img/detail-manufacturer/amd.png" alt="Производитель">
-                    <div class="manufacturers-block">AMD</div>
-                    <div class="manufacturers-block">Китай</div>
+                    <img src="{{product.manufacture.img.url}}" alt="{{product.manufacture.name}}">
+                    <div class="manufacturers-block">{{product.manufacture.name}}</div>
+                    <div class="manufacturers-block">{{product.manufacture.country}}</div>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="detail-li">
             <div class="detail-li-title arrow">Комплект поставки</div>
-            <div class="detail-li-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis accusamus omnis tenetur autem quae voluptas ipsum officiis ratione, harum, eius nemo voluptate repellendus aut nihil aliquam. Debitis in ex ducimus.</div>
+            <div class="detail-li-content">{{product.complect}}</div>
         </div>
         <div class="detail-li">
             <div class="detail-li-title arrow">Отзывы</div>

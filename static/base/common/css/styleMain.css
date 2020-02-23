@@ -385,6 +385,50 @@ img {
 
 }
 
+
+.alert {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+}
+
+.alert-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 150px;
+    width: 300px;
+    display: flex;
+    margin: -75px 0 0 -150px;
+    background-color: var(--mid);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 30px 2%;
+}
+
+.alert-button {
+    padding: 5px 0;
+    width: 90%;
+    background-color: var(--dark);
+    color: var(--text);
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.alert-button:hover {
+    background-color: var(--red);
+    transition: .3s;
+}
+
 /*главное*/
 .main {
     padding: 82px 0 0 0;
@@ -660,8 +704,23 @@ img {
     font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 7px);
 }
 
+.product-img {
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 100% 0;
+}
+
+.categorys .product-img {
+    border: 2px solid var(--dark)
+}
+
 .product-img img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .product-info {
@@ -679,6 +738,8 @@ img {
     padding: 5px 2%;
     flex: 0 1 60%;
     font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 11px);
+    display: flex;
+    align-items: center;
 }
 
 .content.resize .product-info .product-price {
@@ -924,6 +985,17 @@ img {
         margin: 5px 0
     }
 
+    .product-info .detail-add-basket {
+        width: 30px;
+        height: 30px;
+        margin: 0;
+    }
+
+    .content.resize .product-info .detail-add-basket {
+        width: 20px;
+        height: 20px;
+    }
+
     .main-h1 {
         margin: -8px -1% 5px -1%;
         height: 44px;
@@ -1154,6 +1226,18 @@ img {
     .main-manu-link:hover {
         transition: .3s;
     }
+
+    .product-info .detail-add-basket {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+    }
+
+    .content.resize .product-info .detail-add-basket {
+        width: 15px;
+        height: 15px;
+    }
+
 
     .content.resize {
         padding: 10px 0 0 0%;
