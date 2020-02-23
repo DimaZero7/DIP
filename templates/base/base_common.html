@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load static %}
+<!---->
+<html lang="ru">
+<head>
+    <title>{% block title  %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'base/common/css/styleMain.css' %}">
+    <link rel="stylesheet" href="{% static 'base/common/css/styleSlick.css' %}">
+    <link rel="stylesheet" href="{% static 'base/common/css/styleDetail.css' %}">
+    {% block addCSS %}{% endblock %}
+    <!--Фавикон-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/common/img/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'base/common/img/favicon/apple-icon-60x60.png' %}">
+    <link rel=" apple-touch-icon " sizes=" 72x72 " href="{% static 'base/common/img/favicon/apple-icon-72x72.png' %}">
+    <link rel=" apple-touch-icon " размеры="76x76" href="{% static 'base/common/img/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon " sizes=" 114x114 " href="{% static 'base/common/img/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'base/common/img/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'base/common/img/favicon/apple-icon-144x144.png' %}">
+    <link rel=" apple-touch-icon " sizes=" 152x152 " href="{% static 'base/common/img/favicon/apple-icon-152x152.png' %}">
+    <link rel=" apple-touch-icon " размеры="180x180" href="{% static 'base/common/img/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image / png" sizes="192x192" href="{% static 'base/common/img/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image / png" sizes="32x32" href="{% static 'base/common/img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image / png" sizes="96x96" href="{% static 'base/common/img/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image / png" sizes="16x16" href="{% static 'base/common/img/favicon/favicon-16x16.png' %}">
+    <meta name="msapplication-TileImage" content="{% static 'base/common/img/favicon/ms-icon-144x144.png' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <link rel=" manifest " href="{% static 'base/common/img/favicon/manifest.json' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!--*-->
+    
+<!--    <meta http-equiv="refresh" content="1">-->
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="wrapper" id="page-wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header-container">
+                    <a href="#" class="menu-active"><span></span></a>
+                    <div class="header-info">
+                        <div class="header-about">
+                            <a href="{% url 'index_url' %}" class="header-link">Главная</a>
+                            <a href="{% url 'category_list_url' %}" class="header-link">Каталог</a>
+                            <a href="#" class="header-link">Покупатели</a>
+                            <a href="#" class="header-link">О нас</a>
+                        </div>
+                        <div class="header-contacts">
+                            <a href="#" class="header-icon" title="Местоложение">
+                                <img src="{% static 'base/common/img/header-icon/location.svg' %}" alt="Местоложение"></a>
+                            <a href="#" class="header-icon" title="Телефон">
+                                <img src="{% static 'base/common/img/header-icon/phone.svg' %}" alt="Телефон">
+                            </a>
+                            <a href="#" class="header-icon" title="Время работы">
+                                <img src="{% static 'base/common/img/header-icon/watch.svg' %}" alt="Время работы">
+                            </a>
+                            <a href="#" class="header-icon" title="Уведомления">
+                                <img src="{% static 'base/common/img/header-icon/bell.svg' %}" alt="Уведомления">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-main">
+                        <a href="{ url 'index/'}" class="logo">&nbsp;</a>
+                        <form action="#" class="header-search">
+                            <input class="header-search-input" type="search" id="search" name="search" placeholder="Искать здесь...">
+                            <button class="header-search-button"></button>
+                        </form>
+                        <div class="header-profile">
+                            <div class="active-for-mobile">
+                                <a href="#basket" class="header-profile-icon shopping">
+                                    <img src="{% static 'base/common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
+                                </a>
+                                <a href="#" class="header-profile-icon">
+                                    <img src="{% static 'base/common/img/header-profile-icon/history.svg' %}" alt="История">
+                                </a>
+                                <a href="#" class="header-profile-icon">
+                                    <img src="{% static 'base/common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                                </a>
+                                <div id="basket" class="shopping-list">
+                                    <div class="container-total-price">
+                                        <div class="total-price-title">Стоимость корзины:</div>
+                                        <span class="total-price">0</span>
+                                    </div>
+                                    <table class="shopping-list-container">
+                                        <!--товары в корзине-->
+                                    </table>
+                                    <div class="order">
+                                        <button class="add-order">Сделать заказ</button>
+                                    </div>
+                                    <a href="#" class="close-basket" title="Закрыть корзину"></a>
+                                </div>
+                            </div>
+                            <a href="#" class="header-profile-icon profile">
+                                <img src="{% static 'base/common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="main-container">
+                    {% include 'catalog/categorys/categorys_include/categories_menu.html' %}
+                    <div class="content">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-title">RearmDevice</div>
+                    <div class="footer-link">
+                        <div class="footer-block">
+                            <div class="footer-block-title arrow">Магазин RD</div>
+                            <div class="footer-block-content">
+                                <ul class="footer-block-ul">
+                                    <li><a href="#">Обратная связь</a></li>
+                                    <li><a href="#">Новости</a></li>
+                                    <li><a href="#">Персональные данные</a></li>
+                                    <li><a href="#">Партены</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="footer-block">
+                            <div class="footer-block-title arrow">Покупателям</div>
+                            <div class="footer-block-content">
+                                <ul class="footer-block-ul">
+                                    <li><a href="#">Доставка</a></li>
+                                    <li><a href="#">Сервисный центр</a></li>
+                                    <li><a href="#">Проверка оплаты</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="footer-block">
+                            <div class="footer-block-title arrow">Помощь</div>
+                            <div class="footer-block-content">
+                                <ul class="footer-block-ul">
+                                    <li><a href="#">Как оформить заказ</a></li>
+                                    <li><a href="#">Способы оплаты</a></li>
+                                    <li><a href="#">Обмен и возврат товара</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="footer-block">
+                            <div class="footer-block-title arrow">Контакты</div>
+                            <div class="footer-block-content">
+                                <div class="social">
+                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/facebook.svg' %}" alt="fb"></a>
+                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/vk.svg' %}" alt="vk"></a>
+                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/mail.svg' %}" alt="mail"></a>
+                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/instagram.svg' %}" alt="inst"></a>
+                                </div>
+                                <ul class="footer-block-ul footer-feed-back">
+                                    <li><a href="#">Телефон</a></li>
+                                    <li><a href="#">Адрес Магазина</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'base/common/js/particles.js' %}"></script>
+    <script src="{% static 'base/common/js/slick.min.js' %}"></script>
+    <script src="{% static 'base/common/js/scripts.js' %}"></script>
+    {% block addJS %}{% endblock %}
+</body>
+
+</html>

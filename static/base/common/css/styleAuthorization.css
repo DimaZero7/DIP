@@ -1,0 +1,179 @@
+.userDataForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userDataForm label {
+    margin: 5px;
+    font-size: 25px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userDataForm input {
+    display: block;
+    border: 2px solid var(--dark);
+    font-size: 15px;
+    padding: 5px;
+    margin: 7px;
+    flex: 0 1 100%;
+}
+
+.cabinetButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cabinetButtons a,
+input[type=submit] {
+    padding: 10px;
+    margin: 10px;
+    font-size: 19px;
+    background-color: var(--mid);
+    width: 200px;
+    color: var(--text);
+    text-align: center;
+    border: 0;
+    font-family: serif;
+    transition: 0.3s;
+}
+
+.cabinetButtons a {
+    padding: 3px;
+}
+
+.cabinetButtons a:hover,
+input[type=submit]:hover {
+    background-color: var(--dark);
+    cursor: pointer;
+}
+
+.divLogitTitle {
+    font-size: 20px;
+    background-color: #FFE68F;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.input-requirements {
+    list-style-type: none;
+    text-align: left;
+    color: var(--text);
+    font-size: 13px;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.input-requirements li::before {
+    content: "✘";
+    padding-right: 5px;
+}
+
+.input-requirements li.invalid {
+    color: var(--red);
+}
+
+.input-requirements li.valid {
+    color: chartreuse;
+}
+
+.input-requirements li.valid::before {
+    display: inline-block;
+    content: "✔";
+    font-weight: bold;
+}
+
+.checkbox-title {
+    font-size: 16px;
+}
+
+.checkbox-link {
+    color: var(--text);
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+
+.checkbox-input{
+    position: relative;
+}
+
+
+.checkbox-input:checked::before,
+.checkbox-input:not(:checked)::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: var(--text);
+    z-index: 1;
+}
+
+.checkbox-input:checked::after,
+.checkbox-input:not(:checked)::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    z-index: 2;
+    transition: .3s;
+}
+
+.checkbox-input:checked::after{
+    background: url(../img/close.webp) 50% 50% / 100% no-repeat;
+    transition: .3s
+}
+
+@media (max-width: 769px) {
+    .userDataForm label {
+        font-size: 20px;
+    }
+
+    .userDataForm input {
+        font-size: 14px;
+        padding: 3px;
+        margin: 2px;
+    }
+
+    .input-requirements {
+        list-style-type: none;
+    }
+
+    .cabinetButtons a,
+    input[type=submit] {
+        padding: 7px;
+        margin: 5px;
+        font-size: 16px;
+        width: 180px;
+        text-align: center;
+    }
+
+    .cabinetButtons a {
+        padding: 3px;
+    }
+
+
+    .checkbox-title {
+        font-size: 14px;
+    }
+
+    .checkbox-link {
+        color: var(--text);
+        text-decoration: underline;
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 500px) {}

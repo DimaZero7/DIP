@@ -1,0 +1,49 @@
+{% extends 'base/base_common.html' %}
+{% load static %}
+{% block title  %}RD | Регистрация {% endblock %}
+
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/common/css/styleAuthorization.css' %}">{% endblock %}
+
+{% block content %}
+<h1 class="main-h1">Регестрация</h1>
+<div class="userData">
+    <form action="#" class="userDataForm registration" id="registration">
+        {% csrf_token %}
+        <label for="nik">Логин<input type="text" id="nik" name="nik" minlength="3" required>
+            <ul class="input-requirements">
+                <li>Не менее 3 символов</li>
+                <li>Минимум 1 цифру</li>
+            </ul>
+        </label>
+        <label for="mail">Почта<input type="email" id="mail" name="mail" minlength="3" required>
+            <ul class="input-requirements">
+                <li>Не менее 3 символов</li>
+                <li>Должена содержать @</li>
+            </ul>
+        </label>
+        <label for="password">Пароль<input type="password" id="password" name="password" maxlength="32" minlength="8" required>
+
+            <ul class="input-requirements">
+                <li>8-20 символов</li>
+                <li>минимум 1 цифру</li>
+                <li>минимум 1 строчную букву</li>
+            </ul>
+        </label>
+
+        <label for="password_repeat">Повторить пароль<input type="password" id="password_repeat" maxlength="32" minlength="8" required></label>
+
+        <label for="checkbox" class="checkbox">
+            <span class="checkbox-title">Ознакомлен c условиями</span>
+            <a href="#" class="checkbox-link">политики конфиденциальности</a>
+            <input type="checkbox" class="checkbox-input" required value="politician" name="politician">
+        </label>
+
+        <input type="submit" id="btn_submit" value="Зарегестрироваться">
+    </form>
+    <div class="cabinetButtons">
+        <a href="{% url 'authorization:login' %}">Вход</a>
+    </div>
+</div>
+{% endblock %}
+{% block addJS %}<script src="{% static 'base/common/js/validation/validation_registration.js' %}"></script>{% endblock %}

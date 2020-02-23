@@ -1,0 +1,11 @@
+{#  для работы надо во всюху импортировать модель    #}
+{#      from catalog.models import Category          #}
+{#      categorys = Category.objects.all()           #}
+{#      context = {                                  #}
+{#          'categorys': categorys,                  #}
+{#      }                                            #}
+<ul class="main-menu">
+   {% for category in categorys %}
+   <li><a href="{{ category.get_absolute_url }}" class="main-manu-link">{{ category.name }}</a></li>
+   {% endfor %}
+</ul>
