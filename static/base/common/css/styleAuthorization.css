@@ -100,11 +100,9 @@ input[type=submit]:hover {
     font-size: 16px;
 }
 
-
 .checkbox-input{
     position: relative;
 }
-
 
 .checkbox-input:checked::before,
 .checkbox-input:not(:checked)::before{
