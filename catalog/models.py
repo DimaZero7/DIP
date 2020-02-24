@@ -21,9 +21,9 @@ def category_img_name(instance, filename):  # Функция состовлет 
 
 
 class Category(models.Model):  # Модель категорий товаров
-    name = models.CharField(max_length=30)  # Имя категории
+    name = models.CharField(max_length=30, verbose_name='Название')  # Имя категории
     slug = models.SlugField(max_length=30, unique=True)  # Человеко понятный url
-    img = models.ImageField(upload_to='categorys')  # Кортинка категории
+    img = models.ImageField(upload_to='categorys', verbose_name='Изображение')  # Кортинка категории
 
     #Название модели для понимания человеком
     class Meta:

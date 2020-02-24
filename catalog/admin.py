@@ -13,6 +13,8 @@ class ProductsAdmin(admin.ModelAdmin):  # Добовление в модель �
         ProductsImagesInLine,
     ]
 
+    list_display = ( 'name', 'price', 'warehouse');
+    
     fieldsets = (
 			('Общее',
 				{
@@ -47,7 +49,7 @@ admin.site.register(Product, ProductsAdmin)  # Добовляю в админк�
 
 @admin.register(Manufacture) # Добовляю в админку модель с производителями
 class ManufactureAdmin(admin.ModelAdmin):
-	list_display = ( 'get_image', 'name')
+	list_display = ( 'get_image', 'name', 'country')
 
     #Отображение картинки производиеля в таблице
 	def get_image(self, product):
@@ -55,8 +57,7 @@ class ManufactureAdmin(admin.ModelAdmin):
 		return mark_safe(f'<img src="{product.img.url}" alt="{product.name}" style="width: 30px"/>')
     
 	get_image.short_description = u'Логотип'
-# alt="{product.manufacture.name}" title="{product.manufacture.name}"
-    #Порядок отображения полей
+
 	fieldsets = (
 			('Общее',
 				{
@@ -64,3 +65,27 @@ class ManufactureAdmin(admin.ModelAdmin):
 				}
 			),
 	)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
