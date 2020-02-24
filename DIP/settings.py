@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-
+#s
 BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 
 SECRET_KEY = '(@=3-)a0u-5h@7t((91o+2-v-b+k+07%j+g_3^_6zb1!ghteth'
