@@ -27,7 +27,7 @@ body {
     font-size: 14px;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     color: #333;
-    background: silver;
+    background: var(--text);
 }
 
 /* LINKS */
@@ -457,14 +457,6 @@ table thead th.sorted .sortoptions a.descending:hover {
     background-position: 0 -70px;
 }
 
-.field-price::after {
-    content: 'руб.'
-}
-
-.field-warehouse::after {
-    content: 'шт.'
-}
-
 /* FORM DEFAULTS */
 
 input,
@@ -663,7 +655,7 @@ ul.messagelist li {
     font-weight: 400;
     font-size: 13px;
     padding: 10px 10px 10px 65px;
-    margin: 0 0 10px 0;
+    margin: 0;
     background: #dfd url(../img/icon-yes.svg) 40px 12px no-repeat;
     background-size: 16px auto;
     color: #333;

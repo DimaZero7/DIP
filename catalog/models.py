@@ -14,8 +14,6 @@ class Manufacture(models.Model): #Модель производителей
     def __str__(self):
         return self.name
     
-
-
 def category_img_name(instance, filename):  # Функция состовлет путь для картинки категории
     return 'categorys/{0}/img/{1}'.format(instance.name, filename)
 
@@ -43,9 +41,9 @@ class Product(models.Model):  # Модель товаров
     # Связь один ко многим(внешний ключ производителя)
     manufacture = models.ForeignKey(Manufacture, on_delete=models.CASCADE, verbose_name='Производитель') 
     name = models.CharField(max_length=50, verbose_name='Имя товара')  # Имя товара
-    slug = models.SlugField(max_length=30, unique=True, verbose_name='URL товара', blank=True)  # Человеко понятный url
+    slug = models.SlugField(max_length=30, unique=True, verbose_name='URL товара', blank=True , help_text='Заполняется автоматически')  # Человеко понятный url
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')  # Дата добавления товара
-    price = models.IntegerField(verbose_name='Цена')  # Цена товара
+    price = models.IntegerField(verbose_name='Цена', help_text=' руб.')  # Цена товара
     warehouse = models.IntegerField(verbose_name='Количество товара', help_text='шт.')  # Количество товара
     warranty = models.IntegerField(verbose_name='Гарантия', help_text='месяцев')  # Гарантия товара
     description = models.TextField(verbose_name='Описание')  # Описание товара
@@ -77,12 +75,14 @@ class ProductsImage(models.Model):  # Модель картинок товаро
 
     #Название модели для понимания человеком
     class Meta:
-        verbose_name = 'Картинка'
-        verbose_name_plural = 'Картинки'
+        verbose_name = 'Картинка товара'
+        verbose_name_plural = 'Картинки товаров'
     
     
     # Связь один ко многим(внешний ключ товаров)
-    products = models.ForeignKey(Product,  related_name='prodimg', on_delete=models.CASCADE)
+    name = models.ForeignKey(Product, related_name='prodimg', on_delete=models.CASCADE, verbose_name='Продукт')
+    img = models.ImageField(upload_to=product_img_name, verbose_name='Картинка(и)')  # Поле для загрузки картинок для товаров
+    alt = models.CharField(max_length=50, verbose_name='Алт. Имя')
 
-    img = models.ImageField(upload_to=product_img_name)  # Поле для загрузки картинок для товаров
-
+    def __str__(self):
+        return self.alt

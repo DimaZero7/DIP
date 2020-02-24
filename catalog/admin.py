@@ -66,13 +66,11 @@ class ManufactureAdmin(admin.ModelAdmin):
 			),
 	)
 
+@admin.register(ProductsImage) # Добовляю в админку модель с производителями
+class ProductsImageAdmin(admin.ModelAdmin):    
+    prepopulated_fields = {"alt": ("name",)}  # Транслирует текст написаный в картинка в алт
     
-    
-    
-    
-    
-    
-    
+    list_display = ( 'name', 'alt')
     
     
     

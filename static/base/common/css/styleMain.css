@@ -673,14 +673,14 @@ img {
 
 .main-product {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .product-block {
     flex: 0 1 19%;
-    margin: 5px 0;
+    margin: 5px 0.5%;
     transition: .3s
 }
 

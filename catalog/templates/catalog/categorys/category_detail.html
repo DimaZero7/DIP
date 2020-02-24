@@ -17,9 +17,7 @@ RD | {{ category.name }}
             <a href="{{ product.get_absolute_url }}">
                 {# Вывожу 1-ую картинку текущего товара #}
                 {% for prodimg in product.prodimg.all %}
-                {% if prodimg.id == 1 %}
-                <img src="{{ prodimg.img.url }}" alt="продукт">
-                {% endif %}
+                <img src="{{ prodimg.img.url }}" alt="{{prodimg.alt}}">
                 {% endfor %}
             </a>
         </div>
