@@ -8,6 +8,7 @@
     <h1 class="main-h1"> Категории </h1>
     <div class="main-product">
         {# Вывожу все категории #}
+        {% if categorys %}
         {% for category in categorys %}
             <article class="product-block">
                 <div class="product-title">
@@ -15,10 +16,13 @@
                 </div>
                 <div class="product-img">
                     <a href="{{ category.get_absolute_url }}">
-                        <img src="{{ category.img.url }}" alt="продукт">
+                        <img src="{{ category.img.url }}" alt="{{ category.name }}">
                     </a>
                 </div>
             </article>
         {% endfor %}
+        {% else %}
+        <div class="product-none">Категорий нет</div>
+        {% endif %}
     </div>
 {% endblock %}

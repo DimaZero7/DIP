@@ -8,18 +8,18 @@
 <div class="main-detail">
     <h1 class="main-h1">{{ product.name }}</h1>
     <div class="detail-short">
-        <div class="sliders">
+        <div class="sliders slider-detail">
             <div class="slider-min">
                 {% for prodimg in product.prodimg.all %}
                 <div class="slider__item">
-                    <img data-lazy="{{ prodimg.img.url }}" alt="1">
+                    <img data-lazy="{{ prodimg.img.url }}" alt="{{ product.name }}">
                 </div>
                 {% endfor %}
             </div>
             <div class="sub-slider-min">
                 {% for prodimg in product.prodimg.all %}
                 <div class="slider__item">
-                    <img src="{{ prodimg.img.url }}" alt="1">
+                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
                 </div>
                 {% endfor %}
             </div>

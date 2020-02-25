@@ -3,24 +3,37 @@
     margin: -10px -1% 5px -1%;
 }
 
+.slick-list {
+    overflow: hidden;
+    max-height: 100%;
+}
+
 .slider__item {
     text-align: center;
     z-index: 50 !important;
 }
 
-.slick-list {
-    overflow: hidden;
-}
-
 .slider__item img {
     width: 100%;
+    height: 100%;
+}
+
+.slider.main-slider .slider__item{
+    max-height: 200px;
+    position: relative;
+    padding: 0 0 30% 0;
+}
+
+.slider.main-slider .slider__item img{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .slick-track {
     display: flex;
 }
-
-
 
 .slider .slick-arrow {
     position: absolute;

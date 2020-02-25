@@ -21,9 +21,9 @@ def category_img_name(instance, filename):  # Функция состовлет 
 
 
 class Category(models.Model):  # Модель категорий товаров
-    name = models.CharField(max_length=30)  # Имя категории
-    slug = models.SlugField(max_length=30, unique=True)  # Человеко понятный url
-    img = models.ImageField(upload_to='categorys')  # Кортинка категории
+    name = models.CharField(max_length=30, verbose_name='Название категории')  # Имя категории
+    slug = models.SlugField(max_length=30, unique=True, verbose_name='понятный url')  # Человеко понятный url
+    img = models.ImageField(upload_to='categorys', verbose_name='Кaртинка категории')  # Кaртинка категории
 
     def get_absolute_url(self):  # Создание персональной сылки для обекта
         return reverse('category_detail_url', kwargs={'slug': self.slug})
@@ -61,20 +61,21 @@ class Product(models.Model):  # Модель товаров
     poster = models.ImageField(upload_to=poster_img_name, help_text='700x200px',
                                verbose_name='Картинка для постера')  # Постер товара
 
-
     def get_absolute_url(self):  # Создание персональной сылки для обекта
         return reverse('product_detail_url', kwargs={'slug': self.slug})
+    # Название модели для понимания человеком
+    
+    class Meta:
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
 
     # from catalog.models import *
     # p = Product.objects.all()
     # t1 = p.get(name='товар 1')
+    
     def __str__(self):
         return self.name
 
-    # Название модели для понимания человеком
-    class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товары'
 
 
 def product_img_name(instance, filename):  # Функция состовлет путь для картинок товаров
@@ -85,10 +86,12 @@ class ProductsImage(models.Model):  # Модель картинок товаро
 
     # Связь один ко многим(внешний ключ товаров)
     products = models.ForeignKey(Product, related_name='prodimg', on_delete=models.CASCADE)
-
     img = models.ImageField(upload_to=product_img_name)  # Поле для загрузки картинок для товаров
-
     # Название модели для понимания человеком
+    
     class Meta:
-        verbose_name = 'Картинка'
-        verbose_name_plural = 'Картинки'
+        verbose_name = 'Картинка товара'
+        verbose_name_plural = 'Картинки товаров'
+
+    
+    

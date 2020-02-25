@@ -10,7 +10,8 @@ class ProductsImagesInLine(admin.TabularInline):  # Модель картино�
 @admin.register(Product)
 class ProductsAdmin(admin.ModelAdmin):  # Добовление в модель товаров модель с картинками в админке
     prepopulated_fields = {"slug": ("name",)}  # Транслирует текст написаный в name в slug
-
+    list_display = ('name', 'warehouse', 'price')
+    
     # Поле для добавления картинок товарам
     inlines = [
         ProductsImagesInLine,
@@ -44,18 +45,35 @@ class ProductsAdmin(admin.ModelAdmin):  # Добовление в модель �
          ),
     )
 
+@admin.register(Category)  # Добовляю в админку модель с категориями товаров
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'get_image_category')
+    prepopulated_fields = {"slug": ("name",)}  # Транслирует текст написаный в name в slug
 
-admin.site.register(Category)  # Добовляю в админку модель с категориями товаров
+    # Отображение картинки производиеля в таблице
+    def get_image_category(self, product):
+        # добавление HTML кода в стукруту таблицы в админке
+        return mark_safe(f'<img src="{product.img.url}" alt="{product.name}" class="admin-icon"/>')
 
+    get_image_category.short_description = u'Логотип категории'
+
+    # Порядок отображения полей
+    fieldsets = (
+        ('Общее',
+         {
+             'fields': (('name', 'slug'), 'img')
+         }
+         ),
+    )
 
 @admin.register(Manufacture)  # Добовляю в админку модель с производителями
 class ManufactureAdmin(admin.ModelAdmin):
-    list_display = ('get_image', 'name')
+    list_display = ('name', 'get_image')
 
     # Отображение картинки производиеля в таблице
     def get_image(self, product):
         # добавление HTML кода в стукруту таблицы в админке
-        return mark_safe(f'<img src="{product.img.url}" alt="{product.name}" style="width: 30px"/>')
+        return mark_safe(f'<img src="{product.img.url}" alt="{product.name}" class="admin-icon manufacture"/>')
 
     get_image.short_description = u'Логотип'
 
@@ -69,17 +87,9 @@ class ManufactureAdmin(admin.ModelAdmin):
     )
 
 
-
-
-
-
-# @admin.register(ProductsImage) # Добовляю в админку модель с производителями
-# class ProductsImageAdmin(admin.ModelAdmin):
-#     prepopulated_fields = {"alt": ("name",)}  # Транслирует текст написаный в картинка в алт
-#
-#     list_display = ( 'name', 'alt')
-    
-    
+@admin.register(ProductsImage) # Добовляю в админку модель с производителями
+class ProductsImageAdmin(admin.ModelAdmin):
+    pass
     
     
     

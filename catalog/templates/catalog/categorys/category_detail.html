@@ -9,33 +9,37 @@ RD | {{ category.name }}
 
 <div class="main-product">
     {# Вывожу все товары текущей категории #}
+    {% if category.product_set.all%}
     {% for product in category.product_set.all %}
-        <article class="product-block">
-            <div class="product-title">
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-            </div>
-            <div class="product-img">
-                <a href="{{ product.get_absolute_url }}">
-                    {# Вывожу 1-ую картинку текущего товара #}
-                    {% for prodimg in product.prodimg.all %}
-                            <img src="{% firstof prodimg.img.url %}" alt="{{ product.name }}">
-                    {% endfor %}
-                </a>
-            </div>
-            <div class="product-info">
-                <form action="#" method="post" id="buyProduct" class="detail-add">
-                    <div class="detail-price-buttons">
-                        <div class="product-price">{{ product.price }}</div>
-                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
+    <article class="product-block">
+        <div class="product-title">
+            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        </div>
+        <div class="product-img">
+            <a href="{{ product.get_absolute_url }}">
+                {# Вывожу 1-ую картинку текущего товара #}
+                {% for prodimg in product.prodimg.all %}
+                <img src="{% firstof prodimg.img.url %}" alt="{{ product.name }}">
+                {% endfor %}
+            </a>
+        </div>
+        <div class="product-info">
+            <form action="#" method="post" id="buyProduct" class="detail-add">
+                <div class="detail-price-buttons">
+                    <div class="product-price">{{ product.price }}</div>
+                    <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
+                </div>
+                <div class="detail-block-servis">Сколько купить?:
+                    <div class="detail-quantity">
+                        <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
                     </div>
-                    <div class="detail-block-servis">Сколько купить?:
-                        <div class="detail-quantity">
-                            <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </article>
+                </div>
+            </form>
+        </div>
+    </article>
     {% endfor %}
+    {% else %}
+        <div class="product-none">Товаров в категории {{ category.name }} нет</div>
+    {% endif %}
 </div>
 {% endblock %}

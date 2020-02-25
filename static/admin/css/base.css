@@ -208,6 +208,10 @@ p.tiny {
     font-size: 10px;
 }
 
+span.mini {
+     color: var(--text);
+}
+
 p.mini {
     margin-top: -3px;
 }
@@ -281,7 +285,7 @@ a.quiet:visited {
 table {
     border-collapse: collapse;
     border-color: #ccc;
-    background-color: var(--text);
+    background-color: #e0e0e0;
     border: 0;
 }
 
@@ -788,7 +792,11 @@ div.breadcrumbs a:hover {
 
 a.addlink,
 li.addlink a {
-    color: var(--dark);
+    color: var(--text);
+}
+
+td a.addlink{
+    color: var(--dark)
 }
 
 a.addlink:hover,
@@ -805,6 +813,10 @@ li.addlink a:hover {
 
 a.changelink,
 li.changelink a {
+    color: var(--text);
+}
+
+td a.changelink{
     color: var(--dark)
 }
 
@@ -819,7 +831,11 @@ li.changelink a:hover {
 }
 
 li.deletelink {
-    color: var(--text)
+    color: var(--text);
+}
+
+td a.deletelink{
+    color: var(--dark)
 }
 
 a.deletelink:link,
@@ -832,6 +848,7 @@ a.deletelink:hover {
     color: #993333;
     text-decoration: none;
 }
+
 
 
 
@@ -1120,6 +1137,17 @@ a.admin-button {
     color: #ffc;
 }
 
+.admin-icon{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    background-color:var(--dark);
+    padding: 3px;
+}
+
+.manufacture.admin-icon{
+    background-color: transparent;
+}
 
 /* POPUP */
 .popup #content {
