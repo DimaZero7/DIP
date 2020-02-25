@@ -4,25 +4,19 @@
 {% block title %}Rearm Device{% endblock %}
 
 {% block content %}
-                    <div class="slider">
-                        <div class="slider__item">
-                            <img src="{% static 'base/common/img/slider/CPU.jpg' %}" alt="CPU">
-                        </div>
-                        <div class="slider__item">
-                            <img src="{% static 'base/common/img/slider/GPU.jpg' %}" alt="GPU">
-                        </div>
-                        <div class="slider__item">
-                            <img src="{% static 'base/common/img/slider/hardDisk.jpg' %}" alt="hardDisk">
-                        </div>
-                        <div class="slider__item">
-                            <img src="{% static 'base/common/img/slider/motherboard.jpg' %}" alt="motherboard">
-                        </div>
-                        <div class="slider__item">
-                            <img src="{% static 'base/common/img/slider/RAM.jpg' %}" alt="RAM">
-                        </div>
-                    </div>
 
-                    <div class="main-content-text">
-                        <h2>Контент на главной странице</h2>
-                    </div>
+    <div class="slider">
+        {% for product in products_posters %}
+            <a href="{{ product.get_absolute_url }}">
+                <div class="slider__item">
+                        <img src="{{ product.poster.url }}" alt="{{ product.name }}">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+
+    <div class="main-content-text">
+        <h2>Контент на главной странице</h2>
+    </div>
 {% endblock %}
