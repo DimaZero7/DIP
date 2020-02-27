@@ -14,6 +14,7 @@ def index(request):
     return render(request, 'common/index.html', context)
 
 
+
 def manufacturers_list(request):
     list_manufacturers = Manufacture.objects.all()
     context = {

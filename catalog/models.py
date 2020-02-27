@@ -20,6 +20,15 @@ class Manufacture(models.Model):  # Модель производителей
         verbose_name_plural = 'Производители'
 
 
+#class Poster(models.Model):  # Модель картинок товаров
+#
+#    img = models.ImageField(upload_to='posters')  # Поле для загрузки картинок для постера
+#    
+#    class Meta:
+#        verbose_name = 'Постер'
+#        verbose_name_plural = 'Постеры'
+        
+
 def category_img_name(instance, filename):  # Функция состовлет путь для картинки категории
     return 'categorys/{0}/img/{1}'.format(instance.name, filename)
 
@@ -64,6 +73,7 @@ class Product(models.Model):  # Модель товаров
     slider = models.BooleanField(verbose_name='Товар на слайдере', default=False)  # Будет ли товар в слайдере
     poster = models.ImageField(upload_to=poster_img_name, help_text='700x200px',
                                verbose_name='Картинка для постера')  # Постер товара
+#    poster = models.ForeignKey(Poster, on_delete=models.CASCADE, verbose_name='Постер')
 
     def get_absolute_url(self):  # Создание персональной сылки для обекта
         return reverse('product_detail_url', kwargs={'slug': self.slug})

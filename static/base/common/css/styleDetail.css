@@ -129,10 +129,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .detail-manufacturers img {
+    width: 100%;
     margin-bottom: -7px;
     max-height: 200px;
+    max-width: 200px;
     object-fit: cover;
-    width: 100%;
 }
 
 .detail-info {

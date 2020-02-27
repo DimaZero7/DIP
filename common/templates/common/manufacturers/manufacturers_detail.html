@@ -1,45 +1,65 @@
 {% extends 'base/base_common.html' %}
 
-{% block title  %}
-RD | {{ category.name }}
-{% endblock %}
+{% block title  %}RD | {{ manufacture.name }}{% endblock %}
 
 {% block content %}
-<h1 class="main-h1">{{ category.name }}</h1>
-
+<h1 class="main-h1">{{ manufacture.name }}</h1>
+<div class="main-filters">
+    <div class="filters-block">
+        <div class="filters-block-title">Цена</div>
+        <div class="filters-block-content">
+            <div class="button1 filt-price" title="По возрастанию"></div>
+            <div class="button2 filt-price" title="По убыванию"></div>
+        </div>
+    </div>
+    <div class="filters-block">
+        <div class="filters-block-title">Дата</div>
+        <div class="filters-block-content">
+            <div class="button1 filt-date" title="По возрастанию"></div>
+            <div class="button2 filt-date" title="По убыванию"></div>
+        </div>
+    </div>
+    <div class="filters-block">
+        <div class="filters-block-title">Рейтинг</div>
+        <div class="filters-block-content">
+            <div class="button1 filt-rate" title="По возрастанию"></div>
+            <div class="button2 filt-rate" title="По убыванию"></div>
+        </div>
+    </div>
+</div>
 <div class="main-product">
     {# Вывожу все товары текущей категории #}
     {% for product in manufacture.product_set.all %}
-        <article class="product-block">
-            <div class="product-title">
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-            </div>
-            <div class="product-img">
-                <a href="{{ product.get_absolute_url }}">
-                    {# Вывожу 1-ую картинку текущего товара #}
-                    {% for prodimg in product.prodimg.all %}
-                        {% if forloop.counter == 1 %}
-                            <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
-                        {% endif %}
-                    {% endfor %}
-                </a>
-            </div>
-            <div class="product-info">
-                <form action="#" method="post" id="buyProduct" class="detail-add">
-                    <div class="detail-price-buttons">
-                        <div class="product-price">{{ product.price }}</div>
-                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
+    <article class="product-block">
+        <div class="product-title">
+            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        </div>
+        <div class="product-img">
+            <a href="{{ product.get_absolute_url }}">
+                {# Вывожу 1-ую картинку текущего товара #}
+                {% for prodimg in product.prodimg.all %}
+                {% if forloop.counter == 1 %}
+                <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                {% endif %}
+                {% endfor %}
+            </a>
+        </div>
+        <div class="product-info">
+            <form action="#" method="post" id="buyProduct" class="detail-add">
+                <div class="detail-price-buttons">
+                    <div class="product-price">{{ product.price }}</div>
+                    <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
+                </div>
+                <div class="detail-block-servis">Сколько купить?:
+                    <div class="detail-quantity">
+                        <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
                     </div>
-                    <div class="detail-block-servis">Сколько купить?:
-                        <div class="detail-quantity">
-                            <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </article>
+                </div>
+            </form>
+        </div>
+    </article>
     {% empty %}
-        <div class="product-none">Товаров в категории {{ category.name }} нет</div>
+    <div class="product-none">Товаров от {{ manufacture.name }} нет</div>
     {% endfor %}
 </div>
 {% endblock %}

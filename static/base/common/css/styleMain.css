@@ -555,6 +555,7 @@ img {
     background-color: var(--lg);
     padding: 10px 1% 10px 1%;
     transition: .3s;
+    min-height: 500px
 }
 
 /*
@@ -571,16 +572,9 @@ img {
 }
 
 
-.content.resize .main-content-text {
+.content.resize .main-content-block {
     padding: 0 0 0 1%
 }
-
-/*
-.content.resize::before {
-    height: 100%;
-    opacity: 1;
-}
-*/
 
 /*слайдер*/
 .carousel {
@@ -614,6 +608,10 @@ img {
 .filters-block {
     display: flex;
     align-items: center;
+}
+
+.filters-block-title{
+    color: var(--text);
 }
 
 .button1,
@@ -675,8 +673,8 @@ img {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    min-height: 500px;
     position: relative;
+    
 }
 
 .product-block {
@@ -1026,7 +1024,7 @@ img {
 
     /*подвал*/
     .footer-title {
-        padding: 0;
+        padding:5px 0;
         font-size: 18px;
     }
 
@@ -1034,7 +1032,7 @@ img {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        padding: 0 1%;
+        padding: 5px 1% 0 1%;
     }
 
     .footer-block {
@@ -1045,7 +1043,7 @@ img {
 
     .footer-block-title {
         padding: 0 0 0 30px;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .arrow::before,
@@ -1284,6 +1282,14 @@ img {
         flex-direction: column;
     }
 
+    .footer-block-ul li a{
+            padding: 0 0 0 6%
+    }
+    
+    .footer-block-ul li a{
+        border-bottom: 1px solid var(--text)
+    }
+    
     .footer-feed-back {
         margin: 10px 0;
         flex-direction: row;
@@ -1298,5 +1304,4 @@ img {
         flex: 0 1 10%;
         margin: 0 1%
     }
-
 }
