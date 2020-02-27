@@ -51,6 +51,8 @@
     width: 4vw;
     height: 14vh;
     margin: -7vh 0 0 0;
+    max-width: 60px;
+    max-height: 120px;
 }
 
 .slider .slick-arrow.slick-prev {
@@ -92,9 +94,11 @@
     width: 1.5vw;
     height: 1.5vw;
     font-size: 0px;
-    border-radius: 10px;
+    border-radius: 100px;
     background-color: white;
-    transition: .3s
+    transition: .3s;
+    max-width: 30px;
+    max-height: 30px;
 }
 
 .slider .slick-dots li.slick-active button {

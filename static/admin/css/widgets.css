@@ -260,7 +260,11 @@ p.datetime {
     white-space: nowrap;
     font-weight: normal;
     font-size: 11px;
-    color: #ccc;
+}
+
+.datetime span a{
+    
+    color: var(--text);
 }
 
 .datetime input, .form-row .datetime input.vDateField, .form-row .datetime input.vTimeField {
@@ -304,7 +308,7 @@ table p.datetime {
 
 .timezonewarning {
     font-size: 11px;
-    color: #999;
+    color: var(--text);
 }
 
 /* URL */

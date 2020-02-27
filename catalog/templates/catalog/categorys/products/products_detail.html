@@ -1,9 +1,7 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
 
-{% block title  %}
-    RD | {{ product.name }}
-{% endblock %}
+{% block title  %}{{ product.name }}{% endblock %}
 {% block content %}
 <div class="main-detail">
     <h1 class="main-h1">{{ product.name }}</h1>

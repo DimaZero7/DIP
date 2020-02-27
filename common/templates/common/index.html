@@ -1,8 +1,7 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
-{% block title %}Rearm Device | Главная{% endblock %}
+{% block title %}Главная{% endblock %}
 {% block content %}
-
 <div class="slider main-slider">
     {% for product in products_posters %}
     <a href="{{ product.get_absolute_url }}">

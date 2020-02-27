@@ -482,6 +482,7 @@ form .button {
 
 textarea {
     vertical-align: top;
+    width: 100%;
 }
 
 input[type=text],
@@ -527,6 +528,11 @@ select[multiple] {
     /* Allow HTML size attribute to override the height in the rule above. */
     height: auto;
     min-height: 150px;
+}
+
+
+#id_password{
+color: var(--text)
 }
 
 /* FORM BUTTONS */
