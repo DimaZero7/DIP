@@ -5,9 +5,11 @@ from catalog.models import Product, Manufacture
 
 
 def index(request):
+    products = Product.objects.all()
     products_posters = Product.objects.filter(slider=True)
     context = {
         'products_posters': products_posters,
+        'products': products,
     }
     return render(request, 'common/index.html', context)
 

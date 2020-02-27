@@ -9,7 +9,7 @@ RD | {{ category.name }}
 
 <div class="main-product">
     {# Вывожу все товары текущей категории #}
-    {% for product in manu.product_set.all %}
+    {% for product in category.product_set.all %}
         <article class="product-block">
             <div class="product-title">
                 <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
