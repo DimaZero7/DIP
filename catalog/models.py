@@ -4,9 +4,13 @@ from django.shortcuts import reverse
 
 class Manufacture(models.Model):  # Модель производителей
     name = models.CharField(max_length=15, verbose_name='Название компании')  # Имя производителя
+    slug = models.SlugField(max_length=30, unique=True, verbose_name='понятный url')  # Человеко понятный url
     img = models.ImageField(upload_to='manufacturer',
                             help_text='500x500px', verbose_name='Логотип компании')  # Логотип производителей
     country = models.CharField(max_length=60, verbose_name='Страна производитель')  # Страна произвродителя
+
+    def get_absolute_url(self):  # Создание персональной сылки для обекта
+        return reverse('manufacturers_detail_url', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.name

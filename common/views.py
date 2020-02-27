@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from catalog.models import Product
+from django.views.generic import View
+from catalog.utils import ObjectDetailMixin
+from catalog.models import Product, Manufacture
 
 
 def index(request):
@@ -8,3 +10,16 @@ def index(request):
         'products_posters': products_posters,
     }
     return render(request, 'common/index.html', context)
+
+
+def manufacturers_list(request):
+    list_manufacturers = Manufacture.objects.all()
+    context = {
+        'list_manufacturers': list_manufacturers,
+    }
+    return render(request, 'common/manufacturers/manufacturers_list.html', context)
+
+
+class ManufacturersDetail(ObjectDetailMixin, View):
+    model = Manufacture
+    template = 'common/manufacturers/manufacturers_detail.html'

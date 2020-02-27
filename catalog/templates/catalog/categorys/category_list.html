@@ -8,7 +8,6 @@
     <h1 class="main-h1"> Категории </h1>
     <div class="main-product">
         {# Вывожу все категории #}
-        {% if categorys %}
         {% for category in categorys %}
             <article class="product-block">
                 <div class="product-title">
@@ -20,9 +19,9 @@
                     </a>
                 </div>
             </article>
+        {% empty %}
+            {#Если цикл пустой#}
+            <div class="product-none">Категорий нет</div>
         {% endfor %}
-        {% else %}
-        <div class="product-none">Категорий нет</div>
-        {% endif %}
     </div>
 {% endblock %}

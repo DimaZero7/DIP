@@ -10,6 +10,7 @@ def category_list(request):
     }
     return render(request, 'catalog/categorys/category_list.html', context)
 
+
 class CategoryDetail(ObjectDetailMixin, View):
     model = Category
     template = 'catalog/categorys/category_detail.html'

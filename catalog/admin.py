@@ -45,6 +45,7 @@ class ProductsAdmin(admin.ModelAdmin):  # Добовление в модель �
          ),
     )
 
+
 @admin.register(Category)  # Добовляю в админку модель с категориями товаров
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_image_category')
@@ -66,8 +67,10 @@ class CategoryAdmin(admin.ModelAdmin):
          ),
     )
 
+
 @admin.register(Manufacture)  # Добовляю в админку модель с производителями
 class ManufactureAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}  # Транслирует текст написаный в name в slug
     list_display = ('name', 'get_image')
 
     # Отображение картинки производиеля в таблице
@@ -81,13 +84,13 @@ class ManufactureAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Общее',
          {
-             'fields': ('name', 'country', 'img')
+             'fields': ('name', 'slug', 'country', 'img')
          }
          ),
     )
 
 
-@admin.register(ProductsImage) # Добовляю в админку модель с производителями
+@admin.register(ProductsImage)
 class ProductsImageAdmin(admin.ModelAdmin):
     pass
     
