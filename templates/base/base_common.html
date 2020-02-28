@@ -32,35 +32,29 @@
 
     <style>
         .preloader {
-            position: fixed;
+            position: absolute;
             left: 0;
-            right: 0;
             top: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             background-color: #fff;
             z-index: 10000;
         }
-
         .preloader-spin {
-            width: 30%;
-            height: 30%;
+            width: 50%;
+            height: 50%;
             position: absolute;
             left: 50%;
-            top: 50%;
-            background-color: green;
-            margin: -15% 0 0 -15%;
+            top: 0%;
+            margin: 0 0 0 -25%;
+            z-index: 10001;
+            background: url(../../static/base/common/img/preloader.gif) 50% 50% / 30% no-repeat;
         }
-
     </style>
-
 </head>
-
 <body>
     <div id="particles-js"></div>
     <div class="wrapper" id="page-wrapper">
-        <div class="preloader">
-            <div class="preloader-spin">пошел нахуй</div>
-        </div>
         <header class="header">
             <div class="container">
                 <div class="header-container">
@@ -138,13 +132,14 @@
                 <div class="main-container">
                     {% include 'catalog/categorys/categorys_include/categories_menu.html' %}
                     <div class="content">
+                        <div class="preloader">
+                            <div class="preloader-spin"></div>
+                        </div>
                         {% block content %}{% endblock %}
                     </div>
                 </div>
             </div>
         </main>
-
-
         <footer class="footer">
             <div class="container">
                 <div class="footer-container">
@@ -210,12 +205,9 @@
     <script>
         //прелоадер
         $(window).on('load', function() {
-            var $preloader = $('.preloader'),
-                $preloaderSpin = $('.preloader-spin');
-            $preloaderSpin.fadeOut();
-            $preloader.delay(350).fadeOut('slow');
+            var $preloader = $('.preloader'), $preloaderSpin = $('.preloader-spin');
+            $preloaderSpin.fadeOut(); $preloader.delay(50).fadeOut('slow');
         })
-
     </script>
     <script src="{% static 'base/common/js/particles.js' %}"></script>
     <script src="{% static 'base/common/js/slick.min.js' %}"></script>

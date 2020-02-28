@@ -432,6 +432,7 @@ img {
 .main {
     padding: 82px 0 0 0;
     flex: 1 0 auto;
+    position: relative;
 }
 
 .main-container {
