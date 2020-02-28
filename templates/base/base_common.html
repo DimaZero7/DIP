@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="ru">
+
 <head>
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -28,11 +29,38 @@
     <link rel=" manifest " href="{% static 'base/common/img/favicon/manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
     <!--*-->
+
+    <style>
+        .preloader {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: #fff;
+            z-index: 10000;
+        }
+
+        .preloader-spin {
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-color: green;
+            margin: -15% 0 0 -15%;
+        }
+
+    </style>
+
 </head>
 
 <body>
     <div id="particles-js"></div>
     <div class="wrapper" id="page-wrapper">
+        <div class="preloader">
+            <div class="preloader-spin">пошел нахуй</div>
+        </div>
         <header class="header">
             <div class="container">
                 <div class="header-container">
@@ -179,6 +207,16 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        //прелоадер
+        $(window).on('load', function() {
+            var $preloader = $('.preloader'),
+                $preloaderSpin = $('.preloader-spin');
+            $preloaderSpin.fadeOut();
+            $preloader.delay(350).fadeOut('slow');
+        })
+
+    </script>
     <script src="{% static 'base/common/js/particles.js' %}"></script>
     <script src="{% static 'base/common/js/slick.min.js' %}"></script>
     <script src="{% static 'base/common/js/scripts.js' %}"></script>
