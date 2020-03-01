@@ -32,6 +32,7 @@
             </div>
             <div class="product-info">
                 <form action="#" method="post" id="buyProduct" class="detail-add">
+                   {% csrf_token %}
                     <div class="detail-price-buttons">
                         <div class="product-price">{{ product.price }}</div>
                         <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>

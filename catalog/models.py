@@ -90,8 +90,6 @@ class Product(models.Model):  # Модель товаров
     def __str__(self):
         return self.name
 
-
-
 def product_img_name(instance, filename):  # Функция состовлет путь для картинок товаров
     return 'products/{0}/img/{1}'.format(instance.products.slug, filename)
 
@@ -107,5 +105,17 @@ class ProductsImage(models.Model):  # Модель картинок товаро
         verbose_name = 'Картинка товара'
         verbose_name_plural = 'Картинки товаров'
 
-    
+
+class Comment(models.Model):
+    product = models.ForeignKey(Product, on_delete = models.CASCADE)
+    autor_name = models.CharField('Автор комментария', max_length = 50)
+    comment_text = models.CharField('Текст комментария', max_length = 200)
+
+    def __str__(self):
+        return self.autor_name
+
+    class Meta:
+        verbose_name='Комментарий'
+        verbose_name_plural='Комментарии'
+
     

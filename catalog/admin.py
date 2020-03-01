@@ -95,10 +95,14 @@ class ProductsImageAdmin(admin.ModelAdmin):
     pass
     
     
-    
-    
-    
-    
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+
+    list_display = ("autor_name", "comment_text")
+
+    #Деактиаированые поля
+    readonly_fields =  ("autor_name", "comment_text")
+
     
     
     

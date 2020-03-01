@@ -7,22 +7,34 @@
         <div class="filter-block">
             <div class="filter-title">Цена</div>
             <div class="filter-selector">
-                <input class="filter-radio" type="radio" id="filter" name="filter" value="price-up" title="По убыванию">
-                <input class="filter-radio" type="radio" id="filter" name="filter" value="price-down" title="По возрастанию">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="price-up" title="По убыванию">
+                </label>
+                <label>
+                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="price-down" title="По возрастанию">
+                </label>
             </div>
         </div>
         <div class="filter-block">
             <div class="filter-title">Рейтинг</div>
             <div class="filter-selector">
-                <input class="filter-radio" type="radio" id="filter" name="filter" value="rait-up" title="По убыванию">
-                <input class="filter-radio" type="radio" id="filter" name="filter" value="rait-down" title="По возрастанию">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="rait-up" title="По убыванию">
+                </label>
+                <label>
+                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="rait-down" title="По возрастанию">
+                </label>
             </div>
         </div>
         <div class="filter-block">
             <div class="filter-title">Дата</div>
             <div class="filter-selector">
-                <input class="filter-radio" type="radio" id="filter" name="filter" value="data-up" title="По убыванию">
-                <input class="filter-radio" type="radio" id="filter" name="filter" value="data-down" title="По возрастанию">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="data-up" title="По убыванию">
+                </label>
+                <label>
+                    <input class="filter-radio down" class="filter-radio" type="radio" id="filter" name="filter" value="data-down" title="По возрастанию">
+                </label>
             </div>
         </div>
     </div>
@@ -48,6 +60,7 @@
         </div>
         <div class="product-info">
             <form action="#" method="post" id="buyProduct" class="detail-add">
+                {% csrf_token %}
                 <div class="detail-price-buttons">
                     <div class="product-price">{{ product.price }}</div>
                     <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
@@ -67,8 +80,8 @@
 
 </div>
 <div class="pages">
-    <a class="pages-item prev" href="#">prev</a>
+    <a class="pages-item prev" href="#">Пред.</a>
     <span class="pages-item counter">1</span>
-    <a class="pages-item next" href="#">next</a>
+    <a class="pages-item next" href="#">След.</a>
 </div>
 {% endblock %}

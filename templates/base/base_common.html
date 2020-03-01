@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'base/common/css/styleMain.css' %}">
     <link rel="stylesheet" href="{% static 'base/common/css/styleSlick.css' %}">
     <link rel="stylesheet" href="{% static 'base/common/css/styleDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'base/common/css/resize.css' %}">
     {% block addCSS %}{% endblock %}
     <!--Фавикон-->
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/common/img/favicon/apple-icon-57x57.png' %}">
@@ -132,9 +133,7 @@
                 <div class="main-container">
                     {% include 'catalog/categorys/categorys_include/categories_menu.html' %}
                     <div class="content">
-                        <div class="preloader">
-                            <div class="preloader-spin"></div>
-                        </div>
+                        <div class="preloader"><div class="preloader-spin"></div></div>
                         {% block content %}{% endblock %}
                     </div>
                 </div>

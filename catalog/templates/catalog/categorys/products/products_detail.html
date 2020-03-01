@@ -25,13 +25,10 @@
         <div class="detail-servis">
             <div class="detail-block">
                 <form action="#" method="post" id="buyProduct" class="detail-add">
-                   {% csrf_token %}
+                    {% csrf_token %}
                     <div class="detail-price-buttons">
                         <div class="detail-price">{{ product.price }}</div>
-                        <button type="submit" class="detail-add-basket" id="addBasket"
-                         data-product-id="{{ product.id }}"
-                        data-product-title="{{ product.name }}" 
-                        data-product-price="{{ product.price }}">В корзину</button>
+                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}">В корзину</button>
                     </div>
                     <div class="detail-block-servis">Сколько купить?:
                         <div class="detail-quantity">
@@ -86,6 +83,7 @@
                 <div class="comment-edit">
                     <div class="comment-title">Оставить комментарий</div>
                     <form class="comment-form" action="#" method="POST">
+                        {% csrf_token %}
                         <input type="text" required placeholder="Ваше имя" name="autorName">
                         <textarea name="commentText" required placeholder="Текс комментария" cols="30" rows="10"></textarea>
                         <button type="submit">Оставить комментарий</button>

@@ -1,0 +1,45 @@
+/*уменьшенный контент*/
+.content.resize {
+    padding: 10px 1% 10px 26%;
+    transition: .3s;
+}
+
+.content.resize .main-detail {
+    margin: -10px 0 0 1%;
+    min-height: 60vh;
+}
+
+.content.resize .main-content-block {
+    padding: 0 0 0 1%
+}
+
+.content.resize .product-title a {
+    font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 7px);
+}
+
+.content.resize .product-info .product-price {
+    font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 8px);
+}
+
+.content.resize .product-info .detail-add-basket {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width:769px) {
+    .content.resize .product-info .detail-add-basket {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width:769px) {
+    .content.resize .product-info .detail-add-basket {
+        width: 15px;
+        height: 15px;
+    }
+
+    .content.resize {
+        padding: 10px 0 0 0%;
+    }
+}
