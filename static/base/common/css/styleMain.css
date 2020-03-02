@@ -248,9 +248,30 @@ img {
     display: flex;
 }
 
-
 .active-for-mobile {
     position: relative;
+}
+
+.shopping{
+    position: relative;
+}
+
+.counter{
+    position: absolute;
+    background-color: var(--red);
+    color: var(--text);
+    border-radius: 100px;
+    height: 18px;
+    width: 20px;
+    text-align: center;
+    right: 1%;
+    top: 1%;
+}
+
+.shopping:hover .counter{
+    background-color: var(--dark);
+    transition: .3s;
+
 }
 
 .shopping-list {
@@ -265,6 +286,7 @@ img {
     transition: .3s;
     cursor: default;
     overflow: visible;
+    max-height: 500px;
 }
 
 .shopping-list:target {
@@ -287,7 +309,7 @@ img {
 
 .close-basket {
     position: absolute;
-    top: -10%;
+    top: -10px;
     right: -2%;
     width: 20px;
     height: 20px;

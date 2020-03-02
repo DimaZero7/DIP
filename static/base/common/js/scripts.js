@@ -42,38 +42,6 @@ $(document).ready(function () {
         $('.active-for-mobile').toggleClass('display-icons');
     })
 
-    //    Кнопки фильтра
-    $('.filt-price').click(function () {
-        $('.filt-date.button1').removeClass('active-filters');
-        $('.filt-date.button2').removeClass('active-filters');
-        $('.filt-rate.button1').removeClass('active-filters');
-        $('.filt-rate.button2').removeClass('active-filters');
-    })
-
-    $('.filt-date').click(function () {
-        $('.filt-price.button1').removeClass('active-filters');
-        $('.filt-price.button2').removeClass('active-filters');
-        $('.filt-rate.button1').removeClass('active-filters');
-        $('.filt-rate.button2').removeClass('active-filters');
-    })
-
-    $('.filt-rate').click(function () {
-        $('.filt-price.button1').removeClass('active-filters');
-        $('.filt-price.button2').removeClass('active-filters');
-        $('.filt-date.button1').removeClass('active-filters');
-        $('.filt-date.button2').removeClass('active-filters');
-    })
-
-    $('.button1').click(function () {
-        $(this).addClass('active-filters');
-        $(this).next().removeClass('active-filters');
-    })
-
-    $('.button2').click(function () {
-        $(this).addClass('active-filters');
-        $(this).prev().removeClass('active-filters');
-    })
-
     //    Взаимодействие со спойлерами
     if ($(window).width() <= '769') {
         console.log("окно меньше 769");
@@ -154,6 +122,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var form = $('#buyProduct');
     console.log(form);
+    counter = 0;
     form.on('submit', function (e) {
         e.preventDefault();
         console.log('123');
@@ -194,17 +163,20 @@ $(document).ready(function () {
         })
 
 
+
         $('.shopping-list-container').append('<tr class="shopping-item"><td>' + product_title + '</td><td>' + quantity_nbr + 'шт.</td><td>' + product_price + '</td><td class="shopping-list-delete" title="Удалить товар"></td></tr>');
+
+        $('.shopping').append('<span class="counter">' + counter + '</span>');
     })
+    $(document).on('click', '.detail-add-basket', function (e) {
+        counter = counter + 1;
+    })
+    
 
     $(document).on('click', '.shopping-list-delete', function (e) {
         e.preventDefault();
-        $(this).closest('li').remove();
-    })
-
-    $(document).on('click', '.shopping-list-delete', function (e) {
-        e.preventDefault();
-        $(this).closest('li').remove();
+        $(this).closest('tr').remove();
+        counter = counter - 1;
     })
 
     $('.add-order').click(function () {

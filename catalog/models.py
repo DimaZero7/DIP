@@ -107,7 +107,7 @@ class ProductsImage(models.Model):  # Модель картинок товаро
 
 
 class Comment(models.Model):
-    product = models.ForeignKey(Product, on_delete = models.CASCADE)
+    product = models.ForeignKey(Product,  related_name='comment', on_delete = models.CASCADE)
     autor_name = models.CharField('Автор комментария', max_length = 50)
     comment_text = models.CharField('Текст комментария', max_length = 200)
 
