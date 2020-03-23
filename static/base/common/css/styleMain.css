@@ -823,9 +823,7 @@ span.pages-item {
     width: 35px;
     height: 35px;
     transition: .3s;
-    margin: 0 3% 0 0;
     background: url(../img/header-profile-icon/basket.svg) 50% 50% / 60% no-repeat;
-    margin: 0 -25% 0 0;
 }
 
 .product-info .detail-block-servis {
@@ -1123,12 +1121,12 @@ span.pages-item {
         left: 14px;
     }
 
-    .arrow.footer-active::before {
+    .arrow.arrow-active::before {
         transform: rotate(-50deg);
         transition: .3s;
     }
 
-    .arrow.footer-active::after {
+    .arrow.arrow-active::after {
         transform: rotate(50deg);
         transition: .3s;
     }
@@ -1392,7 +1390,8 @@ span.pages-item {
     }
 
     .footer-block-ul li a {
-        border-bottom: 1px solid var(--text)
+        border-bottom: 1px solid var(--text);
+        white-space: nowrap;
     }
 
     .footer-feed-back {
@@ -1400,9 +1399,14 @@ span.pages-item {
         flex-direction: row;
     }
 
+    .footer-feed-back li a{
+        border: 0;
+    }
+    
     .social {
         display: flex;
         justify-content: flex-start;
+        
     }
 
     .social a {

@@ -5,7 +5,16 @@ jQuery(document).ready(function () {
     });
 });
 
-//    *******Скрипт шапки******
+//Перезагрузка страницы при изменение размера окна
+var s_win_w = $(window).width();
+$(window).resize(function () {
+    win_w = $(window).width();
+    if (win_w >= s_win_w * 1.3 || win_w <= s_win_w * 0.7) {
+        location.reload();
+    }
+});
+
+//Уменьшение шапки пи скроле вниз
 $(window).scroll(function () {
     if ($(this).scrollTop() > 1 && $(window).width() > 769) {
         $('header').addClass("header-resize");
@@ -24,11 +33,6 @@ $(document).ready(function () {
     $('.header-search-button').mouseleave(function () {
         $(this).css("transform", "rotate(360deg)");
     })
-    $(window).resize(function () {
-        if ($(window).width() > 500) {
-            $('body').removeClass('lock');
-        }
-    });
 
     //Двежение кнопки открывающей меню
     $('.menu-active').click(function () {
@@ -42,40 +46,32 @@ $(document).ready(function () {
         $('.active-for-mobile').toggleClass('display-icons');
     })
 
-    //    Взаимодействие со спойлерами
+    //Логика спойлеров 
     if ($(window).width() <= '769') {
-        console.log("окно меньше 769");
-        $('.footer-block-title').click(function () {
-            console.log("клик");
-            $(this).toggleClass('footer-active').next().slideToggle(300);
-        })
-        $('.detail-li-title').click(function () {
-            console.log("клик");
-            $(this).toggleClass('detail-active').next().slideToggle(300);
-        })
+        $('.spoilers').addClass('mobil');
     } else {
-        console.log("окно больше 769");
+        $('.spoilers').removeClass('mobil');
     }
+    
+    $('.spoiler-active').click(function () {
+        if ($('.spoilers').hasClass('mobil')) {
+            $('.spoiler-active').not($(this)).removeClass('arrow-active');
+            $('.spoiler-content').not($(this).next()).slideUp(300);
+        }
+        $(this).toggleClass('arrow-active').next().slideToggle(300);
+    })
 
-    //    Слайдер на главной странице
+
+    //Слайдеры
+    //Главный слайдер
     $('.slider').slick({
-        //arrows:true, отображение стрелок
         dots: true, // активация точек
-        //slidesToShow: 3, количество отображаемых слаййдов
-        //slidesToScroll: 1, количество пролистываемых слайдов
         speed: 1000, // время анимации
-        //easing: 'linear' тип анимации
-        //infinite: false, бесконечное пролистывание
-        //initialSlide: 2, начальный слайд
         autoplay: true, //автоматическое пролистывание
         autoplaySpeed: 2500, //скорость автоматического пролистывания
         pauseOnFocus: true, //Пауза при фокусе слайдера(нажатию куда либо)
         pauseOnHover: true, //Пауза при наведение на слайдер
         pauseOnDotsHover: true, //Пауза при наведение на точки
-        //draggable: true,  //Свайп для ПК
-        //swipe:true,  Свайп для телефонов
-        //waitForAnimate:false,Ускоренноя прокрутка слайдов стрелками
-        //rows: 1, //количество рядов
         responsive: [
             {
                 breakpoint: 500,
@@ -84,8 +80,19 @@ $(document).ready(function () {
                 }
             }
         ]
+        //arrows:true, отображение стрелок
+        //slidesToShow: 3, количество отображаемых слаййдов
+        //slidesToScroll: 1, количество пролистываемых слайдов
+        //easing: 'linear' тип анимации
+        //infinite: false, бесконечное пролистывание
+        //initialSlide: 2, начальный слайд
+        //draggable: true,  //Свайп для ПК
+        //swipe:true,  Свайп для телефонов
+        //waitForAnimate:false,Ускоренноя прокрутка слайдов стрелками
+        //rows: 1, //количество рядов
     });
 
+    //Сладйер на странице товара
     $('.slider-min').slick({
         arrows: false, //отображение стрелок
         dots: false, // активация точек
@@ -97,12 +104,13 @@ $(document).ready(function () {
         pauseOnHover: true, //Пауза при наведение на слайдер
         pauseOnDotsHover: true, //Пауза при наведение на точки
         asNavFor: ".sub-slider-min"
-
-
     });
+
+    //Сладйер на странице товара вспомогательный
     $('.sub-slider-min').slick({
         arrows: true, //отображение стрелок
         dots: false, // активация точек
+        //centerMode: true,
         slidesToShow: 3,
         speed: 1000, // время анимации
         autoplay: false, //автоматическое пролистывание
@@ -112,10 +120,9 @@ $(document).ready(function () {
         pauseOnDotsHover: true, //Пауза при наведение на точки
         infinite: true, //бесконечное пролистывание
         asNavFor: ".slider-min",
-        conterMode: true,
         focusOnSelect: true,
-
     });
+
 });
 
 //Добавление товаров в корзину
@@ -162,8 +169,6 @@ $(document).ready(function () {
             }
         })
 
-
-
         $('.shopping-list-container').append('<tr class="shopping-item"><td>' + product_title + '</td><td>' + quantity_nbr + 'шт.</td><td>' + product_price + '</td><td class="shopping-list-delete" title="Удалить товар"></td></tr>');
 
         $('.shopping').append('<span class="counter">' + counter + '</span>');
@@ -171,7 +176,7 @@ $(document).ready(function () {
     $(document).on('click', '.detail-add-basket', function (e) {
         counter = counter + 1;
     })
-    
+
 
     $(document).on('click', '.shopping-list-delete', function (e) {
         e.preventDefault();
@@ -193,24 +198,3 @@ $(document).ready(function () {
     })
 
 });
-
-
-
-
-
-//$( window ).resize(function () {
-//    var bodyWidth = $('body').width();
-//    if (bodyWidth < 769) {
-//        console.log("окно меньше 769");
-//        $('.footer-block-title').click(function () {
-//            console.log("клик");
-//            $(this).toggleClass('footer-active').next().slideToggle(300);
-//        })
-//        $('.detail-li-title').click(function () {
-//            console.log("клик");
-//            $(this).toggleClass('detail-active').next().slideToggle(300);
-//        })
-//    } else {
-//        console.log("окно больше 769");
-//    }
-//});

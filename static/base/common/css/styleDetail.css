@@ -23,7 +23,7 @@
 }
 
 .detail-add {
-    width: 80%;
+    width: 100%;
 }
 
 .detail-price-buttons {
@@ -158,16 +158,6 @@ input[type="number"]::-webkit-inner-spin-button {
     top: 15px;
 }
 
-.arrow.detail-active::before {
-    transform: rotate(-50deg);
-    transition: .3s;
-}
-
-.arrow.detail-active::after {
-    transform: rotate(50deg);
-    transition: .3s;
-}
-
 .detail-li-content {
     padding: 10px 1%;
     display: block;
@@ -233,12 +223,14 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .comment-form button {
     width: 70%;
-    background-color: white;
+    background-color: var(--dark);
+    color: var(--text);
     transition: .3s;
+    padding: 5px 0;
 }
 
 .comment-form button:hover {
-    background-color: var(--a-hover);
+    background-color: var(--red);
     transition: .3s;
 }
 

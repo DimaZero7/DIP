@@ -74,7 +74,6 @@
     border-radius: 100px
 }
 
-
 .slider .slick-dots {
     display: flex;
     align-items: center;
@@ -124,13 +123,20 @@
 .sub-slider-min {
     position: relative;
     margin: 0 auto;
-    width: 90%;
+    width: 70%;
     min-height: 0;
     display: flex;
 }
 
 .sub-slider-min .slider-item {
-    margin: 0 1%;
+    margin: 0 0.1%;
+    border: 2px solid transparent;
+    transition: .3s
+}
+
+.sub-slider-min .slick-current {
+    border: 2px solid var(--red);
+    transition: .3s
 }
 
 .sub-slider-min .slick-arrow {
@@ -144,13 +150,13 @@
 }
 
 .sub-slider-min .slick-arrow.slick-prev {
-    left: -5%;
+    left: -10%;
     background: url(../img/slider/left.svg) 50% 50% / 60% no-repeat;
     transition: .3s;
 }
 
 .sub-slider-min .slick-arrow.slick-next {
-    right: -5%;
+    right: -10%;
     background: url(../img/slider/right.svg) 50% 50% / 60% no-repeat;
     transition: .3s;
 }
@@ -190,12 +196,12 @@
     }
 
     .sub-slider-min .slick-arrow.slick-prev {
-        left: -6%;
+        left: -10%;
         background: url(../img/slider/left.svg) 50% 50% / 90% no-repeat;
     }
 
     .sub-slider-min .slick-arrow.slick-next {
-        right: -6%;
+        right: -10%;
         background: url(../img/slider/right.svg) 50% 50% / 90% no-repeat;
     }
 

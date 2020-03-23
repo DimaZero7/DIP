@@ -10,7 +10,7 @@
             <div class="slider-min">
                 {% for prodimg in product.prodimg.all %}
                 <div class="slider-item">
-                    <img data-lazy="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
                 </div>
                 {% endfor %}
             </div>
@@ -32,7 +32,7 @@
                     </div>
                     <div class="detail-block-servis">Сколько купить?:
                         <div class="detail-quantity">
-                            <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
+                            <input type="number" value="1" name="quantity_nbr" id="quantity_nbr">
                         </div>
                     </div>
                     <div class="detail-block-servis storage">Наличие на складе:
@@ -53,22 +53,22 @@
             </div>
         </div>
     </div>
-    <div class="detail-info">
+    <div class="detail-info spoilers mobil ">
         <div class="detail-li">
-            <div class="detail-li-title arrow">Описание</div>
-            <div class="detail-li-content">{{product.description}}</div>
+            <div class="detail-li-title spoiler-active arrow">Описание</div>
+            <div class="detail-li-content spoiler-content">{{product.description}}</div>
         </div>
         <div class="detail-li">
-            <div class="detail-li-title arrow">Характеристики</div>
-            <div class="detail-li-content">{{product.specifications}}</div>
+            <div class="detail-li-title spoiler-active arrow arrow">Характеристики</div>
+            <div class="detail-li-content spoiler-content">{{product.specifications}}</div>
         </div>
         <div class="detail-li">
-            <div class="detail-li-title arrow">Комплект поставки</div>
-            <div class="detail-li-content">{{product.set}}</div>
+            <div class="detail-li-title spoiler-active arrow arrow">Комплект поставки</div>
+            <div class="detail-li-content spoiler-content">{{product.set}}</div>
         </div>
         <div class="detail-li">
-            <div class="detail-li-title arrow">Отзывы</div>
-            <div class="detail-li-content">
+            <div class="detail-li-title spoiler-active arrow arrow">Отзывы</div>
+            <div class="detail-li-content spoiler-content">
                 <div class="detail-comment">
                 {% if product.comment.all %}
                     {% for comment in product.comment.all %}
@@ -93,8 +93,8 @@
             </div>
         </div>
         <div class="detail-li">
-            <div class="detail-li-title arrow">Аналогичные товары</div>
-            <div class="detail-li-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo dolores quis voluptatibus ullam, nisi quibusdam at facilis, molestias ex hic commodi, distinctio minus blanditiis temporibus omnis reiciendis sed odio aliquid.</div>
+            <div class="detail-li-title spoiler-active arrow arrow">Аналогичные товары</div>
+            <div class="detail-li-content spoiler-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo dolores quis voluptatibus ullam, nisi quibusdam at facilis, molestias ex hic commodi, distinctio minus blanditiis temporibus omnis reiciendis sed odio aliquid.</div>
         </div>
     </div>
 </div>
