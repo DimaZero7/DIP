@@ -83,7 +83,7 @@
                     </div>
                 <div class="comment-edit">
                     <div class="comment-title">Оставить комментарий</div>
-                    <form class="comment-form" action="{% url 'add_comment' product.slug %}" method="POST">
+                    <form class="comment-form" action="#" method="post">
                         {% csrf_token %}
                         <input type="text" required placeholder="Ваше имя" name="autorName">
                         <textarea name="commentText" required placeholder="Текс комментария" cols="30" rows="10"></textarea>

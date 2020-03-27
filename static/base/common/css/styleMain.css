@@ -149,6 +149,7 @@ img {
     align-items: center;
     background-color: var(--mid);
     padding: 0 1%;
+    border-bottom: 2px solid var(--text);
 }
 
 .logo {
@@ -1081,9 +1082,7 @@ span.pages-item {
         transition: .3s;
     }
 
-    .header-main {
-        border-bottom: 2px solid var(--text);
-    }
+    
 
     .logo {
         background: url(../img/logo/logo_min.png);
@@ -1212,7 +1211,7 @@ span.pages-item {
 
 
     .main-h1 {
-        margin: -8px -1% 5px -1%;
+        margin: -10px -1% 5px -1%;
         height: 44px;
         font-size: 25px;
     }

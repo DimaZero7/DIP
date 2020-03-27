@@ -1,13 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Comment
-from .forms import CommentForm
-
+from .models import Category
 
 def menu(request):  # Функция для работы списка категорий
     return {
         'categorys': Category.objects.all(),
     }
-
 
 class ObjectDetailMixin:  # Общий шаблон для карточек чего либо
     model = None  # Модель обекта которого хотим найти
@@ -20,17 +17,3 @@ class ObjectDetailMixin:  # Общий шаблон для карточек че
 
         }
         return render(request, self.template, context)
-
-
-# **********************************
-class CommentCreateView:
-    model = Comment
-    form_class = CommentForm
-
-    def get_success_URL(self):
-        return reverse ('detail', kwargs = {'slug':self.object.post.slug})
-
-    def form_valid(self, form):
-        post = get_object_or_404(Product, slug = self.kwargs ['slug'])
-        Form.instance.post = Product
-        return super().form_valid(form)
