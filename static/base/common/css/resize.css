@@ -1,16 +1,13 @@
 /*уменьшенный контент*/
 .content.resize {
-    padding: 10px 1% 10px 26%;
+    padding: 9px 0 9px 25.5%;
     transition: .3s;
+    overflow: hidden;
 }
 
 .content.resize .main-detail {
     margin: -10px 0 0 1%;
     min-height: 60vh;
-}
-
-.content.resize .main-content-block {
-    padding: 0 0 0 1%
 }
 
 .content.resize .product-title a {
@@ -26,11 +23,10 @@
     height: 30px;
 }
 
-@media (max-width:769px) {
-    .content.resize .product-info .detail-add-basket {
-        width: 20px;
-        height: 20px;
-    }
+/*активированное меню*/
+.main-menu.check {
+    left: 0;
+    transition: .3s;
 }
 
 @media (max-width:769px) {
@@ -40,6 +36,42 @@
     }
 
     .content.resize {
-        padding: 10px 0 0 0%;
+        padding: 10px 0 0 25.5%;
+        
     }
+}
+
+@media (max-width:500px) {
+    .content.resize {
+        padding: 10px 1% 30px 1%;
+    }
+
+    .content.resize .product-info .detail-add-basket {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .main-menu.check {
+        padding: 50px 0;
+        width: 100%;
+        z-index: 100;
+        top: 39px;
+    }
+
+    .main-menu.check li:first-child {
+        border-top: 2px solid var(--text);
+    }
+
+    .main-menu.check .main-manu-link {
+        font-size: 20px;
+    }
+
+    .content.resize .product-title a {
+        font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 20px)
+    }
+
+    .content.resize .product-info .product-price {
+        font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 17px);
+    }
+
 }

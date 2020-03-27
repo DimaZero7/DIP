@@ -42,16 +42,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: .3s
+    transition: .3s;
+}
+
+.detail-add-basket:hover{
+    cursor: pointer;
+    transition: .3s;
 }
 
 .detail-price::after {
     content: ' ₽'
-}
-
-.detail-add-basket:hover {
-    background-color: var(--red);
-    transition: .3s;
 }
 
 .detail-block-servis {

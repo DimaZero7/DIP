@@ -52,7 +52,7 @@ $(document).ready(function () {
     } else {
         $('.spoilers').removeClass('mobil');
     }
-    
+
     $('.spoiler-active').click(function () {
         if ($('.spoilers').hasClass('mobil')) {
             $('.spoiler-active').not($(this)).removeClass('arrow-active');
@@ -61,7 +61,14 @@ $(document).ready(function () {
         $(this).toggleClass('arrow-active').next().slideToggle(300);
     })
 
+    //Переключение сетки товаров
+    $('.grid').click(function () {
+        $(this).toggleClass('active-grid');
+        $('.main-product').toggleClass('change-grid');
+    })
 
+    
+    
     //Слайдеры
     //Главный слайдер
     $('.slider').slick({
@@ -173,13 +180,11 @@ $(document).ready(function () {
 
         $('.shopping').append('<span class="counter">' + counter + '</span>');
     })
-    $(document).on('click', '.detail-add-basket', function (e) {
+    $(document).on('click', '.detail-add-basket', function () {
         counter = counter + 1;
     })
 
-
-    $(document).on('click', '.shopping-list-delete', function (e) {
-        e.preventDefault();
+    $(document).on('click', '.shopping-list-delete', function () {
         $(this).closest('tr').remove();
         counter = counter - 1;
     })
@@ -198,3 +203,10 @@ $(document).ready(function () {
     })
 
 });
+
+//Геренация случайного цвета подсветки
+var colors = ['#FF283F', 
+              'rgba(233, 33, 243, 1)', 
+              'rgba(25, 212, 247, 1)'];
+randomColor = colors[Math.random() * colors.length ^ 0];
+document.documentElement.style.setProperty('--red', randomColor);

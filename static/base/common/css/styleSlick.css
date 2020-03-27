@@ -53,6 +53,7 @@
     margin: -7vh 0 0 0;
     max-width: 60px;
     max-height: 120px;
+     opacity: 0.8;
 }
 
 .slider .slick-arrow.slick-prev {
@@ -69,9 +70,9 @@
 
 .slider .slick-arrow.slick-prev:hover,
 .slider .slick-arrow.slick-next:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--red);
     transition: .3s;
-    border-radius: 100px
+    border-radius: 100px;
 }
 
 .slider .slick-dots {
@@ -101,8 +102,7 @@
 }
 
 .slider .slick-dots li.slick-active button {
-    border: 0.3vw solid white;
-    background-color: transparent;
+    background-color: var(--red);
     transition: .3s
 }
 
@@ -163,7 +163,7 @@
 
 .sub-slider-min .slick-arrow.slick-prev:hover,
 .sub-slider-min .slick-arrow.slick-next:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--red);
     transition: .3s;
     border-radius: 100px
 }
@@ -175,8 +175,6 @@
 .sub-slider-min .slick-arrow.slick-disabled:hover {
     background-color: transparent;
 }
-
-
 
 @media (max-width:769px) {
     .sliders {
