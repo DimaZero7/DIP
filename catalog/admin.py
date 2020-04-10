@@ -1,113 +1,27 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import *
+
+from .models import Category
 
 
-class ProductsImagesInLine(admin.TabularInline):  # Модель картинок в админке
-    model = ProductsImage
-
-
-@admin.register(Product)
-class ProductsAdmin(admin.ModelAdmin):  # Добовление в модель товаров модель с картинками в админке
-    prepopulated_fields = {"slug": ("name",)}  # Транслирует текст написаный в name в slug
-    list_display = ('name', 'warehouse', 'price')
-    
-    # Поле для добавления картинок товарам
-    inlines = [
-        ProductsImagesInLine,
-    ]
-
-    fieldsets = (
-        ('Общее',
-         {
-             'fields': (('categories', 'manufacture'),)
-         }
-         ),
-        ('Наименование',
-         {
-             'fields': (('name', 'slug'),)
-         }
-         ),
-        ('Основное',
-         {
-             'fields': (('price', 'warehouse', 'warranty'),)
-         }
-         ),
-        ('Описание',
-         {
-             'fields': (('description', 'specifications', 'set'),)
-         }
-         ),
-        ('Постер',
-         {
-             'fields': (('slider', 'poster'),)
-         }
-         ),
-    )
-
-
-@admin.register(Category)  # Добовляю в админку модель с категориями товаров
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'get_image_category')
-    prepopulated_fields = {"slug": ("name",)}  # Транслирует текст написаный в name в slug
+    """Представление интерфейса категорий"""
 
-    # Отображение картинки производиеля в таблице
-    def get_image_category(self, product):
-        # добавление HTML кода в стукруту таблицы в админке
-        return mark_safe(f'<img src="{product.img.url}" alt="{product.name}" class="admin-icon"/>')
+    search_fields = ['name']
 
-    get_image_category.short_description = u'Логотип категории'
+    def get_image(self, Category):
+        """Добавление HTML кода ( изоброжение категории ) в стукруту таблицы в админке"""
 
-    # Порядок отображения полей
-    fieldsets = (
-        ('Общее',
-         {
-             'fields': (('name', 'slug'), 'img')
-         }
-         ),
-    )
+        return mark_safe(f'<img src="{Category.img.url}" alt="{Category.name}" class="admin-icon"/>')
 
-
-@admin.register(Manufacture)  # Добовляю в админку модель с производителями
-class ManufactureAdmin(admin.ModelAdmin):
-    prepopulated_fields = {"slug": ("name",)}  # Транслирует текст написаный в name в slug
     list_display = ('name', 'get_image')
 
-    # Отображение картинки производиеля в таблице
-    def get_image(self, product):
-        # добавление HTML кода в стукруту таблицы в админке
-        return mark_safe(f'<img src="{product.img.url}" alt="{product.name}" class="admin-icon manufacture"/>')
+    fieldsets = [
+        ('Наименование категории', {'fields': ['name', 'slug']}),
+        ('Изоброжение', {'fields': ['img']})
+    ]
 
-    get_image.short_description = u'Логотип'
-
-    # Порядок отображения полей
-    fieldsets = (
-        ('Общее',
-         {
-             'fields': ('name', 'slug', 'country', 'img')
-         }
-         ),
-    )
+    prepopulated_fields = {"slug": ("name",)}
 
 
-@admin.register(ProductsImage)
-class ProductsImageAdmin(admin.ModelAdmin):
-    pass
-    
-    
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    pass
-    # list_display = ("autor_name", "comment_text")
-
-    # #Деактиаированые поля
-    # readonly_fields =  ("autor_name", "comment_text")
-
-    
-    
-    
-    
-    
-    
-    
-    
+admin.site.register(Category, CategoryAdmin)

@@ -1,19 +1,14 @@
-from django.views.generic import View
-from django.shortcuts import render
-from .models import Category, Product
-from .utils import ObjectDetailMixin
-from .forms import CommentForm
+from django.views.generic import ListView, DetailView
 
-def category_list(request):
-    context = {
+from .models import Category
 
-    }
-    return render(request, 'catalog/categorys/category_list.html', context)
 
-class CategoryDetail(ObjectDetailMixin, View):
+class CategoriesList(ListView):
     model = Category
-    template = 'catalog/categorys/category_detail.html'
+    context_object_name = 'categories'
+    template_name = 'catalog/categories_list.html'
 
-class ProductDetail(ObjectDetailMixin, View):
-    model = Product;
-    template = 'catalog/categorys/products/products_detail.html'
+
+class CategoryDetail(DetailView):
+    model = Category
+    template_name = 'catalog/category_detail.html'

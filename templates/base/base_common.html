@@ -6,28 +6,28 @@
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'base/common/css/styleMain.css' %}">
-    <link rel="stylesheet" href="{% static 'base/common/css/styleSlick.css' %}">
-    <link rel="stylesheet" href="{% static 'base/common/css/styleDetail.css' %}">
-    <link rel="stylesheet" href="{% static 'base/common/css/resize.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_common/css/styleMain.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_common/css/styleSlick.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base_common/css/resize.css' %}">
     {% block addCSS %}{% endblock %}
     <!--Фавикон-->
-    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/common/img/favicon/apple-icon-57x57.png' %}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'base/common/img/favicon/apple-icon-60x60.png' %}">
-    <link rel=" apple-touch-icon " sizes=" 72x72 " href="{% static 'base/common/img/favicon/apple-icon-72x72.png' %}">
-    <link rel=" apple-touch-icon " sizes="76x76" href="{% static 'base/common/img/favicon/apple-icon-76x76.png' %}">
-    <link rel="apple-touch-icon " sizes=" 114x114 " href="{% static 'base/common/img/favicon/apple-icon-114x114.png' %}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'base/common/img/favicon/apple-icon-120x120.png' %}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'base/common/img/favicon/apple-icon-144x144.png' %}">
-    <link rel=" apple-touch-icon " sizes=" 152x152 " href="{% static 'base/common/img/favicon/apple-icon-152x152.png' %}">
-    <link rel=" apple-touch-icon " sizes="180x180" href="{% static 'base/common/img/favicon/apple-icon-180x180.png' %}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'base/common/img/favicon/android-icon-192x192.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'base/common/img/favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'base/common/img/favicon/favicon-96x96.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'base/common/img/favicon/favicon-16x16.png' %}">
-    <meta name="msapplication-TileImage" content="{% static 'base/common/img/favicon/ms-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/base_common/img/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'base/base_common/img/favicon/apple-icon-60x60.png' %}">
+    <link rel=" apple-touch-icon " sizes=" 72x72 " href="{% static 'base/base_common/img/favicon/apple-icon-72x72.png' %}">
+    <link rel=" apple-touch-icon " sizes="76x76" href="{% static 'base/base_common/img/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon " sizes=" 114x114 " href="{% static 'base/base_common/img/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'base/base_common/img/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'base/base_common/img/favicon/apple-icon-144x144.png' %}">
+    <link rel=" apple-touch-icon " sizes=" 152x152 " href="{% static 'base/base_common/img/favicon/apple-icon-152x152.png' %}">
+    <link rel=" apple-touch-icon " sizes="180x180" href="{% static 'base/base_common/img/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'base/base_common/img/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'base/base_common/img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'base/base_common/img/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'base/base_common/img/favicon/favicon-16x16.png' %}">
+    <meta name="msapplication-TileImage" content="{% static 'base/base_common/img/favicon/ms-icon-144x144.png' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <link rel=" manifest " href="{% static 'base/common/img/favicon/manifest.json' %}">
+    <link rel=" manifest " href="{% static 'base/base_common/img/favicon/manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
     <!--*-->
 
@@ -49,7 +49,7 @@
             top: 0%;
             margin: 0 0 0 -25%;
             z-index: 10001;
-            background: url(../../static/base/common/img/preloader.gif) 50% 50% / 30% no-repeat;
+            background: url(../../static/base/base_common/img/preloader.gif) 50% 50% / 30% no-repeat;
         }
     </style>
 </head>
@@ -62,9 +62,9 @@
                     <a href="#" class="menu-active"><span></span></a>
                     <div class="header-info">
                         <div class="header-about">
-                            <a href="{% url 'index_url' %}" class="header-link">Главная</a>
-                            <a href="{% url 'category_list_url' %}" class="header-link">Каталог</a>
-                            <a href="{% url 'manufacturers_list_url' %}" class="header-link">Партнёры</a>
+                            <a href="{% url 'common:index' %}" class="header-link">Главная</a>
+                            <a href="{% url 'catalog:categories_list' %}" class="header-link">Каталог</a>
+                            <a href="{% url 'manufacture:list' %}" class="header-link">Партнёры</a>
                             <a href="#" class="header-link">Покупатели</a>
                             <a href="#" class="header-link">О нас</a>
                         </div>
@@ -72,18 +72,18 @@
                             <a href="#" class="header-icon" title="Местоложение">
                                 <img src="{% static 'base/common/img/header-icon/location.svg' %}" alt="Местоложение"></a>
                             <a href="#" class="header-icon" title="Телефон">
-                                <img src="{% static 'base/common/img/header-icon/phone.svg' %}" alt="Телефон">
+                                <img src="{% static 'base/base_common/img/header-icon/phone.svg' %}" alt="Телефон">
                             </a>
                             <a href="#" class="header-icon" title="Время работы">
-                                <img src="{% static 'base/common/img/header-icon/watch.svg' %}" alt="Время работы">
+                                <img src="{% static 'base/base_common/img/header-icon/watch.svg' %}" alt="Время работы">
                             </a>
                             <a href="#" class="header-icon" title="Уведомления">
-                                <img src="{% static 'base/common/img/header-icon/bell.svg' %}" alt="Уведомления">
+                                <img src="{% static 'base/base_common/img/header-icon/bell.svg' %}" alt="Уведомления">
                             </a>
                         </div>
                     </div>
                     <div class="header-main">
-                        <a href="{% url 'index_url' %}" class="logo">&nbsp;</a>
+                        <a href="{% url 'common:index' %}" class="logo">&nbsp;</a>
                         <form action="#" class="header-search">
                             <input class="header-search-input" type="search" id="search" name="search" placeholder="Искать здесь...">
                             <button class="header-search-button"></button>
@@ -91,14 +91,14 @@
                         <div class="header-profile">
                             <div class="active-for-mobile">
                                 <a href="#basket" class="header-profile-icon shopping">
-                                    <img src="{% static 'base/common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
-                                    
+                                    <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
+
                                 </a>
                                 <a href="#" class="header-profile-icon">
-                                    <img src="{% static 'base/common/img/header-profile-icon/history.svg' %}" alt="История">
+                                    <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
                                 </a>
                                 <a href="#" class="header-profile-icon">
-                                    <img src="{% static 'base/common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                                    <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
                                 </a>
                                 <div id="basket" class="shopping-list">
                                     <div class="container-total-price">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <a href="#" class="header-profile-icon profile">
-                                <img src="{% static 'base/common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
                             </a>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
         <main class="main">
             <div class="container">
                 <div class="main-container">
-                    {% include 'catalog/categorys/categorys_include/categories_menu.html' %}
+                    {% include 'catalog/categories_menu_include.html' %}
                     <div class="content">
                         <div class="preloader"><div class="preloader-spin"></div></div>
                         {% block content %}{% endblock %}
@@ -143,14 +143,14 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-container">
-                    <div class="footer-title"><a href="{% url 'index_url' %}">RearmDevice</a></div>
+                    <div class="footer-title"><a href="{% url 'common:index' %}">RearmDevice</a></div>
                     <div class="footer-link spoilers mobil">
                         <div class="footer-block">
                             <div class="footer-block-title spoiler-active arrow">Магазин RD</div>
                             <div class="footer-block-content spoiler-content">
                                 <ul class="footer-block-ul">
-                                    <li><a href="{% url 'category_list_url' %}">Каталог</a></li>
-                                    <li><a href="{% url 'manufacturers_list_url' %}">Партнёры</a></li>
+                                    <li><a href="{% url 'catalog:categories_list' %}">Каталог</a></li>
+                                    <li><a href="{% url 'manufacture:list' %}">Партнёры</a></li>
                                     <li><a href="#">Новости</a></li>
                                     <li><a href="#">Обратная связь</a></li>
                                     <li><a href="#">Персональные данные</a></li>
@@ -184,10 +184,10 @@
                             <div class="footer-block-title spoiler-active arrow">Контакты</div>
                             <div class="footer-block-content spoiler-content">
                                 <div class="social">
-                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/facebook.svg' %}" alt="fb"></a>
-                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/vk.svg' %}" alt="vk"></a>
-                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/mail.svg' %}" alt="mail"></a>
-                                    <a href="#"><img src="{% static 'base/common/img/footer-icon/instagram.svg' %}" alt="inst"></a>
+                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/facebook.svg' %}" alt="fb"></a>
+                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/vk.svg' %}" alt="vk"></a>
+                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/mail.svg' %}" alt="mail"></a>
+                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/instagram.svg' %}" alt="inst"></a>
                                 </div>
                                 <ul class="footer-block-ul footer-feed-back">
                                     <li><a href="#">Телефон</a></li>
@@ -209,9 +209,9 @@
             $preloaderSpin.fadeOut(); $preloader.delay(50).fadeOut('slow');
         })
     </script>
-    <script src="{% static 'base/common/js/particles.js' %}"></script>
-    <script src="{% static 'base/common/js/slick.min.js' %}"></script>
-    <script src="{% static 'base/common/js/scripts.js' %}"></script>
+    <script src="{% static 'base/base_common/js/particles.js' %}"></script>
+    <script src="{% static 'base/base_common/js/slick.min.js' %}"></script>
+    <script src="{% static 'base/base_common/js/scripts.js' %}"></script>
     {% block addJS %}{% endblock %}
 </body>
 

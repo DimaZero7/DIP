@@ -1,0 +1,14 @@
+<div class="comment-edit">
+    <div class="comment-title">Оставить комментарий</div>
+    <form class="comment-form" action="{% url 'comments:treatment' %}" method="post">
+        {% csrf_token %}
+
+        <input type="hidden" name="product" value="{{ product.id }}">
+
+        {% for fild in comment_form %}
+            {{ fild }}
+        {% endfor %}
+
+        <button type="submit">Оставить комментарий</button>
+    </form>
+</div>

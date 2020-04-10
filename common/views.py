@@ -1,28 +1,15 @@
-from django.shortcuts import render
-from django.views.generic import View
-from catalog.utils import ObjectDetailMixin
-from catalog.models import Product, Manufacture
+from django.views.generic import ListView
+
+from products.models import Product
+from poster.models import Poster
 
 
-def index(request):
-    products = Product.objects.all()
-    products_posters = Product.objects.filter(slider=True)
-    context = {
-        'products_posters': products_posters,
-        'products': products,
-    }
-    return render(request, 'common/index.html', context)
+class Index(ListView):
+    model = Product
+    template_name = 'common/index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posters'] = Poster.objects.all()
+        return context
 
-
-def manufacturers_list(request):
-    list_manufacturers = Manufacture.objects.all()
-    context = {
-        'list_manufacturers': list_manufacturers,
-    }
-    return render(request, 'common/manufacturers/manufacturers_list.html', context)
-
-
-class ManufacturersDetail(ObjectDetailMixin, View):
-    model = Manufacture
-    template = 'common/manufacturers/manufacturers_detail.html'

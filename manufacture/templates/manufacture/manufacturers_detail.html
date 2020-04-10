@@ -1,0 +1,87 @@
+{% extends 'base/base_common.html' %}
+{% block title  %}{{ manufacture.name }}{% endblock %}
+
+{% block content %}
+<h1 class="main-h1">{{ manufacture.name }}</h1>
+<form class="filter">
+    <div class="filter-container">
+        <div class="filter-block">
+            <div class="filter-title">Цена</div>
+            <div class="filter-selector">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="price-up" title="По убыванию">
+                </label>
+                <label>
+                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="price-down" title="По возрастанию">
+                </label>
+            </div>
+        </div>
+        <div class="filter-block">
+            <div class="filter-title">Рейтинг</div>
+            <div class="filter-selector">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="rait-up" title="По убыванию">
+                </label>
+                <label>
+                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="rait-down" title="По возрастанию">
+                </label>
+            </div>
+        </div>
+        <div class="filter-block">
+            <div class="filter-title">Дата</div>
+            <div class="filter-selector">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="data-up" title="По убыванию">
+                </label>
+                <label>
+                    <input class="filter-radio down" class="filter-radio" type="radio" id="filter" name="filter" value="data-down" title="По возрастанию">
+                </label>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Выполнить">
+</form>
+<div class="main-product">
+    {# Вывожу все товары текущей категории #}
+    {% for product in manufacture.product_set.all %}
+        <article class="product-block">
+            <div class="product-title">
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            </div>
+            <div class="product-img">
+                <a href="{{ product.get_absolute_url }}">
+                    {# Вывожу 1-ую картинку текущего товара #}
+                    {% for prodimg in product.prodimg.all %}
+                        {% if forloop.counter == 1 %}
+                            <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                        {% endif %}
+                    {% endfor %}
+                </a>
+            </div>
+            <div class="product-info">
+                <form action="#" method="post" id="buyProduct" class="detail-add">
+                   {% csrf_token %}
+                    <div class="detail-price-buttons">
+                        <div class="product-price">{{ product.price }}</div>
+                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
+                    </div>
+                    <div class="detail-block-servis">Сколько купить?:
+                        <div class="detail-quantity">
+                            <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </article>
+    {% empty %}
+        <div class="product-none">Товаров от {{ manufacture.name }} нет</div>
+    {% endfor %}
+</div>
+<div class="pages">
+    <a class="pages-item prev" href="#"> &nbsp; &nbsp;</a>
+    <a class="pages-item pages-counter" href="#">1</a>
+    <a class="pages-item pages-counter" href="#">2</a>
+    <a class="pages-item pages-counter" href="#">3</a>
+    <a class="pages-item next" href="#"> &nbsp; &nbsp;</a>
+</div>
+{% endblock %}
