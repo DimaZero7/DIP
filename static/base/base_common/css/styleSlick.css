@@ -10,12 +10,17 @@
 
 .slider-item {
     text-align: center;
-    z-index: 50 !important;
+    z-index: 9 !important;
 }
 
 .slider-item img {
     width: 100%;
     height: 100%;
+}
+
+.slider-item.none {
+    background: url(../img/product_slider_none.png) 50% 50% / 110% no-repeat;
+    background-color: var(--red);
 }
 
 .slider.main-slider .slider-item {
@@ -36,6 +41,7 @@
     max-width: 270px;
     max-height: 270px;
     object-fit: cover;
+    z-index: 9 !important;
 }
 
 
@@ -53,7 +59,7 @@
     margin: -7vh 0 0 0;
     max-width: 60px;
     max-height: 120px;
-     opacity: 0.8;
+    opacity: 0.8;
 }
 
 .slider .slick-arrow.slick-prev {

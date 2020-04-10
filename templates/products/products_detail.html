@@ -1,0 +1,93 @@
+{% extends 'base/base_common.html' %}
+{% load static %}
+
+
+{% block title  %}
+{{ product.name }}
+{% endblock %}
+
+{% block content %}
+<div class="main-detail">
+    <div class="product-big">
+        <div class="product-big-close" title="Закрыть"></div>
+    </div>
+    <h1 class="main-h1">{{ product.name }}</h1>
+    <div class="detail-short">
+        <div class="sliders detail-slider">
+            <div class="slider-min">
+                {% for prodimg in product.prodimg.all %}
+                <div class="slider-item">
+                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}" class="slider-img">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="sub-slider-min">
+                {% for prodimg in product.prodimg.all %}
+                <div class="slider-item">
+                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="detail-servis">
+            <div class="detail-block">
+                <form action="#" method="post" id="buyProduct" class="detail-add">
+                    {% csrf_token %}
+                    <div class="detail-price-buttons">
+                        <div class="detail-price">{{ product.price }}</div>
+                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}">В корзину</button>
+                    </div>
+                    <div class="detail-block-servis">Сколько купить?:
+                        <div class="detail-quantity">
+                            <input type="number" value="1" name="quantity_nbr" id="quantity_nbr">
+                        </div>
+                    </div>
+                    <div class="detail-block-servis storage">Наличие на складе:
+                        <div class="detail-sub-block">{{product.warehouse}}</div>
+                    </div>
+                    <div class="detail-block-servis delivery">Доставка в течение:
+                        <div class="detail-sub-block">2</div>
+                    </div>
+                    <div class="detail-block-servis warranty">Гарантия:
+                        <div class="detail-sub-block">{{product.warranty}}</div>
+                    </div>
+                </form>
+                {#                -----------------#}
+                {#                <div class="detail-manufacturers">#}
+                {#                    <img src="{{product.manufacture.img.url}}" alt="{{product.manufacture.name}}">#}
+                {#                    <div class="manufacturers-block">{{product.manufacture.name}}</div>#}
+                {#                    <div class="manufacturers-block">{{product.manufacture.country}}</div>#}
+                {#                </div>#}
+            </div>
+        </div>
+    </div>
+    <div class="detail-info spoilers mobil ">
+        <div class="detail-li">
+            <div class="detail-li-title spoiler-active arrow">Описание</div>
+            <div class="detail-li-content spoiler-content">{{product.description}}</div>
+        </div>
+        <div class="detail-li">
+            <div class="detail-li-title spoiler-active arrow arrow">Характеристики</div>
+            <div class="detail-li-content spoiler-content">{{product.specifications}}</div>
+        </div>
+        <div class="detail-li">
+            <div class="detail-li-title spoiler-active arrow arrow">Комплект поставки</div>
+            <div class="detail-li-content spoiler-content">{{product.set}}</div>
+        </div>
+        <div class="detail-li">
+            <div class="detail-li-title spoiler-active arrow arrow">Отзывы</div>
+            <div class="detail-li-content spoiler-content">
+
+                {#                {% include 'comments/comment_output_include.html' %}#}
+
+                {% include 'comments/comment_input_include.html' %}
+
+            </div>
+        </div>
+        <div class="detail-li">
+            <div class="detail-li-title spoiler-active arrow arrow">Аналогичные товары</div>
+            <div class="detail-li-content spoiler-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo dolores quis voluptatibus ullam, nisi quibusdam at facilis, molestias ex hic commodi, distinctio minus blanditiis temporibus omnis reiciendis sed odio aliquid.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

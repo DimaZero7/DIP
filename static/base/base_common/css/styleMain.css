@@ -27,15 +27,6 @@ body {
     height: 100%;
 }
 
-#particles-js {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
 body.lock {
     overflow: hidden;
 }
@@ -72,7 +63,7 @@ img {
     position: fixed;
     overflow: visible;
     width: 100%;
-    z-index: 1000;
+    z-index: 10;
     left: 0;
     top: 0;
     transition: .3s;
@@ -421,7 +412,7 @@ img {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 1000;
+    z-index: 20;
     display: none;
 }
 
@@ -478,8 +469,8 @@ img {
     left: 0;
     background-color: var(--red);
     transition: .3s;
-    z-index: 110;
-    top: 82px;
+    z-index: 10;
+    top: 84px;
 }
 
 .menu-active:focus {
@@ -515,6 +506,7 @@ img {
     left: 25%;
     transition: .3s;
     background-color: var(--red);
+    height: 49px;
 }
 
 .menu-active.active::before,
@@ -544,12 +536,14 @@ img {
     display: flex;
     flex-direction: column;
     width: 25%;
-    z-index: 2;
     position: absolute;
     transition: .3s;
     left: -25%;
     padding: 0;
     top: -1px;
+    height: 500px;
+    border-right: 2px solid var(--text);
+    z-index: 20;
 }
 
 /*активированное меню*/
@@ -557,7 +551,7 @@ img {
 
 .main-manu-link {
     color: var(--text);
-    font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 9px);
+    font-size: 20px;
     padding: 10px 4%;
     transition: .3s;
     width: 100%;
@@ -582,7 +576,7 @@ img {
     background-color: var(--lg);
     padding: 10px 1% 30px 1%;
     transition: .3s;
-    min-height: 500px
+    min-height: 500px;
 }
 
 /*
@@ -601,7 +595,7 @@ img {
     border-top: 2px solid var(--text);
     border-bottom: 2px solid var(--text);
     margin: -10px -1% 5px -1%;
-    height: 50px;
+    height: 54px;
     font-size: 40px;
     display: flex;
     align-items: center;
@@ -710,7 +704,7 @@ img {
 
 .filter input[type="submit"] {
     background-color: var(--dark);
-    font-size: 20px;
+    font-size: 17px;
     flex: 0 0 20%;
     color: white;
     margin: 0 0 0 -1%;
@@ -778,9 +772,9 @@ img {
 
 .grid.active-grid .grid-1::after,
 .grid.active-grid .grid-2::before,
-.grid.active-grid .grid-2::after{
+.grid.active-grid .grid-2::after {
     width: 0;
-    height:0;
+    height: 0;
     border: 0;
 }
 
@@ -820,7 +814,7 @@ img {
     overflow: hidden;
     text-overflow: clip;
     white-space: nowrap;
-    font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 12px);
+    font-size: 20px;
     color: var(--text);
     transition: .3s;
 }
@@ -836,6 +830,8 @@ img {
     border: 2px solid var(--dark);
     border-top: 0;
     transition: .3s;
+    background: url(../img/product_none.png) 50% 50% / 105% no-repeat;
+    background-color: var(--red);
 }
 
 .categorys .product-img {
@@ -852,7 +848,7 @@ img {
 }
 
 .product-img img:first-child {
-    z-index: 10;
+    z-index: 9;
 }
 
 .product-info {
@@ -870,9 +866,42 @@ img {
     font-weight: bold;
     padding: 5px 2%;
     flex: 0 1 60%;
-    font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 11px);
+    font-size: 20px;
     display: flex;
     align-items: center;
+}
+
+.product-big{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.7);
+    z-index: 30;
+    transform: scale(0);
+    transition: .3s;
+}
+
+.product-big.active-product-big{
+    transform: scale(1);
+    transition: .3s;
+}
+
+.active-slider-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+    object-fit: cover;
+}
+
+.product-big-close {
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    z-index: 31;
 }
 
 .pages {
@@ -983,7 +1012,7 @@ span.pages-item {
     font-weight: bold;
 }
 
-.footer-title a{
+.footer-title a {
     color: var(--text);
 }
 
@@ -1055,34 +1084,27 @@ span.pages-item {
 }
 
 .product-none {
-    text-align: center;
+    height: 400px;
+    width: 50%;
+    background-color: var(--red);
+    margin: 0 auto;
+    position: relative;
+}
+
+.product-none span {
+    background: url(../img/product_none.png) 50% 50% / 100% no-repeat;
     position: absolute;
-    top: 50%;
-    left: 0%;
-    height: 50px;
     width: 100%;
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
-
-@media (max-width:1200px) {
-    #particles-js {
-        display: none
-    }
-}
-
 
 @media (max-width:769px) {
     .header {
         top: -32px;
         transition: .3s;
     }
-
-    
 
     .logo {
         background: url(../img/logo/logo_min.png);
@@ -1187,6 +1209,10 @@ span.pages-item {
         width: 25px;
         height: 4px;
         left: 7px;
+    }
+
+    .menu-active.active {
+        height: 40px;
     }
 
     .menu-active.active::before,
@@ -1303,7 +1329,7 @@ span.pages-item {
     }
 
     .social a {
-        flex: 0 1 5%;
+        flex: 0 1 10%;
         margin: 0 1%
     }
 
@@ -1332,25 +1358,29 @@ span.pages-item {
     .active-for-mobile {
         display: flex;
         position: absolute;
-        top: 75px;
-        left: -350px;
-        width: 70%;
-        justify-content: space-between;
+        top: 72px;
+        left: -550px;
+        width: 100%;
+        justify-content: flex-start;
         align-items: center;
         transition: .3s;
+        z-index: 21;
+        border-top: 2px solid var(--text);
+        background-color: var(--dark);
+        min-width: 320px;
     }
 
     .active-for-mobile.display-icons {
-        left: 10px;
+        left: 0px;
         transition: .3s;
     }
 
     .header-profile-icon {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         transition: .3s;
-        padding: 0;
         padding: 5px 2%;
+        margin: 0 7%;
     }
 
     .profile {
@@ -1403,7 +1433,7 @@ span.pages-item {
         position: fixed;
         height: 100%;
         overflow: auto;
-
+        border: 0;
     }
 
     .menu-active.active {
@@ -1411,6 +1441,7 @@ span.pages-item {
         height: 45px;
         top: 75px;
         left: 83%;
+        z-index: 22;
     }
 
     .menu-active.active::before,

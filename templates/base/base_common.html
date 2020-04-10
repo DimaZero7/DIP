@@ -54,8 +54,7 @@
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <div class="wrapper" id="page-wrapper">
+    <div class="wrapper">
         <header class="header">
             <div class="container">
                 <div class="header-container">
@@ -70,7 +69,7 @@
                         </div>
                         <div class="header-contacts">
                             <a href="#" class="header-icon" title="Местоложение">
-                                <img src="{% static 'base/common/img/header-icon/location.svg' %}" alt="Местоложение"></a>
+                                <img src="{% static 'base/base_common/img/header-icon/location.svg' %}" alt="Местоложение"></a>
                             <a href="#" class="header-icon" title="Телефон">
                                 <img src="{% static 'base/base_common/img/header-icon/phone.svg' %}" alt="Телефон">
                             </a>
@@ -209,7 +208,6 @@
             $preloaderSpin.fadeOut(); $preloader.delay(50).fadeOut('slow');
         })
     </script>
-    <script src="{% static 'base/base_common/js/particles.js' %}"></script>
     <script src="{% static 'base/base_common/js/slick.min.js' %}"></script>
     <script src="{% static 'base/base_common/js/scripts.js' %}"></script>
     {% block addJS %}{% endblock %}

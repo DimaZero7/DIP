@@ -1,10 +1,3 @@
-jQuery(document).ready(function () {
-    /*Включение анимированного фона*/
-    particlesJS.load('particles-js', '/static/base/common/js/config.json', function () {
-        console.log('callback - particles.js config loaded');
-    });
-});
-
 //Перезагрузка страницы при изменение размера окна
 var s_win_w = $(window).width();
 $(window).resize(function () {
@@ -23,7 +16,7 @@ $(window).scroll(function () {
     }
 });
 
-//когда документ загружен
+//Когда документ загружен
 $(document).ready(function () {
 
     //анимация кнопки поиска
@@ -67,8 +60,7 @@ $(document).ready(function () {
         $('.main-product').toggleClass('change-grid');
     })
 
-    
-    
+
     //Слайдеры
     //Главный слайдер
     $('.slider').slick({
@@ -183,12 +175,12 @@ $(document).ready(function () {
     $(document).on('click', '.detail-add-basket', function () {
         counter = counter + 1;
     })
-
     $(document).on('click', '.shopping-list-delete', function () {
         $(this).closest('tr').remove();
         counter = counter - 1;
     })
 
+    //Уведомление о том что товаров в корзине нет
     $('.add-order').click(function () {
         if ($('.shopping-list-container tr').hasClass('shopping-item')) {
             console.log('Товар в коризне');
@@ -197,16 +189,29 @@ $(document).ready(function () {
             $('.alert').css('display', 'block');
         }
     })
-
     $('.alert-button').click(function () {
         $('.alert').css('display', 'none');
     })
 
+
+    //просмотр картинки товара в полном экране
+    $('.slider-img').click(function () {
+        $(this).clone() // сделаем копию картинки на которую было нажато
+            .addClass("active-slider-img") // добавим этой копии класс активации
+            .appendTo(".product-big"); // вставим измененный элемент в элемент для просмотра
+        $("body").addClass("lock");
+        $(".product-big").addClass("active-product-big");
+    })
+    $('.product-big-close').click(function () {
+        $(".product-big").closest('.slider-img').remove();
+        $("body").removeClass("lock");
+        $(".product-big").removeClass("active-product-big");
+    })
 });
 
 //Геренация случайного цвета подсветки
-var colors = ['#FF283F', 
-              'rgba(233, 33, 243, 1)', 
+var colors = ['#FF283F',
+              'rgba(233, 33, 243, 1)',
               'rgba(25, 212, 247, 1)'];
 randomColor = colors[Math.random() * colors.length ^ 0];
 document.documentElement.style.setProperty('--red', randomColor);

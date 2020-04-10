@@ -163,7 +163,10 @@ input[type="number"]::-webkit-inner-spin-button {
     display: block;
 }
 
-.detail-comment {}
+.detail-comment {
+    max-height: 500px;
+    overflow: auto;
+}
 
 .detail-comment-block {
     margin: 15px 0;

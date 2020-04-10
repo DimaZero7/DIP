@@ -1,0 +1,12 @@
+<div class="detail-comment">
+    {% if product.comment.all %}
+        {% for comment in product.comment.all %}
+            <div class="detail-comment-block">
+                <div class="comment-autor">{{comment.autor_name}}</div>
+                <div class="comment-text">{{comment.comment_text}}</div>
+            </div>
+        {% endfor %}
+        {% else %}
+            <div class="commentNone">Комментариев нет! Станьте первыми </div>
+    {% endif %}
+</div> 

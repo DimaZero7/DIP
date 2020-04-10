@@ -1,0 +1,13 @@
+<div class="slider main-slider">
+    {% for poster in posters.all %}
+    {% if poster.slider %}
+    <a href="{{ poster.product.get_absolute_url }}">
+        <div class="slider-item">
+            <img src="{{ poster.img.url }}" alt="{{ poster.product.name }}">
+        </div>
+    </a>
+    {% endif %}
+    {% empty %}
+    <div class="slider-item none" title="Акционных товаров нет"></div>
+    {% endfor %}
+</div>
