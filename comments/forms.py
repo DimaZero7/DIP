@@ -8,10 +8,8 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['product', 'comment_author', 'comment_text']
-        exclude = ['product']
+        fields = ['comment_author', 'comment_text']
         widgets = {
-
             'comment_author': forms.TextInput(attrs={
                 'placeholder': 'Ваше имя', 'class': 'None', 'maxlength': '50'}),
 

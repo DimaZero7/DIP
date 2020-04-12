@@ -2,12 +2,12 @@
     <div class="comment-title">Оставить комментарий</div>
     <form class="comment-form" action="{% url 'comments:treatment' %}" method="post">
         {% csrf_token %}
+        {{ formset.management_form }}
 
         <input type="hidden" name="product" value="{{ product.id }}">
 
-        {% for fild in comment_form %}
-         {#  {{fild}} #} 
-        {% endfor %}
+        {{ comment_form }}
+
 
         <button type="submit">Оставить комментарий</button>
     </form>

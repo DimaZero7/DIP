@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc9dd13c-e1d9-465c-b4e4-b203b09ca10e" name="Default Changelist" comment="" />
+    <list default="true" id="dc9dd13c-e1d9-465c-b4e4-b203b09ca10e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/products/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/comments/comment_input_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/comment_input_include.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/comments/comment_output_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comments/comment_output_include.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/products/products_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products/products_detail.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +28,10 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="ProjectId" id="1a1tH8KLhEEcThEV0EeJtJiYiYZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,8 +41,9 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blogengine" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -88,6 +103,8 @@
       <workItem from="1586337657239" duration="9696000" />
       <workItem from="1586419586117" duration="20399000" />
       <workItem from="1586518687951" duration="598000" />
+      <workItem from="1586681224943" duration="2830000" />
+      <workItem from="1586689043372" duration="10408000" />
     </task>
     <servers />
   </component>
@@ -95,6 +112,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="425" y="26" key="CommitChangelistDialog2" timestamp="1586711847943">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="425" y="26" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1586711847943" />
+    <state x="92" y="92" width="1416" height="676" key="DiffContextDialog" timestamp="1586711799741">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="92" y="92" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1586711799741" />
     <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1586428914455">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -103,9 +128,17 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1586116557131" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1586518699142">
+    <state x="422" y="134" key="VCS.ChangeListViewerDialog" timestamp="1586711791083">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586518699142" />
+    <state x="422" y="134" key="VCS.ChangeListViewerDialog/0.0.1600.860@0.0.1600.860" timestamp="1586711791083" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1586689051606">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586689051606" />
+    <state x="609" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586711744079">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="609" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1586711744079" />
   </component>
 </project>

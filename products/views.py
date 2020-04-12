@@ -18,12 +18,11 @@ class ProductDetail(DetailView):
     
     model = Product
     template_name = 'products/products_detail.html'
-
     
     def get_context_data(self, **kwargs):
         """Добовляю предстовление о форме ввода комментария"""
 
         context = super().get_context_data(**kwargs)
-        context['comment_form'] = CommentForm('product')
+        context['comment_form'] = CommentForm()
         return context
 
