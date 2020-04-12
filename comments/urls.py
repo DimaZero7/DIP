@@ -5,5 +5,5 @@ from .views import *
 app_name = 'comments'
 
 urlpatterns = [
-    path('', comment_processing, name='treatment'),
+    path('comment_add/', comment_processing, name='treatment'),
 ]

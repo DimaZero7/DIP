@@ -67,7 +67,6 @@ img {
     left: 0;
     top: 0;
     transition: .3s;
-
 }
 
 .header-container {
@@ -76,7 +75,6 @@ img {
     flex-direction: column;
     position: relative;
 }
-
 
 .header-info {
     display: flex;
@@ -143,6 +141,7 @@ img {
     border-bottom: 2px solid var(--text);
 }
 
+/*Логотип*/
 .logo {
     background: url(../img/logo/logo_max.png);
     background-repeat: no-repeat;
@@ -162,6 +161,7 @@ img {
     transition: .3s;
 }
 
+/*Поле поиска*/
 .header-search {
     flex: 0 1 50%;
     position: relative;
@@ -223,6 +223,7 @@ img {
     }
 }
 
+/*Кнопки профиля*/
 .header-profile {
     flex: 0 1 20%;
     height: 50px;
@@ -246,51 +247,40 @@ img {
     width: 100%;
 }
 
-.active-for-mobile {
-    display: flex;
-}
-
-.active-for-mobile {
-    position: relative;
-}
-
+/*Кнопка корзины*/
 .shopping {
     position: relative;
+    cursor: pointer;
 }
 
+/*Счетчик в корзине*/
 .counter {
     position: absolute;
-    background-color: var(--red);
-    border: 1px solid transparent;
-    color: var(--text);
+    background-color: var(--text);
+    border: 2px solid var(--red);
+    color: var(--dark);
     border-radius: 100px;
-    height: 18px;
+    height: 20px;
     width: 20px;
     text-align: center;
     right: 1%;
     top: 1%;
 }
 
-
-
+/*Модальное окно корзины*/
 .shopping-list {
     position: absolute;
     background-color: var(--mid);
     width: 400px;
-    right: 0;
+    right: 60px;
+    top: 82px;
     padding: 10px 10px 0 10px;
-    list-style-type: none;
     color: var(--text);
-    top: -2000px;
-    transition: .3s;
     cursor: default;
     overflow: visible;
     max-height: 500px;
-}
-
-.shopping-list:target {
-    transition: .3s;
-    top: 62px;
+    border: 2px solid var(--text);
+    display: none;
 }
 
 .shopping-list::before {
@@ -298,14 +288,13 @@ img {
     position: absolute;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid var(--mid);
+    border-top: 10px solid var(--text);
     top: -10px;
     right: 112px;
-    transition: .3s;
     transform: rotate(180deg);
-
 }
 
+/*Кнопка закрытия корзины*/
 .close-basket {
     position: absolute;
     top: -10px;
@@ -356,6 +345,7 @@ img {
     content: ' ₽'
 }
 
+/*Нижнее поле модального ока корзины*/
 .order {
     display: flex;
     justify-content: flex-end;
@@ -363,6 +353,7 @@ img {
     border-top: 2px solid var(--text)
 }
 
+/*Кнопка удаления товара из корзины*/
 .shopping-list-delete {
     width: 18px;
     height: 18px;
@@ -396,6 +387,7 @@ img {
     transition: .3s;
 }
 
+/*Изменение ширины сапки при скроле*/
 .header-resize {
     top: -32px;
     transition: .3s;
@@ -406,6 +398,7 @@ img {
     transition: .3s;
 }
 
+/*Модальное окно с сообщением*/
 .alert {
     position: fixed;
     width: 100%;
@@ -434,6 +427,10 @@ img {
     padding: 30px 2%;
 }
 
+.alert-title{
+    text-align: center;
+}
+
 .alert-button {
     padding: 5px 0;
     width: 90%;
@@ -449,20 +446,7 @@ img {
     transition: .3s;
 }
 
-/*главное*/
-.main {
-    padding: 82px 0 0 0;
-    flex: 1 0 auto;
-    position: relative;
-}
-
-.main-container {
-    display: flex;
-    justify-content: space-between;
-    overflow: auto
-}
-
-/*активация меню*/
+/*Кнопка активация меню*/
 .menu-active {
     position: absolute;
     width: 50px;
@@ -470,8 +454,8 @@ img {
     left: 0;
     background-color: var(--red);
     transition: .3s;
-    z-index: 10;
     top: 84px;
+    z-index: 22;
 }
 
 .menu-active:focus {
@@ -503,6 +487,7 @@ img {
     bottom: 20%;
 }
 
+/*При активации акнопки меню*/
 .menu-active.active {
     left: 25%;
     transition: .3s;
@@ -530,7 +515,7 @@ img {
     transform: rotate(-45deg)
 }
 
-/*меню*/
+/*Меню*/
 .main-menu {
     list-style-type: none;
     background-color: var(--dark);
@@ -544,15 +529,12 @@ img {
     top: -1px;
     height: 500px;
     border-right: 2px solid var(--text);
-    z-index: 20;
+    z-index: 9;
 }
-
-/*активированное меню*/
-
 
 .main-manu-link {
     color: var(--text);
-    font-size: 20px;
+    font-size: 17px;
     padding: 10px 4%;
     transition: .3s;
     width: 100%;
@@ -572,6 +554,19 @@ img {
     position: relative;
 }
 
+/*главное*/
+.main {
+    padding: 82px 0 0 0;
+    flex: 1 0 auto;
+    position: relative;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto
+}
+
 .content {
     width: 100%;
     background-color: var(--lg);
@@ -580,16 +575,12 @@ img {
     min-height: 500px;
 }
 
-/*
-
-
-
 /*слайдер*/
 .carousel {
     margin: -10px -1% 5px -1%;
 }
 
-/*содежимое main*/
+/*Заголовок страниц*/
 .main-h1 {
     text-align: center;
     background-color: var(--dark);
@@ -604,6 +595,7 @@ img {
     color: var(--text)
 }
 
+/*Фильты для товаров*/
 .filter {
     display: flex;
     justify-content: space-between;
@@ -717,6 +709,7 @@ img {
     transition: .3s;
 }
 
+/*Кнопка переключения сетки товаров*/
 .grid {
     background-color: var(--dark);
     height: 33px;
@@ -779,6 +772,7 @@ img {
     border: 0;
 }
 
+/*Блок для отображение продуктов*/
 .main-product {
     display: flex;
     justify-content: s;
@@ -807,7 +801,7 @@ img {
     transition: .3s
 }
 
-
+/*Заголовок продукта*/
 .product-title a {
     white-space: nowrap;
     overflow: hidden;
@@ -824,7 +818,7 @@ img {
 .product-title a:hover {
     color: var(--text);
 }
-
+/*Картинка продукта*/
 .product-img {
     position: relative;
     overflow: hidden;
@@ -836,6 +830,7 @@ img {
     background-color: var(--red);
 }
 
+/*для категорий сделать границу */
 .categorys .product-img {
     border: 2px solid var(--dark)
 }
@@ -862,6 +857,7 @@ img {
     font-size: 15px;
 }
 
+/*Просмотр изображения товара в поном размере*/
 .product-big {
     position: fixed;
     width: 100%;
@@ -895,6 +891,7 @@ img {
     z-index: 31;
 }
 
+/*Пагинация*/
 .pages {
     position: absolute;
     display: flex;
@@ -964,21 +961,32 @@ span.pages-item {
     top: 12px;
 }
 
-
 .product-info .product-price::after {
     content: ' ₽'
-}
-
-.product-info .detail-add-basket {
-    width: 35px;
-    height: 35px;
-    transition: .3s;
-    background: url(../img/header-profile-icon/basket.svg) 50% 50% / 60% no-repeat;
 }
 
 .product-info .detail-block-servis {
     display: none;
 }
+
+/*Изображения для товаров или слайдера без картинок*/
+.product-none {
+    height: 400px;
+    width: 50%;
+    background-color: var(--red);
+    margin: 0 auto;
+    position: relative;
+}
+
+.product-none span {
+    background: url(../img/product_none.png) 50% 50% / 100% no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
 
 /*подвал*/
 .footer {
@@ -1044,7 +1052,6 @@ span.pages-item {
     color: var(--text);
     font-size: 16px;
     transition: .3s;
-
 }
 
 .footer-block-ul a:hover {
@@ -1072,23 +1079,6 @@ span.pages-item {
 
 .social img {
     width: 100%;
-}
-
-.product-none {
-    height: 400px;
-    width: 50%;
-    background-color: var(--red);
-    margin: 0 auto;
-    position: relative;
-}
-
-.product-none span {
-    background: url(../img/product_none.png) 50% 50% / 100% no-repeat;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
 }
 
 @media (max-width:769px) {
@@ -1184,15 +1174,11 @@ span.pages-item {
     }
 
     .menu-active {
-        top: 70px;
-
-    }
-
-    .menu-active {
         width: 40px;
         height: 40px;
         top: 74px;
     }
+
 
     .menu-active::before,
     .menu-active span,
@@ -1346,93 +1332,39 @@ span.pages-item {
         flex: 0 1 5%;
     }
 
-    .active-for-mobile {
-        display: flex;
-        position: absolute;
-        top: 72px;
-        left: -550px;
-        width: 100%;
-        justify-content: flex-start;
-        align-items: center;
-        transition: .3s;
-        z-index: 21;
-        border-top: 2px solid var(--text);
-        background-color: var(--dark);
-        min-width: 320px;
+    .not-mobil{
+        display: none
     }
-
-    .active-for-mobile.display-icons {
-        left: 0px;
-        transition: .3s;
+    
+    .not-mobil .counter{
+        display: none;
     }
-
-    .header-profile-icon {
-        width: 50px;
-        height: 50px;
-        transition: .3s;
-        padding: 5px 2%;
-        margin: 0 7%;
-    }
-
-    .profile {
+    
+    .profile{
         width: 40px;
         height: 40px;
-        padding: 5px 12%;
     }
-
-
+    
     .shopping-list {
-        width: 94vw;
-        left: -1000px;
-        top: 55px;
-        max-height: 520px;
-        min-width: 290px;
+        display: none;
     }
-
-    .shopping-list::before {
-        top: 45px;
-        right: 12px;
-    }
-
-    .shopping-list:target {
-        top: 55px;
-        left: 0;
-        overflow: visible;
-    }
-
-    .shopping-list:before {
-        right: 92%;
-        top: -10px;
-    }
-
-    .shopping-list-container tr {
-        width: 90vw;
-        min-width: 270px;
-    }
-
-    .close-basket {
-        top: -18%;
-        height: 25px;
-        width: 25px;
-        border-radius: 100px;
-        left: 50%;
-        font-size: 23px;
-        margin: 0 0 0 -10px;
-    }
-
+    
     .main-menu {
         position: fixed;
         height: 100%;
         overflow: auto;
         border: 0;
+        top: 40px;
+        padding: 42px 0 0 0;
     }
 
     .menu-active.active {
-        width: 45px;
-        height: 45px;
-        top: 75px;
-        left: 83%;
-        z-index: 22;
+        width: 40px;
+        height: 40px;
+        top: 74px;
+        left: 100%;
+        margin: 0 0 0 -40px;
+        z-index: 22
     }
 
     .menu-active.active::before,
@@ -1440,8 +1372,8 @@ span.pages-item {
     .menu-active.active::after {
         width: 35px;
         height: 4px;
-        left: 5px;
-        top: 20px
+        left: 3px;
+        top: 17px
     }
 
     .main-manu-link {
@@ -1578,7 +1510,6 @@ span.pages-item {
     .social {
         display: flex;
         justify-content: flex-start;
-
     }
 
     .social a {

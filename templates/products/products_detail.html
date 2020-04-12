@@ -11,6 +11,7 @@
 <div class="main-detail">
     <div class="product-big">
         <div class="product-big-close" title="Закрыть"></div>
+        <div class="product-big-content"></div>
     </div>
     <h1 class="main-h1">{{ product.name }}</h1>
     <div class="detail-short">
@@ -81,11 +82,8 @@
         <div class="detail-li">
             <div class="detail-li-title spoiler-active arrow arrow">Отзывы</div>
             <div class="detail-li-content spoiler-content">
-
                 {% include 'comments/comment_output_include.html' %}
-
                 {% include 'comments/comment_input_include.html' %}
-
             </div>
         </div>
         <div class="detail-li">

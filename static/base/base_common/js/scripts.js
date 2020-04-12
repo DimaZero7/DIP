@@ -16,6 +16,14 @@ $(window).scroll(function () {
     }
 });
 
+//Геренация случайного цвета подсветки
+var colors = ['#FF283F',
+              'rgba(233, 33, 243, 1)',
+              'rgba(25, 212, 247, 1)'];
+randomColor = colors[Math.random() * colors.length ^ 0];
+document.documentElement.style.setProperty('--red', randomColor);
+
+
 //Когда документ загружен
 $(document).ready(function () {
 
@@ -51,13 +59,21 @@ $(document).ready(function () {
             $('.spoiler-active').not($(this)).removeClass('arrow-active');
             $('.spoiler-content').not($(this).next()).slideUp(300);
         }
-        $(this).toggleClass('arrow-active').next().slideToggle(300);
+        $(this).toggleClass('arrow-active').next().slideToggle(1000);
     })
 
     //Переключение сетки товаров
     $('.grid').click(function () {
         $(this).toggleClass('active-grid');
         $('.main-product').toggleClass('change-grid');
+    })
+
+    //Переключение сетки товаров
+    $('.shopping').click(function () {
+        $('.shopping-list').slideToggle();
+    })
+    $('.close-basket').click(function () {
+        $('.shopping-list').slideUp();
     })
 
 
@@ -79,16 +95,6 @@ $(document).ready(function () {
                 }
             }
         ]
-        //arrows:true, отображение стрелок
-        //slidesToShow: 3, количество отображаемых слаййдов
-        //slidesToScroll: 1, количество пролистываемых слайдов
-        //easing: 'linear' тип анимации
-        //infinite: false, бесконечное пролистывание
-        //initialSlide: 2, начальный слайд
-        //draggable: true,  //Свайп для ПК
-        //swipe:true,  Свайп для телефонов
-        //waitForAnimate:false,Ускоренноя прокрутка слайдов стрелками
-        //rows: 1, //количество рядов
     });
 
     //Сладйер на странице товара
@@ -135,11 +141,9 @@ $(document).ready(function () {
         data.quantity_nbr = quantity_nbr;
         var csrf_token = $('#buyProduct [name="csrfmiddlewaretoken"]').val();
         data["csrfmiddlewaretoken"] = csrf_token;
-
         if (is_delete) {
             data["is_delete"] = true;
         }
-
         var url = form.attr('action');
         $.ajax({
             url: url,
@@ -150,13 +154,11 @@ $(document).ready(function () {
                 console.log('OK')
                 if (data.product_total_quantity_nbr || data.product_total_quantity_nbr == 0) {
                     $('.shopping .counter').text(data.product_total_quantity_nbr);
-                    
-                    $('.shopping-list-container').html(" ");
-                    $.each(data.products, function (k, v) {
-                        
-                        $('.shopping-list-container').
-                        append('<tr class="shopping-item"><td>' + v.product_title + '</td><td>' + v.quantity_nbr + 'шт.</td><td>' + v.product_price + '</td><td class="shopping-list-delete" data-product_id="' + v.id + '" title="Удалить товар"></td></tr>');
-                    })
+//                    $('.shopping-list-container').html(" ");
+//                    $.each(data.products, function (k, v) {
+//                        $('.shopping-list-container').
+//                        append('<tr class="shopping-item"><td>' + v.product_title + '</td><td>' + v.quantity_nbr + 'шт.</td><td>' + v.product_price + '</td><td class="shopping-list-delete" data-product_id="' + v.id + '" title="Удалить товар"></td></tr>');
+//                    })
                 }
             },
             error: function () {
@@ -174,11 +176,18 @@ $(document).ready(function () {
             console.log('Товаров нет на складе');
         }
         //Запретить добавить товар в корзину если указан 0 или больше чем есть в наличии
-        else if ($('.detail-quantity input').val() == 0 || $('.detail-quantity input').val() >= $('.warehouse').text() )  {
+        else if ($('input #quantity_nbr').val() == 0) {
             e.preventDefault();
             $('.alert-title').text('Указано не правильное количество');
             $('.alert').css('display', 'block');
             console.log('Указано не правильное количество');
+        }
+        //Запретить добавить товар в корзину если указано больше чем есть на складе
+        else if ($('input #quantity_nbr').val() >= $('.warehouse').text()) {
+            e.preventDefault();
+            $('.alert-title').text('Указано больше чем есть на складе');
+            $('.alert').css('display', 'block');
+            console.log('Указано больше чем есть на складе');
         } else {
             e.preventDefault(); //Отменить стандартное поведение
             var quantity_nbr = $('#quantity_nbr').val(); //Получить количество товара которого хотят купить
@@ -188,6 +197,7 @@ $(document).ready(function () {
             var product_price = addBasket.data('product-price'); //Получение цены продукта
 
             basketUpdating(product_id, quantity_nbr, is_delete = false);
+            location.reload();
         }
     })
 
@@ -199,14 +209,6 @@ $(document).ready(function () {
         basketUpdating(product_id, quantity_nbr, is_delete = true);
     })
 
-
-
-
-
-
-
-
-
     //Уведомление о том что товаров в корзине нет
     $('.add-order').click(function () {
         if ($('.shopping-list-container tr').hasClass('shopping-item')) {
@@ -217,31 +219,23 @@ $(document).ready(function () {
             $('.alert').css('display', 'block');
         }
     })
+    
+    //Закрытие модального окна
     $('.alert-button').click(function () {
         $('.alert').css('display', 'none');
         $('.alert-title').text(' Всплыващие окно ');
     })
 
-
-
-    //просмотр картинки товара в полном экране
-    $('.slider item').click(function () {
-        $(this).nect($()).clone() // сделаем копию картинки на которую было нажато
+    $('.slider-img').click(function () {
+        $(this).clone() // сделаем копию картинки на которую было нажато
             .addClass("active-slider-img") // добавим этой копии класс активации
-            .appendTo(".product-big"); // вставим измененный элемент в элемент для просмотра
+            .appendTo(".product-big-content"); // вставим измененный элемент в элемент для просмотра
         $("body").addClass("lock");
         $(".product-big").addClass("active-product-big");
     })
     $('.product-big-close').click(function () {
-        $(".product-big").closest('.slider-img').remove();
+        $(".product-big-content").html('');
         $("body").removeClass("lock");
         $(".product-big").removeClass("active-product-big");
     })
 });
-
-//Геренация случайного цвета подсветки
-var colors = ['#FF283F',
-              'rgba(233, 33, 243, 1)',
-              'rgba(25, 212, 247, 1)'];
-randomColor = colors[Math.random() * colors.length ^ 0];
-document.documentElement.style.setProperty('--red', randomColor);

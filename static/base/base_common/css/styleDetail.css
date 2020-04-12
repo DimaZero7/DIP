@@ -205,16 +205,23 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-direction: column;
     width: 50%;
     align-items: center;
+    font-family: sans-serif;
+}
+
+.comment-form label{
+    padding: 10px 0;
+    font-size: 15px;
 }
 
 .comment-form input {
     width: 100%;
     padding: 5px 1%;
+    margin: 0 0 10px 0;
     background-color: white;
 }
 
 .comment-form textarea {
-    margin: 10px 0;
+    margin: 0 10px 10px 10px;
     width: 100%;
     padding: 5px 1%;
     background-color: white;

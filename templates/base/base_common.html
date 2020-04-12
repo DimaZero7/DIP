@@ -94,8 +94,7 @@
                             <button class="header-search-button"></button>
                         </form>
                         <div class="header-profile">
-                            <div class="active-for-mobile">
-                                <a href="#basket" class="header-profile-icon shopping">
+                                <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
                                     <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
                                     <span class="counter">
                                         {% if product_total_quantity_nbr %}
@@ -103,38 +102,35 @@
                                         {% else %}0{% endif %}
                                     </span>
                                 </a>
-                                <a href="#" class="header-profile-icon">
+                                <a href="#" class="header-profile-icon not-mobil">
                                     <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
                                 </a>
-                                <a href="#" class="header-profile-icon">
-                                    <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
-                                </a>
-                                <div id="basket" class="shopping-list">
-                                    <div class="container-total-price">
-                                        <div class="total-price-title">Стоимость корзины:</div>
-                                        <span class="total-price">0</span>
-                                    </div>
-                                    <table class="shopping-list-container">
-                                        {% for product_in_basket in products_in_basket %}
-                                        <tr class="shopping-item">
-                                            <td>{{product_in_basket.product.name}}</td>
-                                            <td>{{product_in_basket.quantity_nbr}} шт.</td>
-                                            <td>{{product_in_basket.total_price}}</td>
-                                            <td class="shopping-list-delete"
-                                                data-product_id="{{product_in_basket.id}}"
-                                                title="Удалить товар"></td>
-                                        </tr>
-                                        {% endfor %}
-                                    </table>
-                                    <div class="order">
-                                        <button class="add-order">Сделать заказ</button>
-                                    </div>
-                                    <a href="#" class="close-basket" title="Закрыть корзину"></a>
-                                    <div class="alert">
-                                        <div class="alert-container">
-                                            <div class="alert-title">Всплыващие окно</div>
-                                            <button class="alert-button">Понятно</button>
-                                        </div>
+                            <a href="#" class="header-profile-icon not-mobil">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                            </a>
+                            <div class="shopping-list">
+                                <div class="container-total-price">
+                                    <div class="total-price-title">Стоимость корзины:</div>
+                                    <span class="total-price">0</span>
+                                </div>
+                                <table class="shopping-list-container">
+                                    {% for product_in_basket in products_in_basket %}
+                                    <tr class="shopping-item">
+                                        <td>{{product_in_basket.product.name}}</td>
+                                        <td>{{product_in_basket.quantity_nbr}} шт.</td>
+                                        <td>{{product_in_basket.total_price}}</td>
+                                        <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                <div class="order">
+                                    <button class="add-order">Сделать заказ</button>
+                                </div>
+                                <button class="close-basket" title="Закрыть корзину"></button>
+                                <div class="alert">
+                                    <div class="alert-container">
+                                        <div class="alert-title">Всплыващие окно</div>
+                                        <button class="alert-button">Понятно</button>
                                     </div>
                                 </div>
                             </div>

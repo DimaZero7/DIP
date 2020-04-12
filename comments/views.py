@@ -20,6 +20,3 @@ def comment_processing(request):
             new_comment.save()
             return redirect(reverse('product:detail', kwargs={'slug': this_product.slug}))
 
-
-
-

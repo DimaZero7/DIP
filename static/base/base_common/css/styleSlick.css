@@ -10,7 +10,7 @@
 
 .slider-item {
     text-align: center;
-    z-index: 9 !important;
+    z-index: 10 !important;
 }
 
 .slider-item img {
@@ -197,6 +197,11 @@
         width: 10px;
         height: 30px;
         margin: -15px 0 0 0;
+    }
+
+    .slider-item {
+        text-align: center;
+        z-index: 7 !important;
     }
 
     .sub-slider-min .slick-arrow.slick-prev {

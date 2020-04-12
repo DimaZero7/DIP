@@ -25,4 +25,3 @@ class ProductDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
         return context
-
