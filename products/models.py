@@ -34,7 +34,7 @@ class Product(models.Model):
     set = models.TextField('Комплект поставки')
 
     def get_absolute_url(self):
-        """Создание персональной ссылки для овара'"""
+        """Создание персональной ссылки для товара'"""
 
         return reverse('product:detail', kwargs={'slug': self.slug})
 

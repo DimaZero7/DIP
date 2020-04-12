@@ -7,7 +7,7 @@ from .forms import CommentForm, Comment
 
 
 def comment_processing(request):
-    """Обрабатуем запрос на созранение коментария"""
+    """Обрабатуем запрос на созданение коментария"""
 
     if request.method == 'POST':
         form = CommentForm(request.POST)

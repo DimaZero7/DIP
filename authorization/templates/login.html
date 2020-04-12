@@ -1,0 +1,23 @@
+{% extends 'base/base_common.html' %}
+{% load static %}
+{% block title  %}RD | Вход{% endblock %}
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAuthorization.css' %}">{% endblock %}
+ 
+{% block content %}
+<h1 class="main-h1">Вход</h1>
+<div class="userData">
+    <form action="#" class="userDataForm login" id="login" method="post">
+        {% csrf_token %}
+        <label>Почта<input type="email" id="mail" name="mail" minlength="3" value="" required></label>
+        <label>Пароль<input type="password" id="password" name="password" maxlength="20" minlength="8" value="" required></label>
+        <input type="submit" id="btn_submit" value="Войти">
+    </form>
+    <div class="cabinetButtons">
+        <a href="{% url 'authorization:register' %}">Регестрация</a>
+        <a href="#">Забыл пароль</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block addJS %}<script src="{% static 'base/base_common/css/js/validation/validation_login.js' %}"></script>{% endblock %}

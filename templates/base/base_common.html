@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/resize.css' %}">
     {% block addCSS %}{% endblock %}
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+    <meta name="description" content="{% block description %}{% endblock %}">
+
     <!--Фавикон-->
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/base_common/img/favicon/apple-icon-57x57.png' %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static 'base/base_common/img/favicon/apple-icon-60x60.png' %}">
@@ -41,6 +44,7 @@
             background-color: #fff;
             z-index: 10000;
         }
+
         .preloader-spin {
             width: 50%;
             height: 50%;
@@ -51,8 +55,10 @@
             z-index: 10001;
             background: url(../../static/base/base_common/img/preloader.gif) 50% 50% / 30% no-repeat;
         }
+
     </style>
 </head>
+
 <body>
     <div class="wrapper">
         <header class="header">
@@ -91,7 +97,11 @@
                             <div class="active-for-mobile">
                                 <a href="#basket" class="header-profile-icon shopping">
                                     <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
-
+                                    <span class="counter">
+                                        {% if product_total_quantity_nbr %}
+                                        {{product_total_quantity_nbr}}
+                                        {% else %}0{% endif %}
+                                    </span>
                                 </a>
                                 <a href="#" class="header-profile-icon">
                                     <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
@@ -105,7 +115,16 @@
                                         <span class="total-price">0</span>
                                     </div>
                                     <table class="shopping-list-container">
-                                        <!--товары в корзине-->
+                                        {% for product_in_basket in products_in_basket %}
+                                        <tr class="shopping-item">
+                                            <td>{{product_in_basket.product.name}}</td>
+                                            <td>{{product_in_basket.quantity_nbr}} шт.</td>
+                                            <td>{{product_in_basket.total_price}}</td>
+                                            <td class="shopping-list-delete"
+                                                data-product_id="{{product_in_basket.id}}"
+                                                title="Удалить товар"></td>
+                                        </tr>
+                                        {% endfor %}
                                     </table>
                                     <div class="order">
                                         <button class="add-order">Сделать заказ</button>
@@ -113,7 +132,7 @@
                                     <a href="#" class="close-basket" title="Закрыть корзину"></a>
                                     <div class="alert">
                                         <div class="alert-container">
-                                            <div class="alert-title"> Товаров в корзине нет</div>
+                                            <div class="alert-title">Всплыващие окно</div>
                                             <button class="alert-button">Понятно</button>
                                         </div>
                                     </div>
@@ -133,7 +152,9 @@
                 <div class="main-container">
                     {% include 'catalog/categories_menu_include.html' %}
                     <div class="content">
-                        <div class="preloader"><div class="preloader-spin"></div></div>
+                        <div class="preloader">
+                            <div class="preloader-spin"></div>
+                        </div>
                         {% block content %}{% endblock %}
                     </div>
                 </div>
@@ -204,9 +225,12 @@
     <script>
         //прелоадер
         $(window).on('load', function() {
-            var $preloader = $('.preloader'), $preloaderSpin = $('.preloader-spin');
-            $preloaderSpin.fadeOut(); $preloader.delay(50).fadeOut('slow');
+            var $preloader = $('.preloader'),
+                $preloaderSpin = $('.preloader-spin');
+            $preloaderSpin.fadeOut();
+            $preloader.delay(50).fadeOut('slow');
         })
+
     </script>
     <script src="{% static 'base/base_common/js/slick.min.js' %}"></script>
     <script src="{% static 'base/base_common/js/scripts.js' %}"></script>

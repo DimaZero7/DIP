@@ -4,43 +4,32 @@
 
 {% block content %}
 
-    {% include 'poster/poster_include.html' %}
+{% include 'poster/poster_include.html' %}
 
 
-    <div class="main-content-block">
-        <div class="main-product">
-            {% for product in product_list|slice:":30" %}
-                <article class="product-block">
-                    <div class="product-title">
-                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                    </div>
-                    <div class="product-img">
-                        <a href="{{ product.get_absolute_url }}">
-                            {% for prodimg in product.prodimg.all %}
-                                {% if forloop.counter == 1 %}
-                                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
-                                {% endif %}
-                            {% endfor %}
-                        </a>
-                    </div>
-                    <div class="product-info">
-                        <form action="#" method="post" id="buyProduct" class="detail-add">
-                           {% csrf_token %}
-                            <div class="detail-price-buttons">
-                                <div class="product-price">{{ product.price }}</div>
-                                <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
-                            </div>
-                            <div class="detail-block-servis">Сколько купить?:
-                                <div class="detail-quantity">
-                                    <input type="number" maxlength="3" value="1" name="quantity_nbr" id="quantity_nbr">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </article>
-            {% empty %}
-            <div class="product-none">Товаров нет</div>
-            {% endfor %}
-        </div>
+<div class="main-content-block">
+    <div class="main-product">
+        {% for product in product_list|slice:":30" %}
+        <article class="product-block">
+            <div class="product-title">
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            </div>
+            <div class="product-img">
+                <a href="{{ product.get_absolute_url }}">
+                    {% for prodimg in product.prodimg.all %}
+                    {% if forloop.counter == 1 %}
+                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                    {% endif %}
+                    {% endfor %}
+                </a>
+            </div>
+            <div class="product-info">
+                <div class="product-price">{{ product.price }}</div>
+            </div>
+        </article>
+        {% empty %}
+        <div class="product-none">Товаров нет</div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}

@@ -3,9 +3,9 @@ from django.shortcuts import reverse
 
 
 def category_img_name(instance, filename):
-    """Фнкция состовляющая путь хранения картини категории"""
+    """Функция состовляющая путь хранения картини категории"""
 
-    return 'categories/{0}/img/{1}'.format(instance.slug, filename)
+    return 'categories'.format(instance.slug, filename)
 
 
 class Category(models.Model):

@@ -1,13 +1,13 @@
 {% extends 'base/base_common.html' %}
 
 {% block title  %}
-    {{ category.name }}
+{{ category.name }}
 {% endblock %}
 
 {% block content %}
 <h1 class="main-h1">{{ category.name }}</h1>
 <form class="filter">
-   <input type="submit" value="Выполнить">
+    <input type="submit" value="Выполнить">
     <div class="filter-container">
         <div class="filter-block">
             <div class="filter-title">Цена</div>
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="grid">
         <div class="grid-1"></div>
         <div class="grid-2"></div>
@@ -61,31 +61,20 @@
             <a href="{{ product.get_absolute_url }}">
                 {# Вывожу 1-ую картинку текущего товара #}
                 {% for prodimg in product.prodimg.all %}
-                    {% if forloop.counter == 1 %}
-                        <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
-                    {% endif %}
+                {% if forloop.counter == 1 %}
+                <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                {% endif %}
                 {% endfor %}
             </a>
         </div>
         <div class="product-info">
-            <form action="#" method="post" id="buyProduct" class="detail-add">
-                {% csrf_token %}
-                <div class="detail-price-buttons">
-                    <div class="product-price">{{ product.price }}</div>
-                    <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}"></button>
-                </div>
-                <div class="detail-block-servis">Сколько купить?:
-                    <div class="detail-quantity">
-                        <input type="number" value="1" name="quantity_nbr" id="quantity_nbr">
-                    </div>
-                </div>
-            </form>
+            <div class="product-price">{{ product.price }}</div>
         </div>
     </article>
     {% empty %}
-        <div class="product-none" title="Товаров в категории {{ category.name }} нет">
-            <span></span>
-        </div>
+    <div class="product-none" title="Товаров в категории {{ category.name }} нет">
+        <span></span>
+    </div>
     {% endfor %}
 
 
