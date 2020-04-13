@@ -94,19 +94,17 @@
                             <button class="header-search-button"></button>
                         </form>
                         <div class="header-profile">
-                                <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
-                                    <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
-                                    <span class="counter">
-                                        {% if product_total_quantity_nbr %}
-                                        {{product_total_quantity_nbr}}
-                                        {% else %}0{% endif %}
-                                    </span>
-                                </a>
-                                <a href="#" class="header-profile-icon not-mobil">
-                                    <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
-                                </a>
+                            {% if user.username %}
+                            <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
+                                <span class="counter">
+                                    {% if product_total_quantity_nbr %}
+                                    {{product_total_quantity_nbr}}
+                                    {% else %}0{% endif %}
+                                </span>
+                            </a>
                             <a href="#" class="header-profile-icon not-mobil">
-                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
                             </a>
                             <div class="shopping-list">
                                 <div class="container-total-price">
@@ -134,9 +132,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="header-profile-icon profile">
+                            <a href="{% if user.username %}#{% else %}
+                               {% url 'authorization:login' %}{% endif %}
+                               " class="header-profile-icon profile" title="Профиль">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
                             </a>
+                            {% else %}
+                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                            </a>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>
@@ -218,6 +224,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'base/base_common/js/jquery.touchSwipe.min.js' %}"></script>
     <script>
         //прелоадер
         $(window).on('load', function() {

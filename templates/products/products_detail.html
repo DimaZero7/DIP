@@ -30,17 +30,14 @@
                 </div>
                 {% endfor %}
             </div>
-        </div> 
+        </div>
         <div class="detail-servis">
             <div class="detail-block">
                 <form action="{% url 'orders:basket_add' %}" method="post" id="buyProduct" class="detail-add">
                     {% csrf_token %}
                     <div class="detail-price-buttons">
                         <div class="detail-price">{{ product.price }}</div>
-                        <button type="submit" class="detail-add-basket" id="addBasket"
-                         data-product-id="{{ product.id }}" 
-                         data-product-title="{{ product.name }}" 
-                         data-product-price="{{ product.price }}">В корзину</button>
+                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}">В корзину</button>
                     </div>
                     <div class="detail-block-servis">Сколько купить?:
                         <div class="detail-quantity">
@@ -57,12 +54,11 @@
                         <div class="detail-sub-block">{{product.warranty}}</div>
                     </div>
                 </form>
-                {#                -----------------#}
-                {#                <div class="detail-manufacturers">#}
-                {#                    <img src="{{product.manufacture.img.url}}" alt="{{product.manufacture.name}}">#}
-                {#                    <div class="manufacturers-block">{{product.manufacture.name}}</div>#}
-                {#                    <div class="manufacturers-block">{{product.manufacture.country}}</div>#}
-                {#                </div>#}
+                <div class="detail-manufacturers">
+                    <img src="{{product.manufacture.img.url}}" alt="{{product.manufacture.name}}">
+                    <div class="manufacturers-block">{{product.manufacture.name}}</div>
+                    <div class="manufacturers-block">{{product.manufacture.country}}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -83,7 +79,14 @@
             <div class="detail-li-title spoiler-active arrow arrow">Отзывы</div>
             <div class="detail-li-content spoiler-content">
                 {% include 'comments/comment_output_include.html' %}
+                {% if user.username %}
                 {% include 'comments/comment_input_include.html' %}
+                {% else %}
+                <div class="comment-none">
+                    Для того что бы оставлять коментарии нужно быть авторизованным
+                    <a href="{% url 'authorization:login' %}">Войти</a>
+                </div>
+                {% endif %}
             </div>
         </div>
         <div class="detail-li">

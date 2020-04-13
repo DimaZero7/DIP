@@ -244,7 +244,25 @@ input[type="number"]::-webkit-inner-spin-button {
     transition: .3s;
 }
 
-.commentNone {}
+.comment-none {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.comment-none a{
+    padding: 5px;
+    border: 2px solid var(--text);
+    width: 200px;
+    margin: 10px auto;
+    color: var(--text);
+    transition: .3s;
+}
+
+.comment-none a:hover{
+    background-color: var(--red);
+    transition: .3s;
+}
 
 @media (max-width:769px) {
     .detail-short {

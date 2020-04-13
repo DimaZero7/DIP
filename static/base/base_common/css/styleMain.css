@@ -63,7 +63,7 @@ img {
     position: fixed;
     overflow: visible;
     width: 100%;
-    z-index: 10;
+    z-index: 12;
     left: 0;
     top: 0;
     transition: .3s;
@@ -290,18 +290,17 @@ img {
     border-right: 10px solid transparent;
     border-top: 10px solid var(--text);
     top: -10px;
-    right: 112px;
+    right: 60px;
     transform: rotate(180deg);
 }
 
 /*Кнопка закрытия корзины*/
 .close-basket {
     position: absolute;
-    top: -10px;
-    right: -2%;
+    top: 0;
+    right: 0;
     width: 20px;
     height: 20px;
-    border-radius: 100px;
     cursor: pointer;
     background: url(../img/close.webp) 50% 50% / 100% no-repeat;
     background-color: var(--red);
@@ -338,7 +337,8 @@ img {
 .container-total-price {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid var(--text)
+    border-bottom: 2px solid var(--text);
+    padding: 0 20px 0 0;
 }
 
 .total-price::after {
@@ -526,10 +526,11 @@ img {
     transition: .3s;
     left: -25%;
     padding: 0;
-    top: -1px;
+    top: 2px;
     height: 500px;
-    border-right: 2px solid var(--text);
-    z-index: 9;
+    border: 2px solid var(--text);
+    border-top: 0;
+    z-index: 12;
 }
 
 .main-manu-link {
@@ -1140,7 +1141,7 @@ span.pages-item {
     }
 
     .header-profile-icon {
-        width: 27px;
+        width: 35px;
     }
 
     .shopping-list:target {
@@ -1374,12 +1375,6 @@ span.pages-item {
         height: 4px;
         left: 3px;
         top: 17px
-    }
-
-    .main-manu-link {
-        color: var(--text);
-        font-size: 17px;
-        width: 100%;
     }
 
     .main-manu-link:hover {
