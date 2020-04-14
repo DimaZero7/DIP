@@ -1017,10 +1017,10 @@ span.pages-item {
 
 /*Изображения для товаров или слайдера без картинок*/
 .product-none {
-    height: 400px;
-    width: 50%;
+    height: 200px;
+    width: 200px;
     background-color: var(--red);
-    margin: 0 auto;
+    margin: 20px auto;
     position: relative;
 }
 

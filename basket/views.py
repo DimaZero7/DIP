@@ -9,7 +9,7 @@ from .forms import UserForBasket
 
 def basket(request):
     session_key = request.session.session_key
-    product_in_basket = ProductsInBasket.objects.filter(session_key=session_key, is_active=True)
+    product_in_basket = ProductsInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=True)
     form = UserForBasket(request.POST or None)
     if request.POST:
         print(request.POST)
@@ -28,6 +28,7 @@ def basket(request):
                     product_in_basket = ProductsInBasket.objects.get(id=product_in_basket_id)
                     
                     product_in_basket.quantity_nbr = value
+                    product_in_basket.order = order
                     product_in_basket.save(force_update=True)
                     
                     ProductsInOrder.objects.create(product=product_in_basket.product,

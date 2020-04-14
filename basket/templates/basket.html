@@ -28,6 +28,7 @@
                 </div>
             </div>
         </div>
+        {% if product_in_basket %}
         <table class="basket">
             <thead>
                 <tr>
@@ -74,6 +75,11 @@
         <div class="basket-submit">
             <input type="submit" value="Заказать">
         </div>
+        {% else%}
+        <div class="product-none" title="Товаров в коризне нет">
+            <span></span>
+        </div>
+        {% endif %}
     </form>
 </div>
 {% endblock %}
