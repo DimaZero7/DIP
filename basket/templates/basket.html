@@ -13,7 +13,6 @@
         {% csrf_token %}
         <div class="userdata">
             <div class="userdata-title">Данные пользователя</div>
-            {% if user.username %}
             <div class="userdata-content">
                 <div class="userdata-line">
                     <label for="client-first_name" class="userdata-line-title">Имя</label>
@@ -25,25 +24,9 @@
                 </div>
                 <div class="userdata-line">
                     <label for="client-email" class="userdata-line-title">Почта</label>
-                    <input id="client-email" type="text" value="{{user.email}}" name="{{form.client_email.html_name}}" title="Почта" required>
+                    <input id="client-email" type="email" value="{{user.email}}" name="{{form.client_email.html_name}}" title="Почта" required>
                 </div>
             </div>
-            {% else %}
-            <div class="userdata-content">
-                <div class="userdata-line">
-                    <label for="client-first_name" class="userdata-line-title">Имя</label>
-                    <input id="client-first_name" type="text" name="{{form.client_first_name.html_name}}" title="Имя" required placeholder="Введите Имя">
-                </div>
-                <div class="userdata-line">
-                    <label for="client-last_name" class="userdata-line-title">Фамлия</label>
-                    <input id="client-last_name" type="text" name="{{form.client_last_name.html_name}}" title="Фамилия" required placeholder="Введите Фамилию">
-                </div>
-                <div class="userdata-line">
-                    <label for="client-email" class="userdata-line-title">Почта</label>
-                    <input id="client-email" type="text" name="{{form.client_email.html_name}}" title="Почта" required placeholder="Введите почту">
-                </div>
-            </div>
-            {% endif %}
         </div>
         <table class="basket">
             <thead>
