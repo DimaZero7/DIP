@@ -528,8 +528,8 @@ img {
     padding: 0;
     top: 2px;
     height: 500px;
-    border: 2px solid var(--text);
-    border-top: 0;
+    border-bottom: 2px solid var(--text);
+    border-right: 2px solid var(--text);
     z-index: 12;
 }
 
@@ -890,6 +890,51 @@ img {
     width: 100%;
     height: 100%;
     z-index: 31;
+}
+
+.input-number-button {
+    width: 20px;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--text);
+    font-size: 0;
+}
+
+.input-number-button.up-value{
+    transform: rotate(180deg);
+}
+
+.input-number-button::before,
+.input-number-button::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: var(--text);
+    left: 2px;
+}
+
+.input-number-button::before{
+    transform: rotate(-45deg);
+    top: 8px;
+        
+}
+
+.input-number-button::after{
+    transform: rotate(45deg);
+    top: 14px;
+        
+}
+
+.basket-nbr .input-number {
+    border: 2px solid var(--text);
+    background-color: transparent;
+    padding: 1px;
+    text-align: center;
+    color: var(--text);
+    font-size: 18px;
+    margin: 0 2px;
+    width: 30%;
 }
 
 /*Пагинация*/

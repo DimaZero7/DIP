@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Orders
+from .models import ProductsInBasket
 
 def basket_add(request):
     return_dict = dict()
@@ -9,18 +9,18 @@ def basket_add(request):
     data = request.POST
     product_id = data.get("product_id")
     quantity_nbr = data.get("quantity_nbr")
-    
+     
     is_delete = data.get("is_delete")
 
     if is_delete == 'true':
-        Orders.objects.filter(id=product_id).update(is_active=False)
+        ProductsInBasket.objects.filter(id=product_id).update(is_active=False)
     else:
-        new_product, created = Orders.objects.get_or_create(session_key=session_key, product_id=product_id, is_active=True, defaults={"quantity_nbr":quantity_nbr }  )
+        new_product, created = ProductsInBasket.objects.get_or_create(session_key=session_key, product_id=product_id, is_active=True, defaults={"quantity_nbr":quantity_nbr }  )
         if not created:
             new_product.quantity_nbr += int(quantity_nbr)
             new_product.save(force_update=True)
         
-    products_in_basket = Orders.objects.filter(session_key=session_key, is_active=True)
+    products_in_basket = ProductsInBasket.objects.filter(session_key=session_key, is_active=True)
     product_total_quantity_nbr = products_in_basket.count()  
     return_dict["product_total_quantity_nbr"] = product_total_quantity_nbr
     

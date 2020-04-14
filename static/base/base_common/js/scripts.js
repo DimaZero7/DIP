@@ -209,10 +209,11 @@ $(document).ready(function () {
     })
 
     //Уведомление о том что товаров в корзине нет
-    $('.add-order').click(function () {
+    $('.add-order').click(function (e) {
         if ($('.shopping-list-container tr').hasClass('shopping-item')) {
             console.log('Товар в коризне');
         } else {
+            e.preventDefault();
             console.log('Товар в коризне нет');
             $('.alert-title').text('Товаров в корзине нет');
             $('.alert').css('display', 'block');
@@ -225,6 +226,7 @@ $(document).ready(function () {
         $('.alert-title').text(' Всплыващие окно ');
     })
 
+    //Просмотр картинок в полном размере
     $('.slider-img').click(function () {
         $(this).clone() // сделаем копию картинки на которую было нажато
             .addClass("active-slider-img") // добавим этой копии класс активации
@@ -237,8 +239,56 @@ $(document).ready(function () {
         $("body").removeClass("lock");
         $(".product-big").removeClass("active-product-big");
     })
+
+//    //Взамодействие с input number
+//    $(function () {
+//        (function quantityProducts() {
+//            var $quantityArrowMinus = $(".down-value");
+//            var $quantityArrowPlus = $(".up-value");
+//
+//            $quantityArrowMinus.click(quantityMinus);
+//            $quantityArrowPlus.click(quantityPlus);
+//
+//            function quantityMinus(e) {
+//                e.preventDefault();
+//                var $quantityNum = $(this).siblings('.input-number');
+//                if ($quantityNum.val() > 1) {
+//                    $quantityNum.val(+$quantityNum.val() - 1);
+//                }
+//            }
+//
+//            function quantityPlus(e) {
+//                e.preventDefault();
+//                var $quantityNum = $(this).siblings('.input-number');
+//                $quantityNum.val(+$quantityNum.val() + 1);
+//            }
+//        })();
+//    });
+
+    
+    //Пересчет суммы заказа в корзине
+    function calculateBasketAmount() {
+        var summ_order = 0;
+        $('.summary').each(function () {
+            summ_order += parseFloat($(this).text());
+        })
+
+        $('.basket-full-price input').val(summ_order.toFixed(2));
+    };
+
+    $(document).on('change', ".input-number", function () {
+        var current_quantity = $(this).val();
+        var current_tr = $(this).closest('tr');
+        var current_price = parseFloat(current_tr.find('.basket-price-item').text()).toFixed(2);
+        var total_price = parseFloat(current_quantity * current_price).toFixed(2);
+        current_tr.find('.summary').text(total_price);
+        calculateBasketAmount();
+    })
+    calculateBasketAmount();
+
 });
 
+//Взаимодействие со свайпами
 if ($(window).width() < 500) {
     jQuery('body').swipe({
         swipeStatus: function (event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
@@ -267,7 +317,7 @@ if ($(window).width() < 500) {
                 }
             }
         },
-        triggerOnTouchEnd:false,
+        triggerOnTouchEnd: false,
         threshold: 50 // сработает через 20 пикселей
-        })
+    })
 }

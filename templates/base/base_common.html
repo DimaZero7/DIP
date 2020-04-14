@@ -82,9 +82,11 @@
                             <a href="#" class="header-icon" title="Время работы">
                                 <img src="{% static 'base/base_common/img/header-icon/watch.svg' %}" alt="Время работы">
                             </a>
+                            {% if user.username %}
                             <a href="#" class="header-icon" title="Уведомления">
                                 <img src="{% static 'base/base_common/img/header-icon/bell.svg' %}" alt="Уведомления">
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="header-main">
@@ -122,7 +124,11 @@
                                     {% endfor %}
                                 </table>
                                 <div class="order">
-                                    <button class="add-order">Сделать заказ</button>
+                                    <a class="add-order" href="{% if user.username %}
+                                    {% url 'basket:basket' %}
+                                    {% else %}
+                                    {% url 'authorization:login' %}
+                                    {% endif %}">Сделать заказ</a>
                                 </div>
                                 <button class="close-basket" title="Закрыть корзину"></button>
                                 <div class="alert">

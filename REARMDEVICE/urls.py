@@ -12,4 +12,5 @@ urlpatterns = [
     path('comments/', include('comments.urls')),
     path('auth/', include('authorization.urls')),  # авторизация
     path('basket_add/', include('orders.urls')), # добавление товаров в корзину
+    path('basket/', include('basket.urls')), # корзину
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

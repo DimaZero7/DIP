@@ -1,15 +1,76 @@
 from django.db import models
 
 from products.models import Product
- 
-class Orders(models.Model):
+from django.contrib.auth.models import User
+    
+    
+class Status(models.Model):
+    name = models.CharField(max_length=24, blank=True, default=None,  verbose_name='Название статуса')
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return "Статус %s" % self.name
+
+    class Meta:
+        verbose_name = 'Статус заказа'
+        verbose_name_plural = 'Статусы заказа'
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,  blank=True, null=True, default = None, verbose_name='Пользователь')
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Сумма заказа')
+    first_name =  models.CharField(max_length=64, blank=True, null=True, default = None, verbose_name='Имя ')
+    last_name =  models.CharField(max_length=64, blank=True, null=True, default = None, verbose_name='Фамилия ')
+    email =  models.EmailField(max_length=64, blank=True, null=True, default = None, verbose_name='Почта пользователя');
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Статус')
+    
+    def __str__(self):
+        return "Заказ %s %s" % (self.id, self.status.name)
+    
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+        
+    def save(self, *args, **kwargs):
+
+        super(Order, self).save(*args, **kwargs)
+        
+
+class ProductsInOrder(models.Model):
+    order = models.ForeignKey(Order, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Заказ')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')
+    product = models.ForeignKey(Product, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Товар')
+    price_per_item = models.IntegerField(default = 1, verbose_name='Цена за одну штуку')
+    quantity_nbr = models.IntegerField(default = 1, verbose_name='Количество')
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Общая сумма')
+    is_active = models.BooleanField(default=True, verbose_name='Статус')
+    
+    def __str__(self):
+        return self.product.name
+
+    class Meta:
+        verbose_name = 'Товар в заказе'
+        verbose_name_plural = 'Товары в заказе'
+    
+    def save(self, *args, **kwargs):
+        price_per_item = self.product.price
+        self.price_per_item = price_per_item
+        print (self.quantity_nbr)
+
+        self.total_price = int(self.quantity_nbr) * price_per_item
+
+        super(ProductsInOrder, self).save(*args, **kwargs)
+        
+    
+class ProductsInBasket(models.Model):
+    order = models.ForeignKey(Order, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Заказ')
     session_key = models.CharField(max_length=128)
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')
     product = models.ForeignKey(Product, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Товар')
     price_per_item = models.IntegerField(default = 1, verbose_name='Цена за одну штуку')
-    quantity_nbr = models.IntegerField(default = 1, verbose_name='Количество товара')
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Общая сумма за товар')
-    is_active = models.BooleanField(default=True, verbose_name='Актиность товара в корзине')
+    quantity_nbr = models.IntegerField(default = 1, verbose_name='Количество')
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Общая сумма')
+    is_active = models.BooleanField(default=True, verbose_name='Стутус')
     
     def __str__(self):
         return self.product.name
@@ -23,4 +84,4 @@ class Orders(models.Model):
         self.price_per_item = price_per_item
         self.total_price = int(self.quantity_nbr)*self.product.price
         
-        super(Orders, self).save(*args, **kwargs)
+        super(ProductsInBasket, self).save(*args, **kwargs)
