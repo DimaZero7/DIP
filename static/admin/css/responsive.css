@@ -424,15 +424,6 @@ button {
 @media (max-width: 767px) {
     /* Layout */
 
-    #header {
-        flex-direction: column;
-        padding: 10px 15px 20px 15px;
-    }
-
-    .name {
-        top: 20px;
-    }
-
     #branding a h1 {
         margin: 0 0 10px 0;
         background: url(../../base/common/img/logo/logo_max.png);
@@ -503,7 +494,10 @@ button {
     }
 
     #changelist .actions {
-        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
     }
 
     #changelist .actions label {
@@ -516,14 +510,12 @@ button {
     }
 
     #changelist .actions .button {
-        width: 25%;
-        min-width: 100px;
-        height: 60px;
+     margin: -10px -10px -12px 1%
     }
 
     #changelist .actions span {
-        flex: 1 0 100%;
-        padding: 0 0 0 80px;
+        padding: 0 10px;
+        display: none !important;
     }
 
     .change-list .filtered .results,
@@ -550,10 +542,9 @@ button {
     }
 
     .object-tools {
-        width: 98%;
         position: absolute;
-        top: 38px;
-        left: 2%;
+        top: 0;
+        left: 0%;
         margin: 0;
         display: flex;
         align-items: center;
@@ -563,7 +554,7 @@ button {
     .object-tools a {
         display: flex;
         align-items: center;
-        height: 40px;
+        height: 48px;
         font-size: 10px;
         padding: 0 7px;
         background: var(--dark);
@@ -1043,8 +1034,7 @@ button {
 @media (max-width: 500px) {
 
     #header {
-        flex-direction: column;
-        padding: 10px 15px 30px 15px;
+        
     }
 
     .name {
@@ -1064,27 +1054,28 @@ button {
     }
 
     .sub-title-container {
-        height: 70px;
+        
     }
 
     .sub-title {
-        font-size: 12px;
         white-space: nowrap;
+        text-overflow: ellipsis;
         overflow: hidden;
-        text-overflow: clip;
     }
 
     .object-tools a.addlink {
-        font-size: 8px
+        
     }
 
     .object-tools a {
-        height: 30px;
-        padding: 0 5px;
+        
     }
 
     #changelist .actions {
-        height: 50px;
+        height: 40px;
+        padding: 0;
+        align-items: center;
+        padding: 0 10px;
     }
 
     #changelist .actions label {
@@ -1099,10 +1090,7 @@ button {
     }
 
     #changelist .actions .button {
-        width: 25%;
-        min-width: 100px;
-        height: 30px;
-        top: 40px
+       font-size: 10px
     }
 
     #changelist .actions span.action-counter {

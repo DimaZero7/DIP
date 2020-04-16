@@ -781,7 +781,7 @@ img {
 /*Блок для отображение продуктов*/
 .main-product {
     display: flex;
-    justify-content: s;
+    justify-content: flex-start;
     flex-wrap: wrap;
     position: relative;
 }
@@ -808,15 +808,21 @@ img {
 }
 
 /*Заголовок продукта*/
+.product-title{
+    position: relative;
+    height: 30px;
+}
+
 .product-title a {
+    position: absolute;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    overflow: hidden;
     width: 100%;
     background-color: var(--dark);
     text-align: center;
-    padding: 5px 3%;
-    font-size: 15px;
+    padding: 6px 3%;
+    font-size: 16px;
     color: var(--text);
     transition: .3s;
 }
@@ -824,6 +830,7 @@ img {
 .product-title a:hover {
     color: var(--text);
 }
+
 /*Картинка продукта*/
 .product-img {
     position: relative;

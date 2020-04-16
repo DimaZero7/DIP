@@ -646,10 +646,10 @@ ul.messagelist li.error {
     display: block;
     padding: 10px 12px;
     margin: 0 0 10px 0;
-    color: #ba2121;
-    border: 1px solid #ba2121;
+    color: var(--text);
+    border: 2px solid var(--text);
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--dark);
     background-position: 5px 12px;
 }
 

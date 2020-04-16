@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     'poster.apps.PosterConfig',
     'manufacture.apps.ManufactureConfig',
     'comments.apps.CommentsConfig',
-    'orders.apps.OrdersConfig', # Приложение отвечающее за добавление товаров в корзину
-    'basket.apps.BasketConfig',  # Приложение отвечающее за авторизацию
+    'orders.apps.OrdersConfig', # Приложение отвечающее за заказы
+    'basket.apps.BasketConfig',  # Приложение отвечающее за добавление товаров корзину
+    'authorization.apps.AuthorizationConfig',  # Приложение отвечающее за регестрацию
 ]
 
 MIDDLEWARE = [
