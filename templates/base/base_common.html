@@ -133,7 +133,7 @@
                                     <a class="add-order" href="{% if user.username %}
                                     {% url 'basket:basket' %}
                                     {% else %}
-                                    {% url 'authorization:login' %}
+                                    {% url 'admin:login' %}
                                     {% endif %}">Сделать заказ</a>
                                 </div>
                                 <button class="close-basket" title="Закрыть корзину"></button>
