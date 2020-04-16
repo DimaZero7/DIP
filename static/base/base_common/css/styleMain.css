@@ -50,6 +50,10 @@ a {
     font-family: serif;
 }
 
+.content a, .content p{
+    color: var(--text);
+}
+
 ul {
     list-style-type: none;
 }
@@ -489,7 +493,7 @@ img {
 
 /*При активации акнопки меню*/
 .menu-active.active {
-    left: 25%;
+    left: 24.5%;
     transition: .3s;
     background-color: var(--red);
     height: 49px;
@@ -593,7 +597,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text)
+    color: var(--text);
+    font-family: serif;
 }
 
 /*Фильты для товаров*/

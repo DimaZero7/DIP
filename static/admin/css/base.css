@@ -1,24 +1,3 @@
-/*
-    DJANGO Admin styles
-*/
-
-:root {
-    --dark: #29384D;
-    /* - ТЕМНО СИНИЙ*/
-
-    --mid: #3C556E;
-    /* - СРЕДНЕ СИНИЙ*/
-
-    --lg: #517394;
-    /* - СВЕТЛО СИНИЙ*/
-
-    --red: #FF283F;
-    /* - КРАСНЫЙ*/
-
-    --text: #fff;
-    /*черный */
-}
-
 @import url(fonts.css);
 
 body {
@@ -27,29 +6,10 @@ body {
     font-size: 14px;
     font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
     color: #333;
-    background: var(--text);
 }
 
 /* LINKS */
 
-a:link,
-a:visited {
-    color: var(--dark);
-    text-decoration: none;
-}
-
-a:focus,
-a:hover {
-    text-decoration: underline;
-}
-
-a:focus {
-    text-decoration: underline;
-}
-
-a img {
-    border: none;
-}
 
 a.section:link,
 a.section:visited {
@@ -64,11 +24,6 @@ a.section:hover {
 
 /* GLOBAL DEFAULTS */
 
-ol,
-ul,
-dl {
-    margin: .2em 0 .8em 0;
-}
 
 h1,
 h2,
@@ -117,7 +72,7 @@ h5 {
 }
 
 ul li {
-    list-style-type: square;
+
     padding: 1px 0;
 }
 
@@ -285,7 +240,6 @@ a.quiet:visited {
 table {
     border-collapse: collapse;
     border-color: #ccc;
-    background-color: #e0e0e0;
     border: 0;
 }
 
@@ -293,10 +247,14 @@ td,
 th {
     font-size: 13px;
     line-height: 16px;
-    border-bottom: 2px solid var(--dark);
+    border-bottom: 2px solid var(--text);
     vertical-align: top;
     padding: 8px;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+th a, td {
+    color: var(--text);
 }
 
 th {
@@ -330,14 +288,14 @@ tr.alt {
 
 .row1,
 .row-form-errors {
-    background: #fff;
+    background-color: transparent;
 }
 
 .row2,
 .row2 .errorlist,
 .row1 + .row-form-errors,
 .row1 + .row-form-errors .errorlist {
-    background: #f9f9f9;
+    background-color: transparent;
 }
 
 /* SORTABLE TABLES */
@@ -351,8 +309,9 @@ thead th {
 }
 
 a.table-link {
-    color: var(--dark);
+    color: var(--text);
     font-weight: 100;
+    font-size: 15px;
 }
 
 thead th a:link,
@@ -542,11 +501,11 @@ input[type=submit],
 input[type=button],
 .submit-row input,
 a.button {
-    background: var(--mid);
+    background: var(--dark);
     padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
+    border: 2px solid var(--text);
+    border-radius: 10px;
+    color: var(--text);
     cursor: pointer;
 }
 
@@ -579,7 +538,8 @@ input[type=submit].default,
     float: right;
     border: none;
     font-weight: 400;
-    background: var(--mid);
+    background: var(--dark);
+    border: 2px solid var(--text);
 }
 
 .button.default:active,
@@ -604,7 +564,6 @@ input[type=button][disabled].default {
 .module {
     border: none;
     margin-bottom: 20px;
-    background-color: var(--lg);
 }
 
 .module p,
@@ -761,26 +720,35 @@ div.system-message p.system-message-title {
     padding: 5px 0 0 12px;
 }
 
+.delete-massage > *{
+    color: var(--text);
+}
+
 /* BREADCRUMBS */
+
 
 div.breadcrumbs {
     background: #79aec8;
-    padding: 10px 40px;
+    padding: 5px 40px;
     border: none;
     font-size: 14px;
     color: #c4dce8;
     text-align: left;
     color: var(--text);
+    display: flex;
+    margin: 0 -1%;
 }
 
 
 div.breadcrumbs a {
     color: silver;
+    padding: 0 5px;
 }
 
 div.breadcrumbs a:focus,
 div.breadcrumbs a:hover {
-    color: #c4dce8;
+    color: var(--text);
+    transition: .3s;
 }
 
 /* ACTION ICONS */
@@ -802,7 +770,7 @@ li.addlink a {
 }
 
 td a.addlink{
-    color: var(--dark)
+    color: var(--text)
 }
 
 a.addlink:hover,
@@ -820,10 +788,11 @@ li.addlink a:hover {
 a.changelink,
 li.changelink a {
     color: var(--text);
+    font-size: 15px;
 }
 
 td a.changelink{
-    color: var(--dark)
+    color: var(--text)
 }
 
 a.changelink:hover,
@@ -838,6 +807,7 @@ li.changelink a:hover {
 
 li.deletelink {
     color: var(--text);
+    font-size: 15px;
 }
 
 td a.deletelink{
@@ -887,16 +857,20 @@ table#change-history tbody th {
 .sub-title-container {
     background-color: var(--mid);
     position: relative;
-    padding: 0 30px;
+    padding: 0 30px 0 0;
     display: flex;
     align-items: center;
     height: 50px;
+    margin: -5px -1% 0 -1%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .sub-title {
     color: var(--text);
     padding: 10px 0;
     margin: 0;
+    margin: 0 20px;
 }
 
 /* OBJECT TOOLS */
@@ -906,9 +880,6 @@ table#change-history tbody th {
 }
 
 .object-tools {
-    position: absolute;
-    top: 0;
-    right: 30px;
     padding: 0;
     margin: -1px 0 0 0;
     display: flex;
@@ -1012,6 +983,7 @@ div.table-info {
     line-height: 1.2;
     margin-bottom: 10px;
     padding-left: 18px;
+    border-bottom: 2px solid var(--text);
 }
 
 #content-related .module h2 {
@@ -1039,7 +1011,6 @@ div.table-info {
 .delete-confirmation form .cancel-link {
     display: inline-block;
     vertical-align: middle;
-    height: 15px;
     line-height: 15px;
     background: #ddd;
     border-radius: 4px;
@@ -1062,25 +1033,33 @@ div.table-info {
 /* HEADER */
 
 #header {
-    width: auto;
-    height: auto;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px 0 30px;
-    color: #ffc;
-    background-color: var(--lg);
-    overflow: hidden;
-    flex-direction: row;
-    height: 60px
+    right: 0;
+    top: 0;
 }
 
-.name {
-    position: absolute;
-    top: 10px;
-    right: 40px;
-    font-size: 15px;
-    text-transform: uppercase;
+.name, #user-tools a {
+    font-size: 12px;
+    background-color: var(--dark);
+    color: var(--text);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+    margin: 0 5px;
+    font-family: sans-serif;
+    font-weight: 100;
+    text-transform: none;
+    transition: .3s;
+    border: 2px solid var(--text);
+    border-top: 0;
+}
+
+#user-tools a:hover{
+    background-color: var(--red);
+    transition: .3s;
 }
 
 #site-name {
@@ -1100,41 +1079,9 @@ div.table-info {
 }
 
 #user-tools {
-    padding: 0;
-    margin: 0 10px 0 0;
-    font-weight: 300;
-    font-size: 11px;
-    text-transform: uppercase;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 460px
-}
-
-
-a.admin-button {
-    background-color: var(--dark);
-    padding: 10px 5px;
-    flex: 0 1 150px;
-    margin: 0 5px;
-    text-align: center;
-    color: var(--text);
-    font-weight: bold;
-}
-
-.admin-button:first-child {
-    margin-left: 0;
-}
-
-.admin-button:last-child {
-    margin-right: 0;
-}
-
-#user-tools a:focus,
-#user-tools a:hover {
-    text-decoration: none;
-    background-color: var(--red);
-    transition: .3s
 }
 
 #branding h2 {

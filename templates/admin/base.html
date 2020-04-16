@@ -1,10 +1,13 @@
+{% extends 'base/base_common.html' %}
 {% load i18n static %}
-<!DOCTYPE html>
+
+{% block htmlLang %}
 {% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 <html lang="{{ LANGUAGE_CODE|default:"ru" }}" {% if LANGUAGE_BIDI %}dir="rtl" {% endif %}>
+{% endblock %}
 
-<head>
-    <title>{% block title %}{% endblock %}</title>
+    {% block title  %}Админестрирование{% endblock %}
+    {% block addCSS %}
     <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
     {% block extrastyle %}{% endblock %}
     {% if LANGUAGE_BIDI %}
@@ -18,37 +21,31 @@
     {% endblock %}
     {% block blockbots %}
     <meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
-</head>
-<script>
-    //Геренация случайного цвета подсветки
-    var colors = ['#FF283F',
-        'rgba(233, 33, 243, 1)',
-        'rgba(25, 212, 247, 1)'
-    ];
-    randomColor = colors[Math.random() * colors.length ^ 0];
-    document.documentElement.style.setProperty('--red', randomColor);
+    {% endblock %}
 
-</script>
+{% block addJS %}{% endblock %}
+
 {% load i18n %}
 
-<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" data-admin-utc-offset="{% now "Z" %}">
+{% block body %}
 
-    <!-- Container -->
-    <div id="container">
-        {% if not is_popup %}
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" data-admin-utc-offset="{% now "Z" %}">
+    {% endblock %}
+    {% block content_website %}
+    <h1 class="main-h1">Личный кабинет</h1>
+    {% block content_title %}
+    {% if title %}
+    <div class="sub-title-container">
+        {% block object-tools %}{% endblock %}
+        <h1 class="sub-title">{{ title }}</h1>
         <!-- Header -->
+        {% if not is_popup %}
         <div id="header">
-            <div id="branding">
-                {% block branding %}{% endblock %}
-            </div>
             {% block usertools %}
             {% if has_permission %}
-            <strong class="name">{% firstof user.get_short_name user.get_username %}</strong>
+
             <div id="user-tools">
                 {% block userlinks %}
-                {% if site_url %}
-                <a href="{{ site_url }}" class="admin-button">{% translate 'View site' %}</a>
-                {% endif %}
                 {% if user.is_active and user.is_staff %}
                 {% url 'django-admindocs-docroot' as docsroot %}
                 {% if docsroot %}
@@ -58,22 +55,27 @@
                 {% if user.has_usable_password %}
                 <a href="{% url 'admin:password_change' %}" class="admin-button">{% translate 'Change password' %}</a>
                 {% endif %}
-                <a href="{% url 'admin:logout' %}" class="admin-button">{% translate 'Log out' %}</a>
                 {% endblock %}
             </div>
+            <strong class="name">{% firstof user.get_short_name user.get_username %}</strong>
             {% endif %}
             {% endblock %}
             {% block nav-global %}{% endblock %}
         </div>
-        <!-- END Header -->
-        {% block breadcrumbs %}
-        <div class="breadcrumbs">
-            <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
-            {% if title %} &rsaquo; {{ title }}{% endif %}
-        </div>
-        {% endblock %}
         {% endif %}
+        <!-- END Header -->
+    </div>
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
 
+        <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>
+        {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+    {% endblock %}
+    {% endif %}
+    {% endblock %}
+    <!-- Container -->
+    <div id="container">
         {% block messages %}
         {% if messages %}
         <ul class="messagelist">{% for message in messages %}
@@ -83,14 +85,6 @@
         {% endblock messages %}
 
         <!-- Content -->
-        {% block content_title %}
-        {% if title %}
-        <div class="sub-title-container">
-            <h1 class="sub-title">{{ title }}</h1>
-            {% block object-tools %}{% endblock %}
-        </div>
-        {% endif %}
-        {% endblock %}
         <div id="content">
             {% block pretitle %}{% endblock %}
             {% block content %}
@@ -99,11 +93,9 @@
             {% block sidebar %}{% endblock %}
         </div>
         <!-- END Content -->
-
-        {% block footer %}<div id="footer"></div>{% endblock %}
     </div>
     <!-- END Container -->
-
+    {% endblock %}
 </body>
 
 </html>

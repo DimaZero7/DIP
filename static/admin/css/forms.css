@@ -6,7 +6,7 @@
     overflow: hidden;
     padding: 10px;
     font-size: 13px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--text);
 }
 
 .form-row img, .form-row input {
@@ -279,7 +279,7 @@ body.popup .submit-row {
 .submit-row a.deletelink {
     background: none;
     display: flex;
-    background-color: var(--mid);
+    background-color: var(--dark);
     border-radius: 0;
     margin: 0;
     height: 50px;
@@ -288,6 +288,7 @@ body.popup .submit-row {
     align-items: center;
     justify-content: center;
     padding: 0 10px;
+    border: 2px solid var(--text);
 }
 
 .deletelink-box{
@@ -300,7 +301,6 @@ body.popup .submit-row {
     background: #bbbbbb;
     border-radius: 4px;
     padding: 10px 15px;
-    height: 15px;
     line-height: 15px;
     margin: 0 0 0 5px;
     color: #fff;

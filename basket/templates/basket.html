@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'base/base_common/css/styleBasket.css' %}">
 {% endblock %}
 
-{% block content %}
+{% block content_website %}
 <h1 class="main-h1">Корзина</h1>
 <div class="basket-content">
     <form class="basket-form" method="post" action="#">
@@ -14,6 +14,14 @@
         <div class="userdata">
             <div class="userdata-title">Данные пользователя</div>
             <div class="userdata-content">
+               <div class="userdata-line">
+                    <label for="username" class="userdata-line-title">Логин</label>
+                    <input id="username" type="text" value="{{user.username}}" name="{{form.client_username.html_name}}" title="Логин" required>
+                </div>
+                <div class="userdata-line">
+                    <label for="client-email" class="userdata-line-title">Почта</label>
+                    <input id="client-email" type="email" value="{{user.email}}" name="{{form.client_email.html_name}}" title="Почта" required>
+                </div>
                 <div class="userdata-line">
                     <label for="client-first_name" class="userdata-line-title">Имя</label>
                     <input id="client-first_name" type="text" value="{{user.first_name}}" name="{{form.client_first_name.html_name}}" title="Имя" required>
@@ -21,10 +29,6 @@
                 <div class="userdata-line">
                     <label for="client-last_name" class="userdata-line-title">Фамлия</label>
                     <input id="client-last_name" type="text" value="{{user.last_name}}" name="{{form.client_last_name.html_name}}" title="Фамилия" required>
-                </div>
-                <div class="userdata-line">
-                    <label for="client-email" class="userdata-line-title">Почта</label>
-                    <input id="client-email" type="email" value="{{user.email}}" name="{{form.client_email.html_name}}" title="Почта" required>
                 </div>
             </div>
         </div>

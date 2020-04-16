@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 {% load static %}
+
+{% block htmlLang %}
 <html lang="ru">
+{% endblock %}
 
 <head>
     <title>RD | {% block title  %}{% endblock %}</title>
@@ -53,13 +56,16 @@
             top: 0%;
             margin: 0 0 0 -25%;
             z-index: 10001;
-            background: url(../../static/base/base_common/img/preloader.gif) 50% 50% / 30% no-repeat;
+            background: url({% static 'base/base_common/img/preloader.gif' %}) 50% 50% / 30% no-repeat;
         }
 
     </style>
 </head>
 
-<body>
+
+{% block body %}
+    <body>
+{% endblock %}
     <div class="wrapper">
         <header class="header">
             <div class="container">
@@ -138,13 +144,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{% if user.username %}#{% else %}
-                               {% url 'authorization:login' %}{% endif %}
-                               " class="header-profile-icon profile" title="Профиль">
+                            <a href="{% url 'admin:index' %}" class="header-profile-icon profile" title="Профиль">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
                             </a>
+                            <a href="{% url 'admin:logout' %}" class="header-profile-icon" title="Выход">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Выход">
+                            </a>
                             {% else %}
-                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
+                            <a href="{% url 'admin:login' %}" class="header-profile-icon profile" title="Авторизация">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
                             </a>
                             {% endif %}
@@ -163,7 +170,7 @@
                         <div class="preloader">
                             <div class="preloader-spin"></div>
                         </div>
-                        {% block content %}{% endblock %}
+                        {% block content_website %}{% endblock %}
                     </div>
                 </div>
             </div>
