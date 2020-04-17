@@ -80,10 +80,30 @@
 
 </div>
 <div class="pages">
+    <div class="pages-content">
+        {% if page_obj.has_previous %}
+        <a class="pages-item prev" href="?page={{ page_obj.previous_page_number }}"> &nbsp; &nbsp;</a>
+        <a class="pages-item pages-counter" href="?page=1">1</a>
+        {% endif %}
+
+
+        {% if page_obj.has_next %}
+        <a class="pages-item pages-counter" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+        <a class="pages-item next" href="?page={{ page_obj.next_page_number }}"> &nbsp; &nbsp;</a>
+    </div>
+    <div class="pages-info">
+        {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+    </div>
+    {% endif %}
+
+</div>
+<!--
+<div class="pages">
     <a class="pages-item prev" href="#"> &nbsp; &nbsp;</a>
     <a class="pages-item pages-counter" href="#">1</a>
     <a class="pages-item pages-counter" href="#">2</a>
     <a class="pages-item pages-counter" href="#">3</a>
     <a class="pages-item next" href="#"> &nbsp; &nbsp;</a>
 </div>
+-->
 {% endblock %}

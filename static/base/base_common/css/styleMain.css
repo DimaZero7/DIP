@@ -276,7 +276,7 @@ img {
     position: absolute;
     background-color: var(--mid);
     width: 400px;
-    right: 60px;
+    right: 112px;
     top: 82px;
     padding: 10px 10px 0 10px;
     color: var(--text);
@@ -343,6 +343,7 @@ img {
     justify-content: space-between;
     border-bottom: 2px solid var(--text);
     padding: 0 20px 0 0;
+    font-size: 18px;
 }
 
 .total-price::after {
@@ -955,13 +956,18 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
-    height: 30px;
+    height: 70px;
     bottom: 0;
     left: 0;
     margin: 0 auto;
     border-top: 2px solid var(--text);
     white-space: nowrap;
+}
+
+.pages-content{
+    display: flex;
 }
 
 a.pages-item,
@@ -971,15 +977,23 @@ span.pages-item {
 
 .pages-item.prev,
 .pages-item.next,
-.pages-item.pages-counter {
+.pages-item.pages-counter,
+.pages-info{
     position: relative;
     background-color: var(--red);
     border: 2px solid transparent;
     line-height: 7.5px;
+    font-weight: bold;
     padding: 7.5px;
     border-radius: 100px;
     margin: 0 0.5%;
     transition: .3s;
+}
+
+.pages-info{
+    margin: 5px 0 2px 0;
+    color: var(--text);
+    font-weight: bold;
 }
 
 .pages-item.prev {

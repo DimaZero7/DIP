@@ -116,8 +116,7 @@
                             </a>
                             <div class="shopping-list">
                                 <div class="container-total-price">
-                                    <div class="total-price-title">Стоимость корзины:</div>
-                                    <span class="total-price">0</span>
+                                    <div class="total-price-title">Корзина</div>
                                 </div>
                                 <table class="shopping-list-container">
                                     {% for product_in_basket in products_in_basket %}
@@ -131,10 +130,10 @@
                                 </table>
                                 <div class="order">
                                     <a class="add-order" href="{% if user.username %}
-                                    {% url 'basket:basket' %}
+                                    {% url 'orders:basket' %}
                                     {% else %}
                                     {% url 'admin:login' %}
-                                    {% endif %}">Сделать заказ</a>
+                                    {% endif %}">Перейти к заказу</a>
                                 </div>
                                 <button class="close-basket" title="Закрыть корзину"></button>
                                 <div class="alert">

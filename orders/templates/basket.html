@@ -15,19 +15,19 @@
             <div class="userdata-title">Данные пользователя</div>
             <div class="userdata-content">
                <div class="userdata-line">
-                    <label for="username" class="userdata-line-title">Логин</label>
+                    <label for="username" class="userdata-line-title">Логин:</label>
                     <input id="username" type="text" value="{{user.username}}" name="{{form.client_username.html_name}}" title="Логин" required>
                 </div>
                 <div class="userdata-line">
-                    <label for="client-email" class="userdata-line-title">Почта</label>
+                    <label for="client-email" class="userdata-line-title">Почта:</label>
                     <input id="client-email" type="email" value="{{user.email}}" name="{{form.client_email.html_name}}" title="Почта" required>
                 </div>
                 <div class="userdata-line">
-                    <label for="client-first_name" class="userdata-line-title">Имя</label>
+                    <label for="client-first_name" class="userdata-line-title">Имя:</label>
                     <input id="client-first_name" type="text" value="{{user.first_name}}" name="{{form.client_first_name.html_name}}" title="Имя" required>
                 </div>
                 <div class="userdata-line">
-                    <label for="client-last_name" class="userdata-line-title">Фамлия</label>
+                    <label for="client-last_name" class="userdata-line-title">Фамлия:</label>
                     <input id="client-last_name" type="text" value="{{user.last_name}}" name="{{form.client_last_name.html_name}}" title="Фамилия" required>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <tr>
                     <td class="basket-img">Итого:</td>
                     <td class="basket-name">&nbsp;</td>
-                    <td class="basket-price-item">&nbsp;</td>
+                    <td class="basket-price-item total">&nbsp;</td>
                     <td class="basket-nbr">&nbsp;</td>
                     <td class="basket-full-price">
                         <input type="text" value="{{product_in_basket.total_price}}" name="total_price">

@@ -1,4 +1,4 @@
-.basket-content{
+.basket-content {
     margin: 0 auto;
     width: 80%;
 }
@@ -7,32 +7,36 @@
     color: var(--text);
     border-bottom: 2px solid var(--text);
 }
+
 .userdata-title {
     font-size: 20px;
 }
+
 .userdata-content {
     display: flex;
     width: 100%;
     justify-content: flex-start;
     margin: 10px 0;
-}
-.userdata-line {
-    margin: 0 10px;
+    flex-flow: row wrap;
 }
 
-.userdata-line input{
+.userdata-line {
+    margin: 10px;
+}
+
+.userdata-line input {
     background-color: transparent;
     border: 2px solid var(--text);
     color: var(--text);
     padding: 5px;
 }
 
-.userdata-line input::placeholder{
+.userdata-line input::placeholder {
     color: var(--text);
 }
 
 .userdata-line-title {
-    padding: 5px 0 5px 10px ;
+    padding: 5px 0 5px 10px;
 }
 
 .basket {}
@@ -45,6 +49,7 @@
     padding: 0 10px;
     text-align: center;
     color: var(--text);
+    font-size: 17px;
 }
 
 .basket thead tr {
@@ -72,10 +77,22 @@
 
 .basket-name {
     flex: 0 1 35%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .basket-price-item {
     flex: 0 1 10%;
+    white-space: nowrap;
+}
+
+.basket-price-item::after {
+    content: ' ₽';
+}
+
+.basket-price-item.total::after{
+    content: '';
 }
 
 .basket-nbr {
@@ -92,7 +109,7 @@
     font-size: 0;
 }
 
-.input-number-button button.up-value{
+.input-number-button button.up-value {
     transform: rotate(180deg);
 }
 
@@ -106,16 +123,16 @@
     left: 2px;
 }
 
-.input-number-button::before{
+.input-number-button::before {
     transform: rotate(-45deg);
     top: 8px;
-        
+
 }
 
-.input-number-button::after{
+.input-number-button::after {
     transform: rotate(45deg);
     top: 14px;
-        
+
 }
 
 .basket-nbr .input-number {
@@ -126,16 +143,16 @@
     color: var(--text);
     font-size: 18px;
     margin: 0 2px;
-    width: 30%;
+    width: 60px;
 }
 
 .basket-full-price {
     flex: 0 1 20%;
     white-space: nowrap;
-    
+
 }
 
-.basket-full-price input{
+.basket-full-price input {
     background-color: transparent;
     color: white;
     font-size: 16px;
@@ -143,23 +160,23 @@
     font-family: serif;
 }
 
-.basket-full-price::after{
+.basket-full-price::after {
     content: ' ₽';
-    
+
 }
 
 .summary::after,
-.summ-order::after{
+.summ-order::after {
     content: ' ₽';
 }
 
-.basket-submit{
+.basket-submit {
     margin: 10px 0;
     display: flex;
     justify-content: flex-end;
 }
 
-.basket-submit input{
+.basket-submit input {
     padding: 5px;
     background-color: transparent;
     border: 2px solid var(--text);
@@ -168,7 +185,55 @@
     transition: .3s;
 }
 
-.basket-submit input:hover{
+.basket-submit input:hover {
     background-color: var(--red);
     transition: .3s;
+}
+
+@media (max-width:769px) {
+
+
+    .userdata-content {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .userdata-line {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .userdata-line-title {
+        text-align: right;
+        width: 100%;
+        margin: 0 10px 0 0;
+    }
+
+    .basket-content {
+        margin: 0 auto;
+        width: 95%;
+    }
+
+    .basket thead td {
+        padding: 5px;
+    }
+
+    .basket tr {
+        padding: 5px
+    }
+
+    .basket td {
+        font-size: 13px;
+    }
+
+    .basket-submit input {
+        font-size: 15px;
+    }
+
+    .basket-nbr .input-number {
+        font-size: 13px;
+        width: 40px
+    }
+
 }

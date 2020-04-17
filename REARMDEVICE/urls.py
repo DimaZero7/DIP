@@ -10,8 +10,7 @@ urlpatterns = [
     path('product/', include('products.urls')),
     path('manufacture/', include('manufacture.urls')),
     path('comments/', include('comments.urls')),
-    path('basket_add/', include('orders.urls')), # добавление товаров в корзину
-    path('basket/', include('basket.urls')), # корзина
+    path('orders/', include('orders.urls')), # добавление товаров в корзину
     path('auth/', include('authorization.urls')), # регестрация
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
