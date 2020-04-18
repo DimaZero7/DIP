@@ -4,7 +4,6 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 
-
 class RegisterFormView(FormView):
     form_class = UserCreationForm
     success_url = "/"
@@ -18,7 +17,7 @@ class RegisterFormView(FormView):
 class LoginFormView(FormView):
     form_class = AuthenticationForm
     template_name = "login.html"
-    success_url = "/"
+    success_url = "/account"
     
     def form_valid(self, form):
         self.user = form.get_user()

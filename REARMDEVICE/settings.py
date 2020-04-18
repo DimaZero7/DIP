@@ -45,8 +45,11 @@ INSTALLED_APPS = [
     'poster.apps.PosterConfig',
     'manufacture.apps.ManufactureConfig',
     'comments.apps.CommentsConfig',
-    'orders.apps.OrdersConfig', # Приложение отвечающее за заказы
+    'basket.apps.BasketConfig', # Добавление товаров в коризну
+    'order.apps.OrderConfig', # Создание заказов
     'authorization.apps.AuthorizationConfig',  # Приложение отвечающее за регестрацию
+    'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
+    
 ]
 
 MIDDLEWARE = [
@@ -72,7 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'orders.utils.get_basket_item', # Контекст для корзины
+                'basket.utils.get_basket_item', # Контекст для корзины
                 'catalog.utils.menu',  # Контекст для работы меню, с категориями
             ],
         },

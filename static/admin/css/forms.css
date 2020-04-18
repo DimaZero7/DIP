@@ -410,7 +410,7 @@ body.popup .submit-row {
 
 .inline-related fieldset {
     margin: 0;
-    background: #fff;
+    background: var(--lg);
     border: none;
     width: 100%;
 }
@@ -444,7 +444,7 @@ body.popup .submit-row {
 .inline-group .tabular tr td.original {
     padding: 2px 0 0 0;
     width: 0;
-    _position: relative;
+    position: relative;
 }
 
 .inline-group .tabular th.original {
@@ -477,8 +477,8 @@ body.popup .submit-row {
 
 .inline-group div.add-row,
 .inline-group .tabular tr.add-row td {
-    color: #666;
-    background: #f8f8f8;
+    color: var(--text);
+    background: var(--lg);
     padding: 8px 10px;
     border-bottom: 1px solid #eee;
 }

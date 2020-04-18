@@ -64,8 +64,9 @@
 
 
 {% block body %}
-    <body>
-{% endblock %}
+
+<body>
+    {% endblock %}
     <div class="wrapper">
         <header class="header">
             <div class="container">
@@ -130,7 +131,7 @@
                                 </table>
                                 <div class="order">
                                     <a class="add-order" href="{% if user.username %}
-                                    {% url 'orders:basket' %}
+                                    {% url 'order:order_add' %}
                                     {% else %}
                                     {% url 'admin:login' %}
                                     {% endif %}">Перейти к заказу</a>
@@ -143,11 +144,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{% url 'admin:index' %}" class="header-profile-icon profile" title="Профиль">
+                            <a href="
+                            {% if user.username %}
+                                {% if user.is_superuser %}
+                                    {% url 'admin:index' %}
+                                {% else %}
+                                    {% url 'account:account' %}
+                                {% endif %}
+                            {% else %}
+                                {% url 'auth:login' %}
+                            {% endif %}
+                               " class="header-profile-icon profile" title="Профиль">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
-                            </a>
-                            <a href="{% url 'auth:logout' %}" class="header-profile-icon" title="Выход">
-                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Выход">
                             </a>
                             {% else %}
                             <a href="{% url 'auth:login' %}" class="header-profile-icon profile" title="Авторизация">
@@ -157,6 +165,11 @@
 
                         </div>
                     </div>
+                    {% if user.username %}
+                    <div class="username">
+                        {{user.username}}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </header>

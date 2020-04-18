@@ -39,6 +39,7 @@ $(document).ready(function () {
     $('.menu-active').click(function () {
         if ($(window).width() < 500) {
             $('body').toggleClass('lock');
+            $('.username').toggleClass('none');
         }
         $(this).toggleClass('active');
         $('.main-menu').toggleClass('check');
@@ -59,7 +60,7 @@ $(document).ready(function () {
             $('.spoiler-active').not($(this)).removeClass('arrow-active');
             $('.spoiler-content').not($(this).next()).slideUp(300);
         }
-        $(this).toggleClass('arrow-active').next().slideToggle(1000);
+        $(this).toggleClass('arrow-active').next().slideToggle(300);
     })
 
     //Переключение сетки товаров
@@ -206,6 +207,7 @@ $(document).ready(function () {
         product_id = $(this).data("product_id");
         quantity_nbr = 0;
         basketUpdating(product_id, quantity_nbr, is_delete = true);
+        $(this).closest('tr').remove();
     })
 
     //Уведомление о том что товаров в корзине нет

@@ -1,8 +1,8 @@
 /*уменьшенный контент*/
 .content.resize {
     padding: 9px 1% 9px 25.5%;
-    transition: .3s;
     overflow: hidden;
+    transition: .3s;
 }
 
 .content.resize .main-detail {
@@ -73,7 +73,7 @@
     }
 
     .content.resize .product-title a {
-        font-size: calc((100vw - 480px)/(1280 - 480) * (24 - 16) + 20px)
+        font-size: 13px;
     }
 
     .content.resize .product-info .product-price {

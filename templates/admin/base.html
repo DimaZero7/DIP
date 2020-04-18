@@ -32,38 +32,12 @@
 <body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" data-admin-utc-offset="{% now "Z" %}">
     {% endblock %}
     {% block content_website %}
-    <h1 class="main-h1">Личный кабинет</h1>
+    <h1 class="main-h1">Админестрирование</h1>
     {% block content_title %}
     {% if title %}
     <div class="sub-title-container">
         {% block object-tools %}{% endblock %}
         <h1 class="sub-title">{{ title }}</h1>
-        <!-- Header -->
-        {% if not is_popup %}
-        <div id="header">
-            {% block usertools %}
-            {% if has_permission %}
-
-            <div id="user-tools">
-                {% block userlinks %}
-                {% if user.is_active and user.is_staff %}
-                {% url 'django-admindocs-docroot' as docsroot %}
-                {% if docsroot %}
-                <a href="{{ docsroot }}" class="admin-button">{% translate 'Documentation' %}</a>
-                {% endif %}
-                {% endif %}
-                {% if user.has_usable_password %}
-                <a href="{% url 'admin:password_change' %}" class="admin-button">{% translate 'Change password' %}</a>
-                {% endif %}
-                {% endblock %}
-            </div>
-            <strong class="name">{% firstof user.get_short_name user.get_username %}</strong>
-            {% endif %}
-            {% endblock %}
-            {% block nav-global %}{% endblock %}
-        </div>
-        {% endif %}
-        <!-- END Header -->
     </div>
     {% block breadcrumbs %}
     <div class="breadcrumbs">

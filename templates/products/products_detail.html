@@ -33,7 +33,7 @@
         </div>
         <div class="detail-servis">
             <div class="detail-block">
-                <form action="{% url 'orders:basket_add' %}" method="post" id="buyProduct" class="detail-add">
+                <form action="{% url 'basket:basket_add' %}" method="post" id="buyProduct" class="detail-add">
                     {% csrf_token %}
                     <div class="detail-price-buttons">
                         <div class="detail-price">{{ product.price }}</div>
@@ -89,7 +89,7 @@
                 {% else %}
                 <div class="comment-none">
                     Для того что бы оставлять коментарии нужно быть авторизованным
-                    <a href="{% url 'authorization:login' %}">Войти</a>
+                    <a href="{% url 'auth:login' %}">Войти</a>
                 </div>
                 {% endif %}
             </div>

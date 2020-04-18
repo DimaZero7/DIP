@@ -2,8 +2,11 @@
 {% load static %}
 {% block title  %}Регистрация {% endblock %}
 
-{% block addCSS %}
-<link rel="stylesheet" href="{% static 'base/base_common/css/styleAuthorization.css' %}">{% endblock %}
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAuthorization.css' %}">
+{% endblock %}
+
+{% block keywords %}Регестрация{% endblock %}
+{% block description %}Регестрация аккаунта{% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">Регестрация</h1>
@@ -12,6 +15,7 @@
     <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
     {{ form.as_p }}
     <button type="submit">Зарегистрироваться</button>
+    <a href="{% url 'auth:login' %}">Вход</a>
 </form>
 
 {% endblock %}
