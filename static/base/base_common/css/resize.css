@@ -3,6 +3,7 @@
     padding: 9px 1% 9px 25.5%;
     overflow: hidden;
     transition: .3s;
+    min-height: 502px;
 }
 
 .content.resize .main-detail {
@@ -42,6 +43,12 @@
         padding: 10px 1% 0 25.5%;
 
     }
+    
+    .content.resize .userdata-line{
+        flex: 0 1 100%;
+        transition: .3s;
+    }
+    
 }
 
 @media (max-width:500px) {

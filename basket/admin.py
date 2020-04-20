@@ -8,16 +8,24 @@ from .models import ProductsInBasket
 class StatusAdmin(admin.ModelAdmin):
     pass
 
-
+class ProductsInOrder(admin.TabularInline):
+    model = ProductsInOrder
+    extra = 0
+    can_delete = False
+    max_num = 0
+    readonly_fields = ('order', 'product', 'price_per_item', 'quantity_nbr', 'total_price', 'created')
+    
+    
 @admin.register(Order)
-class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'first_name', 'last_name', 'total_price', 'status', 'created')
-    readonly_fields = ('user', 'first_name', 'last_name', 'total_price', 'created')
-
-@admin.register(ProductsInOrder)
-class OrdersAdmin(admin.ModelAdmin):
-    list_display = ('order', 'product', 'price_per_item', 'quantity_nbr', 'total_price', 'is_active', 'created')
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'total_price', 'status', 'created')
+    readonly_fields = ('user','total_price', 'created')
+    inlines = [
+        ProductsInOrder,
+    ]
+    
 
 @admin.register(ProductsInBasket)
-class OrdersAdmin(admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin):
     list_display = ('product', 'price_per_item', 'quantity_nbr', 'total_price', 'is_active', 'created')
+

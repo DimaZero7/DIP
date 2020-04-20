@@ -145,12 +145,8 @@
                                 </div>
                             </div>
                             <a href="
-                            {% if user.username %}
-                                {% if user.is_superuser %}
-                                    {% url 'admin:index' %}
-                                {% else %}
-                                    {% url 'account:account' %}
-                                {% endif %}
+                            {% if user.username %}  
+                                {% url 'account:account' %}
                             {% else %}
                                 {% url 'auth:login' %}
                             {% endif %}
@@ -167,7 +163,14 @@
                     </div>
                     {% if user.username %}
                     <div class="username">
-                        {{user.username}}
+                    
+
+                                {% if user.is_superuser %}
+                                    <a  href="{% url 'admin:index' %}">{{user.username}}</a>
+                                {% else %}
+                                    {{user.username}}
+                                {% endif %}
+                        
                     </div>
                     {% endif %}
                 </div>

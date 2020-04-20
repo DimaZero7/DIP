@@ -19,13 +19,10 @@ def order_add(request):
         if form.is_valid():
             data = request.POST
             username = data["client_username"]
-            first_name = data["client_first_name"]
-            last_name = data["client_last_name"]
-            email = data["client_email"]
             total_price = data["total_price"]
-            user = User.objects.get(username=username, first_name=first_name, last_name=last_name, email=email)
+            user = User.objects.get(username=username)
             
-            order = Order.objects.create(user=user,  first_name=first_name, last_name=last_name, email=email, status_id = 1, total_price=total_price)                                                                                                        
+            order = Order.objects.create(user=user, status_id = 1, total_price=total_price)                                                                                                        
             for name, value in data.items():
                 if name.startswith("product_in_basket_"):
                     product_in_basket_id = name.split("product_in_basket_")[1]

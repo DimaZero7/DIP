@@ -3,89 +3,78 @@
 {% block title  %}Корзина{% endblock %}
 
 {% block addCSS %}
-<link rel="stylesheet" href="{% static 'base/base_common/css/styleBasket.css' %}">
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
 {% block content_website %}
-<h1 class="main-h1">Корзина</h1>
-<div class="basket-content">
-    <form class="basket-form" method="post">
+<h1 class="main-h1">Личный кабинет</h1>
+<div class="basket">
+    {% include 'include_account-nav.html' %}
+    <form method="post">
         {% csrf_token %}
-        <div class="userdata">
-            <div class="userdata-title">Данные пользователя</div>
-            <div class="userdata-content">
-               <div class="userdata-line">
-                    <label for="username" class="userdata-line-title">Логин</label>
-                    <input id="username" type="text" value="{{user.username}}" name="{{form.client_username.html_name}}" title="Логин" required>
-                </div>
-                <div class="userdata-line">
-                    <label for="client-email" class="userdata-line-title">Почта</label>
-                    <input id="client-email" type="email" value="{{user.email}}" name="{{form.client_email.html_name}}" title="Почта" required >
-                </div>
-                <div class="userdata-line">
-                    <label for="client-first_name" class="userdata-line-title">Имя</label>
-                    <input id="client-first_name" type="text" value="{{user.first_name}}" name="{{form.client_first_name.html_name}}" title="Имя" required>
-                </div>
-                <div class="userdata-line">
-                    <label for="client-last_name" class="userdata-line-title">Фамилия</label>
-                    <input id="client-last_name" type="text" value="{{user.last_name}}" name="{{form.client_last_name.html_name}}" title="Фамилия" required>
-                </div>
-            </div>
-        </div>
-        {% if product_in_basket %}
-        <table class="basket">
+        <input type="hidden" value="{{user.username}}" name="{{form.client_username.html_name}}">
+        <table class="profile-table {% if not product_in_basket %}none{% endif %}">
             <thead>
-                <tr>
-                    <td class="basket-img">Изображение</td>
-                    <td class="basket-name">Название товара</td>
-                    <td class="basket-price-item">Цена</td>
-                    <td class="basket-nbr">Количество</td>
-                    <td class="basket-full-price">Полная цена</td>
+                <tr class="title">
+                    <td colspan="5">Корзина</td>
+                </tr>
+                <tr class="title-content">
+                    <td class="img">Изображение</td>
+                    <td class="name">Название</td>
+                    <td class="price">Цена</td>
+                    <td class="quantity">Количество</td>
+                    <td class="full-price">Полная стоимость</td>
                 </tr>
             </thead>
             <tbody>
+                {% if product_in_basket %}
                 {% for product_in_basket in products_in_basket %}
                 <tr>
-                    <td class="basket-img">
+                    <td class="img">
                         {% for prodimg in product_in_basket.product.prodimg.all %}
                         {% if forloop.counter == 1 %}
                         <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
                         {% endif %}
                         {% endfor %}
                     </td>
-                    <td class="basket-name">{{product_in_basket.product.name}}</td>
-                    <td class="basket-price-item">{{product_in_basket.price_per_item}}</td>
-                    <td class="basket-nbr">
-                        <!--                        <button class="input-number-button down-value"> - </button>-->
+                    <td class="name">{{product_in_basket.product.name}}</td>
+                    <td class="price">{{product_in_basket.price_per_item}}</td>
+                    <td class="quantity">
                         <input class="input-number" type="number" value="{{product_in_basket.quantity_nbr}}" name="product_in_basket_{{product_in_basket.id}}" min="1" max="{{product_in_basket.product.warehouse}}">
-                        <!--                        <button class="input-number-button up-value"> + </button>-->
                     </td>
-                    <td class="basket-full-price summary">{{product_in_basket.total_price}}</td>
+                    <td class="full-price summary">{{product_in_basket.total_price}}</td>
                 </tr>
                 {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5">Товаров нет</td>
+                </tr>
+                {% endif %}
             </tbody>
             <tfoot>
-                <tr>
-                    <td class="basket-img">Итого:</td>
-                    <td class="basket-name">&nbsp;</td>
-                    <td class="basket-price-item total">&nbsp;</td>
-                    <td class="basket-nbr">&nbsp;</td>
-                    <td class="basket-full-price">
-                        <input type="text" value="{{product_in_basket.total_price}}" name="total_price">
+                <tr class="title-content">
+                    <td>Итого</td>
+                    <td class="total-price" colspan="4">
+                        <input type="text" readonly value="{{product_in_basket.total_price}}" name="total_price">
                     </td>
                 </tr>
             </tfoot>
         </table>
-        <div class="basket-submit">
+
+        {% if product_in_basket %}
+        <div class="submit-order">
             <input type="submit" value="Заказать">
-        </div>
-        {% else%}
-        <div class="product-none" title="Товаров в коризне нет">
-            <span></span>
         </div>
         {% endif %}
     </form>
 </div>
+<!--
+
+<button class="input-number-button down-value"> - </button>
+<input class="input-number" type="number" value="{{product_in_basket.quantity_nbr}}" name="product_in_basket_{{product_in_basket.id}}" min="1" max="{{product_in_basket.product.warehouse}}">
+<button class="input-number-button up-value"> + </button>
+-->
+
 {% endblock %}
 
 {% block addJS %}{% endblock %}

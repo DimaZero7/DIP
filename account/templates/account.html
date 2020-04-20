@@ -1,7 +1,10 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
+
 {% block title  %}Личный кабинет {{user.username}}{% endblock %}
-{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
 {% block keywords %}Личный кабинет{% endblock %}
@@ -12,8 +15,96 @@
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
-    <a href="{% url 'auth:logout' %}" class="logout">Выйти</a>
+    {% include 'include_account-nav.html' %}
+    <table class="profile-table">
+        <thead>
+            <tr class="title">
+                <td colspan="3">Личные даннные</td>
+                <td><a class="title-link" href="#">Изменить</a></td>
+            </tr>
+            <tr class="title-content">
+                <td class="">Логин</td>
+                <td class="">Имя</td>
+                <td class="">Фамилия</td>
+                <td class="">Почта</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="">{{user.username}}</td>
+                <td class="">
+                    {% if user.first_name %}
+                    {{user.first_name}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}</td>
+                <td class="">
+                    {% if user.last_name %}
+                    {{user.last_name}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}
+                </td>
+                <td class="">
+                    {% if user.email%}
+                    {{user.email}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="profile-table">
+        <thead>
+            <tr class="title">
+                <td colspan="3">Адрес доставки</td>
+                <td><a class="title-link" href="#">Изменить</a></td>
+            </tr>
+            <tr class="title-content">
+                <td class="">Город</td>
+                <td class="">Улица</td>
+                <td class="">Дом</td>
+                <td class="">Квартира</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="">
+                    {% if user.street%}
+                    {{user.street}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}
+                </td>
+                <td class="">
+                    {% if user.street%}
+                    {{user.street}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}
+                </td>
+                <td class="">
+                    {% if user.number_house%}
+                    {{user.number_house}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}
+                </td>
+                <td class="">
+                    {% if user.number_room %}
+                    {{user.number_room}}
+                    {% else %}
+                    Не заполенно
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
 </div>
+
 
 {% endblock %}
 

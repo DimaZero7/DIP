@@ -1,0 +1,158 @@
+.account {}
+
+.account-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.account-nav a {
+    padding: 5px;
+    margin: 5px;
+    border: 2px solid var(--text);
+    background-color: var(--dark);
+    transition: .3s;
+}
+
+.account-nav a:first-child {
+    margin: 5px 5px 5px 0;
+}
+
+.account-nav a:last-child {
+    margin: 5px 0 5px 5px;
+}
+
+.account-nav a:hover {
+    background-color: var(--red);
+    transition: .3s;
+}
+
+
+
+.profile-table {
+    color: white;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.account .profile-table{
+    margin: 10px auto;
+    width: 100%;
+}
+
+
+.account td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 25%;
+}
+
+.profile-table td {
+    border: 2px solid var(--text);
+    text-align: center;
+    padding: 5px 1%;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.profile-table .title {
+    background-color: var(--dark);
+    font-size: 20px;
+}
+
+.profile-table .title td{
+    font-size: 20px;
+}
+
+.title-link{
+    text-decoration: underline;
+    font-size: 15px;
+    text-align: right;
+}
+
+.profile-table .title-content {
+    background-color: var(--mid);
+    font-size: 18px;
+}
+
+.profile-table .img {
+    width: 16%;
+    min-width: 100px;
+}
+
+.profile-table .img img {
+    width: 50%;
+}
+
+.profile-table .name {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-table .price {
+}
+
+.profile-table tbody .price::after,
+.profile-table tbody .full-price::after,
+.profile-table tbody .total-price::after,
+.order-price::after{
+    content: ' ₽'
+}
+
+.profile-table .quantity {
+
+}
+
+.profile-table .quantity input,
+.profile-table .total-price input{
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    color: var(--text);
+    border-bottom: 2px solid var(--text);
+    outline: 0;
+}
+
+.profile-table .total-price input{
+    text-align: right;
+    border: 0
+}
+
+.profile-table .full-price {
+    white-space: normal;
+}
+
+.profile-table .input-number {}
+
+.profile-table .total-price {
+    text-align: right;
+}
+
+.profile-table .submit-order {}
+
+.submit-order{
+    width: 100%;
+    text-align: right;
+}
+
+.submit-order input{
+    margin: 5px 0;
+    padding: 5px;
+    border: 2px solid var(--text);
+    background-color: var(--dark);
+    color: var(--text);
+    font-size: 20px;
+    transition: .3s;
+}
+
+.submit-order input:hover{
+    background-color: var(--red);
+    transition: .3s;
+    
+}
+
+.order-id{
+    width: 10% !important;
+}

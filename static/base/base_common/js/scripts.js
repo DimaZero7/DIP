@@ -242,53 +242,54 @@ $(document).ready(function () {
         $(".product-big").removeClass("active-product-big");
     })
 
-//    //Взамодействие с input number
-//    $(function () {
-//        (function quantityProducts() {
-//            var $quantityArrowMinus = $(".down-value");
-//            var $quantityArrowPlus = $(".up-value");
-//
-//            $quantityArrowMinus.click(quantityMinus);
-//            $quantityArrowPlus.click(quantityPlus);
-//
-//            function quantityMinus(e) {
-//                e.preventDefault();
-//                var $quantityNum = $(this).siblings('.input-number');
-//                if ($quantityNum.val() > 1) {
-//                    $quantityNum.val(+$quantityNum.val() - 1);
-//                }
-//            }
-//
-//            function quantityPlus(e) {
-//                e.preventDefault();
-//                var $quantityNum = $(this).siblings('.input-number');
-//                $quantityNum.val(+$quantityNum.val() + 1);
-//            }
-//        })();
-//    });
+    //    //Взамодействие с input number
+    //    $(function () {
+    //        (function quantityProducts() {
+    //            var $quantityArrowMinus = $(".down-value");
+    //            var $quantityArrowPlus = $(".up-value");
+    //
+    //            $quantityArrowMinus.click(quantityMinus);
+    //            $quantityArrowPlus.click(quantityPlus);
+    //
+    //            function quantityMinus(e) {
+    //                e.preventDefault();
+    //                var $quantityNum = $(this).siblings('.input-number');
+    //                if ($quantityNum.val() > 1) {
+    //                    $quantityNum.val(+$quantityNum.val() - 1);
+    //                }
+    //            }
+    //
+    //            function quantityPlus(e) {
+    //                e.preventDefault();
+    //                var $quantityNum = $(this).siblings('.input-number');
+    //                $quantityNum.val(+$quantityNum.val() + 1);
+    //            }
+    //        })();
+    //    });    
 
-    
     //Пересчет суммы заказа в корзине
     function calculateBasketAmount() {
         var summ_order = 0;
         $('.summary').each(function () {
             summ_order += parseFloat($(this).text());
         })
-
-        $('.basket-full-price input').val(summ_order.toFixed(2));
+        $('.total-price input').val(summ_order.toFixed(2));
     };
 
     $(document).on('change', ".input-number", function () {
         var current_quantity = $(this).val();
         var current_tr = $(this).closest('tr');
-        var current_price = parseFloat(current_tr.find('.basket-price-item').text()).toFixed(2);
+        var current_price = parseFloat(current_tr.find('.price').text()).toFixed(2);
         var total_price = parseFloat(current_quantity * current_price).toFixed(2);
         current_tr.find('.summary').text(total_price);
         calculateBasketAmount();
     })
-    calculateBasketAmount();
 
+    calculateBasketAmount();
 });
+
+
+
 
 //Взаимодействие со свайпами
 if ($(window).width() < 500) {
@@ -307,6 +308,7 @@ if ($(window).width() < 500) {
                     $('.content').toggleClass('resize');
                     $('.header-buttons').toggleClass('buttons-active');
                     $('.active-for-mobile').toggleClass('display-icons');
+                    $('.username').toggleClass('none');
                 }
                 //Закрытие меню при свайпае
                 if (direction == 'right') {
@@ -316,10 +318,11 @@ if ($(window).width() < 500) {
                     $('.content').toggleClass('resize');
                     $('.header-buttons').toggleClass('buttons-active');
                     $('.active-for-mobile').toggleClass('display-icons');
+                    $('.username').toggleClass('none');
                 }
             }
         },
         triggerOnTouchEnd: false,
-        threshold: 50 // сработает через 20 пикселей
+        threshold: 200 // сработает через 20 пикселей
     })
 }

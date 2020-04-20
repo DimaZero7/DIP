@@ -478,6 +478,10 @@ img {
     transition: .3s;
 }
 
+.username a{
+    color: var(--text);
+}
+
 /*Кнопка активация меню*/
 .menu-active {
     position: absolute;
@@ -521,7 +525,7 @@ img {
 
 /*При активации акнопки меню*/
 .menu-active.active {
-    left: 24.5%;
+    left: 24.8%;
     transition: .3s;
     background-color: var(--red);
     height: 49px;
@@ -605,7 +609,7 @@ img {
     background-color: var(--lg);
     padding: 10px 1% 30px 1%;
     transition: .3s;
-    min-height: 500px;
+    min-height: 502px;
 }
 
 /*слайдер*/
