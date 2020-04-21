@@ -1,20 +1,17 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
 
-{% block title  %}Личный кабинет {{user.username}}{% endblock %}
+{% block title  %}Личный кабинет {{user.username}} | Заказы{% endblock %}
 
-{% block addCSS %}
-<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
-{% block keywords %}Личный кабинет{% endblock %}
-{% block description %}Личный кабинет - {{user.username}}{% endblock %}
-
-
+{% block keywords %}Личный кабинет, Заказы{% endblock %}
+{% block description %}Личный кабинет - {{user.username}} | Заказы{% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
-<div class="account">
+<div class="basket">
     {% include 'include_account-nav.html' %}
     <table class="profile-table">
         <thead>

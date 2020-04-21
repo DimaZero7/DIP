@@ -3,14 +3,11 @@
 
 {% block title  %}Личный кабинет {{user.username}}{% endblock %}
 
-{% block addCSS %}
-<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
 {% block keywords %}Личный кабинет{% endblock %}
 {% block description %}Личный кабинет - {{user.username}}{% endblock %}
-
-
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
@@ -20,16 +17,16 @@
         <thead>
             <tr class="title">
                 <td colspan="3">Личные даннные</td>
-                <td><a class="title-link" href="#">Изменить</a></td>
+                <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
             </tr>
+        </thead>
+        <tbody>
             <tr class="title-content">
                 <td class="">Логин</td>
                 <td class="">Имя</td>
                 <td class="">Фамилия</td>
                 <td class="">Почта</td>
             </tr>
-        </thead>
-        <tbody>
             <tr>
                 <td class="">{{user.username}}</td>
                 <td class="">
@@ -60,16 +57,16 @@
         <thead>
             <tr class="title">
                 <td colspan="3">Адрес доставки</td>
-                <td><a class="title-link" href="#">Изменить</a></td>
+                <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
             </tr>
+        </thead>
+        <tbody>
             <tr class="title-content">
                 <td class="">Город</td>
                 <td class="">Улица</td>
                 <td class="">Дом</td>
                 <td class="">Квартира</td>
             </tr>
-        </thead>
-        <tbody>
             <tr>
                 <td class="">
                     {% if user.street%}

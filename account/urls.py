@@ -6,6 +6,7 @@ app_name = 'account'
 
 urlpatterns = [
     path('order_detail/', order_detail, name='order_detail'),
+    path('editing/', editing, name='editing'),
     path('', account, name='account'),
 ]
 

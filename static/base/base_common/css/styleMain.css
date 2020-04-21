@@ -27,9 +27,9 @@ body {
     height: 100%;
 }
 
-body{
+body {
     background-color: silver;
-    
+
 }
 
 body.lock {
@@ -55,7 +55,8 @@ a {
     font-family: serif;
 }
 
-.content a, .content p{
+.content a,
+.content p {
     color: var(--text);
 }
 
@@ -438,7 +439,7 @@ img {
     padding: 30px 2%;
 }
 
-.alert-title{
+.alert-title {
     text-align: center;
 }
 
@@ -457,7 +458,7 @@ img {
     transition: .3s;
 }
 
-.username{
+.username {
     position: absolute;
     bottom: -30px;
     right: 10px;
@@ -473,12 +474,12 @@ img {
     transition: .3s;
 }
 
-.username.none{
+.username.none {
     right: -100px;
     transition: .3s;
 }
 
-.username a{
+.username a {
     color: var(--text);
 }
 
@@ -840,7 +841,7 @@ img {
 }
 
 /*Заголовок продукта*/
-.product-title{
+.product-title {
     position: relative;
     height: 30px;
 }
@@ -944,7 +945,7 @@ img {
     font-size: 0;
 }
 
-.input-number-button.up-value{
+.input-number-button.up-value {
     transform: rotate(180deg);
 }
 
@@ -958,16 +959,16 @@ img {
     left: 2px;
 }
 
-.input-number-button::before{
+.input-number-button::before {
     transform: rotate(-45deg);
     top: 8px;
-        
+
 }
 
-.input-number-button::after{
+.input-number-button::after {
     transform: rotate(45deg);
     top: 14px;
-        
+
 }
 
 .basket-nbr .input-number {
@@ -997,7 +998,7 @@ img {
     white-space: nowrap;
 }
 
-.pages-content{
+.pages-content {
     display: flex;
 }
 
@@ -1009,7 +1010,7 @@ span.pages-item {
 .pages-item.prev,
 .pages-item.next,
 .pages-item.pages-counter,
-.pages-info{
+.pages-info {
     position: relative;
     background-color: var(--red);
     border: 2px solid transparent;
@@ -1021,7 +1022,7 @@ span.pages-item {
     transition: .3s;
 }
 
-.pages-info{
+.pages-info {
     margin: 5px 0 2px 0;
     color: var(--text);
     font-weight: bold;
@@ -1031,7 +1032,7 @@ span.pages-item {
     transform: rotate(180deg);
 }
 
-.pages-item.page-active{
+.pages-item.page-active {
     border: 2px solid var(--text);
     transition: .3s;
 }
@@ -1188,6 +1189,7 @@ span.pages-item {
 .social img {
     width: 100%;
 }
+
 
 @media (max-width:769px) {
     .header {
@@ -1430,12 +1432,12 @@ span.pages-item {
         min-width: 50px
     }
 
-    .username{
+    .username {
         font-size: 15px;
         bottom: -29px;
         padding: 5px
     }
-    
+
     .header-search {
         flex: 0 1 85%;
         margin: 0 5%;
@@ -1446,23 +1448,23 @@ span.pages-item {
         flex: 0 1 5%;
     }
 
-    .not-mobil{
+    .not-mobil {
         display: none
     }
-    
-    .not-mobil .counter{
+
+    .not-mobil .counter {
         display: none;
     }
-    
-    .profile{
+
+    .profile {
         width: 40px;
         height: 40px;
     }
-    
+
     .shopping-list {
         display: none;
     }
-    
+
     .main-menu {
         position: fixed;
         height: 100%;

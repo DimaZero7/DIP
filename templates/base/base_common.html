@@ -36,7 +36,6 @@
     <link rel=" manifest " href="{% static 'base/base_common/img/favicon/manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
     <!--*-->
-
     <style>
         .preloader {
             position: absolute;
@@ -58,13 +57,9 @@
             z-index: 10001;
             background: url({% static 'base/base_common/img/preloader.gif' %}) 50% 50% / 30% no-repeat;
         }
-
     </style>
 </head>
-
-
 {% block body %}
-
 <body>
     {% endblock %}
     <div class="wrapper">
@@ -163,14 +158,14 @@
                     </div>
                     {% if user.username %}
                     <div class="username">
-                    
 
-                                {% if user.is_superuser %}
-                                    <a  href="{% url 'admin:index' %}">{{user.username}}</a>
-                                {% else %}
-                                    {{user.username}}
-                                {% endif %}
-                        
+
+                        {% if user.is_superuser %}
+                        <a href="{% url 'admin:index' %}">{{user.username}}</a>
+                        {% else %}
+                        {{user.username}}
+                        {% endif %}
+
                     </div>
                     {% endif %}
                 </div>

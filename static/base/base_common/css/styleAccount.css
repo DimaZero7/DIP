@@ -35,17 +35,28 @@
     width: 100%;
 }
 
-.account .profile-table{
+.account .profile-table {
     margin: 10px auto;
     width: 100%;
 }
 
-
-.account td{
+.account td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 25%;
+}
+
+.account td input {
+    background-color: transparent;
+    border-bottom: 2px solid var(--text);
+    color: var(--text);
+    text-align: center;
+    outline: 0;
+}
+
+.account td input:read-only {
+    border: 0;
 }
 
 .profile-table td {
@@ -61,11 +72,11 @@
     font-size: 20px;
 }
 
-.profile-table .title td{
+.profile-table .title td {
     font-size: 20px;
 }
 
-.title-link{
+.title-link {
     text-decoration: underline;
     font-size: 15px;
     text-align: right;
@@ -91,22 +102,19 @@
     text-overflow: ellipsis;
 }
 
-.profile-table .price {
-}
+.profile-table .price {}
 
 .profile-table tbody .price::after,
 .profile-table tbody .full-price::after,
 .profile-table tbody .total-price::after,
-.order-price::after{
+.order-price::after {
     content: ' ₽'
 }
 
-.profile-table .quantity {
-
-}
+.profile-table .quantity {}
 
 .profile-table .quantity input,
-.profile-table .total-price input{
+.profile-table .total-price input {
     font-size: 15px;
     text-align: center;
     background-color: transparent;
@@ -115,7 +123,7 @@
     outline: 0;
 }
 
-.profile-table .total-price input{
+.profile-table .total-price input {
     text-align: right;
     border: 0
 }
@@ -132,12 +140,12 @@
 
 .profile-table .submit-order {}
 
-.submit-order{
+.submit-order {
     width: 100%;
     text-align: right;
 }
 
-.submit-order input{
+.submit-order input {
     margin: 5px 0;
     padding: 5px;
     border: 2px solid var(--text);
@@ -147,12 +155,52 @@
     transition: .3s;
 }
 
-.submit-order input:hover{
+.submit-order input:hover {
     background-color: var(--red);
     transition: .3s;
-    
 }
 
-.order-id{
+.order-id {
     width: 10% !important;
+}
+
+
+@media (max-width:769px) {
+    
+    .account tbody,
+    .account thead{
+        display: flex;
+        
+    }
+    
+    .account thead tr,
+    .account tbody tr,
+    .account .title-content{
+        display: flex;
+        flex-direction: column;
+        width: 100%
+    }
+
+    .account thead td,
+    .account tbody td,
+    .account .title-content td{
+        display: table-row;
+        width: 100%;
+    }
+    
+    .account tbody td{
+        height: 30px;
+        
+    }
+}
+
+@media (max-width:500px) {
+    .profile-table .title td{
+        font-size: 15px;
+    }
+    
+    .profile-table td,
+    .title-link{
+        font-size: 12px;
+    }
 }

@@ -1,0 +1,113 @@
+{% extends 'base/base_common.html' %}
+{% load static %}
+
+{% block title  %}Личный кабинет {{user.username}} | Редактирование {% endblock %}
+
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% endblock %}
+
+{% block keywords %}Личный кабинет, Редактирование{% endblock %}
+{% block description %}Личный кабинет - {{user.username}} | Редактирование данных{% endblock %}
+
+{% block content_website %}
+<h1 class="main-h1">Личный кабинет</h1>
+<div class="account">
+    {% include 'include_account-nav.html' %}
+    <form>
+        <table class="profile-table">
+            <thead>
+                <tr class="title">
+                    <td colspan="4">Личные даннные - Редактирование</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="title-content">
+                    <td class="">Логин</td>
+                    <td class="">Имя</td>
+                    <td class="">Фамилия</td>
+                    <td class="">Почта</td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <input type="text" value="{{user.username}}" readonly>
+                    </td>
+                    <td class="">
+                        {% if user.first_name %}
+                        <input type="text" value="{{user.first_name}}" name="first_name" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно">
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.last_name %}
+                        <input type="text" value="{{user.last_name}}" name="last_name" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно">
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.email %}
+                        <input type="email" value="{{user.email}}" name="email" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно">
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="profile-table">
+            <thead>
+                <tr class="title">
+                    <td colspan="4">Адрес доставки - Редактирование</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="title-content">
+                    <td class="">Город</td>
+                    <td class="">Улица</td>
+                    <td class="">Дом</td>
+                    <td class="">Квартира</td>
+                </tr>
+                <tr>
+                    <td class="">
+                        {% if user.city %}
+                        <input type="text" value="{{user.street}}" name="street" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="street" required>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.street %}
+                        <input type="text" value="{{user.street}}" name="street" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="street" required>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.number_house %}
+                        <input type="text" value="{{user.number_house}}" name="number_house" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="number_house" required>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.number_room %}
+                        <input type="text" value="{{user.number_room}}" name="number_room" required>
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="number_room" required>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="submit-order">
+            <input type="submit" value="Сохранить">
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}
+
+{% block addJS %}{% endblock %}

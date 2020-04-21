@@ -1,10 +1,13 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
-{% block title  %}Корзина{% endblock %}
 
-{% block addCSS %}
-<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% block title  %}Личный кабинет {{user.username}} | Корзина{% endblock %}
+
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
+
+{% block keywords %}Личный кабинет, Корзина{% endblock %}
+{% block description %}Личный кабинет - {{user.username}} | Корзина {% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
@@ -18,6 +21,8 @@
                 <tr class="title">
                     <td colspan="5">Корзина</td>
                 </tr>
+            </thead>
+            <tbody>
                 <tr class="title-content">
                     <td class="img">Изображение</td>
                     <td class="name">Название</td>
@@ -25,8 +30,6 @@
                     <td class="quantity">Количество</td>
                     <td class="full-price">Полная стоимость</td>
                 </tr>
-            </thead>
-            <tbody>
                 {% if product_in_basket %}
                 {% for product_in_basket in products_in_basket %}
                 <tr>
