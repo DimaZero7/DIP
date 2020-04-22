@@ -37,7 +37,7 @@ def order_add(request):
                                                    price_per_item = product_in_basket.price_per_item, 
                                                    total_price=product_in_basket.total_price, 
                                                    order = order)
-                    ProductsInBasket.objects.update(is_active=False)
+#                    ProductsInBasket.objects.update(is_active=False)
         else:
             print("no")
 
