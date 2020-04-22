@@ -21,7 +21,7 @@ def order_add(request):
             username = data["client_username"]
             total_price = data["total_price"]
             user = User.objects.get(username=username)
-            
+             
             order = Order.objects.create(user=user, status_id = 1, total_price=total_price)                                                                                                        
             for name, value in data.items():
                 if name.startswith("product_in_basket_"):
@@ -37,6 +37,7 @@ def order_add(request):
                                                    price_per_item = product_in_basket.price_per_item, 
                                                    total_price=product_in_basket.total_price, 
                                                    order = order)
+                    ProductsInBasket.objects.update(is_active=False)
         else:
             print("no")
 

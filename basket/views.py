@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import ProductsInBasket
-
+ 
 #Добавление товаров в корзину
 def basket_add(request):
     return_dict = dict()

@@ -40,7 +40,7 @@ class ProductsInOrder(models.Model):
     price_per_item = models.IntegerField(default = 1, verbose_name='Цена за одну штуку')
     quantity_nbr = models.IntegerField(default = 1, verbose_name='Количество')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Общая сумма')
-    is_active = models.BooleanField(default=True, verbose_name='Статус')
+    is_active = models.BooleanField(default=True, verbose_name='Состояние')
     
     def __str__(self):
         return self.product.name
@@ -67,7 +67,7 @@ class ProductsInBasket(models.Model):
     price_per_item = models.IntegerField(default = 1, verbose_name='Цена за одну штуку')
     quantity_nbr = models.IntegerField(default = 1, verbose_name='Количество')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Общая сумма')
-    is_active = models.BooleanField(default=True, verbose_name='Стутус')
+    is_active = models.BooleanField(default=True, verbose_name='Состояние')
     
     def __str__(self):
         return self.product.name
