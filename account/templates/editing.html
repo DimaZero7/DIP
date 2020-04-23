@@ -3,7 +3,8 @@
 
 {% block title  %}Личный кабинет {{user.username}} | Редактирование {% endblock %}
 
-{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
 {% block keywords %}Личный кабинет, Редактирование{% endblock %}
@@ -13,6 +14,7 @@
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
     {% include 'include_account-nav.html' %}
+<!--
     <form>
         <table class="profile-table">
             <thead>
@@ -71,29 +73,29 @@
                 </tr>
                 <tr>
                     <td class="">
-                        {% if user.city %}
-                        <input type="text" value="{{user.street}}" name="street" required>
+                        {% if user.profile.city %}
+                        <input type="text" value="{{user.profile.city}}" name="street" required>
                         {% else %}
                         <input type="text" value="Не заполенно" name="street" required>
                         {% endif %}
                     </td>
                     <td class="">
-                        {% if user.street %}
-                        <input type="text" value="{{user.street}}" name="street" required>
+                        {% if user.profile.street %}
+                        <input type="text" value="{{user.profile.street}}" name="street" required>
                         {% else %}
                         <input type="text" value="Не заполенно" name="street" required>
                         {% endif %}
                     </td>
                     <td class="">
-                        {% if user.number_house %}
-                        <input type="text" value="{{user.number_house}}" name="number_house" required>
+                        {% if user.profile.number_house %}
+                        <input type="text" value="{{user.profile.number_house}}" name="number_house" required>
                         {% else %}
                         <input type="text" value="Не заполенно" name="number_house" required>
                         {% endif %}
                     </td>
                     <td class="">
-                        {% if user.number_room %}
-                        <input type="text" value="{{user.number_room}}" name="number_room" required>
+                        {% if user.profile.number_room %}
+                        <input type="text" value="{{user.profile.number_room}}" name="number_room" required>
                         {% else %}
                         <input type="text" value="Не заполенно" name="number_room" required>
                         {% endif %}
@@ -104,6 +106,14 @@
         <div class="submit-order">
             <input type="submit" value="Сохранить">
         </div>
+    </form>
+-->
+
+    <form method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <button type="submit">Сохранить изменения</button>
     </form>
 </div>
 

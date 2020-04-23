@@ -13,10 +13,10 @@ class ManufactureAdmin(admin.ModelAdmin):
         """Добавляем картинку производителей в список в админке"""
 
         return mark_safe(f'<img src="{Manufacture.img.url}" alt="{Manufacture.name}" class="admin-icon manufacture"/>')
+    get_image.short_description = u'Логотип'
 
     list_display = ('name', 'get_image')
 
-    get_image.short_description = u'Логотип'
 
     fieldsets = [
         ('Общее', {'fields': ['name', 'slug', 'country', 'img']}),

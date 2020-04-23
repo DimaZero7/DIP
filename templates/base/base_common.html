@@ -57,9 +57,11 @@
             z-index: 10001;
             background: url({% static 'base/base_common/img/preloader.gif' %}) 50% 50% / 30% no-repeat;
         }
+
     </style>
 </head>
 {% block body %}
+
 <body>
     {% endblock %}
     <div class="wrapper">
@@ -146,7 +148,15 @@
                                 {% url 'auth:login' %}
                             {% endif %}
                                " class="header-profile-icon profile" title="Профиль">
+                                {% if user.username %}
+                                {% if user.profile.photo %}
+                                    <img src="{{user.profile.photo.url}}" alt="Профиль">
+                                {% else %}
                                 <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                {% endif %}
+                                {% else %}
+                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                {% endif %}
                             </a>
                             {% else %}
                             <a href="{% url 'auth:login' %}" class="header-profile-icon profile" title="Авторизация">
