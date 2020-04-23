@@ -38,7 +38,7 @@
                     <div class="detail-price-buttons">
                         <div class="detail-price">{{ product.price }}</div>
                         {% if user.username %}
-                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}">В корзину</button>
+                        <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}" {% if user.username %} data-user-id="{{user.id}}" {% endif %}>В корзину</button>
                         {% else %}
                         <a class="detail-add-basket" href="{% url 'admin:login' %}">В корзину</a>
                         {% endif %}

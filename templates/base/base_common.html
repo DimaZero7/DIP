@@ -107,7 +107,7 @@
                                     {% else %}0{% endif %}
                                 </span>
                             </a>
-                            <a href="#" class="header-profile-icon not-mobil">
+                            <a href="{% url 'account:order_detail' %}" class="header-profile-icon not-mobil">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
                             </a>
                             <div class="shopping-list">

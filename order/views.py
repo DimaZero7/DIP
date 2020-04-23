@@ -11,8 +11,8 @@ from django.contrib.auth.decorators import login_required
 #Создание заказов
 @login_required(login_url='/auth/login/')
 def order_add(request):
-    session_key = request.session.session_key
-    product_in_basket = ProductsInBasket.objects.filter(session_key=session_key, is_active=True, order__isnull=True)
+
+    product_in_basket = ProductsInBasket.objects.filter(user=request.user, is_active=True, order__isnull=True)
     form = UserForBasket(request.POST or None)
     if request.POST:
         print(request.POST)
@@ -30,6 +30,7 @@ def order_add(request):
                     
                     product_in_basket.quantity_nbr = value
                     product_in_basket.order = order
+                    product_in_basket.is_active = False
                     product_in_basket.save(force_update=True)
                     
                     ProductsInOrder.objects.create(product=product_in_basket.product,
@@ -37,7 +38,6 @@ def order_add(request):
                                                    price_per_item = product_in_basket.price_per_item, 
                                                    total_price=product_in_basket.total_price, 
                                                    order = order)
-#                    ProductsInBasket.objects.update(is_active=False)
         else:
             print("no")
 

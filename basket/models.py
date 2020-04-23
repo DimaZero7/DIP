@@ -61,7 +61,7 @@ class ProductsInOrder(models.Model):
     
 class ProductsInBasket(models.Model):
     order = models.ForeignKey(Order, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Заказ')
-    session_key = models.CharField(max_length=128)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,  blank=True, null=True, default = None, verbose_name='Пользователь')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')
     product = models.ForeignKey(Product, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Товар')
     price_per_item = models.IntegerField(default = 1, verbose_name='Цена за одну штуку')
