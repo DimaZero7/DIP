@@ -164,18 +164,31 @@
     width: 10% !important;
 }
 
+.accaunt-photo{
+    display: flex;
+    flex-direction: column;
+}
+
+.photo{
+    width: 70px;
+    padding: 5px;
+}
+
+.photo img{
+    width: 100%;
+}
 
 @media (max-width:769px) {
-    
+
     .account tbody,
-    .account thead{
+    .account thead {
         display: flex;
-        
+        position: relative;
     }
-    
+
     .account thead tr,
     .account tbody tr,
-    .account .title-content{
+    .account .title-content {
         display: flex;
         flex-direction: column;
         width: 100%
@@ -183,24 +196,24 @@
 
     .account thead td,
     .account tbody td,
-    .account .title-content td{
+    .account .title-content td {
         display: table-row;
         width: 100%;
     }
-    
-    .account tbody td{
+
+    .account tbody td {
         height: 30px;
-        
+
     }
 }
 
 @media (max-width:500px) {
-    .profile-table .title td{
+    .profile-table .title td {
         font-size: 15px;
     }
-    
+
     .profile-table td,
-    .title-link{
+    .title-link {
         font-size: 12px;
     }
 }

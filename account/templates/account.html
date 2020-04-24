@@ -12,98 +12,97 @@
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
-<div class="profile">
+<div class="account">
     {% include 'include_account-nav.html' %}
-<!--
-    <table class="profile-table">
-        <thead>
-            <tr class="title">
-                <td colspan="3">Личные даннные</td>
-                <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="title-content">
-                <td class="">Логин</td>
-                <td class="">Имя</td>
-                <td class="">Фамилия</td>
-                <td class="">Почта</td>
-            </tr>
-            <tr>
-                <td class="">{{user.username}}</td>
-                <td class="">
-                    {% if user.first_name %}
-                    {{user.first_name}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}</td>
-                <td class="">
-                    {% if user.last_name %}
-                    {{user.last_name}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}
-                </td>
-                <td class="">
-                    {% if user.email%}
-                    {{user.email}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="profile-table">
+            <thead>
+                <tr class="title">
+                    <td colspan="3">Личные даннные</td>
+                    <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr class="title-content">
+                    <td class="">Логин</td>
+                    <td class="">Имя</td>
+                    <td class="">Фамилия</td>
+                    <td class="">Почта</td>
+                </tr>
+                <tr>
+                    <td class="">
+                        <input type="text" value="{{user.username}}" readonly>
+                    </td>
+                    <td class="">
+                        {% if user.first_name %}
+                        {{ user.first_name }}
+                        {% else %}
+                        <input type="text" value="Не заполенно">
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.last_name %}
+                        {{ user.last_name }}
+                        {% else %}
+                        <input type="text" value="Не заполенно">
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.email %}
+                        {{ user.email }}
+                        {% else %}
+                        <input type="text" value="Не заполенно">
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-    <table class="profile-table">
-        <thead>
-            <tr class="title">
-                <td colspan="3">Адрес доставки</td>
-                <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="title-content">
-                <td class="">Город</td>
-                <td class="">Улица</td>
-                <td class="">Дом</td>
-                <td class="">Квартира</td>
-            </tr>
-            <tr>
-                <td class="">
-                    {% if user.profile.city%}
-                    {{user.profile.city}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}
-                </td>
-                <td class="">
-                    {% if user.profile.street%}
-                    {{user.profile.street}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}
-                </td>
-                <td class="">
-                    {% if user.profile.number_house%}
-                    {{user.profile.number_house}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}
-                </td>
-                <td class="">
-                    {% if user.profile.number_room %}
-                    {{user.profile.number_room}}
-                    {% else %}
-                    Не заполенно
-                    {% endif %}
-                </td>
-            </tr>
-        </tbody>
-    </table>
--->
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
+        <table class="profile-table">
+            <thead>
+                <tr class="title">
+                    <td colspan="3">Адрес доставки</td>
+                    <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr class="title-content">
+                    <td class="">Город</td>
+                    <td class="">Улица</td>
+                    <td class="">Дом</td>
+                    <td class="">Квартира</td>
+                </tr>
+                <tr>
+                    <td class="">
+                        {% if user.profile.city %}
+                        {{ user.profile.city}}
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="street" required>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.profile.street %}
+                        {{ user.profile.street}}
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="street" required>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.profile.number_house %}
+                        {{ user.profile.number_house }}
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="number_house" required>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        {% if user.profile.number_room %}
+                        {{ user.profile.number_room }}
+                        {% else %}
+                        <input type="text" value="Не заполенно" name="number_room" required>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </div>
 
 

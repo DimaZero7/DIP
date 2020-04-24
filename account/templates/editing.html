@@ -14,8 +14,8 @@
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
     {% include 'include_account-nav.html' %}
-<!--
-    <form>
+    <form method="post">
+       {% csrf_token %}
         <table class="profile-table">
             <thead>
                 <tr class="title">
@@ -35,21 +35,21 @@
                     </td>
                     <td class="">
                         {% if user.first_name %}
-                        <input type="text" value="{{user.first_name}}" name="first_name" required>
+                        {{ user_form.first_name }}
                         {% else %}
                         <input type="text" value="Не заполенно">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.last_name %}
-                        <input type="text" value="{{user.last_name}}" name="last_name" required>
+                        {{ user_form.last_name }}
                         {% else %}
                         <input type="text" value="Не заполенно">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.email %}
-                        <input type="email" value="{{user.email}}" name="email" required>
+                        {{ user_form.email }}
                         {% else %}
                         <input type="text" value="Не заполенно">
                         {% endif %}
@@ -74,28 +74,28 @@
                 <tr>
                     <td class="">
                         {% if user.profile.city %}
-                        <input type="text" value="{{user.profile.city}}" name="street" required>
+                        {{profile_form.city}}
                         {% else %}
                         <input type="text" value="Не заполенно" name="street" required>
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.profile.street %}
-                        <input type="text" value="{{user.profile.street}}" name="street" required>
+                        {{profile_form.street}}
                         {% else %}
                         <input type="text" value="Не заполенно" name="street" required>
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.profile.number_house %}
-                        <input type="text" value="{{user.profile.number_house}}" name="number_house" required>
+                        {{profile_form.number_house}}
                         {% else %}
                         <input type="text" value="Не заполенно" name="number_house" required>
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.profile.number_room %}
-                        <input type="text" value="{{user.profile.number_room}}" name="number_room" required>
+                        {{profile_form.number_room}}
                         {% else %}
                         <input type="text" value="Не заполенно" name="number_room" required>
                         {% endif %}
@@ -103,18 +103,25 @@
                 </tr>
             </tbody>
         </table>
+        <div class="accaunt-photo">
+          Текущее фото:
+           {% if user.profile.photo %}
+            <div class="photo">
+                <img src="{{user.profile.photo.url}}" alt="Профиль">
+            </div>
+            {% else %}
+             <div class="photo">
+               <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+            </div>
+            {% endif %}
+            {{ profile_form.photo }}
+        </div>
         <div class="submit-order">
             <input type="submit" value="Сохранить">
         </div>
     </form>
--->
 
-    <form method="post">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <button type="submit">Сохранить изменения</button>
-    </form>
+
 </div>
 
 

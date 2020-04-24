@@ -12,7 +12,9 @@ def account(request):
         'user_form': user_form,
         'profile_form': profile_form
     })
+    
 
+    
 @login_required(login_url='/auth/login/')
 def order_detail(request):
     context = {
