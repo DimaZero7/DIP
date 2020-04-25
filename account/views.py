@@ -14,7 +14,6 @@ def account(request):
     })
     
 
-    
 @login_required(login_url='/auth/login/')
 def order_detail(request):
     context = {
@@ -28,7 +27,7 @@ def order_detail(request):
 def editing(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()

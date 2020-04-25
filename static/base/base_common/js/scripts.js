@@ -140,7 +140,7 @@ $(document).ready(function () {
         data.product_id = product_id;
         data.quantity_nbr = quantity_nbr;
         var csrf_token = $('#buyProduct [name="csrfmiddlewaretoken"]').val();
-        data["csrfmiddlewaretoken"] = csrf_token;    
+        data["csrfmiddlewaretoken"] = csrf_token;
         if (is_delete) {
             data["is_delete"] = true;
         }

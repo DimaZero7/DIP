@@ -31,7 +31,6 @@
 .profile-table {
     color: white;
     border-collapse: collapse;
-    margin: 0 auto;
     width: 100%;
 }
 
@@ -201,6 +200,7 @@
         width: 100%;
     }
 
+
     .account tbody td {
         height: 30px;
 
@@ -212,8 +212,16 @@
         font-size: 15px;
     }
 
+    .account .profile-table{
+        margin-top: 5px;
+    }
+    
     .profile-table td,
     .title-link {
-        font-size: 12px;
+        font-size: 14px;
+    }
+    
+    .account a{
+        font-size: 13px;
     }
 }

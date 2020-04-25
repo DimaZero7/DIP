@@ -85,8 +85,8 @@
         <a class="pages-item pages-counter" href="?page=1">1</a>
         {% endif %}
 
-       <a class="pages-item pages-counter page-active" href="#">{{ page_obj.number }}</a>
-        
+        <a class="pages-item pages-counter page-active" href="#">{{ page_obj.number }}</a>
+
         {% if page_obj.has_next %}
         <a class="pages-item pages-counter" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
         <a class="pages-item next" href="?page={{ page_obj.next_page_number }}"> &nbsp; &nbsp;</a>

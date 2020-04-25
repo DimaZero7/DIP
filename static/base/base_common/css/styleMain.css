@@ -257,6 +257,12 @@ img {
     width: 100%;
 }
 
+.profile-photo img {
+    border-radius: 100%;
+    object-fit: cover;
+    height: 38px;
+}
+
 /*Кнопка корзины*/
 .shopping {
     position: relative;
@@ -811,6 +817,10 @@ img {
     border: 0;
 }
 
+.grid-counter{
+    display: none;
+}
+
 /*Блок для отображение продуктов*/
 .main-product {
     display: flex;
@@ -1253,6 +1263,10 @@ span.pages-item {
         width: 35px;
     }
 
+    .profile-photo img {
+        height: 28px;
+    }
+
     .shopping-list:target {
         top: 46px;
         right: -10px;
@@ -1461,6 +1475,11 @@ span.pages-item {
         height: 40px;
     }
 
+    .profile-photo img {
+        width: 35px;
+        height: 35px;
+    }
+    
     .shopping-list {
         display: none;
     }

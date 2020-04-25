@@ -11,7 +11,7 @@ class Profile(models.Model):
     street = models.CharField(max_length=50, blank=True, verbose_name='Улица')
     number_house = models.CharField(max_length=50, blank=True, verbose_name='Номер дома')
     number_room = models.CharField(max_length=50, blank=True, verbose_name='Номер квартиры')
-    photo = models.ImageField(upload_to='users', blank=True)
+    photo = models.FileField(upload_to='users', blank=True, verbose_name='Фото профиля')
 
     def __str__(self):
         return self.user.username
