@@ -12,3 +12,4 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('photo','city', 'street', 'number_house', 'number_room')
+        

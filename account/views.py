@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from basket.models import Order
 from .forms import UserForm, ProfileForm
 from django.shortcuts import  redirect
+from django.contrib import messages
 
 @login_required(login_url='/auth/login/')
 def account(request):
@@ -31,10 +32,10 @@ def editing(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-#            messages.success(request, _('Ваш профиль был успешно обновлен!'))
+            messages.success(request, ('Ваш профиль был успешно обновлен!'))
             return redirect('account:account')
         else:
-#            messages.error(request, _('Пожалуйста, исправьте ошибки.'))
+            messages.error(request, ('Пожалуйста, исправьте ошибки.'))
             pass
     else:
         user_form = UserForm(instance=request.user)

@@ -14,8 +14,17 @@
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
     {% include 'include_account-nav.html' %}
-    <form action="" method="post" enctype="multipart/form-data" >
-       {% csrf_token %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <table class="profile-table">
             <thead>
                 <tr class="title">
@@ -37,21 +46,21 @@
                         {% if user.first_name %}
                         {{ user_form.first_name }}
                         {% else %}
-                        <input type="text" value="Не заполенно">
+                        <input type="text" value="Не заполенно" name="first_name">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.last_name %}
                         {{ user_form.last_name }}
                         {% else %}
-                        <input type="text" value="Не заполенно">
+                        <input type="text" value="Не заполенно" name="last_name">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.email %}
                         {{ user_form.email }}
                         {% else %}
-                        <input type="text" value="Не заполенно">
+                        <input type="text" value="Не заполенно" name="email">
                         {% endif %}
                     </td>
                 </tr>
@@ -76,7 +85,7 @@
                         {% if user.profile.city %}
                         {{profile_form.city}}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="street" required>
+                        <input type="text" value="Не заполенно" name="city" required>
                         {% endif %}
                     </td>
                     <td class="">
@@ -104,14 +113,14 @@
             </tbody>
         </table>
         <div class="accaunt-photo">
-          Текущее фото:
-           {% if user.profile.photo %}
+            Текущее фото:
+            {% if user.profile.photo %}
             <div class="photo">
-                <img src="{{user.profile.photo.url}}" alt="Профиль">
+                <img id="img-preview" src="{{user.profile.photo.url}}" alt="Профиль">
             </div>
             {% else %}
-             <div class="photo">
-               <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+            <div class="photo">
+                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
             </div>
             {% endif %}
             {{ profile_form.photo }}

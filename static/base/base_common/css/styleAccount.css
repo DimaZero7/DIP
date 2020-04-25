@@ -170,11 +170,18 @@
 
 .photo{
     width: 70px;
+    height: 70px;
+    object-fit: cover;
     padding: 5px;
 }
 
 .photo img{
     width: 100%;
+    border-radius: 100%
+}
+
+.messages{
+    color: var(--text);
 }
 
 @media (max-width:769px) {

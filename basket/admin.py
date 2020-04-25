@@ -24,6 +24,7 @@ class OrderAdmin(admin.ModelAdmin):
         ProductsInOrder,
     ]
     
+    template = 'account/order_detail.html'
 
 @admin.register(ProductsInBasket)
 class OrderAdmin(admin.ModelAdmin):
