@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'order.apps.OrderConfig', # Создание заказов
     'authorization.apps.AuthorizationConfig',  # Приложение отвечающее за регестрацию
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
+    'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
     
 ]
 

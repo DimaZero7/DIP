@@ -95,9 +95,9 @@
                     </div>
                     <div class="header-main">
                         <a href="{% url 'common:index' %}" class="logo">&nbsp;</a>
-                        <form action="#" class="header-search">
+                        <form action="{% url 'search:result' %}" method="get" class="header-search">
                             <input class="header-search-input" type="search" id="search" name="search" placeholder="Искать здесь...">
-                            <button class="header-search-button"></button>
+                            <button type="submit" class="header-search-button"></button>
                         </form>
                         <div class="header-profile">
                             {% if user.username %}
