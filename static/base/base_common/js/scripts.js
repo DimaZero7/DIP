@@ -130,8 +130,8 @@ $(document).ready(function () {
 
 });
 
-//Добавление товаров в корзину
 $(document).ready(function () {
+    //Добавление товаров в корзину
     var form = $('#buyProduct');
     console.log(form);
 
@@ -276,7 +276,6 @@ $(document).ready(function () {
         })
         $('.total-price input').val(summ_order.toFixed(2));
     };
-
     $(document).on('change', ".input-number", function () {
         var current_quantity = $(this).val();
         var current_tr = $(this).closest('tr');
@@ -285,15 +284,10 @@ $(document).ready(function () {
         current_tr.find('.summary').text(total_price);
         calculateBasketAmount();
     })
-
     calculateBasketAmount();
 
 
-
-
-
-
-//Превью картинки
+    //Превью картинки
     $('#id_photo').change(function () {
         var input = $(this)[0];
         if (input.files && input.files[0]) {
@@ -310,10 +304,7 @@ $(document).ready(function () {
             console.log('хьюстон у нас проблема');
         }
     });
-
 });
-
-
 
 
 //Взаимодействие со свайпами

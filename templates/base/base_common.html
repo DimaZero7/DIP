@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
-
 {% block htmlLang %}
 <html lang="ru">
 {% endblock %}
-
 <head>
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -14,26 +12,25 @@
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/resize.css' %}">
     {% block addCSS %}{% endblock %}
-    <meta name="keywords" content="{% block keywords %}{% endblock %}">
-    <meta name="description" content="{% block description %}{% endblock %}">
-
+    <meta name="keywords" content="{% block keywords %}Rearm Device{% endblock %}">
+    <meta name="description" content="{% block description %}Rearm Device{% endblock %}">
     <!--Фавикон-->
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/base_common/img/favicon/apple-icon-57x57.png' %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static 'base/base_common/img/favicon/apple-icon-60x60.png' %}">
-    <link rel=" apple-touch-icon " sizes=" 72x72 " href="{% static 'base/base_common/img/favicon/apple-icon-72x72.png' %}">
-    <link rel=" apple-touch-icon " sizes="76x76" href="{% static 'base/base_common/img/favicon/apple-icon-76x76.png' %}">
-    <link rel="apple-touch-icon " sizes=" 114x114 " href="{% static 'base/base_common/img/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes=" 72x72 " href="{% static 'base/base_common/img/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'base/base_common/img/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes=" 114x114 " href="{% static 'base/base_common/img/favicon/apple-icon-114x114.png' %}">
     <link rel="apple-touch-icon" sizes="120x120" href="{% static 'base/base_common/img/favicon/apple-icon-120x120.png' %}">
     <link rel="apple-touch-icon" sizes="144x144" href="{% static 'base/base_common/img/favicon/apple-icon-144x144.png' %}">
-    <link rel=" apple-touch-icon " sizes=" 152x152 " href="{% static 'base/base_common/img/favicon/apple-icon-152x152.png' %}">
-    <link rel=" apple-touch-icon " sizes="180x180" href="{% static 'base/base_common/img/favicon/apple-icon-180x180.png' %}">
+    <link rel="apple-touch-icon" sizes=" 152x152 " href="{% static 'base/base_common/img/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'base/base_common/img/favicon/apple-icon-180x180.png' %}">
     <link rel="icon" type="image/png" sizes="192x192" href="{% static 'base/base_common/img/favicon/android-icon-192x192.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'base/base_common/img/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'base/base_common/img/favicon/favicon-96x96.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'base/base_common/img/favicon/favicon-16x16.png' %}">
     <meta name="msapplication-TileImage" content="{% static 'base/base_common/img/favicon/ms-icon-144x144.png' %}">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <link rel=" manifest " href="{% static 'base/base_common/img/favicon/manifest.json' %}">
+    <link rel="manifest" href="{% static 'base/base_common/img/favicon/manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
     <!--*-->
     <style>
@@ -185,7 +182,7 @@
         <main class="main">
             <div class="container">
                 <div class="main-container">
-                    {% include 'catalog/categories_menu_include.html' %}
+                    {% include 'base/include_menu.html' %}
                     <div class="content">
                         <div class="preloader">
                             <div class="preloader-spin"></div>
@@ -266,7 +263,6 @@
             $preloaderSpin.fadeOut();
             $preloader.delay(50).fadeOut('slow');
         })
-
     </script>
     <script src="{% static 'base/base_common/js/slick.min.js' %}"></script>
     <script src="{% static 'base/base_common/js/scripts.js' %}"></script>

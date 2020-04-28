@@ -1,0 +1,6 @@
+                <ul class="main-menu">
+                    <li><a href="{% url 'catalog:categories_list' %}" class="main-manu-link">Каталог</a></li>
+                    {% for category in categories %}
+                    <li><a href="{{ category.get_absolute_url }}" class="main-manu-link">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>

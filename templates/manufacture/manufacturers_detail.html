@@ -1,46 +1,16 @@
 {% extends 'base/base_common.html' %}
 {% block title  %}{{ manufacture.name }}{% endblock %}
 
+{% block keywords %}{{ manufacture.name }}{% endblock %}
+{% block description %}Товары производителя {{ manufacture.name }} на сайте Rearm Device{% endblock %} 
+   
+
 {% block content_website %}
 <h1 class="main-h1">{{ manufacture.name }}</h1>
-<form class="filter">
-    <div class="filter-container">
-        <div class="filter-block">
-            <div class="filter-title">Цена</div>
-            <div class="filter-selector">
-                <label>
-                    <input class="filter-radio" type="radio" id="filter" name="filter" value="price-up" title="По убыванию">
-                </label>
-                <label>
-                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="price-down" title="По возрастанию">
-                </label>
-            </div>
-        </div>
-        <div class="filter-block">
-            <div class="filter-title">Рейтинг</div>
-            <div class="filter-selector">
-                <label>
-                    <input class="filter-radio" type="radio" id="filter" name="filter" value="rait-up" title="По убыванию">
-                </label>
-                <label>
-                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="rait-down" title="По возрастанию">
-                </label>
-            </div>
-        </div>
-        <div class="filter-block">
-            <div class="filter-title">Дата</div>
-            <div class="filter-selector">
-                <label>
-                    <input class="filter-radio" type="radio" id="filter" name="filter" value="data-up" title="По убыванию">
-                </label>
-                <label>
-                    <input class="filter-radio down" class="filter-radio" type="radio" id="filter" name="filter" value="data-down" title="По возрастанию">
-                </label>
-            </div>
-        </div>
-    </div>
-    <input type="submit" value="Выполнить">
-</form>
+
+<!--Фильтры-->
+{% include 'base/include_filter.html' %}
+
 <div class="main-product">
     {# Вывожу все товары текущей категории #}
     {% for product in manufacture.product_set.all %}
@@ -77,11 +47,6 @@
         <div class="product-none">Товаров от {{ manufacture.name }} нет</div>
     {% endfor %}
 </div>
-<div class="pages">
-    <a class="pages-item prev" href="#"> &nbsp; &nbsp;</a>
-    <a class="pages-item pages-counter" href="#">1</a>
-    <a class="pages-item pages-counter" href="#">2</a>
-    <a class="pages-item pages-counter" href="#">3</a>
-    <a class="pages-item next" href="#"> &nbsp; &nbsp;</a>
-</div>
+<!--Пагинация-->
+{% include 'base/include_paginator.html' %}
 {% endblock %}

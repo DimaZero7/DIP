@@ -12,7 +12,7 @@
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="basket">
-    {% include 'include_account-nav.html' %}
+    {% include 'base/include_account-nav.html' %}
     <form method="post">
         {% csrf_token %}
         <input type="hidden" value="{{user.username}}" name="{{form.client_username.html_name}}">

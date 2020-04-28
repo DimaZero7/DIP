@@ -1,0 +1,44 @@
+<form class="filter">
+    <input type="submit" value="Выполнить">
+    <div class="filter-container">
+        <div class="filter-block">
+            <div class="filter-title">Цена</div>
+            <div class="filter-selector">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="price_descending" title="По убыванию" required>
+                </label>
+                <label>
+                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="price_ascending" title="По возрастанию" required>
+                </label>
+            </div>
+        </div>
+        <div class="filter-block">
+            <div class="filter-title">Рейтинг</div>
+            <div class="filter-selector">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="rait_descending" title="По убыванию" required>
+                </label>
+                <label>
+                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="rait_ascending" title="По возрастанию" required>
+                </label>
+            </div>
+        </div>
+        <div class="filter-block">
+            <div class="filter-title">Дата</div>
+            <div class="filter-selector">
+                <label>
+                    <input class="filter-radio" type="radio" id="filter" name="filter" value="data_descending" title="По убыванию" required>
+                </label>
+                <label>
+                    <input class="filter-radio down" class="filter-radio" type="radio" id="filter" name="filter" value="data_ascending" title="По возрастанию" required>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="grid-1"></div>
+        <div class="grid-2"></div>
+    </div>
+    {% csrf_token %}
+</form>

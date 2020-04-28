@@ -1,6 +1,10 @@
 {% extends 'base/base_common.html' %}
 {% block title  %}Производители{% endblock %}
- 
+
+{% block keywords %}Производители, {% for manufacture in manufacture_list %}{{ manufacture.name }}, {% endfor %}Rearm Device{% endblock %}
+
+{% block description %}Каталог производителей на сайте Rearm Device{% endblock %} 
+   
 {% block content_website %}
     <h1 class="main-h1">Производители</h1>
     <div class="main-product">
