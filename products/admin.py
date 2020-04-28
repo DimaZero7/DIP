@@ -29,5 +29,6 @@ class ProductsAdmin(admin.ModelAdmin):
         ('Описание', {'fields': ['description', 'specifications', 'set']}),
     ]
 
+    list_filter = ('categories', 'manufacture')
 
 admin.site.register(Product, ProductsAdmin)

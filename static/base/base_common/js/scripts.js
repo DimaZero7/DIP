@@ -77,6 +77,16 @@ $(document).ready(function () {
         $('.shopping-list').slideUp();
     })
 
+    
+  //Логика окна корзины
+    $('.changelist-filter-h2').click(function () {
+        $('.changelist-filter-content').toggleClass('active-changelist-filter-content');
+        $(this).toggleClass('arrow-active');
+        
+    })
+    
+    
+    
     //Слайдеры
     //Главный слайдер
     $('.slider').slick({

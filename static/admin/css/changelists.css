@@ -13,14 +13,18 @@
     width: 100%;
 }
 
-.change-list .hiddenfields { display:none; }
+.change-list .hiddenfields {
+    display: none;
+}
 
 .change-list .filtered table {
     border-right: none;
 }
 
-.change-list .filtered .results, .change-list .filtered .paginator,
-.filtered #toolbar, .filtered div.xfull {
+.change-list .filtered .results,
+.change-list .filtered .paginator,
+.filtered #toolbar,
+.filtered div.xfull {
     width: auto;
 }
 
@@ -29,7 +33,7 @@
 }
 
 #changelist-form .results {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
 #changelist .toplinks {
@@ -72,9 +76,10 @@
     justify-content: center;
     align-items: center;
     color: var(--text);
+    order: 1;
 }
 
-#changelist #toolbar > form > div{
+#changelist #toolbar > form > div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,14 +95,14 @@
 #changelist #toolbar form #searchbar {
 
     border: 2px solid var(--text);
-    padding:5px;
+    padding: 5px;
     margin: 0;
     font-size: 13px;
     margin: 0 2%;
 }
 
 #changelist #toolbar form #searchbar:focus {
-    border:1px solid var(--text);
+    border: 1px solid var(--text);
 }
 
 #changelist #toolbar form input[type="submit"] {
@@ -124,15 +129,29 @@
 /* FILTER COLUMN */
 
 #changelist-filter {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    width: 240px;
-    background: #f8f8f8;
-    border-left: none;
+    background: var(--lg);
+    border: 2px solid var(--text);
     margin: 0;
+    order: 2;
+
+}
+
+#changelist-form {
+    order: 3;
+}
+
+.changelist-filter-content {
+    display: flex;
+    flex-flow: row wrap;
     display: none;
+}
+
+.changelist-filter-content.active-changelist-filter-content{
+    display: flex;
+}
+
+.changelist-filter-item {
+    flex: 0 1 20%;
 }
 
 #changelist-filter h2 {
@@ -142,6 +161,41 @@
     padding: 5px 15px;
     margin-bottom: 12px;
     border-bottom: none;
+    position: relative;
+    margin: 0;
+}
+
+
+#changelist-filter h2.arrow::before,
+#changelist-filter h2.arrow::after {
+    position: absolute;
+    content: '';
+    width: 14px;
+    height: 4px;
+    background-color: var(--text);
+    border-radius: 100px;
+    top: 10px;
+    transition: .3s;
+}
+
+#changelist-filter h2.arrow::before {
+    transform: rotate(50deg);
+    left: 81px;
+}
+
+#changelist-filter h2.arrow::after {
+    transform: rotate(-50deg);
+    left: 89px;
+}
+
+#changelist-filter h2.arrow.arrow-active::before {
+    transform: rotate(-50deg);
+    transition: .3s;
+}
+
+#changelist-filter h2.arrow.arrow-active::after {
+    transform: rotate(50deg);
+    transition: .3s;
 }
 
 #changelist-filter h3 {
@@ -149,6 +203,8 @@
     font-size: 14px;
     padding: 0 15px;
     margin-bottom: 10px;
+    color: var(--text);
+    text-transform: uppercase;
 }
 
 #changelist-filter ul {
@@ -170,25 +226,26 @@
 
 #changelist-filter a {
     display: block;
-    color: #999;
+    color: var(--text);
     text-overflow: ellipsis;
     overflow-x: hidden;
 }
 
 #changelist-filter li.selected {
-    border-left: 5px solid #eaeaea;
+    border-left: 5px solid var(--red);
     padding-left: 10px;
     margin-left: -15px;
 }
 
 #changelist-filter li.selected a {
-    color: #5b80b2;
+    color: var(--text);
 }
 
-#changelist-filter a:focus, #changelist-filter a:hover,
+#changelist-filter a:focus,
+#changelist-filter a:hover,
 #changelist-filter li.selected a:focus,
 #changelist-filter li.selected a:hover {
-    color: #036;
+    color: var(--text);
 }
 
 /* DATE DRILLDOWN */
@@ -230,7 +287,8 @@
     font-weight: bold;
 }
 
-.paginator a:link, .paginator a:visited {
+.paginator a:link,
+.paginator a:visited {
     padding: 2px 6px;
     background: #79aec8;
     text-decoration: none;
@@ -244,7 +302,8 @@
     color: #5b80b2;
 }
 
-.paginator a.showall:focus, .paginator a.showall:hover {
+.paginator a.showall:focus,
+.paginator a.showall:hover {
     background: none;
     color: #036;
 }
@@ -260,7 +319,8 @@
     vertical-align: top;
 }
 
-.paginator a:focus, .paginator a:hover {
+.paginator a:focus,
+.paginator a:hover {
     color: white;
     background: #036;
 }
@@ -272,11 +332,11 @@
     margin: 0;
     vertical-align: baseline;
     position: relative;
-    
+
 }
 
 #changelist table input:checked::before,
-#changelist table input:not(:checked)::before{
+#changelist table input:not(:checked)::before {
     content: '';
     position: absolute;
     top: 0;
@@ -289,7 +349,7 @@
 }
 
 #changelist table input:checked::after,
-#changelist table input:not(:checked)::after{
+#changelist table input:not(:checked)::after {
     content: '';
     position: absolute;
     top: 0;
@@ -300,7 +360,7 @@
     transition: .3s;
 }
 
-#changelist table input:checked::after{
+#changelist table input:checked::after {
     background: url(../img/close.webp) 50% 50% / 100% no-repeat;
     transition: .3s
 }
@@ -358,7 +418,7 @@
     border-color: #999;
 }
 
-.actions select option{
+.actions select option {
     background-color: var(--lg);
 }
 
@@ -374,7 +434,7 @@
     background-color: var(--dark);
     font-size: 14px;
     cursor: pointer;
-    padding: 0 10px ;
+    padding: 0 10px;
     margin: 0;
     border-radius: 0;
     color: var(--text);
@@ -384,7 +444,8 @@
     margin: -10px;
 }
 
-#changelist .actions .button:focus, #changelist .actions .button:hover {
+#changelist .actions .button:focus,
+#changelist .actions .button:hover {
     background-color: var(--red);
     transition: .3s
 }
