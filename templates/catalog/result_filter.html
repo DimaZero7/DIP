@@ -1,0 +1,60 @@
+{% extends 'base/base_common.html' %}
+
+{% block title  %}
+{{ category.name }}
+{% endblock %}
+
+{% block content_website %}
+<h1 class="main-h1">{{ category.name }}</h1>
+
+<!--Фильтры-->
+{% include 'base/include_filter.html' %}
+
+<div class="main-product">
+    {# Вывожу все товары текущей категории #}
+    {% for product in filters %}
+    <article class="product-block">
+        <div class="product-title">
+            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+        </div>
+        <div class="product-img">
+            <a href="{{ product.get_absolute_url }}">
+                {# Вывожу 1-ую картинку текущего товара #}{% for prodimg in product.prodimg.all %}
+                {% if forloop.counter == 1 %}
+                <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                {% endif %}
+                {% endfor %}
+            </a>
+        </div>
+        <div class="product-info">
+            <div class="product-price">{{ product.price }}</div>
+        </div>
+    </article>
+    {% empty %}
+    <div class="product-none" title="Товаров в категории {{ category.name }} нет">
+        <span></span>
+    </div>
+    {% endfor %}
+
+
+</div>
+<div class="pages">
+    <div class="pages-content">
+        {% if page_obj.has_previous %}
+        <a class="pages-item prev" href="?page={{ page_obj.previous_page_number }}"> &nbsp; &nbsp;</a>
+        <a class="pages-item pages-counter" href="?page=1">1</a>
+        {% endif %}
+
+        <a class="pages-item pages-counter page-active" href="#">{{ page_obj.number }}</a>
+
+        {% if page_obj.has_next %}
+        <a class="pages-item pages-counter" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+        <a class="pages-item next" href="?page={{ page_obj.next_page_number }}"> &nbsp; &nbsp;</a>
+    </div>
+    <div class="pages-info">
+        {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

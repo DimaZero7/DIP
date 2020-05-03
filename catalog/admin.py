@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
         """Добавление HTML кода ( изоброжение категории ) в стукруту таблицы в админке"""
 
         return mark_safe(f'<img src="{Category.img.url}" alt="{Category.name}" class="admin-icon"/>')
-
+    get_image.short_description = u'Логотип'
     list_display = ('name', 'get_image')
 
     fieldsets = [

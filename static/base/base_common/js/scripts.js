@@ -79,13 +79,9 @@ $(document).ready(function () {
 
     
   //Логика окна корзины
-    $('.changelist-filter-h2').click(function () {
-        $('.changelist-filter-content').toggleClass('active-changelist-filter-content');
-        $(this).toggleClass('arrow-active');
-        
+    $('.filter').on( 'change', function () {
+        $(this).submit();
     })
-    
-    
     
     //Слайдеры
     //Главный слайдер

@@ -75,10 +75,6 @@ button {
 
     #changelist-search > div {
         display: -webkit-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        max-width: 480px;
     }
 
     #changelist-search label {
@@ -88,7 +84,6 @@ button {
     #changelist #toolbar form #searchbar {
         -webkit-flex: 1 0 auto;
         flex: 1 0 auto;
-        width: 0;
         height: 22px;
         margin: 0 10px 0 6px;
     }
@@ -1098,6 +1093,12 @@ button {
         padding: 0;
     }
 
+    #changelist #toolbar form #searchbar {
+        width: 180px;
+        height: 22px;
+        margin: 0 10px 0 6px;
+    }
+    
     .submit-row input,
     .submit-row input.default,
     .submit-row a,

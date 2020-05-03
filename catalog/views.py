@@ -26,21 +26,43 @@ class CategoryDetail(DetailView, MultipleObjectMixin):
 
     
 
-
-
-##Фильтрация товаров
-#def filter(request):
-#    filter = request.GET.get('filter')
-#    
-#    print(filter)
-##    if filter == 'price_descending':
-##        product_filter = Product.objects.all().order_by('-price')
-##    
-##    if filter == 'price_ascending':
-##        product_filter = Product.objects.all().order_by('price')
-##    
-##    context = {
-##        'product_filter':product_filter
-##    }
-##
-##    return render(request, 'result_filter.html', context)
+#Фильтрация товаров
+def filter(request):
+    data = request.POST
+    filter = data.get("filter")
+    
+    print(filter)
+    if filter == 'nameAZ':
+        filters = Product.objects.all().order_by('name')
+        context = {
+            'filters':filters
+        }
+    
+    if filter == 'nameZA':
+        filters = Product.objects.all().order_by('-name')
+        context = {
+            'filters':filters
+        }
+    
+    if filter == 'priceIncrement':
+        filters = Product.objects.all().order_by('price')
+        context = {
+            'filters':filters
+        }
+    if filter == 'priceDeincrement':
+        filters = Product.objects.all().order_by('-price')
+        context = {
+            'filters':filters
+        }
+    
+    if filter == 'dataIncrement':
+        filters = Product.objects.all().order_by('date')
+        context = {
+            'filters':filters
+        }
+    if filter == 'dataDeincrement':
+        filters = Product.objects.all().order_by('-date')
+        context = {
+            'filters':filters
+        }
+    return render(request, 'catalog/result_filter.html', context)

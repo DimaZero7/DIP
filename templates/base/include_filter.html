@@ -1,39 +1,28 @@
-<form class="filter">
+<form class="filter" method="post" action="{% url 'catalog:filter' %}">
     <input type="submit" value="Выполнить">
     <div class="filter-container">
-        <div class="filter-block">
-            <div class="filter-title">Цена</div>
-            <div class="filter-selector">
-                <label>
-                    <input class="filter-radio" type="radio" id="filter" name="filter" value="price_descending" title="По убыванию" required>
-                </label>
-                <label>
-                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="price_ascending" title="По возрастанию" required>
-                </label>
-            </div>
-        </div>
-        <div class="filter-block">
-            <div class="filter-title">Рейтинг</div>
-            <div class="filter-selector">
-                <label>
-                    <input class="filter-radio" type="radio" id="filter" name="filter" value="rait_descending" title="По убыванию" required>
-                </label>
-                <label>
-                    <input class="filter-radio down" type="radio" id="filter" name="filter" value="rait_ascending" title="По возрастанию" required>
-                </label>
-            </div>
-        </div>
-        <div class="filter-block">
-            <div class="filter-title">Дата</div>
-            <div class="filter-selector">
-                <label>
-                    <input class="filter-radio" type="radio" id="filter" name="filter" value="data_descending" title="По убыванию" required>
-                </label>
-                <label>
-                    <input class="filter-radio down" class="filter-radio" type="radio" id="filter" name="filter" value="data_ascending" title="По возрастанию" required>
-                </label>
-            </div>
-        </div>
+        <label>
+            <span>Сортировать</span>
+            <select name="filter">
+               {% if request.POST %}
+                <option value="nameAZ">{{request.POST}}</option>
+                <option value="nameAZ">Название A-Z</option>
+                <option value="nameZA">Название Z-A</option>
+                <option value="priceIncrement">Цена по возрасанию</option>
+                <option value="priceDeincrement">Цена по убыванию</option>
+                <option value="dataDeincrement">Цена по возрасанию</option>
+                <option value="dataDeincrement">Цена по убыванию</option>
+               {% else %}
+                <option value="nameAZ">Название A-Z</option>
+                <option value="nameZA">Название Z-A</option>
+                <option value="priceIncrement">Цена по возрасанию</option>
+                <option value="priceDeincrement">Цена по убыванию</option>
+                <option value="dataDeincrement">Дата по возрасанию</option>
+                <option value="dataDeincrement">Дата по убыванию</option>
+               {% endif %}
+            </select>
+        </label>
+
     </div>
 
     <div class="grid">
