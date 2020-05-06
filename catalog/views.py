@@ -66,3 +66,4 @@ def filter(request):
             'filters':filters
         }
     return render(request, 'catalog/result_filter.html', context)
+

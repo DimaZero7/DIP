@@ -20,6 +20,7 @@
     padding: 0;
     box-sizing: border-box;
     border: 0;
+    
 }
 
 html,
@@ -648,96 +649,26 @@ img {
     margin: -5px -1% 0 -1%;
     border-bottom: 2px solid var(--text);
     padding: 0 0 0 1%;
+    color: var(--text);
 }
 
 .filter-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 100%;
     flex: 0 1 80%
 }
 
-.filter-title {
-    margin: 0 10px 0 0;
-    font-size: 20px;
-    color: var(--text)
-}
-
-.filter-block {
-    display: flex;
-    align-items: center;
-    margin: 0 0 0 0;
-    flex: 0 0 25%
-}
-
-.filter-selector {
+.filter label{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.filter-radio {
-    position: relative;
-}
-
-.filter-radio:hover {
-    cursor: pointer;
-}
-
-.filter-radio:not(:checked):hover::before {
-    box-shadow: 0 0 10px var(--text);
-}
-
-.filter-radio:nth-child(odd) {
-    margin: 0 0 10px 0;
-}
-
-.filter-radio:nth-child(even) {
-    margin: 10px 0 0 0;
-}
-
-.filter-radio:checked::before,
-.filter-radio:not(:checked)::before,
-.filter-radio:checked::after,
-.filter-radio:not(:checked)::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -3px;
-    width: 20px;
-    height: 20px;
-    border-radius: 100px;
-    transition: .3s;
-}
-
-
-.filter-radio:checked::before,
-.filter-radio:not(:checked)::before {
-    background-color: var(--text);
-    z-index: 1;
-}
-
-.filter-radio:checked::after,
-.filter-radio:not(:checked)::after {
-    z-index: 2;
-}
-
-.filter-radio:not(:checked)::after {
-    background: url(../img/arrow.svg) 50% 50% / 80% no-repeat;
+.filter label select,
+.filter option{
     background-color: white;
-}
-
-.down:not(:checked)::after {
-    transform: rotate(180deg);
-}
-
-.filter-radio:checked::after {
-    background: url(../img/arrow.svg) 50% 50% / 80% no-repeat;
-    background-color: var(--red);
-    transition: .3s
-}
-
-.down:checked::after {
-    transform: rotate(180deg);
 }
 
 .filter input[type="submit"] {
