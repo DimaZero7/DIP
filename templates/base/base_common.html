@@ -142,7 +142,7 @@
                             {% if user.username %}  
                                 {% url 'account:account' %}
                             {% else %}
-                                {% url 'auth:login' %}
+                                {% url 'authorization:login' %}
                             {% endif %}
                                " class="header-profile-icon profile {% if user.profile.photo%}profile-photo{% endif %}" title="Профиль">
                                 {% if user.username %}
@@ -156,7 +156,7 @@
                                 {% endif %}
                             </a>
                             {% else %}
-                            <a href="{% url 'auth:login' %}" class="header-profile-icon profile" title="Авторизация">
+                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
                             </a>
                             {% endif %}
@@ -171,6 +171,9 @@
                         <a href="{% url 'admin:index' %}">{{user.username}}</a>
                         {% else %}
                         {{user.username}}
+                        <div class="username_id">
+                            {{user.id}}
+                        </div>
                         {% endif %}
 
                     </div>
@@ -182,7 +185,7 @@
         <main class="main">
             <div class="container">
                 <div class="main-container">
-                    {% include 'base/include_menu.html' %}
+                    {% include 'catalog/categories_menu_include.html' %}
                     <div class="content">
                         <div class="preloader">
                             <div class="preloader-spin"></div>

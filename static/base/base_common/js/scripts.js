@@ -141,7 +141,7 @@ $(document).ready(function () {
     var form = $('#buyProduct');
     console.log(form);
 
-    function basketUpdating(user, product_id, quantity_nbr, is_delete) {
+    function basketUpdating(user_id, product_id, quantity_nbr, is_delete) {
         var data = {};
         data.product_id = product_id;
         data.quantity_nbr = quantity_nbr;
@@ -196,10 +196,10 @@ $(document).ready(function () {
             console.log('Указано больше чем есть на складе');
         } else {
             e.preventDefault(); //Отменить стандартное поведение
+            var user_id = $('.username_id').text(); //Получение id пользователя
             var quantity_nbr = $('#quantity_nbr').val(); //Получить количество товара которого хотят купить
             var addBasket = $('#addBasket'); //Получение кнопки отправки формы для считывания с неё data атрибутов
             var product_id = addBasket.data('product-id'); //Получение id продукта в бд
-            var user_id = addBasket.data('user-id'); //Получение id продукта в бд
             var product_title = addBasket.data('product-title'); //Получение названия продукта
             var product_price = addBasket.data('product-price'); //Получение цены продукта
 
@@ -211,8 +211,10 @@ $(document).ready(function () {
     //Удаление товаров из коризы
     $(document).on('click', '.shopping-list-delete', function (e) {
         e.preventDefault();
+        var user_id = $('.username_id').text(); //Получение id пользователя
         product_id = $(this).data("product_id");
         quantity_nbr = 0;
+        console.log(user_id);
         basketUpdating(user_id, product_id, quantity_nbr, is_delete = true);
         $(this).closest('tr').remove();
     })

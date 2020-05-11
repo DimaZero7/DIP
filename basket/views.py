@@ -1,12 +1,12 @@
-from django.shortcuts import render
 from django.http import JsonResponse
+
+from products.models import Product
 from .models import ProductsInBasket
  
-#Добавление товаров в корзину
+
 def basket_add(request):
     return_dict = dict()
-    
-    print(request.POST)
+
     data = request.POST
     product_id = data.get("product_id")
     quantity_nbr = data.get("quantity_nbr")
@@ -21,7 +21,7 @@ def basket_add(request):
             new_product.quantity_nbr += int(quantity_nbr)
             new_product.save(force_update=True)
         
-    products_in_basket = ProductsInBasket.objects.filter(user=user, is_active=True)
+    products_in_basket = ProductsInBasket.objects.filter(user=request.user, is_active=True)
     product_total_quantity_nbr = products_in_basket.count()  
     return_dict["product_total_quantity_nbr"] = product_total_quantity_nbr
     

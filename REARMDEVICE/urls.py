@@ -12,7 +12,7 @@ urlpatterns = [
     path('comments/', include('comments.urls')),
     path('order/', include('order.urls')), # создание заказов
     path('basket/', include('basket.urls')), # добавление товаров в корзину
-    path('auth/', include('authorization.urls')), # регистрация
+    path('authorization/', include('authorization.urls')),
     path('account/', include('account.urls')), # профиль пользователя
     path('search/', include('search.urls')), # поиск
     

@@ -9,11 +9,12 @@ class Status(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return  self.name
+        return self.name
 
     class Meta:
         verbose_name = 'Статус заказа'
         verbose_name_plural = 'Статусы заказа'
+
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE,  blank=True, null=True, default = None, verbose_name='Пользователь')

@@ -481,6 +481,10 @@ img {
     transition: .3s;
 }
 
+.username_id{
+    display: none;
+}
+
 .username.none {
     right: -100px;
     transition: .3s;

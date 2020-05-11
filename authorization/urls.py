@@ -1,13 +1,15 @@
 from django.urls import path
-from django.conf.urls import include, url
+from django.views.generic.base import RedirectView
+
 from .views import *
 
-app_name = 'auth'
+app_name = 'authorization'
 
 urlpatterns = [
-    path('', LoginFormView.as_view(), name='login'),
-    path('login/', LoginFormView.as_view(), name='login'),
-    path('reg/', RegisterFormView.as_view(), name='reg'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('', RedirectView.as_view(url='/authorization/login/')),
+    path('login/', Login.as_view(), name='login'),
+    path('change_password', ChangePassword.as_view(), name='change_password'),
+    path('registration/', Registration.as_view(), name='registration'),
+    path('logout/', Logout.as_view(), name='logout'),
 ]
 

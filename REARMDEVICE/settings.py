@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'comments.apps.CommentsConfig',
     'basket.apps.BasketConfig', # Добавление товаров в коризну
     'order.apps.OrderConfig', # Создание заказов
-    'authorization.apps.AuthorizationConfig',  # Приложение отвечающее за регестрацию
+    'authorization.apps.AuthorizationConfig',
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
     
@@ -140,3 +140,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'  # Url путь к медиа фаилам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+
+LOGIN_REDIRECT_URL = "account:account"
+
