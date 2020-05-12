@@ -1,1 +1,2 @@
-web: gunicorn REARMDEVICE.wsgi --log-file -
+web: gunicorn REARMDEVICE.wsgi
+              
