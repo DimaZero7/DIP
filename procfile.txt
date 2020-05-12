@@ -1,2 +1,2 @@
-web: gunicorn REARMDEVICE.wsgi
+web: gunicorn rearmdevice.wsgi
               
