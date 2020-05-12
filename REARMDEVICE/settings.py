@@ -27,9 +27,7 @@ SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'https://rearmdevice.herokuapp.com/',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -137,6 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
 ]
@@ -145,6 +145,10 @@ MEDIA_URL = '/media/'  # Url путь к медиа фаилам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 
 LOGIN_REDIRECT_URL = "account:account"
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 import django_heroku
 django_heroku.settings(locals())
