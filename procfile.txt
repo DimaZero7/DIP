@@ -1,1 +1,1 @@
-web: gunicorn rearmdevice.wsgi --log-file -
+web: gunicorn REARMDEVICE.wsgi --log-file -
