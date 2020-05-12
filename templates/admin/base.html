@@ -6,22 +6,33 @@
 <html lang="{{ LANGUAGE_CODE|default:"ru" }}" {% if LANGUAGE_BIDI %}dir="rtl" {% endif %}>
 {% endblock %}
 
-    {% block title  %}Админестрирование{% endblock %}
-    {% block addCSS %}
-    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
-    {% block extrastyle %}{% endblock %}
-    {% if LANGUAGE_BIDI %}
-    <link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}">{% endif %}
-    {% block extrahead %}{% endblock %}
-    {% block responsive %}
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive.css" %}">
-    {% if LANGUAGE_BIDI %}
-    <link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive_rtl.css" %}">{% endif %}
-    {% endblock %}
-    {% block blockbots %}
-    <meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
-    {% endblock %}
+{% block title  %}Админестрирование{% endblock %}
+{% block addCSS %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
+{% block extrastyle %}{% endblock %}
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}">{% endif %}
+{% block extrahead %}{% endblock %}
+{% block responsive %}
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive.css" %}">
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive_rtl.css" %}">{% endif %}
+{% endblock %}
+{% block blockbots %}
+<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+<style>
+    #branding a h1 {
+        margin: 0 0 10px 0;
+        background: url(../../base/common/img/logo/logo_max.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        width: 200px;
+        height: 30px;
+    }
+</style>
+{% endblock %}
 
 
 {% load i18n %}
@@ -69,7 +80,7 @@
     </div>
     <!-- END Container -->
     {% endblock %}
-{% block addJS %}{% endblock %}
+    {% block addJS %}{% endblock %}
 </body>
 
 </html>
