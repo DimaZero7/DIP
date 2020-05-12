@@ -1,22 +1,26 @@
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeDoneView, PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
 
 
-class ChangePassword(PasswordResetView):
+
+class ChangePassword(SuccessMessageMixin, PasswordResetView):
     template_name = "authorization/change_password.html"
     success_url = "/authorization/login/"
+    success_message = "Пароль изменен"
 
 
-class Login(LoginView):
+class Login(SuccessMessageMixin, LoginView):
     template_name = "authorization/login.html"
+    success_message = "Привет"
 
 
-class Logout(LogoutView):
+class Logout(SuccessMessageMixin, LogoutView):
     next_page = "/"
+    success_message = "Пока"
 
-
-class Registration(FormView):
+class Registration(SuccessMessageMixin, FormView):
     form_class = UserCreationForm
     success_url = "/"
     template_name = "authorization/register.html"

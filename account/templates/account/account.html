@@ -12,7 +12,7 @@
 {% block keywords %}
     Личный кабинет
 {% endblock %}
-
+ 
 {% block description %}
     Личный кабинет - {{user.username}}
 {% endblock %}
@@ -21,17 +21,6 @@
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
     {% include 'base/include_account-nav.html' %}
-
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                    {{ message }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
     <table class="profile-table">
         <thead>
             <tr class="title">

@@ -24,7 +24,7 @@ randomColor = colors[Math.random() * colors.length ^ 0];
 document.documentElement.style.setProperty('--red', randomColor);
 
 
-//Когда документ загружен
+//Построен документ(DOM) и загружены все скрипты
 $(document).ready(function () {
 
     //анимация кнопки поиска
@@ -34,6 +34,20 @@ $(document).ready(function () {
     $('.header-search-button').mouseleave(function () {
         $(this).css("transform", "rotate(360deg)");
     })
+
+    //Логика сообщений
+    if ($('.messages li').hasClass('messages-item')) {
+        $('.bell').toggleClass('bell-active');
+        $('.messages').toggleClass('messages-active');
+        $('.header-about').toggleClass('header-about-min');
+        setTimeout(function () {
+            $('.bell').toggleClass('bell-active');
+            $('.messages').toggleClass('messages-active');
+            $('.header-about').toggleClass('header-about-min');
+        }, 4000);
+    } else {
+        console.log('сообщений нет');
+    }
 
     //Двежение кнопки открывающей меню
     $('.menu-active').click(function () {
@@ -77,12 +91,11 @@ $(document).ready(function () {
         $('.shopping-list').slideUp();
     })
 
-    
-  //Логика окна корзины
-    $('.filter').on( 'change', function () {
+    //Логика окна корзины
+    $('.filter').on('change', function () {
         $(this).submit();
     })
-    
+
     //Слайдеры
     //Главный слайдер
     $('.slider').slick({
@@ -134,9 +147,6 @@ $(document).ready(function () {
         focusOnSelect: true,
     });
 
-});
-
-$(document).ready(function () {
     //Добавление товаров в корзину
     var form = $('#buyProduct');
     console.log(form);
@@ -275,45 +285,7 @@ $(document).ready(function () {
     //            }
     //        })();
     //    });    
-
-    //Пересчет суммы заказа в корзине
-    function calculateBasketAmount() {
-        var summ_order = 0;
-        $('.summary').each(function () {
-            summ_order += parseFloat($(this).text());
-        })
-        $('.total-price input').val(summ_order.toFixed(2));
-    };
-    $(document).on('change', ".input-number", function () {
-        var current_quantity = $(this).val();
-        var current_tr = $(this).closest('tr');
-        var current_price = parseFloat(current_tr.find('.price').text()).toFixed(2);
-        var total_price = parseFloat(current_quantity * current_price).toFixed(2);
-        current_tr.find('.summary').text(total_price);
-        calculateBasketAmount();
-    })
-    calculateBasketAmount();
-
-
-    //Превью картинки
-    $('#id_photo').change(function () {
-        var input = $(this)[0];
-        if (input.files && input.files[0]) {
-            if (input.files[0].type.match('image.*')) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#img-preview').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                console.log('ошибка, не изображение');
-            }
-        } else {
-            console.log('хьюстон у нас проблема');
-        }
-    });
 });
-
 
 //Взаимодействие со свайпами
 if ($(window).width() < 500) {

@@ -3,6 +3,7 @@
 {% block htmlLang %}
 <html lang="ru">
 {% endblock %}
+
 <head>
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -75,6 +76,19 @@
                             <a href="#" class="header-link">О нас</a>
                         </div>
                         <div class="header-contacts">
+                            {% if user.username %}
+                            <div href="#" class="header-icon bell" title="Уведомления">
+                                <img src="{% static 'base/base_common/img/header-icon/bell.svg' %}" alt="Уведомления">
+                                {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                    <li {% if message.tags %} class="messages-item {{ message.tags }}" {% endif %}>{{ message }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            {% endif %}
                             <a href="#" class="header-icon" title="Местоложение">
                                 <img src="{% static 'base/base_common/img/header-icon/location.svg' %}" alt="Местоложение"></a>
                             <a href="#" class="header-icon" title="Телефон">
@@ -83,11 +97,6 @@
                             <a href="#" class="header-icon" title="Время работы">
                                 <img src="{% static 'base/base_common/img/header-icon/watch.svg' %}" alt="Время работы">
                             </a>
-                            {% if user.username %}
-                            <a href="#" class="header-icon" title="Уведомления">
-                                <img src="{% static 'base/base_common/img/header-icon/bell.svg' %}" alt="Уведомления">
-                            </a>
-                            {% endif %}
                         </div>
                     </div>
                     <div class="header-main">
@@ -131,12 +140,6 @@
                                     {% endif %}">Перейти к заказу</a>
                                 </div>
                                 <button class="close-basket" title="Закрыть корзину"></button>
-                                <div class="alert">
-                                    <div class="alert-container">
-                                        <div class="alert-title">Всплыващие окно</div>
-                                        <button class="alert-button">Понятно</button>
-                                    </div>
-                                </div>
                             </div>
                             <a href="
                             {% if user.username %}  
@@ -147,7 +150,7 @@
                                " class="header-profile-icon profile {% if user.profile.photo%}profile-photo{% endif %}" title="Профиль">
                                 {% if user.username %}
                                 {% if user.profile.photo %}
-                                    <img src="{{user.profile.photo.url}}" alt="Профиль">
+                                <img src="{{user.profile.photo.url}}" alt="Профиль">
                                 {% else %}
                                 <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
                                 {% endif %}
@@ -178,6 +181,12 @@
 
                     </div>
                     {% endif %}
+                </div>
+            </div>
+            <div class="alert">
+                <div class="alert-container">
+                    <div class="alert-title">Всплыващие окно</div>
+                    <button class="alert-button">Понятно</button>
                 </div>
             </div>
         </header>
@@ -266,6 +275,7 @@
             $preloaderSpin.fadeOut();
             $preloader.delay(50).fadeOut('slow');
         })
+
     </script>
     <script src="{% static 'base/base_common/js/slick.min.js' %}"></script>
     <script src="{% static 'base/base_common/js/scripts.js' %}"></script>

@@ -14,16 +14,10 @@
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
     {% include 'base/include_account-nav.html' %}
-
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-            {% endfor %}
-    </ul>
-    {% endif %}
-
     <form action="" method="post" enctype="multipart/form-data">
+        <div class="submit-order">
+            <input type="submit" value="Сохранить">
+        </div>
         {% csrf_token %}
         <table class="profile-table">
             <thead>
@@ -123,11 +117,10 @@
                 <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
             </div>
             {% endif %}
-            {{ profile_form.photo }}
+            <label for="id_photo" class="label-photo"><span>Выберите фото</span></label>
+            <input type="file" name="photo" class="photo_load" id="id_photo" required data-multiple-caption="{count} files selected" multiple>
         </div>
-        <div class="submit-order">
-            <input type="submit" value="Сохранить">
-        </div>
+
     </form>
 
 
@@ -136,4 +129,24 @@
 
 {% endblock %}
 
-{% block addJS %}{% endblock %}
+{% block addJS %}
+<script>
+    //Превью картинки
+    $('#id_photo').change(function() {
+        var input = $(this)[0];
+        if (input.files && input.files[0]) {
+            if (input.files[0].type.match('image.*')) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#img-preview').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                console.log('ошибка, не изображение');
+            }
+        } else {
+            console.log('хьюстон у нас проблема');
+        }
+    });
+</script>
+{% endblock %}

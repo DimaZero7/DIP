@@ -3,7 +3,8 @@
 
 {% block title  %}Личный кабинет {{user.username}} | Корзина{% endblock %}
 
-{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
 {% block keywords %}Личный кабинет, Корзина{% endblock %}
@@ -14,6 +15,11 @@
 <div class="basket">
     {% include 'base/include_account-nav.html' %}
     <form method="post">
+       {% if product_in_basket %}
+        <div class="submit-order">
+            <input type="submit" value="Заказать">
+        </div>
+        {% endif %}
         {% csrf_token %}
         <input type="hidden" value="{{user.username}}" name="{{form.client_username.html_name}}">
         <table class="profile-table {% if not product_in_basket %}none{% endif %}">
@@ -63,21 +69,36 @@
                 </tr>
             </tfoot>
         </table>
-
         {% if product_in_basket %}
-        <div class="submit-order">
-            <input type="submit" value="Заказать">
-        </div>
         {% endif %}
     </form>
 </div>
 <!--
-
 <button class="input-number-button down-value"> - </button>
 <input class="input-number" type="number" value="{{product_in_basket.quantity_nbr}}" name="product_in_basket_{{product_in_basket.id}}" min="1" max="{{product_in_basket.product.warehouse}}">
 <button class="input-number-button up-value"> + </button>
 -->
-
 {% endblock %}
 
-{% block addJS %}{% endblock %}
+{% block addJS %}
+<script>
+    $(document).ready(function() {
+        function calculateBasketAmount() {
+            var summ_order = 0;
+            $('.summary').each(function() {
+                summ_order += parseFloat($(this).text());
+            })
+            $('.total-price input').val(summ_order.toFixed(2));
+        };
+        $(document).on('change', ".input-number", function() {
+            var current_quantity = $(this).val();
+            var current_tr = $(this).closest('tr');
+            var current_price = parseFloat(current_tr.find('.price').text()).toFixed(2);
+            var total_price = parseFloat(current_quantity * current_price).toFixed(2);
+            current_tr.find('.summary').text(total_price);
+            calculateBasketAmount();
+        })
+        calculateBasketAmount();
+    });
+</script>
+{% endblock %}

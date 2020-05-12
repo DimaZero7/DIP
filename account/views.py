@@ -33,10 +33,10 @@ def editing(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Ваш профиль был успешно обновлен!')
+            messages.success(request, 'Профиль был обновлен!')
             return redirect('account:account')
         else:
-            messages.error(request, 'Пожалуйста, исправьте ошибки.')
+            messages.error(request, 'Исправьте ошибки')
             pass
     else:
         user_form = UserForm(instance=request.user)

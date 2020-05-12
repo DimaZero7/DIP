@@ -20,7 +20,7 @@
     padding: 0;
     box-sizing: border-box;
     border: 0;
-    
+
 }
 
 html,
@@ -102,6 +102,11 @@ img {
     transition: .3s;
 }
 
+.header-about-min {
+    flex: 0 50%;
+    transition: .3s;
+}
+
 .header-link {
     height: 30px;
     display: flex;
@@ -112,6 +117,11 @@ img {
     transition: .3s;
     flex: 0 1 25%;
     text-align: center;
+    white-space: nowrap;
+}
+
+.header-about-min .header-link {
+    font-size: 15px;
 }
 
 
@@ -141,6 +151,53 @@ img {
 
 .header-icon img {
     width: 100%;
+}
+
+.bell {
+    position: relative;
+}
+
+.bell img {
+    order: 2;
+}
+
+.bell-active {
+    background-color: var(--red);
+}
+
+.messages {
+    position: absolute;
+    color: var(--text);
+    right: 30px;
+    top: 0;
+    background-color: var(--red);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 0;
+    transition: .3s;
+}
+
+.messages li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    font-size: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.messages-active {
+    transition: .3s;
+    padding: 0 5px;
+    width: auto;
+}
+
+.messages-active li {
+    transition: .3s;
+    font-size: 12px;
+    width: 200px;
 }
 
 .header-main {
@@ -444,6 +501,7 @@ img {
     flex-direction: column;
     font-size: 20px;
     padding: 30px 2%;
+    color: var(--text);
 }
 
 .alert-title {
@@ -465,6 +523,28 @@ img {
     transition: .3s;
 }
 
+/*
+.messages{
+    position: fixed;
+    z-index: 10000;
+    top: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.messages li{
+    width: 300px;
+    background-color: var(--red);
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    color: var(--text);
+}
+*/
+
 .username {
     position: absolute;
     bottom: -30px;
@@ -481,7 +561,7 @@ img {
     transition: .3s;
 }
 
-.username_id{
+.username_id {
     display: none;
 }
 
@@ -663,7 +743,7 @@ img {
     flex: 0 1 80%
 }
 
-.filter label{
+.filter label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -671,7 +751,7 @@ img {
 }
 
 .filter label select,
-.filter option{
+.filter option {
     background-color: white;
 }
 
@@ -752,7 +832,7 @@ img {
     border: 0;
 }
 
-.grid-counter{
+.grid-counter {
     display: none;
 }
 
@@ -1226,6 +1306,20 @@ span.pages-item {
         transition: .3s;
     }
 
+    .messages {
+        position: fixed;
+        z-index: 1000;
+        right: 0;
+    }
+
+    .messages li {
+        height: 40px;
+    }
+
+    .messages-active li {
+        font-size: 14px;
+        width: 150px;
+    }
 
     .main {
         padding: 40px 0 0 0;
@@ -1237,7 +1331,6 @@ span.pages-item {
         height: 40px;
         top: 74px;
     }
-
 
     .menu-active::before,
     .menu-active span,
@@ -1270,7 +1363,6 @@ span.pages-item {
         height: 30px;
         margin: 0;
     }
-
 
     .main-h1 {
         margin: -10px -1% 5px -1%;
@@ -1414,7 +1506,7 @@ span.pages-item {
         width: 35px;
         height: 35px;
     }
-    
+
     .shopping-list {
         display: none;
     }
