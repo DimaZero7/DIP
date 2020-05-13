@@ -1,21 +1,13 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
 
-{% block title  %}
-    Личный кабинет {{user.username}}
-{% endblock %}
+{% block title  %}Личный кабинет {{user.username}}{% endblock %}
 
-{% block addCSS %}
-    <link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
-{% endblock %}
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">{% endblock %}
 
-{% block keywords %}
-    Личный кабинет
-{% endblock %}
- 
-{% block description %}
-    Личный кабинет - {{user.username}}
-{% endblock %}
+{% block keywords %}Личный кабинет{% endblock %}
+
+{% block description %}Личный кабинет - {{user.username}}{% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
@@ -43,23 +35,23 @@
                 </td>
                 <td class="">
                     {% if user.first_name %}
-                        {{ user.first_name }}
+                    {{ user.first_name }}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
                 <td class="">
                     {% if user.last_name %}
-                        {{ user.last_name }}
+                    {{ user.last_name }}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
                 <td class="">
                     {% if user.email %}
-                        {{ user.email }}
+                    {{ user.email }}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
             </tr>
@@ -83,30 +75,30 @@
             <tr>
                 <td class="">
                     {% if user.profile.city %}
-                        {{ user.profile.city}}
+                    {{ user.profile.city}}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
                 <td class="">
                     {% if user.profile.street %}
-                        {{ user.profile.street}}
+                    {{ user.profile.street}}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
                 <td class="">
                     {% if user.profile.number_house %}
-                        {{ user.profile.number_house }}
+                    {{ user.profile.number_house }}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
                 <td class="">
                     {% if user.profile.number_room %}
-                        {{ user.profile.number_room }}
+                    {{ user.profile.number_room }}
                     {% else %}
-                        Не заполенно
+                    Не заполенно
                     {% endif %}
                 </td>
             </tr>

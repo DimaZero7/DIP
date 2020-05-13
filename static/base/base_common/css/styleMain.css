@@ -134,7 +134,7 @@ img {
 .header-contacts {
     flex: 0 1 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .header-icon {
@@ -196,8 +196,8 @@ img {
 
 .messages-active li {
     transition: .3s;
-    font-size: 12px;
-    width: 200px;
+    font-size: 15px;
+    width: 260px;
 }
 
 .header-main {
@@ -365,7 +365,7 @@ img {
     border-right: 10px solid transparent;
     border-top: 10px solid var(--text);
     top: -10px;
-    right: 60px;
+    right: 10px;
     transform: rotate(180deg);
 }
 
@@ -523,28 +523,6 @@ img {
     transition: .3s;
 }
 
-/*
-.messages{
-    position: fixed;
-    z-index: 10000;
-    top: 10%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    
-}
-
-.messages li{
-    width: 300px;
-    background-color: var(--red);
-    text-align: center;
-    border-radius: 10px;
-    padding: 5px;
-    margin: 5px;
-    color: var(--text);
-}
-*/
-
 .username {
     position: absolute;
     bottom: -30px;
@@ -701,7 +679,7 @@ img {
     background-color: var(--lg);
     padding: 10px 1% 30px 1%;
     transition: .3s;
-    min-height: 502px;
+    min-height: 702px;
 }
 
 /*слайдер*/
@@ -1282,13 +1260,18 @@ span.pages-item {
         height: 28px;
     }
 
-    .shopping-list:target {
-        top: 46px;
-        right: -10px;
+
+    /*Модальное окно корзины*/
+    .shopping-list {
+        width: 400px;
+        right: 0;
+        top: 72px;
+
     }
 
     .shopping-list::before {
-        right: 65px;
+        top: -10px;
+        right: 45px;
     }
 
     .shopping-list li {
@@ -1467,7 +1450,7 @@ span.pages-item {
 
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
     .logo {
         flex: 0 1 10%;
         min-width: 50px

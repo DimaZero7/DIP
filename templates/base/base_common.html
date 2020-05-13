@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-{% block htmlLang %}
-<html lang="ru">
-{% endblock %}
-
+{% block htmlLang %}<html lang="ru">{% endblock %}
 <head>
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -59,7 +56,6 @@
     </style>
 </head>
 {% block body %}
-
 <body>
     {% endblock %}
     <div class="wrapper">
@@ -89,13 +85,8 @@
                                 {% endif %}
                             </div>
                             {% endif %}
-                            <a href="#" class="header-icon" title="Местоложение">
-                                <img src="{% static 'base/base_common/img/header-icon/location.svg' %}" alt="Местоложение"></a>
                             <a href="#" class="header-icon" title="Телефон">
                                 <img src="{% static 'base/base_common/img/header-icon/phone.svg' %}" alt="Телефон">
-                            </a>
-                            <a href="#" class="header-icon" title="Время работы">
-                                <img src="{% static 'base/base_common/img/header-icon/watch.svg' %}" alt="Время работы">
                             </a>
                         </div>
                     </div>
@@ -115,9 +106,6 @@
                                     {% else %}0{% endif %}
                                 </span>
                             </a>
-                            <a href="{% url 'account:order_detail' %}" class="header-profile-icon not-mobil">
-                                <img src="{% static 'base/base_common/img/header-profile-icon/history.svg' %}" alt="История">
-                            </a>
                             <div class="shopping-list">
                                 <div class="container-total-price">
                                     <div class="total-price-title">Корзина</div>
@@ -129,6 +117,10 @@
                                         <td>{{product_in_basket.quantity_nbr}} шт.</td>
                                         <td>{{product_in_basket.total_price}}</td>
                                         <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr class="shopping-item">
+                                        <td>Товаров нет</td>
                                     </tr>
                                     {% endfor %}
                                 </table>

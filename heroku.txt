@@ -1,0 +1,5 @@
+pip install heroku
+heroku login авторизация
+git push heroku master загрузка файлов
+heroku run manage.py <команда django>
+heroku logs --tail - просмотр логов

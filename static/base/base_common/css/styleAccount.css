@@ -95,10 +95,14 @@
     width: 50%;
 }
 
-.profile-table .name {
+.profile-table td{
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.profile-table .name {
+
 }
 
 .profile-table .price {}
@@ -166,7 +170,7 @@
 .accaunt-photo {
     display: flex;
     flex-direction: column;
-     color: var(--text);
+    color: var(--text);
 }
 
 .photo {
@@ -182,11 +186,11 @@
 }
 
 #id_photo {
-    display: none;
+    opacity: 0;
 }
 
 label:focus {
-	outline: 2px solid var(--red);
+    outline: 2px solid var(--red);
 }
 
 .label-photo {
@@ -199,7 +203,7 @@ label:focus {
     transition: .3s;
 }
 
-.label-photo:hover{
+.label-photo:hover {
     cursor: pointer;
     background-color: var(--red);
     transition: .3s;
@@ -235,7 +239,7 @@ label:focus {
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
     .profile-table .title td {
         font-size: 15px;
     }
@@ -246,10 +250,21 @@ label:focus {
 
     .profile-table td,
     .title-link {
-        font-size: 14px;
+        font-size: 12px;
+        white-space: nowrap;
     }
+
 
     .account a {
         font-size: 13px;
+    }
+
+    .account-nav {
+        justify-content: space-between
+    }
+
+    .account-nav a {
+        font-size: 12px;
+        padding: 2px;
     }
 }

@@ -20,6 +20,7 @@ class Logout(SuccessMessageMixin, LogoutView):
     next_page = "/"
     success_message = "Пока"
 
+    
 class Registration(SuccessMessageMixin, FormView):
     form_class = UserCreationForm
     success_url = "/"

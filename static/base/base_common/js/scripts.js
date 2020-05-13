@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     //Двежение кнопки открывающей меню
     $('.menu-active').click(function () {
-        if ($(window).width() < 500) {
+        if ($(window).width() < 600) {
             $('body').toggleClass('lock');
             $('.username').toggleClass('none');
         }
@@ -108,7 +108,7 @@ $(document).ready(function () {
         pauseOnDotsHover: true, //Пауза при наведение на точки
         responsive: [
             {
-                breakpoint: 500,
+                breakpoint: 600,
                 settings: {
                     dots: false
                 }
@@ -288,7 +288,7 @@ $(document).ready(function () {
 });
 
 //Взаимодействие со свайпами
-if ($(window).width() < 500) {
+if ($(window).width() < 600) {
     jQuery('body').swipe({
         swipeStatus: function (event, phase, direction, distance, duration, fingerCount, fingerData, currentDirection) {
             if (phase == "start") {

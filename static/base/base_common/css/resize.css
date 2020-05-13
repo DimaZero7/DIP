@@ -3,7 +3,7 @@
     padding: 9px 1% 9px 25.5%;
     overflow: hidden;
     transition: .3s;
-    min-height: 502px;
+    min-height: 702px;
 }
 
 .content.resize .main-detail {
@@ -51,7 +51,7 @@
     
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
     .content.resize {
         padding: 10px 1% 30px 1%;
     }

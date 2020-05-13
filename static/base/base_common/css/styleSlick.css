@@ -189,7 +189,7 @@
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
     .sub-slider-min .slick-arrow {
         top: 50%;
         z-index: 1;
