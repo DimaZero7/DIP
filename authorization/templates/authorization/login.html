@@ -15,6 +15,7 @@
 {% block content_website %}
 
     <h1 class="main-h1">Вход</h1>
+    {# <a href="{% url 'social:begin' 'google-oauth2' %}">G</a> #}
     <form action="{% url 'authorization:login' %}" method="post" class="auth">
         {% csrf_token %}
         <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->

@@ -52,11 +52,12 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
     
+    'social_django', #!!!! УСАНОВИ ЭТО
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #!!!! УСАНОВИ ЭТО
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -145,13 +146,27 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'  # Url путь к медиа фаилам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 
+LOGIN_URL = '/authorization/login/google-oauth2/'
 LOGIN_REDIRECT_URL = "account:account"
+LOGOUT_REDIRECT_URL = '/'
 
-import dj_database_url
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 #AWS_ACCESS_KEY_ID=AKIAIGRQN2X2MUOND3QA AWS_SECRET_ACCESS_KEY=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
 
+#Для авторизации Google
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1063857018477-uol3kogtnlrjlp0okp9jji14jh1ul8kt.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '35-zqovMG1SqMcaIeQMGpS2R' # Google Consumer Secret
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
