@@ -9,11 +9,7 @@ from basket.models import Order
 
 @login_required(login_url='/authorization/login/')
 def account(request):
-    profile_form = ProfileForm(instance=request.user.profile)
-    context = {
-        'profile_form': profile_form
-    }
-    return render(request, 'account/account.html', context)
+    return render(request, 'account/account.html')
     
 
 @login_required(login_url='/authorization/login/')
@@ -30,6 +26,7 @@ def editing(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -43,6 +40,6 @@ def editing(request):
         profile_form = ProfileForm(instance=request.user.profile)
     context = {
         'user_form': user_form,
-        'profile_form': profile_form
+        'profile_form': profile_form,
     }
     return render(request, 'account/editing.html', context)

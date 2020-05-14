@@ -2,41 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc9dd13c-e1d9-465c-b4e4-b203b09ca10e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/REARMDEVICE/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/REARMDEVICE/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/REARMDEVICE/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/REARMDEVICE/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/editing.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/editing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/templates/order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/order_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/editing.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/editing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/templates/account/order_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/order_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/authorization/templates/authorization/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/authorization/templates/authorization/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authorization/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authorization/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authorization/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/basket/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/basket/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/basket/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manufacture/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/manufacture/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/order/templates/basket.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site_structure.txt" beforeDir="false" afterPath="$PROJECT_DIR$/site_structure.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base/base_common/css/styleMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/base_common/css/styleMain.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base/base_common/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/base/base_common/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/base_common.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/base_common.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/include_account-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/include_account-nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/include_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories_menu_include.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/include_paginator.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/include_paginator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/catalog/categories_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/catalog/category_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/category_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/catalog/result_filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/result_filter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/comments/comment_input_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/comments/templates/comments/comment_input_include.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/comments/comment_output_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/comments/templates/comments/comment_output_include.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/templates/common/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manufacture/manufacture_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/manufacture/templates/manufacture/manufacture_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manufacture/manufacturers_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/manufacture/templates/manufacture/manufacturers_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/poster/poster_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/poster/templates/poster/poster_include.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products/products_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/products/templates/products/products_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base/include_account-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/templates/account/include_account-nav.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,22 +55,22 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\REARMDEVICE\manufacture\templates\manufacture" />
-      <recent name="E:\REARMDEVICE\products\templates\products" />
-      <recent name="E:\REARMDEVICE\templates" />
-      <recent name="E:\REARMDEVICE\catalog" />
-      <recent name="E:\REARMDEVICE\common" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\DIP\account\templates\account" />
       <recent name="E:\DIP\authorization\templates\authorization" />
       <recent name="E:\DIP\comments\templates" />
       <recent name="E:\DIP\manufacture\templates" />
       <recent name="E:\DIP\poster\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\REARMDEVICE\manufacture\templates\manufacture" />
+      <recent name="E:\REARMDEVICE\products\templates\products" />
+      <recent name="E:\REARMDEVICE\templates" />
+      <recent name="E:\REARMDEVICE\catalog" />
+      <recent name="E:\REARMDEVICE\common" />
     </key>
   </component>
   <component name="RunManager">
@@ -146,6 +126,7 @@
       <workItem from="1589144737808" duration="967000" />
       <workItem from="1589178368226" duration="320000" />
       <workItem from="1589182399587" duration="11209000" />
+      <workItem from="1589453537099" duration="8047000" />
     </task>
     <servers />
   </component>
@@ -153,6 +134,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="533" y="232" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589456126965">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="533" y="232" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1589456126965" />
     <state x="425" y="26" key="CommitChangelistDialog2" timestamp="1586711847943">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -161,14 +146,14 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="92" y="92" width="1416" height="676" key="DiffContextDialog/0.0.1600.860@0.0.1600.860" timestamp="1586711799741" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1586428914455">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1589453837803">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1586428914455" />
-    <state x="301" y="72" key="SettingsEditor" timestamp="1586116557131">
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1589453837803" />
+    <state x="301" y="72" key="SettingsEditor" timestamp="1589453846837">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1586116557131" />
+    <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1589453846837" />
     <state x="422" y="134" key="VCS.ChangeListViewerDialog" timestamp="1586711791083">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -195,13 +180,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/authorization/urls.py</url>
-          <line>10</line>
+          <line>13</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/authorization/views.py</url>
           <line>5</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/account/urls.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -46,18 +46,17 @@ INSTALLED_APPS = [
     'poster.apps.PosterConfig',
     'manufacture.apps.ManufactureConfig',
     'comments.apps.CommentsConfig',
-    'basket.apps.BasketConfig', # Добавление товаров в коризну
-    'order.apps.OrderConfig', # Создание заказов
+    'basket.apps.BasketConfig',  # Добавление товаров в коризну
+    'order.apps.OrderConfig',  # Создание заказов
     'authorization.apps.AuthorizationConfig',
-    'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
+    'account.apps.AccountConfig',
     'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
-    
-    'social_django', #!!!! УСАНОВИ ЭТО
+    'social_django',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', #!!!! УСАНОВИ ЭТО
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -79,7 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'basket.utils.get_basket_item', # Контекст для корзины
+                'basket.utils.get_basket_item',  # Контекст для корзины
                 'catalog.utils.menu',  # Контекст для работы меню, с категориями
             ],
         },
