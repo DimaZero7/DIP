@@ -9,7 +9,7 @@
 
 {% block keywords %}Личный кабинет, Корзина{% endblock %}
 {% block description %}Личный кабинет - {{user.username}} | Корзина {% endblock %}
-
+ 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="basket">
@@ -26,7 +26,7 @@
             <table class="profile-table {% if not product_in_basket %}none{% endif %}">
                 <thead>
                     <tr class="title">
-                        <td colspan="6">Корзина</td>
+                        <td colspan="5">Корзина</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,12 +35,12 @@
                         <td class="name">Название</td>
                         <td class="price">Цена</td>
                         <td class="quantity">Количество</td>
-                        <td class="full-price" colspan="2">Полная стоимость</td>
+                        <td class="full-price">Полная стоимость</td>
 
                     </tr>
                     {% if product_in_basket %}
                     {% for product_in_basket in products_in_basket %}
-                    <tr>
+                    <tr class="content-basket">
                         <td class="img">
                             {% for prodimg in product_in_basket.product.prodimg.all %}
                             {% if forloop.counter == 1 %}
@@ -69,7 +69,7 @@
                         <td class="total-price" colspan="1">
                             <input type="text" readonly value="{{product_in_basket.total_price}}" name="total_price">
                         </td>
-                        <td colspan="4"></td>
+                        <td colspan="3"></td>
                     </tr>
                 </tfoot>
             </table>
