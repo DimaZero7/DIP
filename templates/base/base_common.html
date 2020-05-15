@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 {% block htmlLang %}<html lang="ru">{% endblock %}
+
 <head>
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -56,6 +57,7 @@
     </style>
 </head>
 {% block body %}
+
 <body>
     {% endblock %}
     <div class="wrapper">
@@ -111,6 +113,9 @@
                                     <div class="total-price-title">Корзина</div>
                                 </div>
                                 <table class="shopping-list-container">
+                                  {% block formbay %}
+                                   <form action="{% url 'basket:basket_add' %}" method="post" id="buyProduct">
+                                   {% endblock %}
                                     {% for product_in_basket in products_in_basket %}
                                     <tr class="shopping-item">
                                         <td>{{product_in_basket.product.name}}</td>
@@ -123,6 +128,7 @@
                                         <td>Товаров нет</td>
                                     </tr>
                                     {% endfor %}
+                                </form>
                                 </table>
                                 <div class="order">
                                     <a class="add-order" href="{% if user.username %}
@@ -160,16 +166,17 @@
                     </div>
                     {% if user.username %}
                     <div class="username">
-
-
                         {% if user.is_superuser %}
                         <a href="{% url 'admin:index' %}">{{user.username}}</a>
                         {% else %}
                         {{user.username}}
+                        {% endif %}
                         <div class="username_id">
                             {{user.id}}
                         </div>
-                        {% endif %}
+                        <div id="csrf_token">
+                            {% csrf_token %}
+                        </div>
 
                     </div>
                     {% endif %}

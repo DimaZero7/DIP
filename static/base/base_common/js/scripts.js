@@ -147,6 +147,13 @@ $(document).ready(function () {
         focusOnSelect: true,
     });
 
+    if ($('.username_id').text()) {
+        console.log('id Пользователя  ' + $('.username_id').text());
+        console.log('csrf_token Пользователя  ' + $('#csrf_token input[name="csrfmiddlewaretoken"]').val());
+    }else{
+        console.log('Пользователь не авторизован')
+    }
+
     //Добавление товаров в корзину
     var form = $('#buyProduct');
     console.log(form);
@@ -155,7 +162,7 @@ $(document).ready(function () {
         var data = {};
         data.product_id = product_id;
         data.quantity_nbr = quantity_nbr;
-        var csrf_token = $('#buyProduct [name="csrfmiddlewaretoken"]').val();
+        var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
         data["csrfmiddlewaretoken"] = csrf_token;
         if (is_delete) {
             data["is_delete"] = true;
@@ -224,7 +231,6 @@ $(document).ready(function () {
         var user_id = $('.username_id').text(); //Получение id пользователя
         product_id = $(this).data("product_id");
         quantity_nbr = 0;
-        console.log(user_id);
         basketUpdating(user_id, product_id, quantity_nbr, is_delete = true);
         $(this).closest('tr').remove();
     })
@@ -295,7 +301,7 @@ if ($(window).width() < 600) {
                 // сработает в начале swipe
             }
             if (phase == "end") {
-                //сработает через 20 пикселей то число которое выбрали в threshold
+                //сработает через 30 пикселей то число которое выбрали в threshold
                 //Открытие меню при свайпах
                 if (direction == 'left') {
                     $('body').toggleClass('lock');
@@ -319,6 +325,6 @@ if ($(window).width() < 600) {
             }
         },
         triggerOnTouchEnd: false,
-        threshold: 200 // сработает через 20 пикселей
+        threshold: 300 // сработает через 30 пикселей
     })
 }

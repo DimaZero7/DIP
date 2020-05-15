@@ -1,26 +1,19 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
 
-{% block title  %}
-    Личный кабинет {{user.username}} | Редактирование
-{% endblock %}
+{% block title  %}Личный кабинет {{user.username}} | Редактирование {% endblock %}
 
 {% block addCSS %}
-    <link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
-{% block keywords %}
-    Личный кабинет, Редактирование
-{% endblock %}
-
-{% block description %}
-    Личный кабинет - {{user.username}} | Редактирование данных
-{% endblock %}
+{% block keywords %}Личный кабинет, Редактирование{% endblock %}
+{% block description %}Личный кабинет - {{user.username}} | Редактирование данных{% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="account">
-    {% include 'account/include_account-nav.html' %}
+    {% include 'base/include_account-nav.html' %}
     <form action="{% url 'account:editing' %}" method="post" enctype="multipart/form-data">
         <div class="submit-order">
             <input type="submit" value="Сохранить">
@@ -45,16 +38,16 @@
                     </td>
                     <td class="">
                         {% if user.first_name %}
-                            {{ user_form.first_name }}
+                        {{ user_form.first_name }}
                         {% else %}
-                            <input type="text" value="Не заполенно" name="first_name">
+                        <input type="text" value="Не заполенно" name="first_name">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.last_name %}
-                            {{ user_form.last_name }}
+                        {{ user_form.last_name }}
                         {% else %}
-                            <input type="text" value="Не заполенно" name="last_name">
+                        <input type="text" value="Не заполенно" name="last_name">
                         {% endif %}
                     </td>
                     <td class="">

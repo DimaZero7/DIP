@@ -6,6 +6,10 @@
 {% block keywords %}{{ product.name }}{% endblock %}
 {% block description %}{{ product.name }} - {{product.description}}{% endblock %}
 
+{% block formbay %}
+<form>
+{% endblock %}
+
 {% block content_website %}
 <div class="main-detail">
     <div class="product-big">
@@ -89,7 +93,7 @@
                 <div class="comment-none">
                     Для того что бы оставлять коментарии нужно быть авторизованным
                     <a href="{% url 'authorization:login' %}">Войти</a>
-                </div>
+                </div> 
                 {% endif %}
             </div>
         </div>

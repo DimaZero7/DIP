@@ -9,4 +9,3 @@ urlpatterns = [
     path('editing/', editing, name='editing'),
     path('order_detail/', order_detail, name='order_detail'),
 ]
-

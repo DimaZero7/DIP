@@ -539,7 +539,7 @@ img {
     transition: .3s;
 }
 
-.username_id {
+.username_id, #csrf_token {
     display: none;
 }
 

@@ -39,6 +39,10 @@
     width: 100%;
 }
 
+.scroll-table {
+    overflow-x: auto;
+}
+
 .account td {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -81,6 +85,11 @@
     text-align: right;
 }
 
+.profile-table td {
+    text-align: left;
+}
+
+
 .profile-table .title-content {
     background-color: var(--mid);
     font-size: 18px;
@@ -95,17 +104,11 @@
     width: 50%;
 }
 
-.profile-table td{
-    text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.profile-table .name {}
+
+.profile-table .price {
+    min-width: 60px;
 }
-
-.profile-table .name {
-
-}
-
-.profile-table .price {}
 
 .profile-table tbody .price::after,
 .profile-table tbody .full-price::after,
@@ -114,7 +117,9 @@
     content: ' ₽'
 }
 
-.profile-table .quantity {}
+.profile-table .quantity {
+    min-width: 70px;
+}
 
 .profile-table .quantity input,
 .profile-table .total-price input {
@@ -124,6 +129,7 @@
     color: var(--text);
     border-bottom: 2px solid var(--text);
     outline: 0;
+    font-family: serif;
 }
 
 .profile-table .total-price input {
@@ -133,12 +139,14 @@
 
 .profile-table .full-price {
     white-space: normal;
+    min-width: 100px;
 }
 
 .profile-table .input-number {}
 
 .profile-table .total-price {
     text-align: right;
+    padding: 0 10px 0 0
 }
 
 .profile-table .submit-order {}
@@ -267,4 +275,16 @@ label:focus {
         font-size: 14px;
         padding: 4px;
     }
+
+    .submit-order input {
+        margin: 5px 0;
+        padding: 5px;
+        border: 2px solid var(--text);
+        background-color: var(--dark);
+        color: var(--text);
+        font-size: 20px;
+        transition: .3s;
+        font-size: 15px;
+    }
+
 }

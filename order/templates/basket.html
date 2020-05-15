@@ -13,62 +13,67 @@
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="basket">
-    {% include 'account/include_account-nav.html' %}
+    {% include 'base/include_account-nav.html' %}
     <form method="post">
-       {% if product_in_basket %}
+        {% if product_in_basket %}
         <div class="submit-order">
             <input type="submit" value="Заказать">
         </div>
         {% endif %}
         {% csrf_token %}
         <input type="hidden" value="{{user.username}}" name="{{form.client_username.html_name}}">
-        <table class="profile-table {% if not product_in_basket %}none{% endif %}">
-            <thead>
-                <tr class="title">
-                    <td colspan="5">Корзина</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="title-content">
-                    <td class="img">Изображение</td>
-                    <td class="name">Название</td>
-                    <td class="price">Цена</td>
-                    <td class="quantity">Количество</td>
-                    <td class="full-price">Полная стоимость</td>
-                </tr>
-                {% if product_in_basket %}
-                {% for product_in_basket in products_in_basket %}
-                <tr>
-                    <td class="img">
-                        {% for prodimg in product_in_basket.product.prodimg.all %}
-                        {% if forloop.counter == 1 %}
-                        <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
-                        {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td class="name">{{product_in_basket.product.name}}</td>
-                    <td class="price">{{product_in_basket.price_per_item}}</td>
-                    <td class="quantity">
-                        <input class="input-number" type="number" value="{{product_in_basket.quantity_nbr}}" name="product_in_basket_{{product_in_basket.id}}" min="1" max="{{product_in_basket.product.warehouse}}">
-                    </td>
-                    <td class="full-price summary">{{product_in_basket.total_price}}</td>
-                </tr>
-                {% endfor %}
-                {% else %}
-                <tr>
-                    <td colspan="5">Товаров нет</td>
-                </tr>
-                {% endif %}
-            </tbody>
-            <tfoot>
-                <tr class="title-content">
-                    <td>Итого</td>
-                    <td class="total-price" colspan="4">
-                        <input type="text" readonly value="{{product_in_basket.total_price}}" name="total_price">
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="scroll-table">
+            <table class="profile-table {% if not product_in_basket %}none{% endif %}">
+                <thead>
+                    <tr class="title">
+                        <td colspan="6">Корзина</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="title-content">
+                        <td class="img">Изображение</td>
+                        <td class="name">Название</td>
+                        <td class="price">Цена</td>
+                        <td class="quantity">Количество</td>
+                        <td class="full-price" colspan="2">Полная стоимость</td>
+
+                    </tr>
+                    {% if product_in_basket %}
+                    {% for product_in_basket in products_in_basket %}
+                    <tr>
+                        <td class="img">
+                            {% for prodimg in product_in_basket.product.prodimg.all %}
+                            {% if forloop.counter == 1 %}
+                            <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                            {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td class="name">{{product_in_basket.product.name}}</td>
+                        <td class="price">{{product_in_basket.price_per_item}}</td>
+                        <td class="quantity">
+                            <input class="input-number" type="number" value="{{product_in_basket.quantity_nbr}}" name="product_in_basket_{{product_in_basket.id}}" min="1" max="{{product_in_basket.product.warehouse}}">
+                        </td>
+                        <td class="full-price summary">{{product_in_basket.total_price}}</td>
+                        <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6">Товаров нет</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+                <tfoot>
+                    <tr class="title-content">
+                        <td>Итого</td>
+                        <td class="total-price" colspan="1">
+                            <input type="text" readonly value="{{product_in_basket.total_price}}" name="total_price">
+                        </td>
+                        <td colspan="4"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
         {% if product_in_basket %}
         {% endif %}
     </form>
@@ -100,5 +105,6 @@
         })
         calculateBasketAmount();
     });
+
 </script>
 {% endblock %}
