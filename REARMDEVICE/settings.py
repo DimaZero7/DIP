@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'authorization.apps.AuthorizationConfig',
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
+    'pay.apps.PayConfig',  # Приложение отвечающее за поиск товаров
     'social_django',
+    'robokassa',
 ]
 
 MIDDLEWARE = [
@@ -165,6 +167,16 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1063857018477-uol3kogtnlrjlp0okp9jji14jh1ul8kt.
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '35-zqovMG1SqMcaIeQMGpS2R' # Google Consumer Secret
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+ROBOKASSA_TEST_MODE = True
+
+ROBOKASSA_LOGIN = "RearmDevice"
+# ROBOKASSA_PASSWORD1 = "GSKQkhfqR8mQnI35u31P"
+# ROBOKASSA_PASSWORD2 = "l3Bf0lwY6SJOkMGv25ow"
+
+#Для тестов
+ROBOKASSA_PASSWORD1 = "ymw3de7YeXwAdf7I02BY"
+ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
 
 
 import dj_database_url

@@ -1,0 +1,58 @@
+{% extends 'base/base_common.html' %}
+{% load static %}
+
+{% block title  %}Оплатить{% endblock %}
+
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
+{% endblock %}
+
+{% block keywords %}Оплатить{% endblock %}
+{% block description %}Оплатить{% endblock %}
+
+{% block content_website %}
+<h1 class="main-h1">Оплатить</h1>
+<div class="basket">
+    {% include 'base/include_account-nav.html' %}
+    <form name="form" action="{{ form.target }}" method="post">
+    <div class="submit-order">
+    	<input type="submit" value="Оплатить">
+    </div>
+       {{ form.as_p }}
+        <table class="profile-table">
+            <thead>
+                <tr class="title">
+                    <td colspan="4">Заказы</td>
+                </tr>
+                <tr class="title-content">
+                    <td class="order-id">Номер</td>
+                    <td class="">Сумма</td>
+                    <td class="">Статус</td>
+                    <td class="">Дата создания</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if orders %}
+                {% for orders_list in orders %}
+                <tr>
+                    <td class="order-id">{{orders_list.id}}</td>
+                    <td class="order-price">{{orders_list.total_price}}</td>
+                    <td class="">{{orders_list.status}}</td>
+                    <td class="">{{orders_list.created}}</td>
+                </tr>
+                
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="5">Заказов нет</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block addJS %}{% endblock %}

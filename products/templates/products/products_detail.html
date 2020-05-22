@@ -93,7 +93,7 @@
                 <div class="comment-none">
                     Для того что бы оставлять коментарии нужно быть авторизованным
                     <a href="{% url 'authorization:login' %}">Войти</a>
-                </div> 
+                </div>
                 {% endif %}
             </div>
         </div>
@@ -103,4 +103,17 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block addJS %}
+<script>
+    var form = $('#buyProduct');
+    form.on('submit', function (e) {
+       e.preventDefault;
+       if ($('#quantity_nbr').val()>{{product.warehouse}}){
+           location.reload();
+           console.log("Ошибка количества")
+       }
+    })
+</script>
 {% endblock %}

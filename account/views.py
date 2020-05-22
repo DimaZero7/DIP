@@ -20,6 +20,15 @@ def order_detail(request):
 
     return render(request, 'account/order_detail.html', context)
 
+# @login_required(login_url='/authorization/login/')
+# def order_detail(request, pk):
+
+#     context = {
+#         'orders': get_object_or_404(Order.objects.filter(user=request.user), pk=pk)
+#     }
+#     return render(request, 'account/order_detail.html', context)
+
+
 
 @login_required(login_url='/authorization/login/')
 def editing(request):

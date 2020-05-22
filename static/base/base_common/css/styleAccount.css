@@ -148,10 +148,10 @@
 
 .profile-table .shopping-list-delete {
     position: absolute;
-    right: 14px;
-    width: 10px;
-    height: 40px;
-    margin: 10px 0 0 0;
+    right: 20px;
+    width: 20px;
+    height: 30px;
+    border-radius: 0;
 }
 
 .profile-table .input-number {}
@@ -166,9 +166,17 @@
 .submit-order {
     width: 100%;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.submit-order input {
+.submit-order a{
+    display: block;
+    width: 100px;
+    text-align: center;
+}
+
+.submit-order input, .submit-order a {
     margin: 5px 0;
     padding: 5px;
     border: 2px solid var(--text);
@@ -178,8 +186,9 @@
     transition: .3s;
 }
 
-.submit-order input:hover {
+.submit-order input:hover, .submit-order a:hover {
     background-color: var(--red);
+    cursor: pointer;
     transition: .3s;
 }
 
@@ -288,7 +297,7 @@ label:focus {
         padding: 4px;
     }
 
-    .submit-order input {
+    .submit-order input, .submit-order a {
         margin: 5px 0;
         padding: 5px;
         border: 2px solid var(--text);
@@ -301,8 +310,5 @@ label:focus {
 
     .profile-table .shopping-list-delete {
         right: 7px;
-        width: 20px;
-        height: 20px;
-        margin: 20px 0 0 0;
     }
 }

@@ -150,7 +150,7 @@ $(document).ready(function () {
     if ($('.username_id').text()) {
         console.log('id Пользователя  ' + $('.username_id').text());
         console.log('csrf_token Пользователя  ' + $('#csrf_token input[name="csrfmiddlewaretoken"]').val());
-    }else{
+    } else {
         console.log('Пользователь не авторизован')
     }
 
@@ -177,11 +177,11 @@ $(document).ready(function () {
                 console.log('OK')
                 if (data.product_total_quantity_nbr || data.product_total_quantity_nbr == 0) {
                     $('.shopping .counter').text(data.product_total_quantity_nbr);
-                    //                    $('.shopping-list-container').html(" ");
-                    //                    $.each(data.products, function (k, v) {
-                    //                        $('.shopping-list-container').
-                    //                        append('<tr class="shopping-item"><td>' + v.product_title + '</td><td>' + v.quantity_nbr + 'шт.</td><td>' + v.product_price + '</td><td class="shopping-list-delete" data-product_id="' + v.id + '" title="Удалить товар"></td></tr>');
-                    //                    })
+                    $('.shopping-list-container').html(" ");
+                    $.each(data.products, function (key, value) {
+                        $('.shopping-list-container').
+                        append('<tr class="shopping-item"><td>' + value.name + '</td><td>' + value.quantity_nbr + 'шт.</td><td>' + value.price_per_item*value.quantity_nbr + '</td><td class="shopping-list-delete" data-product_id="' + value.id + '" title="Удалить товар"></td></tr>');
+                    })
                 }
             },
             error: function () {
@@ -211,17 +211,16 @@ $(document).ready(function () {
             $('.alert-title').text('Указано больше чем есть на складе');
             $('.alert').css('display', 'block');
             console.log('Указано больше чем есть на складе');
-        } else {
+        }
+        
+        else {
             e.preventDefault(); //Отменить стандартное поведение
             var user_id = $('.username_id').text(); //Получение id пользователя
             var quantity_nbr = $('#quantity_nbr').val(); //Получить количество товара которого хотят купить
             var addBasket = $('#addBasket'); //Получение кнопки отправки формы для считывания с неё data атрибутов
             var product_id = addBasket.data('product-id'); //Получение id продукта в бд
-            var product_title = addBasket.data('product-title'); //Получение названия продукта
-            var product_price = addBasket.data('product-price'); //Получение цены продукта
 
             basketUpdating(user_id, product_id, quantity_nbr, is_delete = false);
-            location.reload();
         }
     })
 
