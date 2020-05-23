@@ -539,7 +539,8 @@ img {
     transition: .3s;
 }
 
-.username_id, #csrf_token {
+.username_id,
+#csrf_token {
     display: none;
 }
 
@@ -704,48 +705,82 @@ img {
 }
 
 /*Фильты для товаров*/
+
 .filter {
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    height: 55px;
-    margin: -5px -1% 0 -1%;
-    border-bottom: 2px solid var(--text);
-    padding: 0 0 0 1%;
     color: var(--text);
+    height: 35px;
+    border-bottom: 2px solid var(--text);
+    margin: 0 -1%;
+    padding: 0 1%;
+}
+
+.filter-title {
+    padding: 5px 0;
 }
 
 .filter-container {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    flex: 0 1 80%
+    position: absolute;
+    width: 180px;
+    height: 24px;
+    overflow: hidden;
+    transition: .3s;
+    z-index: 2;
 }
 
-.filter label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.filter-container-active{
+    transition: .3s;
+    height: 200px;
 }
 
-.filter label select,
-.filter option {
-    background-color: white;
+.filter-item {
+    background-color: var(--mid);
+    padding: 5px;
 }
 
-.filter input[type="submit"] {
-    background-color: var(--dark);
-    font-size: 17px;
-    flex: 0 0 20%;
-    color: white;
-    margin: 0 0 0 -1%;
-}
+.filter-label {
 
-.filter input[type="submit"]:hover {
-    cursor: pointer;
-    background-color: var(--red);
     transition: .3s;
 }
+
+.filter-label:hover {
+    border-bottom: 2px solid var(--text);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.filter-span {}
+
+.filter-radio {
+    opacity: 0;
+}
+
+.first-filter {
+    position: relative;
+}
+
+.first-filter::before {
+    position: absolute;
+    content: '';
+    top: 7px;
+    right: 5px;
+    ;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid var(--text);
+    transition: .3s;
+    cursor: pointer;
+}
+
+
+.first-filter.filter-active::before {
+    transform: scale(-1, -1);
+    transition: .3s;
+}
+
 
 /*Кнопка переключения сетки товаров*/
 .grid {
@@ -1530,9 +1565,6 @@ span.pages-item {
         font-size: 17px
     }
 
-    .filter {
-        height: 35px;
-    }
 
     .filter-container {
         display: flex;

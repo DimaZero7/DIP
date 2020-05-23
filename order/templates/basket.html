@@ -84,7 +84,7 @@
 <button class="input-number-button up-value"> + </button>
 -->
 {% endblock %}
-
+ 
 {% block addJS %}
 <script>
     $(document).ready(function() {
@@ -104,6 +104,11 @@
             calculateBasketAmount();
         })
         calculateBasketAmount();
+        
+        $('.shopping-list-delete').click(function () {
+            calculateBasketAmount();
+        })
+        
     });
 
 </script>

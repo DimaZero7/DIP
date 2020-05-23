@@ -96,6 +96,13 @@ $(document).ready(function () {
         $(this).submit();
     })
 
+    //Логика фильтров
+    $('.first-filter').click(function () {
+        $(this).toggleClass('filter-active')
+        $('.filter-container').toggleClass('filter-container-active')
+    })
+    
+    
     //Слайдеры
     //Главный слайдер
     $('.slider').slick({

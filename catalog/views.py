@@ -24,46 +24,4 @@ class CategoryDetail(DetailView, MultipleObjectMixin):
         context = super(CategoryDetail, self).get_context_data(object_list=object_list, **kwargs)
         return context
 
-    
-
-#Фильтрация товаров
-def filter(request):
-    data = request.POST
-    filter = data.get("filter")
-    
-    print(filter)
-    if filter == 'nameAZ':
-        filters = Product.objects.all().order_by('name')
-        context = {
-            'filters':filters
-        }
-    
-    if filter == 'nameZA':
-        filters = Product.objects.all().order_by('-name')
-        context = {
-            'filters':filters
-        }
-    
-    if filter == 'priceIncrement':
-        filters = Product.objects.all().order_by('price')
-        context = {
-            'filters':filters
-        }
-    if filter == 'priceDeincrement':
-        filters = Product.objects.all().order_by('-price')
-        context = {
-            'filters':filters
-        }
-    
-    if filter == 'dataIncrement':
-        filters = Product.objects.all().order_by('date')
-        context = {
-            'filters':filters
-        }
-    if filter == 'dataDeincrement':
-        filters = Product.objects.all().order_by('-date')
-        context = {
-            'filters':filters
-        }
-    return render(request, 'catalog/result_filter.html', context)
 

@@ -18,9 +18,12 @@ def pay(request):
                'Email': request.user.email,
            })
 
-    orders = Order.objects.filter(user=request.user, status_id = 1)
-
-    return render(request, 'pay/pay.html', {'form': form, 'orders':orders})
+    context = {
+        'orders': Order.objects.filter(user=request.user, status_id = 1),
+        'form':form
+    }
+    
+    return render(request, 'pay/pay.html', context)
 
 
 def payment_received(sender, **kwargs):

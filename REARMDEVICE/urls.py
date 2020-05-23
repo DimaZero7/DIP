@@ -15,6 +15,7 @@ urlpatterns = [
     path('authorization/', include('authorization.urls')),
     path('account/', include('account.urls')), # профиль пользователя
     path('search/', include('search.urls')), # поиск
+    path('filter/', include('filter.urls')), # Фильтры
     path('pay/', include('pay.urls')), #Оплата
     path('robokassa/', include('robokassa.urls')),# robokassa
     

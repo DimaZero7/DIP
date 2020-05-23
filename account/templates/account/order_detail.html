@@ -31,8 +31,8 @@
         </thead>
 
         <tbody>
-            {% if orders %}
-            {% for orders_list in orders %}
+            {% if order %}
+            {% for orders_list in order %}
             <tr>
                 <td class="order-id">{{orders_list.id}}</td>
                 <td class="order-price">{{orders_list.total_price}}</td>

@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 from .forms import UserForm, ProfileForm
-from basket.models import Order
+from basket.models import Order, ProductsInOrder
 
 
 @login_required(login_url='/authorization/login/')
@@ -14,19 +15,15 @@ def account(request):
 
 @login_required(login_url='/authorization/login/')
 def order_detail(request):
+    order = Order.objects.filter(user=request.user)
+#    productsinorder = ProductsInOrder.objects.filter(order=order )
+            
     context = {
-        'orders': Order.objects.filter(user=request.user)
+        "order":order,
+#        "productsinorder":productsinorder,
     }
 
     return render(request, 'account/order_detail.html', context)
-
-# @login_required(login_url='/authorization/login/')
-# def order_detail(request, pk):
-
-#     context = {
-#         'orders': get_object_or_404(Order.objects.filter(user=request.user), pk=pk)
-#     }
-#     return render(request, 'account/order_detail.html', context)
 
 
 

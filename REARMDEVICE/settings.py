@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'authorization.apps.AuthorizationConfig',
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
+    'filter.apps.FilterConfig',  # Приложение отвечающее за поиск товаров
     'pay.apps.PayConfig',  # Приложение отвечающее за поиск товаров
     'social_django',
     'robokassa',
