@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from products.models import Product
+from catalog.models import Product
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q #Создание сложных запросов к бд

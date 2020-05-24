@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from products.models import Product
-from basket.models import Status
 from basket.models import ProductsInBasket
 from basket.models import ProductsInOrder
 from basket.models import Order

@@ -2,12 +2,15 @@
 {% block title %}Каталог{% endblock %}
 
 
-{% block keywords %}Категории, {% for category in categories %}{{ category.name }}, {% endfor %}Rearm Device{% endblock %}
+{% block keywords %}
+    Категории, {% for category in categories %}{{ category.name }}, {% endfor %}Rearm Device
+{% endblock %}
 
 {% block description %}Каталоги товаров на сайте Rearm Device{% endblock %} 
 
 {% block content_website %}
     <h1 class="main-h1">Каталог</h1>
+
     <div class="main-product">
         {# Вывожу все категории #}
         {% for category in categories %}

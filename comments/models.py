@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.models import Product
+from catalog.models import Product
 
 
 class Comment(models.Model):

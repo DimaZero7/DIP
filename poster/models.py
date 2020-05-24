@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.models import Product
+from catalog.models import Product
 
 
 def poster_img_name(instance, filename):
@@ -10,10 +10,10 @@ def poster_img_name(instance, filename):
 
 
 class Poster(models.Model):
-    """Постер на главной"""
+    """Большой постер"""
 
     # связь один к одному с товарами
-    product = models.OneToOneField(Product, related_name='prodposter', on_delete=models.CASCADE)
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
 
     slider = models.BooleanField('Будет ли товар на слайдере?', default=False)
 

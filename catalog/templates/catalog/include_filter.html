@@ -1,0 +1,90 @@
+<form class="filter" method="post" action="{% url 'filter:filter' %}">
+    {% if category.name or request.POST.categories%}
+    <!--Каталог-->
+    {% if request.POST %}
+        <input type="hidden" name="slug" value="{{request.POST.slug}}">
+        <input type="hidden" name="categories" value="{{request.POST.categories}}">
+    {% else %}
+    <input type="hidden" name="slug" value="{{ category.slug }}">
+    <input type="hidden" name="categories" value="{{ category.name }}">
+    {% endif %}
+    {% endif %}
+    {% if manufacture.name or request.POST.manufacture %}
+    <!--Производители-->
+    {% if request.POST %}
+    <input type="hidden" name="slug" value="{{request.POST.slug}}">
+    <input type="hidden" name="manufacture" value="{{request.POST.manufacture}}">
+    {% else %}
+    <input type="hidden" name="slug" value="{{ manufacture.slug }}">
+    <input type="hidden" name="manufacture" value="{{ manufacture.name }}">
+    {% endif %}
+    {% endif %}
+    <div class="filter">
+        
+        <ul class="filter-container">
+            {% if request.POST %}
+            <li class="filter-item first-filter">
+                <label class="filter-label">
+                    <span class="filter-span">{{filter_name}}</span>
+                    <input class="filter-radio" type="radio" name="filter" value="{{request.POST.filter}}" disabled>
+                </label>
+            </li>
+            {% else %}
+            <li class="filter-item first-filter">
+                <label class="filter-label">
+                    <span class="filter-span">......</span>
+                    <input class="filter-radio" type="radio" disabled>
+                </label>
+            </li>
+            {% endif %}
+
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Название A-Z</span>
+                    <input class="filter-radio" type="radio" name="filter" value="nameAZ">
+                </label>
+            </li>
+             
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Название Z-A</span>
+                    <input class="filter-radio" type="radio" name="filter" value="nameZA">
+                </label>
+            </li>
+            
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Цена по возрасанию</span>
+                    <input class="filter-radio" type="radio" name="filter" value="priceIncrement">
+                </label>
+            </li>
+            
+             <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Цена по убыванию</span>
+                    <input class="filter-radio" type="radio" name="filter" value="priceDeincrement">
+                </label>
+            </li>
+            
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Дата по возрасанию</span>
+                    <input class="filter-radio" type="radio" name="filter" value="dataIncrement">
+                </label>
+            </li>
+            
+             <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Дата по убыванию</span>
+                    <input class="filter-radio" type="radio" name="filter" value="dataDeincrement">
+                </label>
+            </li>
+        </ul>
+    
+    </div>
+    {% csrf_token %}
+    <div class="grid">
+        <div class="grid-1"></div>
+        <div class="grid-2"></div>
+    </div>
+</form>

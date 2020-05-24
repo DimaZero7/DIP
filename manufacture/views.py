@@ -1,8 +1,7 @@
 from django.views.generic import ListView, DetailView
 
 from .models import Manufacture
-from products.models import Product
-from django.shortcuts import render
+
 
 class ManufactureList(ListView):
     model = Manufacture

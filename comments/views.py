@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 from .forms import CommentForm, Comment
-from products.models import Product
+from catalog.models import Product
 
 
 def comment_processing(request):

@@ -1,5 +1,5 @@
 from catalog.models import Category
-from products.models import Product
+from catalog.models import Product
 from manufacture.models import Manufacture
 from django.shortcuts import render
 

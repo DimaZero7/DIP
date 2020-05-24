@@ -1,27 +1,39 @@
-Приложения
+ПРИЛОЖЕНИЯ
+
     common - общее содержит то что не относится по сымслу к дргим приложениямы
         urls.index - главная страница
-        
+            views.Index
+                templates.index.html - шаблон для этого представления
+                    product_list - список всех товаров
+
+    poster - отвечает за большой постер
+        templates.poster_include.html - шаблон постера для подключения к html
+        admin.PosterInLine - втроеное предстовление постера в админке
+
+
     catalog - отвечает за отоброжения каталога
         urls.categories_list - список категорий
+            templates.categories_list.html - шаблон для списка категорий
+                categories - список с категориями
+
         urls.categories_detail - карточка категории со списком товаров
+            templates.categories_detail.html - шаблон для карточки категории
+                category - текущая категория
+                object_list - список с товарами с премененой пагинацией
+
+
         templates.categories_menu_include.html - меню с категориями для подключения к дргим страницам
-            использует контекстный процессор
-            
-    products - отвечает за товары
-        urls.detail - карточка товара
-        
-    poster - отвечает за большой постер
-        templates.poster_include.html - код для подключения к дргием страницам
-        
+
+
+
     manufacture - отвечает за производителей товаров
         urls.list - список производителей
         urls.detail - список товаров данного производителя
-        
+
     comments - отвечает за коментарии
         templates.comment_input_include - шаблон ввод коментариев
         templates.comment_output_include - шаблон вывод коментариев
-        
+
     authorization - отвечает за вход в профиль
         urls.login - страница с формама для входа в аккаунт
         urls.registration - страница с формами для регистрации аккаунта
@@ -34,12 +46,13 @@
 
     basket - корзина
 
-  
+
 Шаблоны
 templates - директория с шаблонами не относящимся к приложениям
     base - общие шаблоны
         base_common.html - общий и базовый шаблон для страниц
         include_paginator.html - подключаемый шаблон пагинатора
+            ! - для работы нужны предстовления
 
 
 static - директория со статичными фаилами, шаблонов не относящимся к приложениям

@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django_cleanup',  # Подключаемая библиотека котороя удаляет фаилы при удалении родительской модели
     'common.apps.CommonConfig',
     'catalog.apps.CatalogConfig',
-    'products.apps.ProductsConfig',
     'poster.apps.PosterConfig',
     'manufacture.apps.ManufactureConfig',
     'comments.apps.CommentsConfig',
@@ -82,8 +81,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 
-                'basket.utils.get_basket_item', # Контекст для корзины
-                'catalog.utils.menu',  # Контекст для работы меню, с категориями
+                'basket.utils.get_basket_item',  # Контекст для корзины
             ],
         },
     },

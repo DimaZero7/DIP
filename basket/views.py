@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from products.models import Product
+
 from .models import ProductsInBasket
 from django.http import HttpResponseRedirect
 from django.contrib import messages
