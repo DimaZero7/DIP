@@ -1,0 +1,53 @@
+<form class="filter" method="get" action="{{ category.get_absolute_url }}">
+
+    <div class="filter">
+
+        <ul class="filter-container">
+            {% if request.GET %}
+                <li class="filter-item first-filter">
+                    <label class="filter-label">
+                        <span class="filter-span">{{ filter_name }}</span>
+                        <input class="filter-radio" type="radio" name="sorting" value="{{request.POST.filter}}" disabled>
+                    </label>
+                </li>
+            {% else %}
+                <li class="filter-item first-filter">
+                    <label class="filter-label">
+                        <span class="filter-span">......</span>
+                        <input class="filter-radio" type="radio" disabled>
+                    </label>
+                </li>
+            {% endif %}
+
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Название A-Z</span>
+                    <input class="filter-radio" type="radio" name="sorting" value="name">
+                </label>
+            </li>
+
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Название Z-A</span>
+                    <input class="filter-radio" type="radio" name="sorting" value="-name">
+                </label>
+            </li>
+
+            <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Цена по возрасанию</span>
+                    <input class="filter-radio" type="radio" name="sorting" value="price">
+                </label>
+            </li>
+
+             <li class="filter-item">
+                <label class="filter-label">
+                    <span class="filter-span">Цена по убыванию</span>
+                    <input class="filter-radio" type="radio" name="sorting" value="-price">
+                </label>
+            </li>
+        </ul>
+
+    </div>
+
+</form>

@@ -85,4 +85,4 @@ def filter(request):
                       'filters':filters,
                         }
         
-    return render(request, 'filter/result_filter.html', context)
+    return render(request, 'filter/../catalog/templates/catalog/product_sorting.html', context)

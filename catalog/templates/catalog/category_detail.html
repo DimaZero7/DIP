@@ -20,9 +20,10 @@
 <h1 class="main-h1">{{ category.name }}</h1>
 
 <!--Фильтры-->
-{% include 'catalog/include_filter.html' %}
+{% include 'catalog/product_filters.html' %}
 
 <div class="main-product">
+
     {# Вывожу все товары текущей категории #}
     {% for product in object_list %}
         <article class="product-block">

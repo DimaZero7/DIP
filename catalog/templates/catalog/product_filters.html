@@ -1,0 +1,38 @@
+<form name="filters" method="get" action="{{ category.get_absolute_url }}">
+    <label>
+        <span>
+            Сортировка
+        </span>
+
+        <ul>
+            <li>
+                <label>
+                        <span>Название A-Z</span>
+                        <input type="radio" name="sorting" value="name">
+                </label>
+                <label>
+                        <span>Название Z-A</span>
+                        <input type="radio" name="sorting" value="-name">
+                </label>
+                <label>
+                        <span>Цена по возрасанию</span>
+                        <input type="radio" name="sorting" value="price">
+                </label>
+                <label>
+                        <span>Цена по убыванию</span>
+                        <input type="radio" name="sorting" value="-price">
+                </label>
+            </li>
+        </ul>
+    </label>
+    <label>
+        <span>Производители</span>
+        {% load product_filters %}
+        {% get_manufacture as manufactures %}
+        {% for manufacture in manufactures %}
+            <label for="manufacture">{{ manufacture.name }}</label>
+            <input name="manufacture" id="manufacture" type="radio" value="{{ manufacture.name }}">
+        {% endfor %}
+    </label>
+    <input type="submit">
+</form>

@@ -2,151 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc9dd13c-e1d9-465c-b4e4-b203b09ca10e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/catalog/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templatetags/categories_menu_include_extras.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poster/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poster/templatetags/poster_include_extras.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_filters.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templatetags/product_filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/filter/utilities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/REARMDEVICE/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/REARMDEVICE/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/REARMDEVICE/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/REARMDEVICE/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0002_auto_20200419_1628.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0003_order_total_price.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0004_auto_20200423_1255.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0005_auto_20200423_1257.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0006_auto_20200423_1303.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0007_auto_20200423_1612.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0008_auto_20200423_1614.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/migrations/0009_auto_20200423_1619.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/basket/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basket/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/basket/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/categories_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/categories_menu_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories_menu_include.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/category_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/category_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/include_filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/include_filter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/templates/common/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/common/templates/common/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/filter/templates/filter/result_filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/filter/templates/filter/result_filter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filter/templates/filter/result_filter.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/filter/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filter/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manufacture/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manufacture/migrations/0002_auto_20200522_1010.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/manufacture/templates/manufacture/manufacturers_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/manufacture/templates/manufacture/manufacturers_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manufacture/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/manufacture/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories" beforeDir="false" afterPath="$PROJECT_DIR$/media/categories" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_18J2pu8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_2uXmHkB" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_4AAaxgV" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_5Jftah0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_9JhFoUF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_CGh7DZe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_DFRjOFS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_SITbGnZ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_UkyhqTF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_YaXcgM0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_YuiPkYo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_bTDRpEe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_nHXqrrM" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_oTtwGM3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_oh24GVT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_pgv0K6l" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_rZxFkRW" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_uH0tuQp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/categories_upBda2r" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/amd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/amd_q3UbLyr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/asus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/asus_dpWXXCq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/dell.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/dell_4OgfNPZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/hp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/hp_2wLK3BZ.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/intel.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/intel_Hw28gaH.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/msi.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/msi_I0vCWa1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/nvidia.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/manufacturer/nvidia_0Z0z2GI.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_1_BVwSKMo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_2_Ur2HrS8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_3_EaQgPPv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/AMD_Sempron_2650_BOX_4_cSJhQQN.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/poster/CPU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/amd-sempron-2650-box/img/poster/CPU_CCqtpDs.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_1_XhmxOg7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_1_jgPQe7U.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_2_Q4H8uvd.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_2_qmLyqqx.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_3_1fJqib4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_3_EtNOw2P.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_4_f81bX7w.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/ASUS_EX-GTX1070-O8G_4_vtEzbYL.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/poster/GPU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/poster/GPU_eBttG8U.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/asus-ex-gtx1070-o8g/img/poster/motherboard.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/korpus/img/AMD_Sempron_2650_BOX_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/korpus/img/ASUS_EX-GTX1070-O8G_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/korpus/img/NVIDIA_QUADRO_GV100_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/korpus/img/NVIDIA_QUADRO_GV100_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_1_id9vxzn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_1_vQzNZUO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_2_Qvx0tyT.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_2_sz0m2pv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_3_iDT35Q5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_3_rPTufwv.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_4_epIx6Kw.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/NVIDIA_QUADRO_GV100_4_zn6CdiB.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/nvidia-quadro-gv100/img/poster/GPU.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/sdfsfsdfsdfsdfsdf/img/NVIDIA_QUADRO_GV100_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/sdfsfsdfsdfsdfsdf/img/NVIDIA_QUADRO_GV100_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/sdfsfsdfsdfsdfsdf/img/NVIDIA_QUADRO_GV100_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/sdfsfsdfsdfsdfsdf/img/NVIDIA_QUADRO_GV100_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/tovar/img/img-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/tovar/img/img-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/tovar/img/img-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/products/tovar/img/img-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/users/cover-3-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/users/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/order/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poster/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/poster/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poster/templates/poster/poster_include.html" beforeDir="false" afterPath="$PROJECT_DIR$/poster/templates/poster/poster_include.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/templates/products/products_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/products_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/search/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site_structure.txt" beforeDir="false" afterPath="$PROJECT_DIR$/site_structure.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/include_filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/include_filter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base/include_paginator.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/include_paginator.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,19 +56,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\DIP\catalog\templates\catalog" />
-      <recent name="E:\DIP\account\templates\account" />
-      <recent name="E:\DIP\authorization\templates\authorization" />
-      <recent name="E:\DIP\comments\templates" />
-      <recent name="E:\DIP\manufacture\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\DIP\products\templatetags" />
       <recent name="E:\DIP\poster\templatetags" />
       <recent name="E:\REARMDEVICE\manufacture\templates\manufacture" />
       <recent name="E:\REARMDEVICE\products\templates\products" />
       <recent name="E:\REARMDEVICE\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\DIP\catalog\templates\catalog" />
+      <recent name="E:\DIP\account\templates\account" />
+      <recent name="E:\DIP\authorization\templates\authorization" />
+      <recent name="E:\DIP\comments\templates" />
+      <recent name="E:\DIP\manufacture\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -259,7 +127,14 @@
       <workItem from="1589453537099" duration="8047000" />
       <workItem from="1590231640574" duration="22251000" />
       <workItem from="1590309674372" duration="1196000" />
-      <workItem from="1590314484942" duration="6819000" />
+      <workItem from="1590314484942" duration="7420000" />
+      <workItem from="1590343351729" duration="6968000" />
+      <workItem from="1590408404199" duration="1195000" />
+      <workItem from="1590431528032" duration="909000" />
+      <workItem from="1590437453828" duration="2651000" />
+      <workItem from="1590467674084" duration="13257000" />
+      <workItem from="1590522927865" duration="1208000" />
+      <workItem from="1590579215002" duration="3891000" />
     </task>
     <servers />
   </component>
@@ -271,6 +146,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="533" y="232" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1589456126965" />
+    <state x="530" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590467878205">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.860@0.0.1600.860" timestamp="1590467878205" />
     <state x="425" y="26" key="CommitChangelistDialog2" timestamp="1586711847943">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -283,6 +162,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590319830951" />
+    <state x="658" y="150" key="RollbackChangesDialog" timestamp="1590439327341">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="658" y="150" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1590439327341" />
     <state x="301" y="72" key="SettingsEditor" timestamp="1589453846837">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
