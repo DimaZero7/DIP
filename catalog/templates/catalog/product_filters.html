@@ -9,30 +9,57 @@
                 <label>
                         <span>Название A-Z</span>
                         <input type="radio" name="sorting" value="name">
-                </label>
+                </label><br>
                 <label>
                         <span>Название Z-A</span>
                         <input type="radio" name="sorting" value="-name">
-                </label>
+                </label><br>
                 <label>
                         <span>Цена по возрасанию</span>
                         <input type="radio" name="sorting" value="price">
-                </label>
+                </label><br>
                 <label>
                         <span>Цена по убыванию</span>
                         <input type="radio" name="sorting" value="-price">
                 </label>
             </li>
         </ul>
-    </label>
+    </label><br>
     <label>
-        <span>Производители</span>
+        <span>Производители</span><br>
+
         {% load product_filters %}
         {% get_manufacture as manufactures %}
         {% for manufacture in manufactures %}
             <label for="manufacture">{{ manufacture.name }}</label>
-            <input name="manufacture" id="manufacture" type="radio" value="{{ manufacture.name }}">
+            <input name="manufacture" id="manufacture" type="checkbox" value="{{ manufacture.name }}"><br>
         {% endfor %}
-    </label>
+    </label><br>
+    <label>
+        {% get_prise as price_min_max %}
+        <span>
+            Цена товара
+        </span>
+        <input name="prise_min" type="number" placeholder="ОТ({{ price_min_max.min_prise|default:'товаров нет' }})">
+        <input name="prise_max" type="number" placeholder="ДО({{ price_min_max.max_prise|default:'товаров нет' }})">
+    </label><br>
+    <label>
+        {% get_prise as price_min_max %}
+        <span>
+            Есть ли в наличии
+        </span>
+        <label>
+            <span>Да</span>
+            <input name="presence" type="radio" placeholder="ДО" value="yes">
+        </label>
+        <label>
+            <span>Нет</span>
+            <input name="presence" type="radio" placeholder="ОТ" value="no">
+        </label>
+    </label><br>
+    <label>
+        <span>Гарантия</span>
+        <input name="warranty" type="number" placeholder="ОТ">
+    </label><br>
     <input type="submit">
 </form>

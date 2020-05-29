@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc9dd13c-e1d9-465c-b4e4-b203b09ca10e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_filters.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templatetags/product_filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filter/utilities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/category_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/category_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/include_filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/include_filter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/product_filters.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_filters.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templatetags/product_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templatetags/product_filters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filter/templates/filter/result_filter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/filter/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/filter/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manufacture/templates/manufacture/manufacturers_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/manufacture/templates/manufacture/manufacturers_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +70,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="REARMDEVICE.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -135,6 +128,9 @@
       <workItem from="1590467674084" duration="13257000" />
       <workItem from="1590522927865" duration="1208000" />
       <workItem from="1590579215002" duration="3891000" />
+      <workItem from="1590669433126" duration="3679000" />
+      <workItem from="1590692902365" duration="10063000" />
+      <workItem from="1590739608297" duration="7163000" />
     </task>
     <servers />
   </component>
@@ -162,10 +158,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590319830951" />
-    <state x="658" y="150" key="RollbackChangesDialog" timestamp="1590439327341">
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1590695741736">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="658" y="150" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1590439327341" />
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1590695741736" />
+    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1590695741736">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1590695741736" />
+    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1590695741736">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1590695741736" />
+    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1590695741736">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1590695741736" />
+    <state x="658" y="150" key="RollbackChangesDialog" timestamp="1590696289886">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="658" y="150" key="RollbackChangesDialog/0.0.1600.860@0.0.1600.860" timestamp="1590696289886" />
     <state x="301" y="72" key="SettingsEditor" timestamp="1589453846837">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

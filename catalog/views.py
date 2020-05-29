@@ -1,6 +1,5 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.list import MultipleObjectMixin
-from django.db.models import Q
 
 
 from .models import Category, Product
@@ -19,16 +18,28 @@ class CategoryDetail(DetailView, MultipleObjectMixin):
 
     model = Category
     template_name = 'catalog/category_detail.html'
-    paginate_by = 4
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
 
         object_list = Product.objects.filter(categories__slug=self.kwargs.get('slug'))
 
         if self.request.GET.get('manufacture'):
-            object_list = object_list.filter(
-                Q(manufacture__name=self.request.GET.get('manufacture'))
-            )
+            object_list = object_list.filter(manufacture__name__in=self.request.GET.getlist('manufacture'))
+
+        if self.request.GET.get('prise_min'):
+            object_list = object_list.filter(price__gte=self.request.GET.get('prise_min'))
+
+        if self.request.GET.get('prise_min'):
+            object_list = object_list.filter(price__lte=self.request.GET.get('prise_max'))
+
+        if self.request.GET.get('presence') == 'yes':
+            object_list = object_list.filter(warehouse__gte=1)
+        elif self.request.GET.get('presence') == 'no':
+            object_list = object_list.filter(warehouse__lte=0)
+
+        if self.request.GET.get('warranty'):
+            object_list = object_list.filter(warranty__gte=self.request.GET.get('warranty'))
 
         if self.request.GET.get('sorting'):
             object_list = object_list.order_by('%s' % (self.request.GET.get('sorting')))
