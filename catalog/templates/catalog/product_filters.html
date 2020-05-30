@@ -1,65 +1,93 @@
-<form name="filters" method="get" action="{{ category.get_absolute_url }}">
-    <label>
-        <span>
-            Сортировка
-        </span>
+<form class="filter" name="filter" method="get" action="{{ category.get_absolute_url }}">
+    <div class="filter-block filter-select">
+        <div class="filter-title">Сортировка</div>
+        <div class="filter-content">
+            <label for="" class="filter-label">
+                <span class="filter-span">Название A-Z</span>
+                <input type="radio" class="filter-radio" name="sorting" value="name">
+            </label>
+            <label for="" class="filter-label">
+                <span class="filter-span">Название Z-A</span>
+                <input type="radio" class="filter-radio" name="sorting" value="-name">
+            </label>
+            <label for="" class="filter-label">
+                <span class="filter-span">Цена по возрасанию</span>
+                <input type="radio" class="filter-radio" name="sorting" value="price">
+            </label>
+            <label for="" class="filter-label">
+                <span class="filter-span">Цена по убыванию</span>
+                <input type="radio" class="filter-radio" name="sorting" value="-price">
+            </label>
+        </div>
+    </div>
 
-        <ul>
-            <li>
-                <label>
-                        <span>Название A-Z</span>
-                        <input type="radio" name="sorting" value="name">
-                </label><br>
-                <label>
-                        <span>Название Z-A</span>
-                        <input type="radio" name="sorting" value="-name">
-                </label><br>
-                <label>
-                        <span>Цена по возрасанию</span>
-                        <input type="radio" name="sorting" value="price">
-                </label><br>
-                <label>
-                        <span>Цена по убыванию</span>
-                        <input type="radio" name="sorting" value="-price">
-                </label>
-            </li>
-        </ul>
-    </label><br>
-    <label>
-        <span>Производители</span><br>
+    <div class="filter-block filter-select">
+        <div class="filter-title">Производители</div>
+        <div class="filter-content">
+            {% load product_filters %}
+            {% get_manufacture as manufactures %}
+            {% for manufacture in manufactures %}
+            <label class="filter-label">
+                <span class="filter-span">{{ manufacture.name }}</span>
+                <input type="checkbox" class="filter-checkbox" name="manufacture" value="{{ manufacture.name }}">
+            </label>
+            {% endfor %}
+        </div>
+    </div>
 
-        {% load product_filters %}
-        {% get_manufacture as manufactures %}
-        {% for manufacture in manufactures %}
-            <label for="manufacture">{{ manufacture.name }}</label>
-            <input name="manufacture" id="manufacture" type="checkbox" value="{{ manufacture.name }}"><br>
-        {% endfor %}
-    </label><br>
-    <label>
+    <div class="filter-block filter-choice">
         {% get_prise as price_min_max %}
-        <span>
-            Цена товара
-        </span>
-        <input name="prise_min" type="number" placeholder="ОТ({{ price_min_max.min_prise|default:'товаров нет' }})">
-        <input name="prise_max" type="number" placeholder="ДО({{ price_min_max.max_prise|default:'товаров нет' }})">
-    </label><br>
-    <label>
+        <div class="filter-title">Цена товара:</div>
+        <div class="filter-content">
+            <label class="filter-label">
+                <button class="input-number-button down-value"> - </button>
+                <input type="number" 
+                class="filter-number input-number" 
+                name="prise_min" 
+                min="{{price_min_max.min_prise}}" 
+                max="{{price_min_max.max_prise}}" 
+                placeholder="От({{ price_min_max.min_prise|default:'товаров нет' }})">
+                <button class="input-number-button up-value"> + </button>
+            </label>
+            <label class="filter-label">
+                <button class="input-number-button down-value"> - </button>
+                <input type="number" 
+                class="filter-number input-number"
+                name="prise_max" 
+                min="{{price_min_max.min_prise}}" 
+                max="{{price_min_max.max_prise}}" 
+                placeholder="До({{ price_min_max.max_prise|default:'товаров нет' }})">
+                <button class="input-number-button up-value"> + </button>
+            </label>
+        </div>
+    </div>
+
+    <div class="filter-block filter-choice filter-warranty">
+        <label for="warranty" class="filter-title">Гарантия:</label>
+        <div class="filter-content">
+            <div class="filter-label">
+               <button class="input-number-button down-value"> - </button>
+                <input id="warranty" type="number" class="filter-number input-number warranty" name="warranty" placeholder="ОТ">
+                <button class="input-number-button up-value"> + </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="filter-block radio">
         {% get_prise as price_min_max %}
-        <span>
-            Есть ли в наличии
-        </span>
-        <label>
-            <span>Да</span>
-            <input name="presence" type="radio" placeholder="ДО" value="yes">
-        </label>
-        <label>
-            <span>Нет</span>
-            <input name="presence" type="radio" placeholder="ОТ" value="no">
-        </label>
-    </label><br>
-    <label>
-        <span>Гарантия</span>
-        <input name="warranty" type="number" placeholder="ОТ">
-    </label><br>
-    <input type="submit">
+        <div class="filter-title">В наличии</div>
+        <div class="filter-content">
+            <label class="filter-label">
+                <input type="radio" class="filter-radio first-radio" name="presence" value="yes" title="Да">
+            </label>
+            <label class="filter-label">
+                <input type="radio" class="filter-radio last-radio" name="presence" value="no" title="Нет">
+            </label>
+        </div>
+    </div>
+    <input type="submit" class="filter-submit">
+    <div class="grid">
+        <div class="grid-1"></div>
+        <div class="grid-2"></div>
+    </div>
 </form>

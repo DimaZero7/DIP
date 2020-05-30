@@ -42,4 +42,4 @@ def order_add(request):
             print("no")
 
                     
-    return render(request, 'basket.html', locals())
+    return render(request, 'order/basket.html', locals())

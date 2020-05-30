@@ -705,67 +705,48 @@ img {
 }
 
 /*Фильты для товаров*/
-
 .filter {
-    position: relative;
     display: flex;
+    background-color: var(--dark);
     color: var(--text);
-    height: 35px;
     border-bottom: 2px solid var(--text);
-    margin: 0 -1%;
-    padding: 0 1%;
+    margin: -5px -1% 0 -1%;
+    padding: 5px 1%;
+    align-items: center;
+    flex-flow: wrap;
+}
+
+.filter-block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 1%;
+
 }
 
 .filter-title {
-    padding: 5px 0;
+    padding: 5px 1%;
 }
 
-.filter-container {
-    position: absolute;
-    width: 180px;
-    height: 24px;
-    overflow: hidden;
-    transition: .3s;
-    z-index: 2;
+.filter-select {
+    flex: 0 1 170px;
 }
 
-.filter-container-active{
-    transition: .3s;
-    height: 200px;
-}
-
-.filter-item {
-    background-color: var(--mid);
-    padding: 5px;
-}
-
-.filter-label {
-
-    transition: .3s;
-}
-
-.filter-label:hover {
-    border-bottom: 2px solid var(--text);
-    cursor: pointer;
-    transition: .3s;
-}
-
-.filter-span {}
-
-.filter-radio {
-    opacity: 0;
-}
-
-.first-filter {
+.filter-select .filter-title {
+    border: 2px solid var(--text);
     position: relative;
+    cursor: pointer;
 }
 
-.first-filter::before {
+.filter-select .filter-title.active {
+    border-bottom: 0;
+}
+
+.filter-select .filter-title::before {
     position: absolute;
     content: '';
-    top: 7px;
+    top: 10px;
     right: 5px;
-    ;
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
@@ -775,12 +756,224 @@ img {
     cursor: pointer;
 }
 
-
-.first-filter.filter-active::before {
+.filter-select .filter-title.active::before {
     transform: scale(-1, -1);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-select .filter-content {
+    border: 0;
+    overflow: hidden;
+    height: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    background-color: var(--dark);
+    z-index: 2;
     transition: .3s;
 }
 
+.filter-select .filter-content.active {
+    border: 2px solid var(--text);
+    height: auto;
+    padding: 5px 1%;
+    transition: .3s;
+}
+
+.filter-choice {
+    flex: 0 1 225px;
+}
+
+
+.filter-choice .filter-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter-choice .filter-label {
+    display: flex;
+}
+
+.filter-choice .filter-span {
+    margin: 0 5px;
+}
+
+.filter-label {
+    padding: 5px 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio {
+    flex: 0 1 80px;
+}
+
+.radio .filter-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.radio .filter-label {
+    display: flex;
+    flex-direction: row;
+    margin: 0 5px;
+}
+
+.filter-radio,
+.filter-checkbox{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.filter-radio::after,
+.filter-checkbox::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    right: 0;
+    transition: .3s;
+}
+
+
+.filter-radio:not(:checked)::after,
+.filter-checkbox:not(:checked)::after{
+    background: url(../img/cross.png) 50% 50% / 60% no-repeat;
+    background-color: var(--text);
+}
+
+.filter-radio:checked::after,
+.filter-checkbox:checked::after{
+    background: url(../img/check.png) 50% 50% / 60% no-repeat;
+    background-color: var(--text);
+    box-shadow: 0 0 5px var(--text);
+}
+
+.filter-radio:not(:checked)::after{
+    box-shadow: 0 0 5px var(--text);
+}
+
+.first-radio:not(:checked)::after{
+    background: url(../img/check.png) 50% 50% / 60% no-repeat;
+    background-color: var(--text);
+    box-shadow: 0 0 5px var(--text);
+}
+
+.last-radio:checked::after{
+    background: url(../img/cross.png) 50% 50% / 60% no-repeat;
+}
+
+.filter-radio:checked::after,
+.filter-checkbox:checked::after{
+    background-color: var(--red);
+}
+
+.filter-warranty{
+    flex: 0 1 90px;
+}
+
+.filter-warranty .filter-number{
+    width: 50px;
+}
+
+.filter-number {
+    border: 2px solid var(--text);
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.filter-choice .filter-number{
+    width: 80px;
+}
+
+.filter-number::placeholder {
+    color: silver;
+}
+
+.filter-number:focus {
+    outline: 2px solid var(--text);
+    border: 0;
+    box-shadow: 0 0 5px var(--text);
+}
+
+
+.input-number-button {
+    width: 20px;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--text);
+    font-size: 0;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    border-right: 0;
+}
+
+.input-number-button.up-value {
+    transform: rotate(180deg);
+}
+
+.input-number-button::before,
+.input-number-button::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: var(--text);
+    left: 4px;
+    transition: .3s;
+}
+
+.input-number-button::before {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.input-number-button::after {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.input-number-button:focus,
+.input-number-button:hover {
+    border: 2px solid var(--red);
+    outline: 0;
+    border-right: 0;
+    transition: .3s;
+}
+
+.filter-number::-webkit-outer-spin-button,
+.filter-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filter-submit{
+    background-color: transparent;
+    border: 2px solid var(--text);
+    color: var(--text);
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.filter-submit:hover{
+    background-color: var(--red);
+    transition: .3s;
+}
 
 /*Кнопка переключения сетки товаров*/
 .grid {
@@ -975,39 +1168,6 @@ img {
     z-index: 31;
 }
 
-.input-number-button {
-    width: 20px;
-    position: relative;
-    background-color: transparent;
-    border: 2px solid var(--text);
-    font-size: 0;
-}
-
-.input-number-button.up-value {
-    transform: rotate(180deg);
-}
-
-.input-number-button::before,
-.input-number-button::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 2px;
-    background-color: var(--text);
-    left: 2px;
-}
-
-.input-number-button::before {
-    transform: rotate(-45deg);
-    top: 8px;
-
-}
-
-.input-number-button::after {
-    transform: rotate(45deg);
-    top: 14px;
-
-}
 
 .basket-nbr .input-number {
     border: 2px solid var(--text);
@@ -1563,54 +1723,6 @@ span.pages-item {
     .main-h1 {
         margin: -10px -1% 5px -1%;
         font-size: 17px
-    }
-
-
-    .filter-container {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        flex: 0 1 80%;
-        padding: 0 0 0 0;
-    }
-
-    .filter-title {
-        font-size: 15px;
-    }
-
-    .filter-block {
-        margin: 3px 0 0 0;
-    }
-
-    .filter-radio {
-        position: relative;
-    }
-
-    .filter-radio:nth-child(odd) {
-        margin: 0;
-    }
-
-    .filter-radio:nth-child(even) {
-        margin: 0;
-    }
-
-    .filter-radio:checked::before,
-    .filter-radio:not(:checked)::before,
-    .filter-radio:checked::after,
-    .filter-radio:not(:checked)::after {
-        width: 12px;
-        height: 12px;
-        left: 0px;
-        top: 0px;
-    }
-
-    .filter input[type="submit"] {
-        font-size: 14px;
-        padding: 0 2px
-    }
-
-    .filter input[type="submit"]:hover {
-        cursor: pointer;
     }
 
     .grid {
