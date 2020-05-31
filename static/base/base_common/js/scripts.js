@@ -91,15 +91,12 @@ $(document).ready(function () {
         $('.shopping-list').slideUp();
     })
 
-    //Логика окна корзины
-    $('.filter').on('change', function () {
-        $(this).submit();
-    })
-
     //Логика фильтров
-    $('.first-filter').click(function () {
-        $(this).toggleClass('filter-active')
-        $('.filter-container').toggleClass('filter-container-active')
+    $('.filter-select .filter-title').click(function () {
+        $(this).toggleClass('active');
+        $(this).next().toggleClass('active');
+        console.log('клик');
+        
     })
     
     

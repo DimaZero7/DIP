@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/resize.css' %}">
     {% block addCSS %}{% endblock %}
-    <meta name="keywords" content="{% block keywords %}Rearm Device{% endblock %}">
+    <meta name="keywords" content="Rearm Device, {% block keywords %}{% endblock %}">
     <meta name="description" content="{% block description %}Rearm Device{% endblock %}">
     <!--Фавикон-->
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'base/base_common/img/favicon/apple-icon-57x57.png' %}">
@@ -56,10 +56,7 @@
 
     </style>
 </head>
-{% block body %}
-
-<body>
-    {% endblock %}
+{% block body %}<body>{% endblock %}
     <div class="wrapper">
         <header class="header">
             <div class="container">

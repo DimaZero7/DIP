@@ -1,29 +1,19 @@
 {% extends 'base/base_common.html' %}
+{% load static %}
 
+{% block title  %}{{ category.name }}{% endblock %}
 
-{% block title  %}
-    {{ category.name }}
-{% endblock %}
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleFilter.css' %}">{% endblock %}
 
+{% block keywords %}Каталог, {{ category.name }}{% endblock %}
 
-{% block keywords %}
-    {{ category.name }}
-{% endblock %}
-
-
-{% block description %}
-    Товары категории {{ category.name }} на сайте Rearm Device
-{% endblock %}
-
+{% block description %}Товары категории {{ category.name }} на сайте Rearm Device{% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">{{ category.name }}</h1>
-
 <!--Фильтры-->
 {% include 'catalog/product_filters.html' %}
-
 <div class="main-product">
-
     {# Вывожу все товары текущей категории #}
     {% for product in object_list %}
         <article class="product-block">
@@ -50,8 +40,6 @@
         </div>
     {% endfor %}
 </div>
-
 <!--Пагинация-->
 {% include 'base/include_paginator.html' %}
-
 {% endblock %}
