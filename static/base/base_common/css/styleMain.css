@@ -1,18 +1,18 @@
 :root {
-    --dark: #29384D;
+    --dark: #1d1b36;
     /* - ТЕМНО СИНИЙ*/
 
-    --mid: #3C556E;
+    --mid: #484171;
     /* - СРЕДНЕ СИНИЙ*/
 
-    --lg: #517394;
+    --lg: #9593b5;
     /* - СВЕТЛО СИНИЙ*/
 
     --red: #FF283F;
     /* - КРАСНЫЙ*/
 
     --text: #fff;
-    /*черный */
+    /*белый */
 }
 
 * {
@@ -29,8 +29,7 @@ body {
 }
 
 body {
-    background-color: silver;
-
+    
 }
 
 body.lock {
@@ -81,7 +80,7 @@ img {
 }
 
 .header-container {
-    background-color: var(--lg);
+    background-color: var(--dark);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -966,7 +965,7 @@ span.pages-item {
 }
 
 .footer-container {
-    background-color: var(--lg);
+    background-color: var(--dark);
     color: var(--text);
     padding: 0 0 10px 0;
     border-top: 2px solid var(--text)

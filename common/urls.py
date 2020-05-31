@@ -6,4 +6,5 @@ app_name = 'common'
 
 urlpatterns = [
     path('', Index.as_view(), name='index'),
+#    path('', about, name='about'),
 ]

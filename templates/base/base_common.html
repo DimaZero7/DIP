@@ -67,8 +67,7 @@
                             <a href="{% url 'common:index' %}" class="header-link">Главная</a>
                             <a href="{% url 'catalog:categories_list' %}" class="header-link">Каталог</a>
                             <a href="{% url 'manufacture:list' %}" class="header-link">Партнёры</a>
-                            <a href="#" class="header-link">Покупатели</a>
-                            <a href="#" class="header-link">О нас</a>
+                            <a href="{#{% url 'common:about' %}#}" class="header-link">О нас</a>
                         </div>
                         <div class="header-contacts">
                             {% if user.username %}
