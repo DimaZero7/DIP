@@ -20,7 +20,7 @@
     padding: 0;
     box-sizing: border-box;
     border: 0;
-
+    outline: 0;
 }
 
 html,
@@ -1170,6 +1170,7 @@ span.pages-item {
         width: 40px;
         height: 40px;
         top: 74px;
+        cursor: pointer;
     }
 
     .menu-active::before,
@@ -1385,10 +1386,6 @@ span.pages-item {
     .main-h1 {
         margin: -10px -1% 5px -1%;
         font-size: 17px
-    }
-
-    .grid {
-        display: block;
     }
 
     .product-info .detail-add-basket {

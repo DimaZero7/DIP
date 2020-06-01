@@ -105,11 +105,13 @@
     transition: .3s;
     max-width: 30px;
     max-height: 30px;
+    cursor: pointer;
 }
 
 .slider .slick-dots li.slick-active button {
     background-color: var(--red);
-    transition: .3s
+    cursor: default;
+    transition: .3s;
 }
 
 .sliders {
@@ -134,6 +136,10 @@
     display: flex;
 }
 
+.sub-slider-min .slick-track{
+    min-width: 100px;
+}
+
 .sub-slider-min .slider-item {
     margin: 0 0.1%;
     border: 2px solid transparent;
@@ -142,7 +148,7 @@
 
 .sub-slider-min .slick-current {
     border: 2px solid var(--red);
-    transition: .3s
+    transition: .3s;
 }
 
 .sub-slider-min .slick-arrow {

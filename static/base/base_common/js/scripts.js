@@ -1,11 +1,11 @@
-//Перезагрузка страницы при изменение размера окна
-var s_win_w = $(window).width();
-$(window).resize(function () {
-    win_w = $(window).width();
-    if (win_w >= s_win_w * 1.3 || win_w <= s_win_w * 0.7) {
-        location.reload();
-    }
-});
+////Перезагрузка страницы при изменение размера окна
+//var s_win_w = $(window).width();
+//$(window).resize(function () {
+//    win_w = $(window).width();
+//    if (win_w >= s_win_w * 1.3 || win_w <= s_win_w * 0.7) {
+//        location.reload();
+//    }
+//});
 
 //Уменьшение шапки пи скроле вниз
 $(window).scroll(function () {
@@ -63,10 +63,11 @@ $(document).ready(function () {
     })
 
     //Логика спойлеров 
-    if ($(window).width() <= '769') {
+    if ($(window).width() < 769) {
         $('.spoilers').addClass('mobil');
-    } else {
+    }else{
         $('.spoilers').removeClass('mobil');
+        
     }
 
     $('.spoiler-active').click(function () {
@@ -77,11 +78,6 @@ $(document).ready(function () {
         $(this).toggleClass('arrow-active').next().slideToggle(300);
     })
 
-    //Переключение сетки товаров
-    $('.grid').click(function () {
-        $(this).toggleClass('active-grid');
-        $('.main-product').toggleClass('change-grid');
-    })
 
     //Логика окна корзины
     $('.shopping').click(function () {
@@ -92,14 +88,25 @@ $(document).ready(function () {
     })
 
     //Логика фильтров
+    //Открытие блока фильтров
+    $('.filter-main-title span').click(function () {
+        $('.filter-main-title').toggleClass('active');
+        $('.filter-container').toggleClass('active');
+    })
+
+    //Кастомый option
     $('.filter-select .filter-title').click(function () {
         $(this).toggleClass('active');
         $(this).next().toggleClass('active');
         console.log('клик');
-        
     })
-    
-    
+
+    //Переключение сетки товаров
+    $('.grid').click(function () {
+        $(this).toggleClass('active-grid');
+        $('.main-product').toggleClass('change-grid');
+    })
+
     //Слайдеры
     //Главный слайдер
     $('.slider').slick({
@@ -184,7 +191,7 @@ $(document).ready(function () {
                     $('.shopping-list-container').html(" ");
                     $.each(data.products, function (key, value) {
                         $('.shopping-list-container').
-                        append('<tr class="shopping-item"><td>' + value.name + '</td><td>' + value.quantity_nbr + 'шт.</td><td>' + value.price_per_item*value.quantity_nbr + '</td><td class="shopping-list-delete" data-product_id="' + value.id + '" title="Удалить товар"></td></tr>');
+                        append('<tr class="shopping-item"><td>' + value.name + '</td><td>' + value.quantity_nbr + 'шт.</td><td>' + value.price_per_item * value.quantity_nbr + '</td><td class="shopping-list-delete" data-product_id="' + value.id + '" title="Удалить товар"></td></tr>');
                     })
                 }
             },
@@ -215,9 +222,7 @@ $(document).ready(function () {
             $('.alert-title').text('Указано больше чем есть на складе');
             $('.alert').css('display', 'block');
             console.log('Указано больше чем есть на складе');
-        }
-        
-        else {
+        } else {
             e.preventDefault(); //Отменить стандартное поведение
             var user_id = $('.username_id').text(); //Получение id пользователя
             var quantity_nbr = $('#quantity_nbr').val(); //Получить количество товара которого хотят купить

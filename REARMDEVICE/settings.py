@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -169,8 +169,12 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 ROBOKASSA_TEST_MODE = True
 
 ROBOKASSA_LOGIN = "RearmDevice"
-# ROBOKASSA_PASSWORD1 = "GSKQkhfqR8mQnI35u31P"
-# ROBOKASSA_PASSWORD2 = "l3Bf0lwY6SJOkMGv25ow"
+#ROBOKASSA_PASSWORD1 = "GSKQkhfqR8mQnI35u31P"
+#ROBOKASSA_PASSWORD2 = "l3Bf0lwY6SJOkMGv25ow"
+
+ROBOKASSA_ORDER_MODEL = "Rearmdevice.basket.Order"
+#ROBOKASSA_SUCCESS_TEMPLATE = "success.html"
+#ROBOKASSA_FAIL_TEMPLATE = "fail.html"
 
 #Для тестов
 ROBOKASSA_PASSWORD1 = "ymw3de7YeXwAdf7I02BY"

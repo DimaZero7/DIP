@@ -1,86 +1,84 @@
 <form class="filter" name="filter" method="get" action="{{ category.get_absolute_url }}">
-    <div class="filter-block filter-select">
-        <div class="filter-title">Сортировка</div>
-        <div class="filter-content">
-            <label for="" class="filter-label" {% if request.GET.sorting == 'name' %}id="checked"{% endif %}>
-                <span class="filter-span">Название A-Z</span>
-                <input type="radio" class="filter-radio" name="sorting" value="name"
-                {% if request.GET.sorting == 'name' %}checked id="checked"{% endif %}>
-            </label>
-            <label for="" class="filter-label" {% if request.GET.sorting == '-name' %}id="checked"{% endif %}>
-                <span class="filter-span">Название Z-A</span>
-                <input type="radio" class="filter-radio" name="sorting" value="-name"
-                {% if request.GET.sorting == '-name' %}checked id="checked"{% endif %}>
-            </label>
-            <label for="" class="filter-label" {% if request.GET.sorting == 'price' %}id="checked"{% endif %}>
-                <span class="filter-span">Цена по возрасанию</span>
-                <input type="radio" class="filter-radio" name="sorting" value="price"
-                {% if request.GET.sorting == 'price' %}checked id="checked"{% endif %}>
-            </label>
-            <label for="" class="filter-label" {% if request.GET.sorting == '-price' %}id="checked"{% endif %}>
-                <span class="filter-span">Цена по убыванию</span>
-                <input type="radio" class="filter-radio" name="sorting" value="-price"
-                {% if request.GET.sorting == '-price' %}checked id="checked"{% endif %}>
-            </label>
+    <div class="filter-main-title">
+        <span>Фильтрация</span>
+        <div class="grid">
+            <div class="grid-1"></div>
+            <div class="grid-2"></div>
         </div>
     </div>
-
-    <div class="filter-block filter-select">
-        <div class="filter-title">Производители</div>
-        <div class="filter-content">
-            {% load product_filters %}
-            {% get_manufacture as manufactures %}
-            {% for manufacture in manufactures %}
-            <label class="filter-label">
-                <span class="filter-span">{{ manufacture.name }}</span>
-                <input type="checkbox" class="filter-checkbox" name="manufacture" value="{{ manufacture.name }}">
-                {# {% if request.GET.manufacture == manufacture.name %}checked{% endif %} #}
-            </label>
-            {% endfor %}
-        </div>
-    </div>
-
-    <div class="filter-block filter-choice">
-        {% get_prise as price_min_max %}
-        <div class="filter-title">Цена товара:</div>
-        <div class="filter-content">
-            <label class="filter-label">
-                <input type="number" class="filter-number" name="prise_min" min="{{price_min_max.min_prise}}" max="{{price_min_max.max_prise}}" placeholder="От({{ price_min_max.min_prise|default:'товаров нет' }})" >
-            </label>
-            <label class="filter-label">
-                <input type="number" class="filter-number" name="prise_max" min="{{price_min_max.min_prise}}" max="{{price_min_max.max_prise}}" placeholder="До({{ price_min_max.max_prise|default:'товаров нет' }})">
-            </label>
-        </div>
-    </div>
-
-    <div class="filter-block filter-choice filter-warranty">
-        <label for="warranty" class="filter-title">Гарантия:</label>
-        <div class="filter-content">
-            <div class="filter-label">
-                <button class="input-number-button down-value"> - </button>
-                <input id="warranty" type="number" class="filter-number input-number warranty" name="warranty" placeholder="ОТ" {% if request.GET.warranty %}value="{{request.GET.warranty}}" {% endif %}>
-                <button class="input-number-button up-value"> + </button>
+    <div class="filter-container">
+        <div class="filter-block filter-select">
+            <div class="filter-title">Сортировка</div>
+            <div class="filter-content">
+                <label for="" class="filter-label" {% if request.GET.sorting == 'name' %}id="checked" {% endif %}>
+                    <span class="filter-span">Название A-Z</span>
+                    <input type="radio" class="filter-radio" name="sorting" value="name" {% if request.GET.sorting == 'name' %}checked id="checked" {% endif %}>
+                </label>
+                <label for="" class="filter-label" {% if request.GET.sorting == '-name' %}id="checked" {% endif %}>
+                    <span class="filter-span">Название Z-A</span>
+                    <input type="radio" class="filter-radio" name="sorting" value="-name" {% if request.GET.sorting == '-name' %}checked id="checked" {% endif %}>
+                </label>
+                <label for="" class="filter-label" {% if request.GET.sorting == 'price' %}id="checked" {% endif %}>
+                    <span class="filter-span">Цена по возрасанию</span>
+                    <input type="radio" class="filter-radio" name="sorting" value="price" {% if request.GET.sorting == 'price' %}checked id="checked" {% endif %}>
+                </label>
+                <label for="" class="filter-label" {% if request.GET.sorting == '-price' %}id="checked" {% endif %}>
+                    <span class="filter-span">Цена по убыванию</span>
+                    <input type="radio" class="filter-radio" name="sorting" value="-price" {% if request.GET.sorting == '-price' %}checked id="checked" {% endif %}>
+                </label>
             </div>
         </div>
-    </div>
 
-    <div class="filter-block radio">
-        {% get_prise as price_min_max %}
-        <div class="filter-title">В наличии</div>
-        <div class="filter-content">
-            <label class="filter-label">
-                <input type="radio" class="filter-radio first-radio" name="presence" value="yes" title="Да"
-                {% if request.GET.presence == 'yes' %}checked{% endif %}>
-            </label>
-            <label class="filter-label">
-                <input type="radio" class="filter-radio last-radio" name="presence" value="no" title="Нет"
-                {% if request.GET.presence == 'no' %}checked{% endif %}>
-            </label>
+        <div class="filter-block filter-select">
+            <div class="filter-title">Производители</div>
+            <div class="filter-content">
+                {% load product_filters %}
+                {% get_manufacture as manufactures %}
+                {% for manufacture in manufactures %}
+                <label class="filter-label">
+                    <span class="filter-span">{{ manufacture.name }}</span>
+                    <input type="checkbox" class="filter-checkbox" name="manufacture" value="{{ manufacture.name }}" {% if request.GET.manufacture == manufacture.name %}checked{% endif %}>
+                </label>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <input type="submit" class="filter-submit">
-    <div class="grid">
-        <div class="grid-1"></div>
-        <div class="grid-2"></div>
+
+        <div class="filter-block filter-choice">
+            {% get_prise as price_min_max %}
+            <div class="filter-title">Цена товара:</div>
+            <div class="filter-content">
+                <label class="filter-label">
+                    <input type="number" class="filter-number" name="prise_min" min="{{price_min_max.min_prise}}" max="{{price_min_max.max_prise}}" placeholder="От({{ price_min_max.min_prise|default:'товаров нет' }})">
+                </label>
+                <label class="filter-label">
+                    <input type="number" class="filter-number" name="prise_max" min="{{price_min_max.min_prise}}" max="{{price_min_max.max_prise}}" placeholder="До({{ price_min_max.max_prise|default:'товаров нет' }})">
+                </label>
+            </div>
+        </div>
+
+        <div class="filter-block filter-choice filter-warranty">
+            <label for="warranty" class="filter-title">Гарантия:</label>
+            <div class="filter-content">
+                <div class="filter-label">
+                    <button class="input-number-button down-value"> - </button>
+                    <input id="warranty" type="number" class="filter-number input-number warranty" name="warranty" placeholder="ОТ" {% if request.GET.warranty %}value="{{request.GET.warranty}}" {% endif %}>
+                    <button class="input-number-button up-value"> + </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-block radio">
+            {% get_prise as price_min_max %}
+            <div class="filter-title">В наличии:</div>
+            <div class="filter-content">
+                <label class="filter-label">
+                    <input type="radio" class="filter-radio first-radio" name="presence" value="yes" title="Да" {% if request.GET.presence == 'yes' %}checked{% endif %}>
+                </label>
+                <label class="filter-label">
+                    <input type="radio" class="filter-radio last-radio" name="presence" value="no" title="Нет" {% if request.GET.presence == 'no' %}checked{% endif %}>
+                </label>
+            </div>
+        </div>
+        <input type="submit" class="filter-submit" value="Фильтровать">
     </div>
 </form>

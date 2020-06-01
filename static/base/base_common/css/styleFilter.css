@@ -1,17 +1,82 @@
 /*Фильты для товаров*/
 .filter {
-    display: flex;
     background-color: var(--dark);
+    margin: -5px -1% 0 -1%;
+    padding: 0 1%;
     color: var(--text);
+
+}
+
+.filter-main-title {
+    display: flex;
+    justify-content: space-between;
     border-bottom: 2px solid var(--text);
     margin: -5px -1% 0 -1%;
-    padding: 5px 1%;
+    padding: 10px 1%;
+    font-size: 20px;
+    align-items: center;
+}
+
+.filter-main-title span {
+    cursor: pointer;
+    position: relative;
+    flex: 0 1 100%;
+}
+
+.filter-main-title span:hover::before,
+.filter-main-title span:hover::after {
+    background-color: var(--red);
+}
+
+
+.filter-main-title span::before,
+.filter-main-title span::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    top: 8px;
+    background-color: var(--text);
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.filter-main-title span::before {
+    transform: rotate(-45deg);
+    right: 12px;
+}
+
+.filter-main-title span::after {
+    transform: rotate(45deg);
+    right: 28px;
+}
+
+.filter-main-title.active span::before {
+    transform: rotate(45deg);
+}
+
+.filter-main-title.active span::after {
+    transform: rotate(-45deg);
+}
+
+
+.filter-container {
+    display: flex;
     align-items: center;
     flex-flow: wrap;
     justify-content: space-between;
+    height: 0;
+    overflow: hidden;
+    transition: .3s;
 }
 
-#checked{
+.filter-container.active {
+    height: auto;
+    transition: .3s;
+    overflow: visible;
+}
+
+#checked {
     order: 1;
 }
 
@@ -19,13 +84,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 0 1% 5px 1%;
-
 }
 
-.filter-block:first-child{
-    margin: 0 1% 5px; 0
-}
 
 .filter-title {
     padding: 5px 1%;
@@ -83,12 +143,12 @@
     flex-direction: column;
 }
 
-.filter-select .filter-content.active{
+.filter-select .filter-content.active {
     height: auto;
     transition: .3s;
 }
 
-.filter-select .filter-label{
+.filter-select .filter-label {
     order: 2;
 }
 
@@ -136,7 +196,7 @@
 }
 
 .filter-radio,
-.filter-checkbox{
+.filter-checkbox {
     display: flex;
     align-items: center;
     position: relative;
@@ -144,7 +204,7 @@
 }
 
 .filter-radio::after,
-.filter-checkbox::after{
+.filter-checkbox::after {
     content: '';
     position: absolute;
     width: 20px;
@@ -156,43 +216,43 @@
 
 
 .filter-radio:not(:checked)::after,
-.filter-checkbox:not(:checked)::after{
+.filter-checkbox:not(:checked)::after {
     background: url(../img/cross.png) 50% 50% / 60% no-repeat;
     background-color: var(--text);
 
 }
 
 .filter-radio:checked::after,
-.filter-checkbox:checked::after{
+.filter-checkbox:checked::after {
     background: url(../img/check.png) 50% 50% / 60% no-repeat;
     background-color: var(--text);
     box-shadow: 0 0 5px var(--text);
 }
 
-.filter-radio:not(:checked)::after{
+.filter-radio:not(:checked)::after {
     box-shadow: 0 0 5px var(--text);
 }
 
-.first-radio:not(:checked)::after{
+.first-radio:not(:checked)::after {
     background: url(../img/check.png) 50% 50% / 60% no-repeat;
     background-color: var(--text);
     box-shadow: 0 0 5px var(--text);
 }
 
-.last-radio:checked::after{
+.last-radio:checked::after {
     background: url(../img/cross.png) 50% 50% / 60% no-repeat;
 }
 
 .filter-radio:checked::after,
-.filter-checkbox:checked::after{
+.filter-checkbox:checked::after {
     background-color: var(--red);
 }
 
-.filter-warranty{
+.filter-warranty {
     flex: 0 1 90px;
 }
 
-.filter-warranty .filter-number{
+.filter-warranty .filter-number {
     width: 50px;
 }
 
@@ -204,12 +264,13 @@
     text-align: center;
 }
 
-.filter-number:focus, .filter-number:hover{
+.filter-number:focus,
+.filter-number:hover {
     padding: 5px;
     margin: 0;
 }
 
-.filter-choice .filter-number{
+.filter-choice .filter-number {
     width: 70px;
 }
 
@@ -274,7 +335,7 @@
     margin: 0;
 }
 
-.filter-submit{
+.filter-submit {
     background-color: transparent;
     border: 2px solid var(--text);
     color: var(--text);
@@ -282,9 +343,10 @@
     width: 100px;
     cursor: pointer;
     transition: .3s;
+    margin: 0 0 5px 0;
 }
 
-.filter-submit:hover{
+.filter-submit:hover {
     background-color: var(--red);
     transition: .3s;
 }
@@ -352,6 +414,55 @@
     border: 0;
 }
 
-.grid-counter {
-    display: none;
+@media (max-width:600px) {
+    .filter-main-title {
+        font-size: 15px;
+        padding: 5px 1%;
+    }
+
+    .filter-main-title span {
+        flex: 0 1 90%;
+    }
+
+    .filter-main-title span::before,
+    .filter-main-title span::after {
+        width: 20px;
+        height: 7px;
+        top: 6px;
+    }
+
+    .filter-main-title span::before {
+        transform: rotate(-45deg);
+        right: 15px;
+    }
+
+    .filter-main-title span::after {
+        transform: rotate(45deg);
+        right: 25px;
+    }
+
+    .filter-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .filter-block{
+        width: 200px;
+    }
+    
+    .filter-select,
+    .filter-choice,
+    .radio{
+        flex: auto;
+    }
+    
+    .radio{
+        flex-direction: row;
+        height: 40px;
+    }
+    
+    .grid {
+        display: block;
+    }
 }
