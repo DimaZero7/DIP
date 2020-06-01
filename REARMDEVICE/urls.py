@@ -16,9 +16,6 @@ urlpatterns = [
     path('authorization/', include('authorization.urls')),
     path('account/', include('account.urls')), # профиль пользователя
     path('search/', include('search.urls')),  # поиск
-    path('pay/', include('pay.urls')), #Оплата
-    path('robokassa/', include('robokassa.urls')),# robokassa
-    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

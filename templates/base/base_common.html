@@ -56,7 +56,9 @@
 
     </style>
 </head>
-{% block body %}<body>{% endblock %}
+{% block body %}
+
+<body>{% endblock %}
     <div class="wrapper">
         <header class="header">
             <div class="container">
@@ -73,14 +75,12 @@
                             {% if user.username %}
                             <div href="#" class="header-icon bell" title="Уведомления">
                                 <img src="{% static 'base/base_common/img/header-icon/bell.svg' %}" alt="Уведомления">
-                                {% if messages %}
                                 <ul class="messages">
-                                    {% for message in messages %}
-                                    <li {% if message.tags %} class="messages-item {{ message.tags }}" {% endif %}>{{ message }}
-                                    </li>
-                                    {% endfor %}
+                                    {% if messages %}{% for message in messages %}
+                                    <li {% if message.tags %} class="messages-item {{ message.tags }}" {% endif %}>{{ message }}</li>
+                                    {% endfor %}{% endif %}
                                 </ul>
-                                {% endif %}
+                                <ul class="messages alert"></ul>
                             </div>
                             {% endif %}
                             <a href="#" class="header-icon" title="Телефон">
@@ -92,98 +92,92 @@
                         <a href="{% url 'common:index' %}" class="logo">&nbsp;</a>
                         <form action="{% url 'search:result' %}" method="get" class="header-search">
                             <input class="header-search-input" type="search" id="search" name="search" placeholder="{% if request.GET.search %}{{request.GET.search}}{% else %} Искать здесь...{% endif %}">
-                            <button type="submit" class="header-search-button"></button>
-                        </form>
-                        <div class="header-profile">
-                            {% if user.username %}
-                            <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
-                                <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
-                                <span class="counter">
-                                    {% if product_total_quantity_nbr %}
-                                    {{product_total_quantity_nbr}}
-                                    {% else %}0{% endif %}
-                                </span>
-                            </a>
-                            <div class="shopping-list">
-                                <div class="container-total-price">
-                                    <div class="total-price-title">Корзина</div>
-                                </div>
-                                <table class="shopping-list-container">
-                                  {% block formbay %}
-                                   <form action="{% url 'basket:basket_add' %}" method="post" id="buyProduct">
-                                   {% endblock %}
-                                    {% for product_in_basket in products_in_basket %}
-                                    <tr class="shopping-item">
-                                        <td>{{product_in_basket.product.name}}</td>
-                                        <td>{{product_in_basket.quantity_nbr}} шт.</td>
-                                        <td>{{product_in_basket.total_price}}</td>
-                                        <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
-                                    </tr>
-                                    {% empty %}
-                                    <tr class="shopping-item">
-                                        <td>Товаров нет</td>
-                                    </tr>
-                                    {% endfor %}
-                                </form>
-                                </table>
-                                <div class="order">
-                                    <a class="add-order" href="{% if user.username %}
+                                        <button type="submit" class="header-search-button"></button>
+                                        </form>
+                                        <div class="header-profile">
+                                            {% if user.username %}
+                                            <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
+                                                <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
+                                                <span class="counter">
+                                                    {% if product_total_quantity_nbr %}
+                                                    {{product_total_quantity_nbr}}
+                                                    {% else %}0{% endif %}
+                                                </span>
+                                            </a>
+                                            <div class="shopping-list">
+                                                <div class="container-total-price">
+                                                    <div class="total-price-title">Корзина</div>
+                                                </div>
+                                                <table class="shopping-list-container">
+                                                    {% block formbay %}
+                                                    <form action="{% url 'basket:basket_add' %}" method="post" id="buyProduct">
+                                                        {% endblock %}
+                                                        {% for product_in_basket in products_in_basket %}
+                                                        <tr class="shopping-item">
+                                                            <td>{{product_in_basket.product.name}}</td>
+                                                            <td>{{product_in_basket.quantity_nbr}} шт.</td>
+                                                            <td>{{product_in_basket.total_price}}</td>
+                                                            <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
+                                                        </tr>
+                                                        {% empty %}
+                                                        <tr class="shopping-item">
+                                                            <td>Товаров нет</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </form>
+                                                </table>
+                                                <div class="order">
+                                                    <a class="add-order" href="{% if user.username %}
                                     {% url 'order:order_add' %}
                                     {% else %}
                                     {% url 'admin:login' %}
                                     {% endif %}">Перейти к заказу</a>
-                                </div>
-                                <button class="close-basket" title="Закрыть корзину"></button>
-                            </div>
-                            <a href="
+                                                </div>
+                                                <button class="close-basket" title="Закрыть корзину"></button>
+                                            </div>
+                                            <a href="
                             {% if user.username %}  
                                 {% url 'account:account' %}
                             {% else %}
                                 {% url 'authorization:login' %}
                             {% endif %}
                                " class="header-profile-icon profile {% if user.profile.photo%}profile-photo{% endif %}" title="Профиль">
-                                {% if user.username %}
-                                {% if user.profile.photo %}
-                                <img src="{{user.profile.photo.url}}" alt="Профиль">
+                                                {% if user.username %}
+                                                {% if user.profile.photo %}
+                                                <img src="{{user.profile.photo.url}}" alt="Профиль">
+                                                {% else %}
+                                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                                {% endif %}
+                                                {% else %}
+                                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                                {% endif %}
+                                            </a>
+                                            {% else %}
+                                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
+                                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                                            </a>
+                                            {% endif %}
+
+                                        </div>
+                            </div>
+                            {% if user.username %}
+                            <div class="username">
+                                {% if user.is_superuser %}
+                                <a href="{% url 'admin:index' %}">{{user.username}}</a>
                                 {% else %}
-                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                {{user.username}}
                                 {% endif %}
-                                {% else %}
-                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
-                                {% endif %}
-                            </a>
-                            {% else %}
-                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
-                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
-                            </a>
+                                <div class="username_id">
+                                    {{user.id}}
+                                </div>
+                                <div id="csrf_token">
+                                    {% csrf_token %}
+                                </div>
+
+                            </div>
                             {% endif %}
-
                         </div>
                     </div>
-                    {% if user.username %}
-                    <div class="username">
-                        {% if user.is_superuser %}
-                        <a href="{% url 'admin:index' %}">{{user.username}}</a>
-                        {% else %}
-                        {{user.username}}
-                        {% endif %}
-                        <div class="username_id">
-                            {{user.id}}
-                        </div>
-                        <div id="csrf_token">
-                            {% csrf_token %}
-                        </div>
-
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="alert">
-                <div class="alert-container">
-                    <div class="alert-title">Всплыващие окно</div>
-                    <button class="alert-button">Понятно</button>
-                </div>
-            </div>
         </header>
 
         <main class="main">

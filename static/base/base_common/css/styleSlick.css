@@ -143,7 +143,8 @@
 .sub-slider-min .slider-item {
     margin: 0 0.1%;
     border: 2px solid transparent;
-    transition: .3s
+    cursor: pointer;
+    transition: .3s;
 }
 
 .sub-slider-min .slick-current {
@@ -159,6 +160,7 @@
     width: 20px;
     height: 40px;
     margin: -20px 0 0 0;
+    cursor: pointer;
 }
 
 .sub-slider-min .slick-arrow.slick-prev {

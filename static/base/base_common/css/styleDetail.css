@@ -46,6 +46,7 @@
 }
 
 .detail-add-basket:hover{
+    background-color: var(--red);
     cursor: pointer;
     transition: .3s;
 }
@@ -157,6 +158,7 @@
 .detail-li-content {
     padding: 10px 1%;
     display: block;
+    
 }
 
 .detail-comment {

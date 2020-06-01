@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -50,9 +50,7 @@ INSTALLED_APPS = [
     'authorization.apps.AuthorizationConfig',
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
-    'pay.apps.PayConfig',  # Приложение отвечающее за поиск товаров
     'social_django',
-    'robokassa',
 ]
 
 MIDDLEWARE = [
