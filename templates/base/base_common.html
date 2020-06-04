@@ -174,8 +174,8 @@
                                 {% url 'account:account' %}
                             {% else %}
                                 {% url 'authorization:login' %}
-                            {% endif %}
-                               " class="header-profile-icon profile {% if user.profile.photo%}profile-photo{% endif %}" title="Профиль">
+                            {% endif %}" 
+                               class="header-profile-icon profile {% if user.profile.photo %}profile-photo{% endif %}" title="Профиль">
                                 {% if user.username %}
                                 {% if user.profile.photo %}
                                 <img src="{{user.profile.photo.url}}" alt="Профиль">
