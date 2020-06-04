@@ -608,7 +608,7 @@ input[type=button][disabled].default {
     text-transform: uppercase;
 }
 
-.module caption a{
+.module caption a.section{
     color: var(--text);
 }
 
