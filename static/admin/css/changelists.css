@@ -362,6 +362,7 @@
 
 #changelist table input:checked::after {
     background: url(../img/close.webp) 50% 50% / 100% no-repeat;
+    filter: invert();
     transition: .3s
 }
 

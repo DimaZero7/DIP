@@ -598,7 +598,7 @@ input[type=button][disabled].default {
     font-size: 15px;
     text-align: left;
     background: var(--lg);
-    color: #fff;
+    color: var(--text);
 }
 
 .module caption,
@@ -606,6 +606,10 @@ input[type=button][disabled].default {
     font-size: 12px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+}
+
+.module caption a{
+    color: var(--text);
 }
 
 .module table {
