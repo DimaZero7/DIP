@@ -13,28 +13,7 @@
 <h1 class="main-h1">Регестрация</h1>
 <form action="" method="post" class="auth">
     {% csrf_token %}
-    <p>
-        <label for="id_username">Имя пользователя:</label>
-        <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
-        <span class="helptext">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</span>
-    </p>
-    <p>
-        <label for="id_password1">Пароль:</label>
-        <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
-        <span class="helptext"></span>
-    </p>
-    <ul>
-        <li>Пароль не должен содержать личныую информацию</li>
-        <li>Ваш пароль должен содержать как минимум 8 символов.</li>
-        <li>Используйте не очеведный пароль.</li>
-        <li>Пароль не должен содержать только цифры.</li>
-    </ul>
-    <p></p>
-    <p>
-        <label for="id_password2">Подтверждение пароля:</label>
-        <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
-        <span class="helptext">Для подтверждения введите, пожалуйста, пароль ещё раз.</span>
-    </p>
+    {{form.as_p}}
     <button type="submit">Зарегистрироваться</button>
     <a href="{% url 'authorization:login' %}">Вход</a>
 </form>

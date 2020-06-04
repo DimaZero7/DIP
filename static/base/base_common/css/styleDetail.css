@@ -58,7 +58,7 @@
 .detail-block-servis {
     display: flex;
     margin: 10px 0;
-    background-color: var(--mid);
+    background-color: var(--dark);
     color: var(--text);
     height: 40px;
     align-items: center;
@@ -108,7 +108,7 @@
 }
 
 .manufacturers-block {
-    background-color: var(--mid);
+    background-color: var(--dark);
     color: var(--text);
     padding: 0 5%;
     width: 100%;
@@ -140,7 +140,7 @@
 
 .detail-li {
     margin: 10px 0;
-    background-color: var(--mid);
+    background-color: var(--dark);
     color: var(--text)
 }
 

@@ -131,6 +131,9 @@
                         </div>
                     </div>
                     <div class="header-main">
+                      {% if user.is_anonymous %}
+                      <a href="{% url 'common:index' %}" class="logo dark">&nbsp;</a>
+                      {% endif %}
                        {% if user.profile.theme == True %}
                         <a href="{% url 'common:index' %}" class="logo dark">&nbsp;</a>
                        {% endif %}
