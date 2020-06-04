@@ -33,6 +33,19 @@
     <meta name="theme-color" content="#ffffff">
     <!--*-->
     <style>
+        
+        {% if user.is_anonymous %}
+        /*Темная тема*/
+        :root {
+           --dark: #1d1b36; /* Темный */
+           --mid: #484171; /* Средний */
+           --lg: #9593b5; /* Светлый */
+           --red: #FF283F; /* Выделение */
+           --text: #fff; /* Белый */
+        }
+        {% endif %}
+    
+        
         {% if user.profile.theme == True %}
         /*Темная тема*/
         :root {
