@@ -553,6 +553,8 @@ ul.timelist, .timelist li {
 .related-widget-wrapper {
     float: left;       /* display properly in form rows with multiple fields */
     overflow: hidden;  /* clear floated contents */
+    display: flex;
+    align-items: center;
 }
 
 .related-widget-wrapper-link {

@@ -11,7 +11,6 @@ def basket_add(request):
     data = request.POST
     product_id = data.get("product_id")
     quantity_nbr = data.get("quantity_nbr")
-    
     is_delete = data.get("is_delete")
         
 #    if int(quantity_nbr) > Product.objects.get(id=product_id).warehouse:

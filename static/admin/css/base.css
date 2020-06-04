@@ -597,7 +597,7 @@ input[type=button][disabled].default {
     font-weight: bold;
     font-size: 15px;
     text-align: left;
-    background: var(--mid);
+    background: var(--lg);
     color: #fff;
 }
 
@@ -741,7 +741,7 @@ div.breadcrumbs {
 
 
 div.breadcrumbs a {
-    color: silver;
+    color: var(--text);
     padding: 0 5px;
 }
 

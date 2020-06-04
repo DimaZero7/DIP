@@ -42,7 +42,7 @@
 .auth input {
     padding: 5px;
     font-size: 17px;
-    background-color: var(--lg) !important;
+    background-color: transparent;
     border: 2px solid var(--text);
     color: var(--text);
     width: 100%;
@@ -51,7 +51,7 @@
 .auth button {
     padding: 5px;
     font-size: 15px;
-    background-color: var(--lg) !important;
+    background-color: transparent;
     border: 2px solid var(--text);
     color: var(--text);
     transition: .3s;
@@ -59,7 +59,7 @@
 
 .auth button:hover {
     cursor: pointer;
-    background-color: var(--red) !important;
+    background-color: var(--red) ;
     transition: .3s;
 }
 

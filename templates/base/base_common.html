@@ -33,6 +33,35 @@
     <meta name="theme-color" content="#ffffff">
     <!--*-->
     <style>
+        {% if user.profile.theme == True %}
+        /*Темная тема*/
+        :root {
+           --dark: #1d1b36; /* Темный */
+           --mid: #484171; /* Средний */
+           --lg: #9593b5; /* Светлый */
+           --red: #FF283F; /* Выделение */
+           --text: #fff; /* Белый */
+        }
+        {% endif %}
+            
+        {% if user.profile.theme == False %}
+        /*Светлая тема*/
+         :root {
+            --dark: #afadfc; /* Темный */
+            --mid: #e3e2fd; /* Средний */
+            --lg: #f8f8ff; /* Светлый */
+            --red: #FF283F; /* Выделение */
+            --text: #000; /* Черный */
+             }
+        
+        .social img,
+        .header-profile-icon img,
+        .header-icon img{
+            filter: invert();
+        }
+        {% endif %}
+            
+
         .preloader {
             position: absolute;
             left: 0;
@@ -89,95 +118,97 @@
                         </div>
                     </div>
                     <div class="header-main">
-                        <a href="{% url 'common:index' %}" class="logo">&nbsp;</a>
+                       {% if user.profile.theme == True %}
+                        <a href="{% url 'common:index' %}" class="logo dark">&nbsp;</a>
+                       {% endif %}
+                        {% if user.profile.theme == False %}
+                        <a href="{% url 'common:index' %}" class="logo light">&nbsp;</a>
+                        {% endif %} 
                         <form action="{% url 'search:result' %}" method="get" class="header-search">
                             <input class="header-search-input" type="search" id="search" name="search" placeholder="{% if request.GET.search %}{{request.GET.search}}{% else %} Искать здесь...{% endif %}">
-                                        <button type="submit" class="header-search-button"></button>
-                                        </form>
-                                        <div class="header-profile">
-                                            {% if user.username %}
-                                            <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
-                                                <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
-                                                <span class="counter">
-                                                    {% if product_total_quantity_nbr %}
-                                                    {{product_total_quantity_nbr}}
-                                                    {% else %}0{% endif %}
-                                                </span>
-                                            </a>
-                                            <div class="shopping-list">
-                                                <div class="container-total-price">
-                                                    <div class="total-price-title">Корзина</div>
-                                                </div>
-                                                <table class="shopping-list-container">
-                                                    {% block formbay %}
-                                                    <form action="{% url 'basket:basket_add' %}" method="post" id="buyProduct">
-                                                        {% endblock %}
-                                                        {% for product_in_basket in products_in_basket %}
-                                                        <tr class="shopping-item">
-                                                            <td>{{product_in_basket.product.name}}</td>
-                                                            <td>{{product_in_basket.quantity_nbr}} шт.</td>
-                                                            <td>{{product_in_basket.total_price}}</td>
-                                                            <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
-                                                        </tr>
-                                                        {% empty %}
-                                                        <tr class="shopping-item">
-                                                            <td>Товаров нет</td>
-                                                        </tr>
-                                                        {% endfor %}
-                                                    </form>
-                                                </table>
-                                                <div class="order">
-                                                    <a class="add-order" href="{% if user.username %}
+                            <button type="submit" class="header-search-button"></button>
+                        </form>
+                        <div class="header-profile">
+                            {% if user.username %}
+                            <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
+                                <span class="counter">
+                                    {% if product_total_quantity_nbr %}
+                                    {{product_total_quantity_nbr}}
+                                    {% else %}0{% endif %}
+                                </span>
+                            </a>
+                            <div class="shopping-list">
+                                <div class="container-total-price">
+                                    <div class="total-price-title">Корзина</div>
+                                </div>
+                                <table class="shopping-list-container">
+                                    {% block formbay %}
+                                    <form action="{% url 'basket:basket_add' %}" method="post" id="buyProduct">
+                                        {% endblock %}
+                                        {% for product_in_basket in products_in_basket %}
+                                        <tr class="shopping-item">
+                                            <td>{{product_in_basket.product.name}}</td>
+                                            <td>{{product_in_basket.quantity_nbr}} шт.</td>
+                                            <td>{{product_in_basket.total_price}}</td>
+                                            <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
+                                        </tr>
+                                        {% empty %}
+                                        <tr class="shopping-item">
+                                            <td>Товаров нет</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </form>
+                                </table>
+                                <div class="order">
+                                    <a class="add-order" href="{% if user.username %}
                                     {% url 'order:order_add' %}
                                     {% else %}
                                     {% url 'admin:login' %}
                                     {% endif %}">Перейти к заказу</a>
-                                                </div>
-                                                <button class="close-basket" title="Закрыть корзину"></button>
-                                            </div>
-                                            <a href="
+                                </div>
+                                <button class="close-basket" title="Закрыть корзину"></button>
+                            </div>
+                            <a href="
                             {% if user.username %}  
                                 {% url 'account:account' %}
                             {% else %}
                                 {% url 'authorization:login' %}
                             {% endif %}
                                " class="header-profile-icon profile {% if user.profile.photo%}profile-photo{% endif %}" title="Профиль">
-                                                {% if user.username %}
-                                                {% if user.profile.photo %}
-                                                <img src="{{user.profile.photo.url}}" alt="Профиль">
-                                                {% else %}
-                                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
-                                                {% endif %}
-                                                {% else %}
-                                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
-                                                {% endif %}
-                                            </a>
-                                            {% else %}
-                                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
-                                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
-                                            </a>
-                                            {% endif %}
-
-                                        </div>
-                            </div>
-                            {% if user.username %}
-                            <div class="username">
-                                {% if user.is_superuser %}
-                                <a href="{% url 'admin:index' %}">{{user.username}}</a>
+                                {% if user.username %}
+                                {% if user.profile.photo %}
+                                <img src="{{user.profile.photo.url}}" alt="Профиль">
                                 {% else %}
-                                {{user.username}}
+                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
                                 {% endif %}
-                                <div class="username_id">
-                                    {{user.id}}
-                                </div>
-                                <div id="csrf_token">
-                                    {% csrf_token %}
-                                </div>
-
-                            </div>
+                                {% else %}
+                                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                                {% endif %}
+                            </a>
+                            {% else %}
+                            <a href="{% url 'authorization:login' %}" class="header-profile-icon profile" title="Авторизация">
+                                <img src="{% static 'base/base_common/img/header-profile-icon/login.svg' %}" alt="Вход">
+                            </a>
                             {% endif %}
+
                         </div>
                     </div>
+                    {% if user.username %}
+                    <div class="username">
+                        {% if user.is_superuser %}
+                        <a href="{% url 'admin:index' %}">{{user.username}}</a>
+                        {% else %}
+                        {{user.username}}
+                        {% endif %}
+                        <div class="username_id">{{user.id}}</div>
+                        <div id="csrf_token">
+                            {% csrf_token %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
         </header>
 
         <main class="main">

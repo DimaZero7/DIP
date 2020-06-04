@@ -3,9 +3,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
+from django.shortcuts import  HttpResponse
 
 from .forms import UserForm, ProfileForm
 from basket.models import Order, ProductsInOrder
+from .models import Profile
 
 
 @login_required(login_url='/authorization/login/')
@@ -16,15 +18,12 @@ def account(request):
 @login_required(login_url='/authorization/login/')
 def order_detail(request):
     order = Order.objects.filter(user=request.user)
-#    productsinorder = ProductsInOrder.objects.filter(order=order )
             
     context = {
         "order":order,
-#        "productsinorder":productsinorder,
     }
 
     return render(request, 'account/order_detail.html', context)
-
 
 
 @login_required(login_url='/authorization/login/')
@@ -49,3 +48,38 @@ def editing(request):
         'profile_form': profile_form,
     }
     return render(request, 'account/editing.html', context)
+
+
+@login_required(login_url='/authorization/login/')
+def grid(request):
+    data = request.POST
+    grid_status = data.get("grid_status")
+    
+     
+    if grid_status == 'True':
+        Profile.objects.filter(user=request.user).update(grid=True)
+    
+    if grid_status == 'False':
+        Profile.objects.filter(user=request.user).update(grid=False)
+    
+    return HttpResponse()
+
+@login_required(login_url='/authorization/login/')
+def theme(request):
+    data = request.POST
+    theme_status = data.get("theme_status")
+    print(data)
+    
+     
+    if theme_status == 'light':
+        Profile.objects.filter(user=request.user).update(theme=False)
+    
+    if theme_status == 'dark':
+        Profile.objects.filter(user=request.user).update(theme=True)
+    
+    return HttpResponse()
+    
+    
+    
+    
+    

@@ -18,6 +18,9 @@ class Profile(models.Model):
     number_house = models.CharField('Номер дома', max_length=50, blank=True)
     number_room = models.CharField('Номер квартиры', max_length=50, blank=True)
     photo = models.FileField('Фото профиля', upload_to=profile_img_name, blank=True)
+    grid = models.BooleanField('Сетка товаров', default=False)
+    theme = models.BooleanField('Тема', default=True)
+    
 
     def __str__(self):
         return self.user.username

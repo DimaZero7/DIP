@@ -97,14 +97,14 @@
     position: relative;
 }
 
-.filter-select:first-child{
+.filter-select:first-child {
     z-index: 3;
-    
+
 }
 
-.filter-select:last-child{
+.filter-select:last-child {
     z-index: 1;
-    
+
 }
 
 .filter-select .filter-title {
@@ -373,6 +373,10 @@
     padding: 0 15px 0 0
 }
 
+.grid-link {
+    display: none;
+}
+
 .grid:hover {
     cursor: pointer;
     background-color: var(--red);
@@ -452,27 +456,27 @@
         right: 25px;
     }
 
-    .filter-container{
+    .filter-container {
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    
-    .filter-block{
+
+    .filter-block {
         width: 200px;
     }
-    
+
     .filter-select,
     .filter-choice,
-    .radio{
+    .radio {
         flex: auto;
     }
-    
-    .radio{
+
+    .radio {
         flex-direction: row;
         height: 40px;
     }
-    
+
     .grid {
         display: block;
     }

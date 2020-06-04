@@ -17,15 +17,14 @@ $(window).scroll(function () {
 });
 
 //Геренация случайного цвета подсветки
-var colors = ['#FF283F',
-              'rgba(233, 33, 243, 1)',
-              'rgba(25, 212, 247, 1)'];
+var colors = ['#FF283F', 'rgba(233, 33, 243, 1)', 'rgba(25, 212, 247, 1)'];
 randomColor = colors[Math.random() * colors.length ^ 0];
 document.documentElement.style.setProperty('--red', randomColor);
 
 
 //Построен документ(DOM) и загружены все скрипты
 $(document).ready(function () {
+    console.log('\x1b[33m%s\x1b[0m', 'Остановитесь');
 
     //анимация кнопки поиска
     $('.header-search-button').mouseenter(function () {
@@ -48,9 +47,9 @@ $(document).ready(function () {
             }, 4000);
         }
     }
-    
+
     messages();
-    
+
     //Закрытие модального окна
     function alert_close() {
         setTimeout(function () {
@@ -58,8 +57,10 @@ $(document).ready(function () {
         }, 4000);
     }
 
-    function alert(text) {
-        $('.alert').append('<li class="messages-item alert-item">'+text+'</li>');
+    //Открытие сообщения модального окна
+    function alert_open(text) {
+        $('.alert').html(" ");
+        $('.alert').append('<li class="messages-item alert-item">' + text + '</li>');
         messages();
         alert_close();
     }
@@ -93,12 +94,13 @@ $(document).ready(function () {
 
 
     //Логика окна корзины
-    $('.shopping').click(function () {
+    $('.shopping').click(function (e) {
         $('.shopping-list').slideToggle();
     })
     $('.close-basket').click(function () {
         $('.shopping-list').slideUp();
     })
+
 
     //Логика фильтров
     //Открытие блока фильтров
@@ -112,12 +114,6 @@ $(document).ready(function () {
         $(this).toggleClass('active');
         $(this).next().toggleClass('active');
         console.log('клик');
-    })
-
-    //Переключение сетки товаров
-    $('.grid').click(function () {
-        $(this).toggleClass('active-grid');
-        $('.main-product').toggleClass('change-grid');
     })
 
     //Слайдеры
@@ -171,17 +167,7 @@ $(document).ready(function () {
         focusOnSelect: true,
     });
 
-    if ($('.username_id').text()) {
-        console.log('id Пользователя  ' + $('.username_id').text());
-        console.log('csrf_token Пользователя  ' + $('#csrf_token input[name="csrfmiddlewaretoken"]').val());
-    } else {
-        console.log('Пользователь не авторизован')
-    }
-
     //Добавление товаров в корзину
-    var form = $('#buyProduct');
-    console.log(form);
-
     function basketUpdating(user_id, product_id, quantity_nbr, is_delete) {
         var data = {};
         data.product_id = product_id;
@@ -214,23 +200,21 @@ $(document).ready(function () {
         })
     }
 
+    var form = $('#buyProduct');
     form.on('submit', function (e) {
+        e.preventDefault();
         //Запретить добавить товар в корзину если товара нет на складе
         if ($('.warehouse').text() == 0) {
-            e.preventDefault();
-            alert('Товаров нет на складе');
+            alert_open('Товаров нет на складе');
         }
         //Запретить добавить товар в корзину если указан 0 или больше чем есть в наличии
         else if ($('input #quantity_nbr').val() == 0) {
-            e.preventDefault();
-            alert('Указано не правильное количество');
+            alert_open('Указано не правильное количество');
         }
         //Запретить добавить товар в корзину если указано больше чем есть на складе
         else if ($('input #quantity_nbr').val() >= $('.warehouse').text()) {
-            e.preventDefault();
-            alert('Указано больше чем есть на складе');
+            alert_open('Указано больше чем есть на складе');
         } else {
-            e.preventDefault(); //Отменить стандартное поведение
             var user_id = $('.username_id').text(); //Получение id пользователя
             var quantity_nbr = $('#quantity_nbr').val(); //Получить количество товара которого хотят купить
             var addBasket = $('#addBasket'); //Получение кнопки отправки формы для считывания с неё data атрибутов
@@ -238,9 +222,11 @@ $(document).ready(function () {
 
             basketUpdating(user_id, product_id, quantity_nbr, is_delete = false);
 
-            alert('Товар добавлен в корзину');
+            alert_open('Товар добавлен в корзину');
+
         }
     })
+
 
     //Удаление товаров из коризы
     $(document).on('click', '.shopping-list-delete', function (e) {
@@ -250,8 +236,8 @@ $(document).ready(function () {
         quantity_nbr = 0;
         basketUpdating(user_id, product_id, quantity_nbr, is_delete = true);
         $(this).closest('tr').remove();
-        
-        alert('Товар удален из корзины');
+
+        alert_open('Товар удален из корзины');
     })
 
     //Уведомление о том что товаров в корзине нет
@@ -260,7 +246,7 @@ $(document).ready(function () {
             console.log('Товар в коризне');
         } else {
             e.preventDefault();
-            alert('Товар в коризне нет');
+            alert_open('Товар в коризне нет');
         }
     })
 
@@ -302,6 +288,91 @@ $(document).ready(function () {
             }
         })();
     });
+
+    //Переключение сетки товаров
+    $('.grid').click(function (e) {
+        e.preventDefault();
+        if ($('.header-container div').hasClass('username')) {
+            var grid_status = $('.grid').data('grid');
+
+            if (grid_status == 'False') {
+                grid_status = 'True';
+            } else if (grid_status == 'True') {
+                grid_status = 'False';
+            }
+
+            var data = {};
+            var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
+            data["csrfmiddlewaretoken"] = csrf_token;
+            data.grid_status = grid_status;
+
+            var url = $('.grid-link').attr('href');
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: data,
+                cache: true,
+                success: function () {
+                    console.log('OK');
+                    $('.grid').toggleClass('active-grid');
+                    $('.main-product').toggleClass('change-grid');
+                    $('.grid').data('grid', data.grid_status);
+                },
+                error: function () {
+                    console.log('error');
+                }
+            })
+        } else {
+            $('.grid').toggleClass('active-grid');
+            $('.main-product').toggleClass('change-grid');
+        }
+    })
+
+
+    //Сена темы
+
+    $('.theme').click(function () {
+        if ($('.theme').hasClass('dark')) {
+            $(this).removeClass('dark');
+            $(this).addClass('light');
+        } else {
+            $(this).removeClass('light');
+            $(this).addClass('dark');
+        }
+    })
+
+    //Переключение сетки товаров
+    $('.theme').click(function (e) {
+        e.preventDefault();
+        var theme_status = $('.theme').data('theme');
+
+        if (theme_status == 'dark') {
+            theme_status = 'light';
+        } else if (theme_status == 'light') {
+            theme_status = 'dark';
+        }
+
+        var data = {};
+        var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
+        data["csrfmiddlewaretoken"] = csrf_token;
+
+        data.theme_status = theme_status;
+
+        var url = $('.theme').attr('href');
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            cache: true,
+            success: function () {
+                location.reload();
+            },
+            error: function () {
+                console.log('error');
+            }
+        })
+    })
+
 });
 
 //Взаимодействие со свайпами

@@ -11,7 +11,59 @@
     border: 2px solid var(--text);
     background-color: var(--dark);
     transition: .3s;
+    position: relative;
 }
+
+.theme{
+    width: 60px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.theme:hover{
+    border: 2px solid var(--red);
+}
+
+.theme::before,
+.theme::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    transition: .3s;
+}
+
+.theme::before{
+    left: 0;
+    background-color: var(--dark);
+}
+
+.theme::after{
+    right: 0;
+    background-color: var(--text);
+}
+
+.theme.dark::before{
+    background-color: var(--dark);
+    width: 70%;
+}
+
+.theme.dark::after{
+    background-color: var(--text);
+    width: 30%;
+}
+
+.theme.light::before{
+    background-color: var(--dark);
+    width: 30%;
+}
+
+.theme.light::after{
+    background-color: var(--text);
+    width: 70%;
+}
+
 
 .account-nav a:first-child {
     margin: 5px 5px 5px 0;
@@ -68,6 +120,7 @@
     padding: 5px 1%;
     font-size: 14px;
     white-space: nowrap;
+    color: var(--text);
 }
 
 .content-basket {

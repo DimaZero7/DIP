@@ -1,4 +1,11 @@
 <div class="account-nav">
+    <a href="{% url 'account:theme' %}" 
+    class="link-basket theme 
+    {% if user.profile.theme == True %}dark{% endif %}
+    {% if user.profile.theme == False %}light{% endif %}" 
+    title="Сменить тему"
+    data-theme='{% if user.profile.theme == True %}dark{% endif %}{% if user.profile.theme == False %}light{% endif %}'>
+    </a>
     <a href="{% url 'account:account' %}" class="link-basket">Данные</a>
     <a href="{% url 'order:order_add' %}" class="link-basket">Корзина</a>
     <a href="{% url 'account:order_detail' %}" class="link-orders">Заказы</a>

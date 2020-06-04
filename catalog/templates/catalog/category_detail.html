@@ -13,7 +13,7 @@
 <h1 class="main-h1">{{ category.name }}</h1>
 <!--Фильтры-->
 {% include 'catalog/product_filters.html' %}
-<div class="main-product">
+<div class="main-product {% if user.profile.grid == True %}change-grid{% endif %}">
     {# Вывожу все товары текущей категории #}
     {% for product in object_list %}
         <article class="product-block">

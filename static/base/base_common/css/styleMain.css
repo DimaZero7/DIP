@@ -1,20 +1,3 @@
-:root {
-    --dark: #1d1b36;
-    /* - ТЕМНО СИНИЙ*/
-
-    --mid: #484171;
-    /* - СРЕДНЕ СИНИЙ*/
-
-    --lg: #9593b5;
-    /* - СВЕТЛО СИНИЙ*/
-
-    --red: #FF283F;
-    /* - КРАСНЫЙ*/
-
-    --text: #fff;
-    /*белый */
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -28,9 +11,7 @@ body {
     height: 100%;
 }
 
-body {
-    
-}
+body {}
 
 body.lock {
     overflow: hidden;
@@ -164,7 +145,7 @@ img {
     background-color: var(--red);
 }
 
-.messages{
+.messages {
     position: absolute;
     color: var(--text);
     right: 30px;
@@ -187,7 +168,8 @@ img {
     overflow: hidden;
 }
 
-.messages-active, alert.messages-active {
+.messages-active,
+alert.messages-active {
     transition: .3s;
     padding: 0 5px;
     width: auto;
@@ -210,20 +192,20 @@ img {
 
 /*Логотип*/
 .logo {
-    background: url(../img/logo/logo_max.png);
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
     flex: 0 1 20%;
     height: 50px;
     transition: .3s;
 }
 
+.logo.dark {
+    background: url(../img/logo/logo_max.png) 50% 50% / 90% no-repeat;
+}
+
+.logo.light {
+    background: url(../img/logo/logo_max_black.png) 50% 50% / 90% no-repeat;
+}
+
 .logo:hover {
-    background: url(../img/logo/logo_max.png);
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position: center;
     background-color: var(--red);
     transition: .3s;
 }
@@ -240,6 +222,7 @@ img {
     height: 40px;
     padding: 5px 1%;
     font-size: 20px;
+    border: 2px solid var(--text);
 }
 
 .header-search-button {
@@ -345,7 +328,7 @@ img {
     position: absolute;
     background-color: var(--mid);
     width: 400px;
-    right: 62px;
+    right: 60px;
     top: 82px;
     padding: 10px 10px 0 10px;
     color: var(--text);
@@ -480,7 +463,7 @@ img {
     right: 10px;
     width: auto;
     padding: 5px 7px;
-    background-color: var(--dark);
+    background-color: var(--mid);
     border: 2px solid var(--text);
     border-top: 0;
     color: var(--text);
@@ -514,6 +497,7 @@ img {
     transition: .3s;
     top: 84px;
     z-index: 22;
+    cursor: pointer;
 }
 
 .menu-active:focus {
@@ -628,7 +612,7 @@ img {
 
 .content {
     width: 100%;
-    background-color: var(--lg);
+    background-color: var(--mid);
     padding: 10px 1% 70px 1%;
     transition: .3s;
     min-height: 702px;
@@ -1010,21 +994,19 @@ span.pages-item {
     }
 
     .logo {
-        background: url(../img/logo/logo_min.png);
-        background-repeat: no-repeat;
-        background-size: 40px;
-        background-position: center;
         flex: 0 1 15%;
         height: 40px;
     }
 
-    .logo:hover {
-        background: url(../img/logo/logo_min.png);
-        background-repeat: no-repeat;
-        background-size: 40px;
-        background-position: center;
-        background-color: var(--red);
+    .logo.dark {
+        background: url(../img/logo/logo_min.png) 50% 50% / 40px no-repeat;
     }
+
+    .logo.light {
+        background: url(../img/logo/logo_min_black.png) 50% 50% / 40px no-repeat;
+    }
+
+
 
     .header-search {
         flex: 0 1 60%;
@@ -1410,8 +1392,3 @@ span.pages-item {
         margin: 0 1%
     }
 }
-
-
-
-
-
