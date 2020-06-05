@@ -1,66 +1,130 @@
 .auth {
-    margin: 0 auto;
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-}
-
-.auth > * {
-    margin: 10px 0;
-}
-
-.auth p,
-.auth ul,
-.auth button {
-    width: 50%;
-    transition: .3s;
-}
-
-.auth p {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.auth ul {
     color: var(--text);
-
+    width: 300px;
+    margin: 0 auto;
+}
+.auth-item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 10px 0;
+}
+.auth-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.auth .errorlist{
-    color: coral;
-}
-
-.auth label {
+.auth-label .auth-span{
     font-size: 20px;
     margin: 5px 0;
-    text-align: center;
 }
 
-.auth input {
+.auth-label input{
     padding: 5px;
-    font-size: 17px;
-    background-color: transparent;
     border: 2px solid var(--text);
+    background-color: transparent;
     color: var(--text);
+    font-size: 18px;
     width: 100%;
 }
 
-.auth button {
-    padding: 5px;
-    font-size: 15px;
-    background-color: transparent;
+.auth-help {
+    border: 0px solid var(--text);
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    padding:  5px;
+    overflow: hidden;
+    height: 0;
+}
+
+.auth-help.active{
     border: 2px solid var(--text);
-    color: var(--text);
+    border-top: 0;
+    padding:  5px;
+    height: auto;
+}
+
+.errorlist{
+    margin: -5px -5px -5px -20px ;
+}
+
+.auth-help li{
+    padding: 5px 0 5px 20px;
+    position: relative;
+}
+
+li.invalid {
+	color: red;
+}
+
+li.invalid::before,
+li.invalid::after {
+	content: '';
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 15px;
+    height: 4px;
+    background-color: red;
     transition: .3s;
 }
 
-.auth button:hover {
-    cursor: pointer;
-    background-color: var(--red) ;
+li.invalid::before{
+    transform: rotate(45deg);
+}
+
+li.invalid::after{
+    transform: rotate(-45deg);
+}
+
+li.valid{
+    color: greenyellow;
+}
+
+li.valid::before,
+li.valid::after {
+	content: '';
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 15px;
+    height: 4px;
+    background-color: greenyellow;
     transition: .3s;
+}
+
+li.valid::before{
+    transform: rotate(45deg);
+    left: -2px;
+    width: 10px;
+}
+
+li.valid::after{
+    transform: rotate(-45deg);
+    left: 2px;
+}
+
+.submit{
+    transition: .3s;
+}
+
+.submit:hover{
+    background-color: var(--red);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.link{
+    text-align: center;
+    font-size: 18px;
+}
+
+.ff .errorlist li{
+   font-size: 0;
+}
+
+.ff .errorlist.nonfield li{
+    font-size: 16px;
 }
 
 @media (max-width:900px) {

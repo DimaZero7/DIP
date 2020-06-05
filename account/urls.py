@@ -8,6 +8,5 @@ urlpatterns = [
     path('', account, name='account'),
     path('editing/', editing, name='editing'),
     path('order_detail/', order_detail, name='order_detail'),
-    path('grid', grid, name='grid'),
-    path('theme', theme, name='theme'),
+    path('switch', switch, name='switch'),
 ]

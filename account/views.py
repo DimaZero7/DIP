@@ -50,33 +50,24 @@ def editing(request):
     return render(request, 'account/editing.html', context)
 
 
-@login_required(login_url='/authorization/login/')
-def grid(request):
+def switch(request):
     data = request.POST
-    grid_status = data.get("grid_status")
-    
-     
-    if grid_status == 'True':
-        Profile.objects.filter(user=request.user).update(grid=True)
-    
-    if grid_status == 'False':
-        Profile.objects.filter(user=request.user).update(grid=False)
-    
-    return HttpResponse()
-
-@login_required(login_url='/authorization/login/')
-def theme(request):
-    data = request.POST
-    theme_status = data.get("theme_status")
     print(data)
+    switch_item = data.get("switch_item")
+    switch_type = data.get("switch_type")
     
-     
-    if theme_status == 'light':
-        Profile.objects.filter(user=request.user).update(theme=False)
-    
-    if theme_status == 'dark':
-        Profile.objects.filter(user=request.user).update(theme=True)
-    
+    if switch_type == 'grid':
+        if switch_item == 'True':
+            Profile.objects.filter(user=request.user).update(grid=True)
+        if switch_item == 'False':
+            Profile.objects.filter(user=request.user).update(grid=False)
+            
+    if switch_type == 'theme':
+        if switch_item == 'True':
+            Profile.objects.filter(user=request.user).update(theme=True)
+        if switch_item == 'False':
+            Profile.objects.filter(user=request.user).update(theme=False)
+        
     return HttpResponse()
     
     

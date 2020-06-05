@@ -2,7 +2,7 @@
     <div class="filter-main-title">
         <span>Фильтрация</span>
         
-        <a href="{% url 'account:grid' %}" class="grid-link"></a>
+        <a href="{% url 'account:switch' %}" class="grid-link"></a>
         <div class="grid {% if user.profile.grid == True %}active-grid{% endif %}" {% if user.username %}data-grid="{{ user.profile.grid}}"{% endif %}>
             <div class="grid-1"></div>
             <div class="grid-2"></div>

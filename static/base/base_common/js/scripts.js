@@ -289,49 +289,53 @@ $(document).ready(function () {
         })();
     });
 
+    //Переключатель
+    function shift(switch_item, switch_type, url) {
+        if (switch_item == 'False') {
+            switch_item = 'True';
+        } else if (switch_item == 'True') {
+            switch_item = 'False';
+        }
+        var data = {};
+        var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
+        data["csrfmiddlewaretoken"] = csrf_token;
+        data.switch_item = switch_item;
+        data.switch_type = switch_type;
+        
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            cache: true,
+            success: function () {
+                console.log('OK');
+            },
+            error: function () {
+                console.log('error');
+            }
+        })
+    }
+
     //Переключение сетки товаров
     $('.grid').click(function (e) {
         e.preventDefault();
         if ($('.header-container div').hasClass('username')) {
-            var grid_status = $('.grid').data('grid');
-
-            if (grid_status == 'False') {
-                grid_status = 'True';
-            } else if (grid_status == 'True') {
-                grid_status = 'False';
-            }
-
-            var data = {};
-            var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
-            data["csrfmiddlewaretoken"] = csrf_token;
-            data.grid_status = grid_status;
-
+            var switch_item = $('.grid').data('grid');
             var url = $('.grid-link').attr('href');
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: data,
-                cache: true,
-                success: function () {
-                    console.log('OK');
-                    $('.grid').toggleClass('active-grid');
-                    $('.main-product').toggleClass('change-grid');
-                    $('.grid').data('grid', data.grid_status);
-                },
-                error: function () {
-                    console.log('error');
-                }
-            })
+            var switch_type = 'grid';
+            shift(switch_item, switch_type, url);
+            $('.main-product').toggleClass('change-grid');
+            $('.grid').toggleClass('active-grid');
+            $('.grid').data('grid', switch_item.grid_status);
         } else {
             $('.grid').toggleClass('active-grid');
             $('.main-product').toggleClass('change-grid');
         }
     })
 
-
-    //Сена темы
-
-    $('.theme').click(function () {
+    //Сена темы    
+    //Переключение сетки товаров
+    $('.theme').click(function (e) {
         if ($('.theme').hasClass('dark')) {
             $(this).removeClass('dark');
             $(this).addClass('light');
@@ -339,39 +343,28 @@ $(document).ready(function () {
             $(this).removeClass('light');
             $(this).addClass('dark');
         }
-    })
-
-    //Переключение сетки товаров
-    $('.theme').click(function (e) {
         e.preventDefault();
-        var theme_status = $('.theme').data('theme');
-
-        if (theme_status == 'dark') {
-            theme_status = 'light';
-        } else if (theme_status == 'light') {
-            theme_status = 'dark';
-        }
-
-        var data = {};
-        var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
-        data["csrfmiddlewaretoken"] = csrf_token;
-
-        data.theme_status = theme_status;
-
+        var switch_item = $('.theme').data('theme');
         var url = $('.theme').attr('href');
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-            cache: true,
-            success: function () {
-                location.reload();
-            },
-            error: function () {
-                console.log('error');
-            }
-        })
+        var switch_type = 'theme';
+        shift(switch_item, switch_type, url);
+        location.reload();
     })
+
+
+    $(document).on('focus', ".auth-input input", function () {
+        var input = $(this).closest('.auth-item').children('.auth-help');
+        input.addClass('active');
+    })
+
+    $(document).on('blur', ".auth-input input", function () {
+        var input = $(this).closest('.auth-item').children('.auth-help');
+        input.removeClass('active');
+    })
+
+    setTimeout(function () {
+        $('.auth-help').removeClass('active');
+    }, 4000);
 
 });
 

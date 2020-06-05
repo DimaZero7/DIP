@@ -13,11 +13,64 @@
 <h1 class="main-h1">Регестрация</h1>
 <form action="" method="post" class="auth">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Зарегистрироваться</button>
-    <a href="{% url 'authorization:login' %}">Вход</a>
+    <div class="auth-item">
+        <label class="auth-label" for="id_username">
+            <span class="auth-span">Имя пользователя</span>
+            <span class="auth-input"><input type="text" name="username" maxlength="150" autocapitalize="none" required id="id_username" value="{{request.POST.username}}"></span>
+        </label>
+        <ul class="auth-help id_username {% if form.username.errors %} active {% endif %}">
+           {% if request.POST %}
+            <li class="valid">Количество символов от 3 до 100</li>
+            <li class="valid">Только буквы и цифры</li>
+            <li class="invalid">{{form.username.errors}}</li>
+            {% else %}
+            <li class="invalid">Количество символов от 3 до 100</li>
+            <li class="invalid">Только буквы и цифры</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="auth-item">
+        <label class="auth-label" for="id_password1">
+            <span class="auth-span">Пароль</span>
+            <span class="auth-input"><input type="password" name="password1" autocomplete="new-password" required id="id_password1"></span>
+        </label>
+        <ul class="auth-help id_password1 {% if form.password1.errors %} active {% endif %}">
+           {% if request.POST %}
+            <li class="valid">Как минимум 8 символов.</li>
+            <li class="valid">Хотя бы одну строчную букву</li>
+            <li class="valid">Хотя бы одну заглавную букву</li>
+            <li class="invalid">{{form.username.errors}}</li>
+            {% else %}
+            <li class="invalid">Как минимум 8 символов.</li>
+            <li class="invalid">Хотя бы одну строчную букву</li>
+            <li class="invalid">Хотя бы одну заглавную букву</li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="auth-item">
+        <label class="auth-label" for="id_password2">
+            <span class="auth-span">Подтверждение пароля</span>
+            <span class="auth-input"><input type="password" name="password2" autocomplete="new-password" required id="id_password2"></span>
+        </label>
+        <ul class="auth-help id_password2">
+            <li class="invalid">Пароль должен совпадать</li>
+        </ul>
+    </div>
+
+    <div class="auth-item">
+        <label class="auth-label">
+            <span class="auth-input submit"><input type="submit" value="Зарегистрироваться"></span>
+        </label>
+    </div>
+
+   <div class="auth-item">
+        <label class="auth-label">
+            <span class="auth-input link"><a href="{% url 'authorization:login' %}">Вход</a></span>
+        </label>
+    </div>
 </form>
 
 
 {% endblock %}
-{% block addJS %}{% endblock %}
+{% block addJS %}<script src="{% static 'base/base_common/js/auth/register.js' %}"></script>{% endblock %}
