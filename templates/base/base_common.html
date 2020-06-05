@@ -33,14 +33,12 @@
     <meta name="theme-color" content="#ffffff">
     <!--*-->
     <style>
-        
         {% if user.is_anonymous %}
         /*Темная тема*/
         :root {
            --dark: #1d1b36; /* Темный */
            --mid: #484171; /* Средний */
            --lg: #9593b5; /* Светлый */
-           --red: #FF283F; /* Выделение */
            --text: #fff; /* Белый */
         }
         {% endif %}
@@ -52,7 +50,6 @@
            --dark: #1d1b36; /* Темный */
            --mid: #484171; /* Средний */
            --lg: #9593b5; /* Светлый */
-           --red: #FF283F; /* Выделение */
            --text: #fff; /* Белый */
         }
         {% endif %}
@@ -63,7 +60,6 @@
             --dark: #afadfc; /* Темный */
             --mid: #e3e2fd; /* Средний */
             --lg: #f8f8ff; /* Светлый */
-            --red: #FF283F; /* Выделение */
             --text: #000; /* Черный */
              }
         
@@ -72,9 +68,13 @@
         .header-icon img{
             filter: invert();
         }
+        
+        .profile{
+            filter: invert();
+        }
+        
         {% endif %}
-            
-
+        
         .preloader {
             position: absolute;
             left: 0;
@@ -110,8 +110,8 @@
                         <div class="header-about">
                             <a href="{% url 'common:index' %}" class="header-link">Главная</a>
                             <a href="{% url 'catalog:categories_list' %}" class="header-link">Каталог</a>
-                            <a href="{% url 'manufacture:list' %}" class="header-link">Партнёры</a>
-                            <a href="{#{% url 'common:about' %}#}" class="header-link">О нас</a>
+                            <a href="{% url 'catalog:manufacturies_list' %}" class="header-link">Партнёры</a>
+                            <a href="{% url 'common:about' %}" class="header-link">О нас</a>
                         </div>
                         <div class="header-contacts">
                             {% if user.username %}
@@ -125,22 +125,22 @@
                                 <ul class="messages alert"></ul>
                             </div>
                             {% endif %}
-                            <a href="#" class="header-icon" title="Телефон">
+                            <a href="{% url 'common:feedback' %}" class="header-icon" title="Телефон">
                                 <img src="{% static 'base/base_common/img/header-icon/phone.svg' %}" alt="Телефон">
                             </a>
                         </div>
                     </div>
                     <div class="header-main">
-                      {% if user.is_anonymous %}
-                      <a href="{% url 'common:index' %}" class="logo dark">&nbsp;</a>
-                      {% endif %}
-                       {% if user.profile.theme == True %}
+                        {% if user.is_anonymous %}
                         <a href="{% url 'common:index' %}" class="logo dark">&nbsp;</a>
-                       {% endif %}
+                        {% endif %}
+                        {% if user.profile.theme == True %}
+                        <a href="{% url 'common:index' %}" class="logo dark">&nbsp;</a>
+                        {% endif %}
                         {% if user.profile.theme == False %}
                         <a href="{% url 'common:index' %}" class="logo light">&nbsp;</a>
-                        {% endif %} 
-                        <form action="{% url 'search:result' %}" method="get" class="header-search">
+                        {% endif %}
+                        <form action="{% url 'common:search' %}" method="get" class="header-search">
                             <input class="header-search-input" type="search" id="search" name="search" placeholder="{% if request.GET.search %}{{request.GET.search}}{% else %} Искать здесь...{% endif %}">
                             <button type="submit" class="header-search-button"></button>
                         </form>
@@ -178,7 +178,7 @@
                                 </table>
                                 <div class="order">
                                     <a class="add-order" href="{% if user.username %}
-                                    {% url 'order:order_add' %}
+                                    {% url 'basket:order_add' %}
                                     {% else %}
                                     {% url 'admin:login' %}
                                     {% endif %}">Перейти к заказу</a>
@@ -190,8 +190,7 @@
                                 {% url 'account:account' %}
                             {% else %}
                                 {% url 'authorization:login' %}
-                            {% endif %}" 
-                               class="header-profile-icon profile {% if user.profile.photo %}profile-photo{% endif %}" title="Профиль">
+                            {% endif %}" class="header-profile-icon profile {% if user.profile.photo %}profile-photo{% endif %}" title="Профиль">
                                 {% if user.username %}
                                 {% if user.profile.photo %}
                                 <img src="{{user.profile.photo.url}}" alt="Профиль">
@@ -250,9 +249,9 @@
                             <div class="footer-block-content spoiler-content">
                                 <ul class="footer-block-ul">
                                     <li><a href="{% url 'catalog:categories_list' %}">Каталог</a></li>
-                                    <li><a href="{% url 'manufacture:list' %}">Партнёры</a></li>
+                                    <li><a href="{% url 'catalog:manufacturies_list' %}">Партнёры</a></li>
                                     <li><a href="#">Новости</a></li>
-                                    <li><a href="#">Обратная связь</a></li>
+                                    <li><a href="{% url 'common:feedback' %}">Обратная связь</a></li>
                                     <li><a href="#">Персональные данные</a></li>
                                 </ul>
                             </div>

@@ -55,12 +55,12 @@
 }
 
 .theme.light::before{
-    background-color: var(--dark);
+    background-color: var(--text);
     width: 30%;
 }
 
 .theme.light::after{
-    background-color: var(--text);
+    background-color: var(--lg);
     width: 70%;
 }
 

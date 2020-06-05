@@ -5,7 +5,7 @@
     data-theme='{% if user.profile.theme == True %}True{% endif %}{% if user.profile.theme == False %}False{% endif %}'>
     </a>
     <a href="{% url 'account:account' %}" class="link-basket">Данные</a>
-    <a href="{% url 'order:order_add' %}" class="link-basket">Корзина</a>
+    <a href="{% url 'basket:order_add' %}" class="link-basket">Корзина</a>
     <a href="{% url 'account:order_detail' %}" class="link-orders">Заказы</a>
     <a href="{% url 'authorization:logout' %}" class="link-logout">Выйти</a>
 </div>

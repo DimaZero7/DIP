@@ -1,0 +1,26 @@
+{% extends 'base/base_common.html' %}
+{% block title  %}Производители{% endblock %}
+
+{% block keywords %}Производители, {% for manufacture in manufacture_list %}{{ manufacture.name }}, {% endfor %}Rearm Device{% endblock %}
+
+{% block description %}Каталог производителей на сайте Rearm Device{% endblock %} 
+   
+{% block content_website %}
+    <h1 class="main-h1">Производители</h1>
+    <div class="main-product">
+        {# Вывожу все категории #}
+        {% for manufacture in manufacture_list %}
+            <article class="product-block">
+                <div class="product-title">
+                    <a href="#">{{ manufacture.name }}</a>
+                </div>
+                    <div class="product-img">
+                        <img src="{{ manufacture.img.url }}" alt="{{ manufacture.name }}">
+                </div>
+            </article>
+        {% empty %}
+            {#Если цикл пустой#}
+            <div class="product-none">Производителей нет</div>
+        {% endfor %}
+    </div>
+{% endblock %}

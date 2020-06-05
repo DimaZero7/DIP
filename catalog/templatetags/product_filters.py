@@ -2,8 +2,7 @@ from django import template
 from django.db.models import Min, Max, Count
 from django.db.models import Q
 
-from manufacture.models import Manufacture
-from catalog.models import Product
+from catalog.models import Product, Manufacture
 
 register = template.Library()
 

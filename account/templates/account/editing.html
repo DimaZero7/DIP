@@ -114,7 +114,7 @@
             </div>
             {% else %}
             <div class="photo">
-                <img src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
+                <img id="img-preview" src="{% static 'base/base_common/img/header-profile-icon/profile.svg' %}" alt="Профиль">
             </div>
             {% endif %}
             <label for="id_photo" class="label-photo"><span>Выберите фото</span></label>
@@ -141,12 +141,9 @@
                     $('#img-preview').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
-            } else {
-                console.log('ошибка, не изображение');
             }
-        } else {
-            console.log('хьюстон у нас проблема');
         }
     });
+
 </script>
 {% endblock %}

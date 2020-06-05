@@ -17,7 +17,7 @@ $(window).scroll(function () {
 });
 
 //Геренация случайного цвета подсветки
-var colors = ['#FF283F', 'rgba(233, 33, 243, 1)', 'rgba(25, 212, 247, 1)'];
+var colors = ['rgb(175, 0, 19)', 'rgb(184, 0, 193)', 'rgb(0, 159, 189)'];
 randomColor = colors[Math.random() * colors.length ^ 0];
 document.documentElement.style.setProperty('--red', randomColor);
 

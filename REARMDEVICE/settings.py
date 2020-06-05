@@ -43,13 +43,10 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'catalog.apps.CatalogConfig',
     'poster.apps.PosterConfig',
-    'manufacture.apps.ManufactureConfig',
     'comments.apps.CommentsConfig',
     'basket.apps.BasketConfig', # Добавление товаров в коризну
-    'order.apps.OrderConfig', # Создание заказов
     'authorization.apps.AuthorizationConfig',
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
-    'search.apps.SearchConfig',  # Приложение отвечающее за поиск товаров
     'social_django',
 ]
 
@@ -149,7 +146,7 @@ LOGIN_REDIRECT_URL = "account:account"
 LOGOUT_REDIRECT_URL = '/'
 
 
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 #AWS_ACCESS_KEY_ID=AKIAIGRQN2X2MUOND3QA AWS_SECRET_ACCESS_KEY=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
 

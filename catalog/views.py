@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.list import MultipleObjectMixin
 
 
-from .models import Category, Product
+from .models import Category, Product, Manufacture
 from comments.forms import CommentForm
 
 
@@ -13,6 +13,11 @@ class CategoriesList(ListView):
     template_name = 'catalog/categories_list.html'
 
 
+class ManufactureList(ListView):
+    model = Manufacture
+    template_name = 'catalog/manufacture_list.html'
+    
+    
 class CategoryDetail(DetailView, MultipleObjectMixin):
     """Карточка категории со списком товаров"""
 

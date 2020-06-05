@@ -17,7 +17,7 @@ def account(request):
 
 @login_required(login_url='/authorization/login/')
 def order_detail(request):
-    order = Order.objects.filter(user=request.user)
+    order = Order.objects.filter(user=request.user).order_by('-created')
             
     context = {
         "order":order,

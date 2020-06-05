@@ -471,6 +471,10 @@ alert.messages-active {
     border-bottom-right-radius: 10px;
     z-index: 1;
     transition: .3s;
+    max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .username_id,

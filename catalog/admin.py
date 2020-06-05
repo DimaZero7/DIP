@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Category, Product, ProductsImage
+from .models import Category, Product, ProductsImage, Manufacture
 from poster.admin import PosterInLine
 
 
@@ -55,4 +55,25 @@ class ProductsAdmin(admin.ModelAdmin):
 
     list_filter = ('categories', 'manufacture')
 
+    
+class ManufactureAdmin(admin.ModelAdmin):
+    """Предстовление модели производителей в админке"""
+
+    prepopulated_fields = {"slug": ("name",)}
+
+    def get_image(self, Manufacture):
+        """Добавляем картинку производителей в список в админке"""
+
+        return mark_safe(f'<img src="{Manufacture.img.url}" alt="{Manufacture.name}" class="admin-icon manufacture"/>')
+    get_image.short_description = u'Логотип'
+
+    list_display = ('name', 'get_image')
+
+
+    fieldsets = [
+        ('Общее', {'fields': ['name', 'slug', 'country', 'img']}),
+    ]
+
+
+admin.site.register(Manufacture, ManufactureAdmin)
 
