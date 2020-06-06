@@ -113,7 +113,6 @@ $(document).ready(function () {
     $('.filter-select .filter-title').click(function () {
         $(this).toggleClass('active');
         $(this).next().toggleClass('active');
-        console.log('клик');
     })
 
     //Слайдеры
@@ -248,20 +247,6 @@ $(document).ready(function () {
             e.preventDefault();
             alert_open('Товар в коризне нет');
         }
-    })
-
-    //Просмотр картинок в полном размере
-    $('.slider-img').click(function () {
-        $(this).clone() // сделаем копию картинки на которую было нажато
-            .addClass("active-slider-img") // добавим этой копии класс активации
-            .appendTo(".product-big-content"); // вставим измененный элемент в элемент для просмотра
-        $("body").addClass("lock");
-        $(".product-big").addClass("active-product-big");
-    })
-    $('.product-big-close').click(function () {
-        $(".product-big-content").html('');
-        $("body").removeClass("lock");
-        $(".product-big").removeClass("active-product-big");
     })
 
     //Взамодействие с input number

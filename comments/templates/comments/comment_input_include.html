@@ -3,20 +3,12 @@
     <form class="comment-form" action="{% url 'comments:treatment' %}" method="post">
         {% csrf_token %}
         {{ formset.management_form }}
-
         <input type="hidden" name="product" value="{{ product.id }}">
-
-
-        <input type="hidden" name="comment_author" class="None" required>
-
+        <input type="hidden" name="comment_author" value="{{user.username}}" required>
         <tr>
             <th><label for="id_comment_text">Текст комментария:</label></th>
-            <td>
-                <textarea name="comment_text" cols="30" rows="10" placeholder="Текст комментария" class="None" maxlength="200" required id="id_comment_text"></textarea>
-            </td>
+            <td><textarea name="comment_text" cols="30" rows="10" maxlength="200" required id="id_comment_text"></textarea></td>
         </tr>
-
-
         <button type="submit">Оставить комментарий</button>
     </form>
 </div>

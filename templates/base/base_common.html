@@ -64,7 +64,8 @@
         
         .social img,
         .header-profile-icon img:not(:last-child),
-        .header-icon img{
+        .header-icon img?
+        .text-ul li::before{
             filter: invert();
         }
         {% endif %}
@@ -140,11 +141,7 @@
                             {% if user.username %}
                             <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
-                                <span class="counter">
-                                    {% if product_total_quantity_nbr %}
-                                    {{product_total_quantity_nbr}}
-                                    {% else %}0{% endif %}
-                                </span>
+                                <span class="counter">{% if product_total_quantity_nbr %}{{product_total_quantity_nbr}}{% else %}0{% endif %}</span>
                             </a>
                             <div class="shopping-list">
                                 <div class="container-total-price">
@@ -230,7 +227,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="footer-block">
                             <div class="footer-block-title spoiler-active arrow">Покупателям</div>
                             <div class="footer-block-content spoiler-content">
@@ -240,7 +236,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="footer-block">
                             <div class="footer-block-title spoiler-active arrow">Помощь</div>
                             <div class="footer-block-content spoiler-content">
@@ -250,7 +245,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="footer-block">
                             <div class="footer-block-title spoiler-active arrow">Контакты</div>
                             <div class="footer-block-content spoiler-content">
@@ -262,7 +256,6 @@
                                 </div>
                                 <ul class="footer-block-ul footer-feed-back">
                                     <li><a href="#">Телефон</a></li>
-<!--                                    <li><a href="#">Адрес Магазина</a></li>-->
                                 </ul>
                             </div>
                         </div>

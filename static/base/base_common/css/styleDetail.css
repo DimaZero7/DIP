@@ -223,6 +223,7 @@
     width: 100%;
     padding: 5px 1%;
     background-color: white;
+    resize: vertical;
 }
 
 .comment-form *::placeholder {

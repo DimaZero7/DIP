@@ -18,5 +18,5 @@ def comment_processing(request):
             this_product = Product.objects.get(pk=request.POST['product'])
             new_comment.product = this_product
             new_comment.save()
-            return redirect(reverse('product:detail', kwargs={'slug': this_product.slug}))
+            return redirect(reverse('catalog:product_detail', kwargs={'slug': this_product.slug}))
 

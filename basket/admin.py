@@ -1,8 +1,5 @@
 from django.contrib import admin
-from .models import Status
-from .models import Order
-from .models import ProductsInOrder
-from .models import ProductsInBasket
+from .models import *
 
 @admin.register(Status)
 class StatusAdmin(admin.ModelAdmin):
