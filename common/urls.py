@@ -9,4 +9,7 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('feedback/', feedback, name='feedback'),
     path('search/', search, name='search'),
+    path('delivery/', about_delivery, name='delivery'),
+    path('how_to_order/', how_to_order, name='how_to_order'),
+    path('payment_methods/', payment_methods, name='payment_methods'),
 ]

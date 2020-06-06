@@ -658,9 +658,15 @@ alert.messages-active {
     transition: .3s
 }
 
+
+
 .product-block:hover .product-title a {
     background-color: var(--red);
     transition: .3s
+}
+
+.manufacture .product-block:hover .product-img {
+    border-color: var(--dark);
 }
 
 .product-block:hover .product-img {
@@ -679,7 +685,7 @@ alert.messages-active {
     height: 30px;
 }
 
-.product-title a {
+.product-title a, .product-title span {
     position: absolute;
     white-space: nowrap;
     text-overflow: ellipsis;

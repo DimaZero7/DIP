@@ -42,7 +42,6 @@
            --text: #fff; /* Белый */
         }
         {% endif %}
-
         
         {% if user.profile.theme == True %}
         /*Темная тема*/
@@ -64,15 +63,10 @@
              }
         
         .social img,
-        .header-profile-icon img,
+        .header-profile-icon img:not(:last-child),
         .header-icon img{
             filter: invert();
         }
-        
-        .profile{
-            filter: invert();
-        }
-        
         {% endif %}
         
         .preloader {
@@ -98,9 +92,7 @@
 
     </style>
 </head>
-{% block body %}
-
-<body>{% endblock %}
+{% block body %}<body>{% endblock %}
     <div class="wrapper">
         <header class="header">
             <div class="container">
@@ -176,21 +168,11 @@
                                         {% endfor %}
                                     </form>
                                 </table>
-                                <div class="order">
-                                    <a class="add-order" href="{% if user.username %}
-                                    {% url 'basket:order_add' %}
-                                    {% else %}
-                                    {% url 'admin:login' %}
-                                    {% endif %}">Перейти к заказу</a>
+                                <div class="order"><a class="add-order" href="{% if user.username %}{% url 'basket:order_add' %}{% else %}{% url 'admin:login' %}{% endif %}">Перейти к заказу</a>
                                 </div>
                                 <button class="close-basket" title="Закрыть корзину"></button>
                             </div>
-                            <a href="
-                            {% if user.username %}  
-                                {% url 'account:account' %}
-                            {% else %}
-                                {% url 'authorization:login' %}
-                            {% endif %}" class="header-profile-icon profile {% if user.profile.photo %}profile-photo{% endif %}" title="Профиль">
+                            <a href="{% if user.username %}{% url 'account:account' %}{% else %}{% url 'authorization:login' %}{% endif %}" class="header-profile-icon profile {% if user.profile.photo %}profile-photo{% endif %}" title="Профиль">
                                 {% if user.username %}
                                 {% if user.profile.photo %}
                                 <img src="{{user.profile.photo.url}}" alt="Профиль">
@@ -211,15 +193,9 @@
                     </div>
                     {% if user.username %}
                     <div class="username">
-                        {% if user.is_superuser %}
-                        <a href="{% url 'admin:index' %}">{{user.username}}</a>
-                        {% else %}
-                        {{user.username}}
-                        {% endif %}
+                        {% if user.is_superuser %}<a href="{% url 'admin:index' %}">{{user.username}}</a>{% else %}{{user.username}}{% endif %}
                         <div class="username_id">{{user.id}}</div>
-                        <div id="csrf_token">
-                            {% csrf_token %}
-                        </div>
+                        <div id="csrf_token">{% csrf_token %}</div>
                     </div>
                     {% endif %}
                 </div>
@@ -250,9 +226,7 @@
                                 <ul class="footer-block-ul">
                                     <li><a href="{% url 'catalog:categories_list' %}">Каталог</a></li>
                                     <li><a href="{% url 'catalog:manufacturies_list' %}">Партнёры</a></li>
-                                    <li><a href="#">Новости</a></li>
-                                    <li><a href="{% url 'common:feedback' %}">Обратная связь</a></li>
-                                    <li><a href="#">Персональные данные</a></li>
+                                    <li><a href="{% url 'common:about' %}">О нас</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -261,9 +235,8 @@
                             <div class="footer-block-title spoiler-active arrow">Покупателям</div>
                             <div class="footer-block-content spoiler-content">
                                 <ul class="footer-block-ul">
-                                    <li><a href="#">Доставка</a></li>
-                                    <li><a href="#">Сервисный центр</a></li>
-                                    <li><a href="#">Проверка оплаты</a></li>
+                                    <li><a href="{% url 'common:delivery' %}"> О Доставке</a></li>
+                                    <li><a href="{% url 'common:feedback' %}">Обратная связь</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -272,9 +245,8 @@
                             <div class="footer-block-title spoiler-active arrow">Помощь</div>
                             <div class="footer-block-content spoiler-content">
                                 <ul class="footer-block-ul">
-                                    <li><a href="#">Как оформить заказ</a></li>
-                                    <li><a href="#">Способы оплаты</a></li>
-                                    <li><a href="#">Обмен и возврат товара</a></li>
+                                    <li><a href="{% url 'common:how_to_order' %}">Как оформить заказ</a></li>
+                                    <li><a href="{% url 'common:payment_methods' %}">Способы оплаты</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -283,14 +255,14 @@
                             <div class="footer-block-title spoiler-active arrow">Контакты</div>
                             <div class="footer-block-content spoiler-content">
                                 <div class="social">
-                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/facebook.svg' %}" alt="fb"></a>
-                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/vk.svg' %}" alt="vk"></a>
-                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/mail.svg' %}" alt="mail"></a>
-                                    <a href="#"><img src="{% static 'base/base_common/img/footer-icon/instagram.svg' %}" alt="inst"></a>
+                                    <a href="https://www.facebook.com/"><img src="{% static 'base/base_common/img/footer-icon/facebook.svg' %}" alt="fb"></a>
+                                    <a href="https://vk.com/"><img src="{% static 'base/base_common/img/footer-icon/vk.svg' %}" alt="vk"></a>
+                                    <a href="https://www.instagram.com/"><img src="{% static 'base/base_common/img/footer-icon/instagram.svg' %}" alt="inst"></a>
+                                    <a href="mailto:tendetkinalesej@gmail.com"><img src="{% static 'base/base_common/img/footer-icon/mail.svg' %}" alt="mail"></a>
                                 </div>
                                 <ul class="footer-block-ul footer-feed-back">
                                     <li><a href="#">Телефон</a></li>
-                                    <li><a href="#">Адрес Магазина</a></li>
+<!--                                    <li><a href="#">Адрес Магазина</a></li>-->
                                 </ul>
                             </div>
                         </div>

@@ -19,13 +19,18 @@
     margin: 5px 0;
 }
 
-.auth-label input{
+.auth-label input, .auth-label textarea{
     padding: 5px;
     border: 2px solid var(--text);
     background-color: transparent;
     color: var(--text);
     font-size: 18px;
     width: 100%;
+}
+
+.auth-label textarea{
+    height: 100px;
+    resize: vertical;
 }
 
 .auth-help {
@@ -104,11 +109,11 @@ li.valid::after{
     left: 2px;
 }
 
-.submit{
+.submit input{
     transition: .3s;
 }
 
-.submit:hover{
+.submit input:hover{
     background-color: var(--red);
     cursor: pointer;
     transition: .3s;

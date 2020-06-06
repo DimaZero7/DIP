@@ -2,15 +2,44 @@
 {% load static %}
 
 {% block title %}
-    Обратная связь
+    Обатная связь
 {% endblock %}
 
-{% block addCSS %}{% endblock %}
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAuthorization.css' %}">{% endblock %}
 
-{% block keywords %}Обратная связь{% endblock %}
+{% block keywords %}Обатная связь{% endblock %}
 
-{% block description %}Обратная связь{% endblock %}
+{% block description %}Обатная связь{% endblock %}
 
 {% block content_website %}
-<h1 class="main-h1">Обратная связь</h1>
+<h1 class="main-h1">Обатная связь</h1>
+<form action="" method="post" class="auth">
+    {% csrf_token %}
+    <div class="auth-item">
+        <label class="auth-label" for="username">
+            <span class="auth-span">Имя пользователя</span>
+            <span class="auth-input">
+           {% if user.username %}
+            <input type="text" name="username" maxlength="150" autocapitalize="none" required value="{{user.username}}" id="username" readonly>
+           {% else  %}
+            <input type="text" name="username" maxlength="150" autocapitalize="none" required placeholder="Введите имя" id="username">
+            {% endif %}
+            </span>
+        </label>
+    </div>
+
+    <div class="auth-item">
+        <label class="auth-label" for="message">
+            <span class="auth-span">Сообщение</span>
+            <span class="auth-input"><textarea name="message"required id="message"></textarea> </span>
+        </label>
+    </div>
+
+    <div class="auth-item">
+        <label class="auth-label">
+            <span class="auth-input submit"><input type="submit" value="Отправить"></span>
+        </label>
+    </div>
+
+</form>
 {% endblock %}

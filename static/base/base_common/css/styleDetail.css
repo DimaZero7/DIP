@@ -231,14 +231,16 @@
 
 .comment-form button {
     width: 70%;
-    background-color: var(--dark);
+    background-color: transparent;
+    border: 2px solid var(--text);
     color: var(--text);
     transition: .3s;
     padding: 5px 0;
+    cursor: pointer;
 }
 
 .comment-form button:hover {
-    background-color: var(--red);
+    border: 2px solid var(--red);
     transition: .3s;
 }
 

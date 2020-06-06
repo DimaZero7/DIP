@@ -1,6 +1,6 @@
 {% load poster_include_extras %}
 {% get_poster as posters %}
-
+ 
 <div class="slider main-slider">
     {% for poster in posters %}
         <a href="{{ poster.product.get_absolute_url }}">

@@ -7,12 +7,12 @@
    
 {% block content_website %}
     <h1 class="main-h1">Производители</h1>
-    <div class="main-product">
+    <div class="main-product manufacture">
         {# Вывожу все категории #}
         {% for manufacture in manufacture_list %}
             <article class="product-block">
                 <div class="product-title">
-                    <a href="#">{{ manufacture.name }}</a>
+                    <span>{{ manufacture.name }}</span>
                 </div>
                     <div class="product-img">
                         <img src="{{ manufacture.img.url }}" alt="{{ manufacture.name }}">
@@ -23,4 +23,4 @@
             <div class="product-none">Производителей нет</div>
         {% endfor %}
     </div>
-{% endblock %}
+{% endblock %} 

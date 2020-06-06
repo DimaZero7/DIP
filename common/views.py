@@ -10,13 +10,31 @@ class Index(ListView):
     model = Product
     template_name = 'common/index.html'
 
+    
 def about(request):
-
     return render(request, 'common/about.html')
 
-def feedback(request):
 
+def feedback(request):
     return render(request, 'common/feedback.html')
+
+
+def feedback(request):
+    return render(request, 'common/feedback.html')
+
+
+def about_delivery(request):
+    return render(request, 'common/delivery.html')
+
+
+def how_to_order(request):
+    return render(request, 'common/how_to_order.html')
+
+
+def payment_methods(request):
+    return render(request, 'common/payment_methods.html')
+
+
 
 
 def search(request):
