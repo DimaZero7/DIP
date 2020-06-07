@@ -27,6 +27,9 @@ SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
+#TEMPLATE_DEBUG = DEBUG
+
 ALLOWED_HOSTS = ['*']
 
 
@@ -139,29 +142,35 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
-]
 
-AWS_DEFAULT_ACL = None
+#AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAI7GGMOVGWGDO77LA')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('rearmd')
 AWS_URL = os.environ.get('postgres://xnghrhhzrtkusp:7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d3rbmqgk6k6eqm')
  
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
- 
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
+]
+
+
 AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
  
 MEDIA_URL = AWS_MEDIA_URL
 
-#MEDIA_URL = '/media/'  # Url путь к медиа фаилам
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_ROOT = ''
 
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 LOGIN_URL = '/authorization/login/google-oauth2/'
 LOGIN_REDIRECT_URL = "account:account"
