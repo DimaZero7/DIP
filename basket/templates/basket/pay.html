@@ -1,21 +1,21 @@
 {% extends 'base/base_common.html' %}
 {% load static %}
 
-{% block title  %}Личный кабинет {{user.username}} | Заказы{% endblock %}
+{% block title  %}Оплата товаров{% endblock %}
 
 {% block addCSS %}
 <link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
 {% endblock %}
 
-{% block keywords %}Личный кабинет, Заказы{% endblock %}
-{% block description %}Личный кабинет - {{user.username}} | Заказы{% endblock %}
+{% block keywords %}Оплата товаров{% endblock %}
+{% block description %}Оплата товаров{% endblock %}
 
 {% block content_website %}
-<h1 class="main-h1">Личный кабинет</h1>
+<h1 class="main-h1">Оплата</h1>
 <div class="basket">
     {% include 'account/include_account-nav.html' %}
     <div class="submit-order">
-        <a href="{% url 'basket:pay' %}">Купить</a>
+        <a href="{% url 'basket:pay_success' %}">Оплатить</a>
     </div>
     <table class="profile-table">
         <thead>

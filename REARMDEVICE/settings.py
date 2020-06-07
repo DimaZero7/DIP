@@ -27,11 +27,7 @@ SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
-#TEMPLATE_DEBUG = DEBUG
-
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -105,7 +101,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
 
@@ -123,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
@@ -182,3 +176,5 @@ ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+#heroku pg:info -a ha-app

@@ -385,6 +385,9 @@ alert.messages-active {
 
 .shopping-list-container td:first-child {
     flex: 0 1 60%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .shopping-list-container td:nth-child(3)::after {

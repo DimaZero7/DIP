@@ -1,12 +1,11 @@
 from django.http import JsonResponse
-from django.shortcuts import render
-from django.shortcuts import redirect
-from .models import *
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserForBasket
+from .models import *
 
 def basket_add(request):
 #    messages.success(request, 'Товар добавлен в корзину')
@@ -47,8 +46,6 @@ def basket_add(request):
 
 
 
-
-
 #Создание заказов
 @login_required(login_url='/auth/login/')
 def order_add(request):
@@ -79,9 +76,26 @@ def order_add(request):
                                                    price_per_item = product_in_basket.price_per_item, 
                                                    total_price=product_in_basket.total_price, 
                                                    order = order)
-#            return redirect('pay:pay')
+            messages.error(request, 'Заказ создан')
+            return redirect('basket:pay')
         else:
             print("no")
 
                     
     return render(request, 'basket/basket.html', locals())
+
+
+
+@login_required(login_url='/authorization/login/')
+def pay(request):
+    order = Order.objects.filter(user=request.user, status=1)
+    context = {
+        "order":order,
+    }
+    return render(request, 'basket/pay.html', context)
+
+@login_required(login_url='/authorization/login/')
+def pay_success(request):
+    Order.objects.filter(user=request.user, status=1).update(status_id=2)
+    messages.error(request, 'Заказ Оплачен')
+    return redirect('account:order_detail')
