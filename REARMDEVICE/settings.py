@@ -149,8 +149,8 @@ AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
 DEFAULT_FILE_STORAGE = 'storages.s3utils.MediaRootS3BotoStorage'                 
 STATICFILES_STORAGE = 'storages.s3utils.StaticRootS3BotoStorage'
 S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME                
-MEDIA_URL = S3_URL + MEDIA_ROOT                                                 
 MEDIA_ROOT = '/media/'                                                          
+MEDIA_URL = S3_URL + MEDIA_ROOT                                                 
                  
 
 
