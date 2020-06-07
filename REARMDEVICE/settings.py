@@ -146,7 +146,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
 ]
 
-
+AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAI7GGMOVGWGDO77LA')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('rearmd')
