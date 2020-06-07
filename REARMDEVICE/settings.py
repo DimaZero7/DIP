@@ -142,14 +142,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-AWS_STORAGE_BUCKET_NAME = os.environ['rearmdevice']                          
+AWS_STORAGE_BUCKET_NAME = 'rearmdevice'                      
 MEDIA_ROOT = '/media/'                                                          
 S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME                
 MEDIA_URL = S3_URL + MEDIA_ROOT                                                 
 DEFAULT_FILE_STORAGE = 'REARMDEVICE.s3utils.MediaRootS3BotoStorage'                 
 STATICFILES_STORAGE = 'REARMDEVICE.s3utils.StaticRootS3BotoStorage'                 
-AWS_ACCESS_KEY_ID = os.environ['AKIAI7GGMOVGWGDO77LA']                             
-AWS_SECRET_ACCESS_KEY = os.environ['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']  
+AWS_ACCESS_KEY_ID = os.environ.get('AKIAI7GGMOVGWGDO77LA')                            
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 
 
 STATIC_URL = '/static/'
