@@ -31,7 +31,6 @@ def editing(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
-
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -39,7 +38,6 @@ def editing(request):
             return redirect('account:account')
         else:
             messages.error(request, 'Исправьте ошибки')
-            pass
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)

@@ -7,7 +7,7 @@
 //    }
 //});
 
-//Уменьшение шапки пи скроле вниз
+//Уменьшение шапки при скроле вниз
 $(window).scroll(function () {
     if ($(this).scrollTop() > 1 && $(window).width() > 769) {
         $('header').addClass("header-resize");
@@ -16,7 +16,7 @@ $(window).scroll(function () {
     }
 });
 
-//Геренация случайного цвета подсветки
+//Геренация случайного цвета
 var colors = ['rgb(175, 0, 19)', 'rgb(184, 0, 193)', 'rgb(0, 159, 189)'];
 randomColor = colors[Math.random() * colors.length ^ 0];
 document.documentElement.style.setProperty('--red', randomColor);

@@ -110,11 +110,9 @@
                             {% if user.username %}
                             <div href="#" class="header-icon bell" title="Уведомления">
                                 <img src="{% static 'base/base_common/img/header-icon/bell.svg' %}" alt="Уведомления">
-                                <ul class="messages">
-                                    {% if messages %}{% for message in messages %}
-                                    <li {% if message.tags %} class="messages-item {{ message.tags }}" {% endif %}>{{ message }}</li>
-                                    {% endfor %}{% endif %}
-                                </ul>
+                                    <ul class="messages">
+                                    {% if messages %}{% for message in messages %}<li {% if message.tags %} class="messages-item {{ message.tags }}" {% endif %}>{{ message }}</li>{% endfor %}{% endif %}
+                                    </ul>
                                 <ul class="messages alert"></ul>
                             </div>
                             {% endif %}
@@ -283,3 +281,7 @@
 </body>
 
 </html>
+
+
+
+

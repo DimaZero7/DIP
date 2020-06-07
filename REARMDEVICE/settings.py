@@ -89,6 +89,12 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 
 DATABASES = {
     'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'd7aqhbtbnocgv2',
+#        'USER': 'snlmpxgeagjbkx',
+#        'PASSWORD': '49bdc3d0e77807743b61ca677fbebb18cbb7fdb971d05bed77d3a1e269e6132f',
+#        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
+#        'PORT': '5432',
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
