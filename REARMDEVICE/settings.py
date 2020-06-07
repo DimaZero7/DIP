@@ -199,7 +199,3 @@ ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-
-
-heroku config:set AWS_ACCESS_KEY_ID=AKIAI7GGMOVGWGDO77LA AWS_SECRET_ACCESS_KEY=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
