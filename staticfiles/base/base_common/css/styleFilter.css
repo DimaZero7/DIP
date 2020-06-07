@@ -1,0 +1,483 @@
+/*Фильты для товаров*/
+.filter {
+    background-color: var(--dark);
+    margin: -5px -1% 0 -1%;
+    padding: 0 1%;
+    color: var(--text);
+
+}
+
+.filter-main-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--text);
+    margin: -5px -1% 0 -1%;
+    padding: 10px 1%;
+    font-size: 20px;
+    align-items: center;
+}
+
+.filter-main-title span {
+    cursor: pointer;
+    position: relative;
+    flex: 0 1 100%;
+}
+
+.filter-main-title span:hover::before,
+.filter-main-title span:hover::after {
+    background-color: var(--red);
+}
+
+
+.filter-main-title span::before,
+.filter-main-title span::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    top: 8px;
+    background-color: var(--text);
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.filter-main-title span::before {
+    transform: rotate(-45deg);
+    right: 12px;
+}
+
+.filter-main-title span::after {
+    transform: rotate(45deg);
+    right: 28px;
+}
+
+.filter-main-title.active span::before {
+    transform: rotate(45deg);
+}
+
+.filter-main-title.active span::after {
+    transform: rotate(-45deg);
+}
+
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    justify-content: space-between;
+    height: 0;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.filter-container.active {
+    height: auto;
+    transition: .3s;
+    overflow: visible;
+}
+
+#checked {
+    order: 1;
+}
+
+.filter-block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.filter-title {
+    padding: 5px 1%;
+}
+
+.filter-select {
+    flex: 0 1 170px;
+    height: 67px;
+    position: relative;
+}
+
+.filter-select:first-child {
+    z-index: 3;
+
+}
+
+.filter-select:last-child {
+    z-index: 1;
+
+}
+
+.filter-select .filter-title {
+    cursor: pointer;
+}
+
+.filter-select .filter-title.active {
+    border-bottom: 0;
+}
+
+.filter-select .filter-title::before {
+    position: absolute;
+    content: '';
+    top: 10px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid var(--text);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.filter-select .filter-title.active::before {
+    transform: scale(-1, -1);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-select .filter-content {
+    overflow: hidden;
+    border: 2px solid var(--text);
+    position: absolute;
+    top: 30px;
+    z-index: 2;
+    background-color: var(--dark);
+    width: 100%;
+    height: 35px;
+    padding: 5px 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-select .filter-content.active {
+    height: auto;
+    transition: .3s;
+}
+
+.filter-select .filter-label {
+    order: 2;
+}
+
+.filter-choice {
+    flex: 0 1 160px;
+}
+
+.filter-choice .filter-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter-choice .filter-label {
+    display: flex;
+}
+
+.filter-choice .filter-span {
+    margin: 0 5px;
+}
+
+.filter-label {
+    padding: 5px 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio {
+    flex: 0 1 80px;
+    height: 67px;
+    justify-content: space-between;
+    padding: 0 0 7px 0;
+}
+
+.radio .filter-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.radio .filter-label {
+    display: flex;
+    flex-direction: row;
+    margin: 0 5px;
+}
+
+.filter-radio,
+.filter-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-radio::after,
+.filter-checkbox::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    right: 0;
+    transition: .3s;
+}
+
+
+.filter-radio:not(:checked)::after,
+.filter-checkbox:not(:checked)::after {
+    background: url(../img/cross.png) 50% 50% / 60% no-repeat;
+    background-color: var(--text);
+
+}
+
+.filter-radio:checked::after,
+.filter-checkbox:checked::after {
+    background: url(../img/check.png) 50% 50% / 60% no-repeat;
+    background-color: var(--text);
+    box-shadow: 0 0 5px var(--text);
+}
+
+.filter-radio:not(:checked)::after {
+    box-shadow: 0 0 5px var(--text);
+}
+
+.first-radio:not(:checked)::after {
+    background: url(../img/check.png) 50% 50% / 60% no-repeat;
+    background-color: var(--text);
+    box-shadow: 0 0 5px var(--text);
+}
+
+.last-radio:checked::after {
+    background: url(../img/cross.png) 50% 50% / 60% no-repeat;
+}
+
+.filter-radio:checked::after,
+.filter-checkbox:checked::after {
+    background-color: var(--red);
+}
+
+.filter-warranty {
+    flex: 0 1 90px;
+}
+
+.filter-warranty .filter-number {
+    width: 50px;
+}
+
+.filter-number {
+    border: 2px solid var(--text);
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+.filter-number:focus,
+.filter-number:hover {
+    padding: 5px;
+    margin: 0;
+}
+
+.filter-choice .filter-number {
+    width: 70px;
+}
+
+.filter-number::placeholder {
+    color: silver;
+}
+
+.filter-number:focus {
+    outline: 2px solid var(--text);
+    border: 0;
+    box-shadow: 0 0 5px var(--text);
+}
+
+
+.input-number-button {
+    width: 20px;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--text);
+    font-size: 0;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    border-right: 0;
+}
+
+.input-number-button.up-value {
+    transform: rotate(180deg);
+}
+
+.input-number-button::before,
+.input-number-button::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: var(--text);
+    left: 4px;
+    transition: .3s;
+}
+
+.input-number-button::before {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.input-number-button::after {
+    transform: rotate(45deg);
+    top: 14px;
+}
+
+.input-number-button:focus,
+.input-number-button:hover {
+    border: 2px solid var(--red);
+    outline: 0;
+    border-right: 0;
+    transition: .3s;
+}
+
+.filter-number::-webkit-outer-spin-button,
+.filter-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filter-submit {
+    background-color: transparent;
+    border: 2px solid var(--text);
+    color: var(--text);
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    transition: .3s;
+    margin: 0 0 5px 0;
+}
+
+.filter-submit:hover {
+    background-color: var(--red);
+    transition: .3s;
+}
+
+/*Кнопка переключения сетки товаров*/
+.grid {
+    background-color: var(--dark);
+    height: 33px;
+    width: 33px;
+    transition: .3s;
+    overflow: hidden;
+    display: none;
+    padding: 0 15px 0 0
+}
+
+.grid-link {
+    display: none;
+}
+
+.grid:hover {
+    cursor: pointer;
+    background-color: var(--red);
+    transition: .3s;
+}
+
+.grid-1,
+.grid-2 {
+    width: 33px;
+    height: 16.5px;
+    position: relative;
+}
+
+.grid-1::before,
+.grid-1::after,
+.grid-2::before,
+.grid-2::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--text);
+    border-radius: 2px;
+    top: 2px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.grid-1::before,
+.grid-2::before {
+    left: 1px;
+}
+
+.grid-1::after,
+.grid-2::after {
+    right: 4px;
+}
+
+.grid.active-grid .grid-1::before {
+    width: 27px;
+    height: 29px;
+    left: 2px;
+}
+
+.grid.active-grid .grid-1::after,
+.grid.active-grid .grid-2::before,
+.grid.active-grid .grid-2::after {
+    width: 0;
+    height: 0;
+    border: 0;
+}
+
+@media (max-width:600px) {
+    .filter-main-title {
+        font-size: 15px;
+        padding: 5px 1%;
+    }
+
+    .filter-main-title span {
+        flex: 0 1 90%;
+    }
+
+    .filter-main-title span::before,
+    .filter-main-title span::after {
+        width: 20px;
+        height: 7px;
+        top: 6px;
+    }
+
+    .filter-main-title span::before {
+        transform: rotate(-45deg);
+        right: 15px;
+    }
+
+    .filter-main-title span::after {
+        transform: rotate(45deg);
+        right: 25px;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .filter-block {
+        width: 200px;
+    }
+
+    .filter-select,
+    .filter-choice,
+    .radio {
+        flex: auto;
+    }
+
+    .radio {
+        flex-direction: row;
+        height: 40px;
+    }
+
+    .grid {
+        display: block;
+    }
+}
