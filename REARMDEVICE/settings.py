@@ -93,14 +93,15 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 
 DATABASES = {
     'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'd7aqhbtbnocgv2',
-#        'USER': 'snlmpxgeagjbkx',
-#        'PASSWORD': '49bdc3d0e77807743b61ca677fbebb18cbb7fdb971d05bed77d3a1e269e6132f',
-#        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
-#        'PORT': '5432',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd3lbfoa1nce2ho',
+        'USER': 'gbthidbnbkkjae',
+        'PASSWORD': '5263e705733981d3a6424a5e60072ad32ae5a555197dd9456ffee801658bc042',
+        'HOST': 'ec2-35-172-85-250.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'URL': 'postgres://gbthidbnbkkjae:5263e705733981d3a6424a5e60072ad32ae5a555197dd9456ffee801658bc042@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d3lbfoa1nce2ho',
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
