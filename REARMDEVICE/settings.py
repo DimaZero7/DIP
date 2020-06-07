@@ -139,17 +139,30 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = '<YOUR BUCKET NAME>'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/
+
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
-AWS_STORAGE_BUCKET_NAME = 'rearmdevice'                      
-MEDIA_ROOT = '/media/'                                                          
-S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME                
-MEDIA_URL = S3_URL + MEDIA_ROOT                                                 
-DEFAULT_FILE_STORAGE = 'REARMDEVICE.s3utils.MediaRootS3BotoStorage'                 
-STATICFILES_STORAGE = 'REARMDEVICE.s3utils.StaticRootS3BotoStorage'                 
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAI7GGMOVGWGDO77LA')                            
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_STORAGE_BUCKET_NAME = 'rearmdevice'    
+DEFAULT_FILE_STORAGE = 'storages.s3utils.MediaRootS3BotoStorage'                 
+STATICFILES_STORAGE = 'storages.s3utils.StaticRootS3BotoStorage'
+S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME                
+MEDIA_URL = S3_URL + MEDIA_ROOT                                                 
+MEDIA_ROOT = '/media/'                                                          
+                 
 
 
 STATIC_URL = '/static/'
