@@ -5,7 +5,7 @@
     {% for poster in posters %}
         <a href="{{ poster.product.get_absolute_url }}">
             <div class="slider-item">
-                <img src="{{ poster.img.url }}" alt="{{ poster.product.name }}">
+                <img src="{{ poster.img.url }}" alt="{{ poster.product.name }}" title="Акция! Купите {{ poster.product.name }} с большой скидкой">
             </div>
         </a>
     {% empty %}
