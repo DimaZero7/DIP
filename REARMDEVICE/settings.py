@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'authorization.apps.AuthorizationConfig',
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'social_django',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -89,14 +90,15 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 
 DATABASES = {
     'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'd7aqhbtbnocgv2',
-#        'USER': 'snlmpxgeagjbkx',
-#        'PASSWORD': '49bdc3d0e77807743b61ca677fbebb18cbb7fdb971d05bed77d3a1e269e6132f',
-#        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
-#        'PORT': '5432',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd3rbmqgk6k6eqm',
+        'USER': 'xnghrhhzrtkusp',
+        'PASSWORD': '7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be',
+        'HOST': 'ec2-34-232-147-86.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'URL': 'postgres://xnghrhhzrtkusp:7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d3rbmqgk6k6eqm',
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -144,15 +146,27 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
 ]
 
-MEDIA_URL = '/media/'  # Url путь к медиа фаилам
+
+AWS_ACCESS_KEY_ID = os.environ.get('AKIAI7GGMOVGWGDO77LA')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('rearmd')
+AWS_URL = os.environ.get('postgres://xnghrhhzrtkusp:7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d3rbmqgk6k6eqm')
+ 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+ 
+AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
+ 
+MEDIA_URL = AWS_MEDIA_URL
+
+#MEDIA_URL = '/media/'  # Url путь к медиа фаилам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 LOGIN_URL = '/authorization/login/google-oauth2/'
 LOGIN_REDIRECT_URL = "account:account"
 LOGOUT_REDIRECT_URL = '/'
 
-
-ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 #AWS_ACCESS_KEY_ID=AKIAIGRQN2X2MUOND3QA AWS_SECRET_ACCESS_KEY=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
 
@@ -185,3 +199,7 @@ ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+
+
+heroku config:set AWS_ACCESS_KEY_ID=AKIAI7GGMOVGWGDO77LA AWS_SECRET_ACCESS_KEY=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
