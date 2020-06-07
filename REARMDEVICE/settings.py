@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
 #TEMPLATE_DEBUG = DEBUG
@@ -93,15 +93,14 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3rbmqgk6k6eqm',
-        'USER': 'xnghrhhzrtkusp',
-        'PASSWORD': '7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be',
-        'HOST': 'ec2-34-232-147-86.compute-1.amazonaws.com',
-        'PORT': '5432',
-        'URL': 'postgres://xnghrhhzrtkusp:7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d3rbmqgk6k6eqm',
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'd7aqhbtbnocgv2',
+#        'USER': 'snlmpxgeagjbkx',
+#        'PASSWORD': '49bdc3d0e77807743b61ca677fbebb18cbb7fdb971d05bed77d3a1e269e6132f',
+#        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
+#        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -137,36 +136,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-##AWS_DEFAULT_ACL = None
-#AWS_ACCESS_KEY_ID = os.environ.get('AKIAI7GGMOVGWGDO77LA')
-#AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-#AWS_STORAGE_BUCKET_NAME = os.environ.get('rearmdevice')
-#AWS_URL = os.environ.get('postgres://xnghrhhzrtkusp:7d0b591b4702f181fc3d978977c4a0699d7f01f77ec7c95eafda192481ab78be@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d3rbmqgk6k6eqm')
-#S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME 
-#
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#
-#STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#
-#
-#STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"), 
-#]
-#
-#
-#AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
-# 
-#MEDIA_URL = '/media/'
-#
-#MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
-#
-#ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
