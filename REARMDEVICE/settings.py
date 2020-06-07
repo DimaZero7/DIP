@@ -167,7 +167,7 @@ AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
  
 MEDIA_URL = AWS_MEDIA_URL
 
-MEDIA_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_URL = 'http://rearmd.s3.amazonaws.com/'
 MEDIA_ROOT = ''
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
