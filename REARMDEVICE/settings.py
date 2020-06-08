@@ -92,12 +92,12 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'df7lpjl4d6em17',
-        'USER': 'skehfhtjadsjta',
-        'PASSWORD': '47b977a904c7380d816ddb5d46415a45aae1e9e16cb25ca9b446b14ce2bc1051',
-        'HOST': 'ec2-34-195-169-25.compute-1.amazonaws.com',
+        'NAME': 'd445um5jjc6t65',
+        'USER': 'ewspamugwegflf',
+        'PASSWORD': '8c6eae8b289c8f9035b5239d036b445026f20449c769306ccb9b0c4d6d041527',
+        'HOST': 'ec2-18-214-211-47.compute-1.amazonaws.com',
         'PORT': '5432',
-        'URL': 'postgres://skehfhtjadsjta:47b977a904c7380d816ddb5d46415a45aae1e9e16cb25ca9b446b14ce2bc1051@ec2-34-195-169-25.compute-1.amazonaws.com:5432/df7lpjl4d6em17',
+        'URL': 'postgres://ewspamugwegflf:8c6eae8b289c8f9035b5239d036b445026f20449c769306ccb9b0c4d6d041527@ec2-18-214-211-47.compute-1.amazonaws.com:5432/d445um5jjc6t65',
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
     }
@@ -158,8 +158,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
 MEDIA_URL = S3_URL + MEDIA_ROOT
 
-#STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-STATIC_URL = '/static/'
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
