@@ -161,6 +161,7 @@ MEDIA_URL = S3_URL + MEDIA_ROOT
 
 
 #heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
+#heroku config:set S3_BUCKET=rearmdevice
 
 
 
