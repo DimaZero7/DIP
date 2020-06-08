@@ -133,31 +133,31 @@ USE_L10N = True
 
 USE_TZ = True
 
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
-#]
-#
-#MEDIA_URL = '/media/'  # Url путь к медиа фаилам
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
-#
-AWS_DEFAULT_ACL = None
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_ROOT = '/media/'
-STATIC_ROOT = '/static/'  
-    
-AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
- 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
+]
 
-S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
-STATIC_URL = S3_URL + STATIC_ROOT
-MEDIA_URL = S3_URL + MEDIA_ROOT
+MEDIA_URL = '/media/'  # Url путь к медиа фаилам
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+
+#AWS_DEFAULT_ACL = None
+#
+#MEDIA_ROOT = '/media/'
+#STATIC_ROOT = '/static/'  
+#    
+#AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
+#AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+#AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
+# 
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+#S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
+#STATIC_URL = S3_URL + STATIC_ROOT
+#MEDIA_URL = S3_URL + MEDIA_ROOT
 
 
 #heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
