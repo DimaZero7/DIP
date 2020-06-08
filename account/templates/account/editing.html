@@ -15,9 +15,7 @@
 <div class="account">
     {% include 'account/include_account-nav.html' %}
     <form action="{% url 'account:editing' %}" method="post" enctype="multipart/form-data">
-        <div class="submit-order">
-            <input type="submit" value="Сохранить">
-        </div>
+        
         {% csrf_token %}
         <table class="profile-table">
             <thead>
@@ -106,6 +104,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="submit-order">
+            <input type="submit" value="Сохранить">
+        </div>
         <div class="accaunt-photo">
             Текущее фото:
             {% if user.profile.photo %}

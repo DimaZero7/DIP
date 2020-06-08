@@ -14,9 +14,6 @@
 <h1 class="main-h1">Оплата</h1>
 <div class="basket">
     {% include 'account/include_account-nav.html' %}
-    <div class="submit-order">
-        <a href="{% url 'basket:pay_success' %}">Оплатить</a>
-    </div>
     <table class="profile-table">
         <thead>
             <tr class="title">
@@ -47,7 +44,9 @@
             {% endif %}
         </tbody>
     </table>
-
+    <div class="submit-order">
+        <a href="{% url 'basket:pay_success' %}">Оплатить</a>
+    </div>
 </div>
 
 
