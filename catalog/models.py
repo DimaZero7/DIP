@@ -30,7 +30,7 @@ class Manufacture(models.Model):
 def category_img_name(instance, filename):
     """Функция состовляющая путь хранения картини категории"""
 
-    return 'categories'.format(instance.slug, filename)
+    return 'category/{0}/img/{1}'.format(instance.slug, filename)
 
 
 class Category(models.Model):
@@ -40,7 +40,7 @@ class Category(models.Model):
 
     slug = models.SlugField('URL категории', max_length=30, unique=True)
 
-    img = models.ImageField('Картинка категории', upload_to=category_img_name)
+    img = models.ImageField('Картинка категории ', upload_to=category_img_name)
 
     def __str__(self):
         return self.name
