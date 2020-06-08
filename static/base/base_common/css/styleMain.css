@@ -198,11 +198,11 @@ alert.messages-active {
 }
 
 .logo.dark {
-    background: url(../img/logo/logo_max.png) 50% 50% / 90% no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common/img/logo/logo_max.png) 50% 50% / 90% no-repeat;
 }
 
 .logo.light {
-    background: url(../img/logo/logo_max_black.png) 50% 50% / 90% no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common/img/logo/logo_max_black.png) 50% 50% / 90% no-repeat;
 }
 
 .logo:hover {
@@ -359,7 +359,7 @@ alert.messages-active {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    background: url(../img/close.webp) 50% 50% / 100% no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/close.webp) 50% 50% / 100% no-repeat;
     background-color: var(--red);
     transition: .3s;
 }
@@ -421,7 +421,7 @@ alert.messages-active {
     right: 2%;
     border-radius: 100px;
     cursor: pointer;
-    background: url(../img/close.webp) 50% 50% / 100% no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/close.webp) 50% 50% / 100% no-repeat;
     background-color: var(--red);
     transition: .3s;
 }
@@ -715,7 +715,7 @@ alert.messages-active {
     border: 2px solid var(--dark);
     border-top: 0;
     transition: .3s;
-    background: url(../img/product_none.png) 50% 50% / 105% no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/product_none.png) 50% 50% / 105% no-repeat;
     background-color: var(--red);
 }
 
@@ -898,7 +898,7 @@ span.pages-item {
 }
 
 .product-none span {
-    background: url(../img/product_none.png) 50% 50% / 100% no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/product_none.png) 50% 50% / 100% no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1028,7 +1028,7 @@ span.pages-item {
     left: 0;
     width: 20px;
     height: 20px;
-    background: url(../img/favicon.png) 50% 50% / 20px no-repeat;
+    background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/favicon.png) 50% 50% / 20px no-repeat;
 }
 
 @media (max-width:769px) {
@@ -1043,11 +1043,11 @@ span.pages-item {
     }
 
     .logo.dark {
-        background: url(../img/logo/logo_min.png) 50% 50% / 40px no-repeat;
+        background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/logo/logo_min.png) 50% 50% / 40px no-repeat;
     }
 
     .logo.light {
-        background: url(../img/logo/logo_min_black.png) 50% 50% / 40px no-repeat;
+        background: url(https://rearmdevice.s3.amazonaws.com/base/base_common//img/logo/logo_min_black.png) 50% 50% / 40px no-repeat;
     }
 
 
