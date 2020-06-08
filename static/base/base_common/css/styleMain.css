@@ -1,9 +1,7 @@
-    <style>
-    @font-face{
-        font-family: "steam";
-        src: url(../fonts/Steam.otf)  
-        }
-    </style>
+@font-face{
+    font-family: "steam";
+    src: url(../fonts/Steam.otf)
+}
 
 * {
     margin: 0;

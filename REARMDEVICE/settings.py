@@ -92,12 +92,12 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd445um5jjc6t65',
-        'USER': 'ewspamugwegflf',
-        'PASSWORD': '8c6eae8b289c8f9035b5239d036b445026f20449c769306ccb9b0c4d6d041527',
-        'HOST': 'ec2-18-214-211-47.compute-1.amazonaws.com',
+        'NAME': 'dapi6da5m1lv2q',
+        'USER': 'nnlffisodsbsfj',
+        'PASSWORD': 'dbaef5be6343cf9d81643575874eddfc50c1e08c4eb66a11a636305f77e79c2e',
+        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
         'PORT': '5432',
-        'URL': 'postgres://ewspamugwegflf:8c6eae8b289c8f9035b5239d036b445026f20449c769306ccb9b0c4d6d041527@ec2-18-214-211-47.compute-1.amazonaws.com:5432/d445um5jjc6t65',
+        'URL': 'postgres://nnlffisodsbsfj:dbaef5be6343cf9d81643575874eddfc50c1e08c4eb66a11a636305f77e79c2e@ec2-3-222-150-253.compute-1.amazonaws.com:5432/dapi6da5m1lv2q',
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
     }
@@ -146,7 +146,8 @@ USE_TZ = True
 
 AWS_DEFAULT_ACL = None
 
-MEDIA_ROOT = '/media/' 
+MEDIA_ROOT = '/media/'
+#STATIC_ROOT = '/static/'  
     
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
@@ -156,6 +157,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
+#STATIC_URL = S3_URL + STATIC_ROOT
 MEDIA_URL = S3_URL + MEDIA_ROOT
 
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
@@ -167,9 +169,6 @@ STATICFILES_DIRS = [
 
 AWS_S3_REGION_NAME = 'eu-north-1'
 
-
-#heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
-#heroku config:set S3_BUCKET=rearmdevice
 
 LOGIN_URL = '/authorization/login/google-oauth2/'
 LOGIN_REDIRECT_URL = "account:account"
