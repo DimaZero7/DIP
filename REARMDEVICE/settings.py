@@ -158,7 +158,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
-STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+STATIC_URL = 'https://rearmdevice.s3.amazonaws.com/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
@@ -170,7 +170,7 @@ STATICFILES_DIRS = [
 # 
 #MEDIA_URL = AWS_MEDIA_URL
 
-MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_URL = 'https://rearmdevice.s3.amazonaws.com/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 
 ADMIN_MEDIA_PREFIX = '/media/admin/'
