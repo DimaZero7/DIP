@@ -166,12 +166,12 @@ STATICFILES_DIRS = [
 ]
 
 
-AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
- 
-MEDIA_URL = AWS_MEDIA_URL
+#AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
+# 
+#MEDIA_URL = AWS_MEDIA_URL
 
 MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-MEDIA_ROOT = 'os.path.join(BASE_DIR, 'media')'  # Путь к медиа фаилам (для сервера)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 
 ADMIN_MEDIA_PREFIX = '/media/admin/'
 
