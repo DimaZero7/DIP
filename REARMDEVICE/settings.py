@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',  # Приложение отвечающее запрофиль пользователя
     'social_django',
     'storages',
+    'boto3',
 ]
 
 MIDDLEWARE = [
