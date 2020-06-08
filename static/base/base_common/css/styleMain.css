@@ -673,7 +673,13 @@ alert.messages-active {
     transition: .3s
 }
 
-
+.product-block.none{
+    text-align: center;
+    flex: 0 1 100%;
+    font-size: 30px;
+    font-family: 'steam';
+    color: var(--text);
+}
 
 .product-block:hover .product-title a {
     background-color: var(--red);
@@ -755,41 +761,6 @@ alert.messages-active {
     font-weight: bold;
     font-size: 15px;
 }
-
-/*Просмотр изображения товара в поном размере*/
-.product-big {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 30;
-    transform: scale(0);
-    transition: .3s;
-}
-
-.product-big.active-product-big {
-    transform: scale(1);
-    transition: .3s;
-}
-
-.active-slider-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 2%;
-    object-fit: cover;
-}
-
-.product-big-close {
-    position: absolute;
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    z-index: 31;
-}
-
 
 .basket-nbr .input-number {
     border: 2px solid var(--text);

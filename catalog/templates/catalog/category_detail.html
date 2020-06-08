@@ -36,16 +36,9 @@
         </div>
     </article>
     {% empty %}
-    <article class="product-block">
-        <div class="product-title">
-            <a href="#">Товаров нет</a>
-        </div>
-        <div class="product-img">
-            <a href="#">
-               {# <img src="{% static 'base/base_common/img/product_none.png' %}" alt=" Товаров в категории {{ category.name }} нет">#}
-            </a>
-        </div>
-    </article>
+    <div class="product-block none">
+        Товаров нет
+    </div>
     {% endfor %}
 </div>
 <!--Пагинация-->

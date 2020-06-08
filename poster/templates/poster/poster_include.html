@@ -1,14 +1,16 @@
 {% load poster_include_extras %}
 {% get_poster as posters %}
- 
+
 <div class="slider main-slider">
+    {% if posters %}
     {% for poster in posters %}
-        <a href="{{ poster.product.get_absolute_url }}">
-            <div class="slider-item">
-                <img src="{{ poster.img.url }}" alt="{{ poster.product.name }}" title="Акция! Купите {{ poster.product.name }} с большой скидкой">
-            </div>
-        </a>
-    {% empty %}
-        <div class="slider-item none" title="Акционных товаров нет"></div>
+    <a href="{{ poster.product.get_absolute_url }}">
+        <div class="slider-item">
+            <img src="{{ poster.img.url }}" alt="{{ poster.product.name }}" title="Акция! Купите {{ poster.product.name }} с большой скидкой!">
+        </div>
+    </a>
     {% endfor %}
+    {% else %}
+    <div class="slider-item none" title="Акционных товаров нет"></div>
+    {% endif %}
 </div>
