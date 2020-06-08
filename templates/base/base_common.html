@@ -7,11 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-    @font-face{
-        font-family: "steam";
-        src: url(https://rearmdevice.s3.eu-north-1.amazonaws.com/base/base_common/fonts/Steam.otf)  
-        }
-    </style>
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleMain.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleSlick.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
@@ -79,7 +74,7 @@
             top: 0%;
             margin: 0 0 0 -25%;
             z-index: 10001;
-            background: url(/base/base_common/img/preloader.gif) 50% 50% / 30% no-repeat;
+            background: url({% static 'base/base_common/img/preloader.gif' %}) 50% 50% / 30% no-repeat;
         }
         
     </style>
