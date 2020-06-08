@@ -151,7 +151,7 @@ MEDIA_ROOT = '/media/'
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
- 
+
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
@@ -166,6 +166,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"), 
 ]
 
+AWS_S3_REGION_NAME = 'us-east-2'
 
 #heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
 #heroku config:set S3_BUCKET=rearmdevice
