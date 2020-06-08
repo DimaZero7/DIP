@@ -143,40 +143,21 @@ USE_TZ = True
 #MEDIA_URL = '/media/'  # Url путь к медиа фаилам
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 #
+AWS_DEFAULT_ACL = None
 
-
-from storages.backends.s3boto import S3BotoStorage
-
-class StaticRootS3BotoStorage(S3BotoStorage):
-    location = 'static'
-
-class MediaRootS3BotoStorage(S3BotoStorage):
-    location = 'client'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_media')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'client_media')
-STATICFILES_DIR = os.path.join(BASE_DIR, 'core/static')
-
+MEDIA_ROOT = '/media/'
+STATIC_ROOT = '/static/'  
+    
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
  
-S3_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
-STATIC_URL = os.environ.get('STATIC_URL', S3_URL + 'static/')
-    
-DEFAULT_FILE_STORAGE = os.environ.get(
-    'DEFAULT_FILE_STORAGE',
-    'core.storage.MediaRootS3BotoStorage',
-)
-STATICFILES_STORAGE = os.environ.get(
-    'STATICFILES_STORAGE',
-    'core.storage.StaticRootS3BotoStorage',
-)
-MEDIA_URL = os.environ.get('MEDIA_URL', S3_URL + 'media/')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-
-STATIC_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
+STATIC_URL = S3_URL + STATIC_ROOT
+MEDIA_URL = S3_URL + MEDIA_ROOT
 
 
 #heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
