@@ -3,7 +3,8 @@
 
 {% block title  %}{{ category.name }}{% endblock %}
 
-{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleFilter.css' %}">{% endblock %}
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleFilter.css' %}">{% endblock %}
 
 {% block keywords %}Каталог, {{ category.name }}{% endblock %}
 
@@ -16,28 +17,35 @@
 <div class="main-product {% if user.profile.grid == True %}change-grid{% endif %}">
     {# Вывожу все товары текущей категории #}
     {% for product in object_list %}
-        <article class="product-block">
-            <div class="product-title">
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-            </div>
-            <div class="product-img">
-                <a href="{{ product.get_absolute_url }}">
-                    {# Вывожу 1-ую картинку текущего товара #}
-                    {% for prodimg in product.prodimg.all %}
-                        {% if forloop.counter == 1 %}
-                            <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
-                        {% endif %}
-                    {% endfor %}
-                </a>
-            </div>
-            <div class="product-info">
-                <div class="product-price">{{ product.price }}</div>
-            </div>
-        </article>
-    {% empty %}
-        <div class="product-none" title="Товаров в категории {{ category.name }} нет">
-            <span></span>
+    <article class="product-block">
+        <div class="product-title">
+            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
         </div>
+        <div class="product-img">
+            <a href="{{ product.get_absolute_url }}">
+                {# Вывожу 1-ую картинку текущего товара #}
+                {% for prodimg in product.prodimg.all %}
+                {% if forloop.counter == 1 %}
+                <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                {% endif %}
+                {% endfor %}
+            </a>
+        </div>
+        <div class="product-info">
+            <div class="product-price">{{ product.price }}</div>
+        </div>
+    </article>
+    {% empty %}
+    <article class="product-block">
+        <div class="product-title">
+            <a href="#">Товаров нет</a>
+        </div>
+        <div class="product-img">
+            <a href="#">
+               {# <img src="{% static 'base/base_common/img/product_none.png' %}" alt=" Товаров в категории {{ category.name }} нет">#}
+            </a>
+        </div>
+    </article>
     {% endfor %}
 </div>
 <!--Пагинация-->

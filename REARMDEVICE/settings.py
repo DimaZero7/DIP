@@ -26,6 +26,7 @@ SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+#DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -167,15 +168,6 @@ STATICFILES_DIRS = [
 ]
 
 AWS_S3_REGION_NAME = 'eu-north-1'
-
-
-#heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
-#heroku config:set S3_BUCKET=rearmdevice
-
-
-
-
-
 
 
 LOGIN_URL = '/authorization/login/google-oauth2/'

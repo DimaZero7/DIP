@@ -3,30 +3,38 @@
 
 
 {% block keywords %}
-    Категории, {% for category in categories %}{{ category.name }}, {% endfor %}Rearm Device
+Категории, {% for category in categories %}{{ category.name }}, {% endfor %}Rearm Device
 {% endblock %}
 
-{% block description %}Каталоги товаров на сайте Rearm Device{% endblock %} 
+{% block description %}Каталоги товаров на сайте Rearm Device{% endblock %}
 
 {% block content_website %}
-    <h1 class="main-h1">Каталог</h1>
+<h1 class="main-h1">Каталог</h1>
 
-    <div class="main-product">
-        {# Вывожу все категории #}
-        {% for category in categories %}
-            <article class="product-block">
-                <div class="product-title">
-                    <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-                </div>
-                <div class="product-img">
-                    <a href="{{ category.get_absolute_url }}">
-                        <img src="{{ category.img.url }}" alt="{{ category.name }}">
-                    </a>
-                </div>
-            </article>
-        {% empty %}
-            {#Если цикл пустой#}
-            <div class="product-none">Категорий нет</div>
-        {% endfor %}
-    </div>
+<div class="main-product">
+    {# Вывожу все категории #}
+    {% for category in categories %}
+    <article class="product-block">
+        <div class="product-title">
+            <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+        </div>
+        <div class="product-img">
+            <a href="{{ category.get_absolute_url }}">
+                <img src="{{ category.img.url }}" alt="{{ category.name }}">
+            </a>
+        </div>
+    </article>
+    {% empty %}
+    <article class="product-block">
+        <div class="product-title">
+            <a href="#">Категорий нет</a>
+        </div>
+        <div class="product-img">
+            <a href="#">
+                {#<img src="{% static 'base/base_common/img/product_none.png' %}" alt="Категорий нет">#}
+            </a>
+        </div>
+    </article>
+    {% endfor %}
+</div>
 {% endblock %}

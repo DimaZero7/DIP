@@ -1,4 +1,7 @@
-{% load static %}
+@font-face{
+    font-family: "steam";
+    src: url(../fonts/Steam.otf)
+}
 
 * {
     margin: 0;
@@ -197,13 +200,12 @@ alert.messages-active {
     flex: 0 1 20%;
     height: 50px;
     transition: .3s;
-}
-.logo.dark {
-/*    background: url({% static 'base/base_common/img/logo/logo_max.png' %}) 50% 50% / 90% no-repeat;*/
-}
-
-.logo.light {
-    background: url(../img/logo/logo_max_black.png) 50% 50% / 90% no-repeat;
+    color: var(--text);
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'steam'
 }
 
 .logo:hover {
@@ -353,19 +355,45 @@ alert.messages-active {
 }
 
 /*Кнопка закрытия корзины*/
-.close-basket {
+.close{
     position: absolute;
     top: 0;
     right: 0;
     width: 20px;
     height: 20px;
     cursor: pointer;
-    background: url(../img/close.webp) 50% 50% / 100% no-repeat;
     background-color: var(--red);
     transition: .3s;
 }
 
-.close-basket:hover {
+.close::before,
+.close::after{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 5px;
+    background-color: var(--text);
+    right: 2px;
+    top: 7px;
+    border-radius: 10px;
+}
+
+.close::before{
+    transform: rotate(45deg);
+}
+
+.close::after{
+    transform: rotate(-45deg);
+}
+
+/*Кнопка удаления товара из корзины*/
+.shopping-list-delete.close {
+    right: 2px;
+    border-radius: 100px;
+    top: 3px;
+}
+
+.close:hover {
     background-color: red;
     box-shadow: 0 0 10px var(--text);
     transition: .3s;
@@ -377,6 +405,7 @@ alert.messages-active {
     width: 380px;
     position: relative;
     align-items: center;
+    padding: 0 20px 0 0;
 }
 
 .shopping-list-container td {
@@ -413,24 +442,6 @@ alert.messages-active {
     justify-content: flex-end;
     padding: 10px 0 0 0;
     border-top: 2px solid var(--text)
-}
-
-/*Кнопка удаления товара из корзины*/
-.shopping-list-delete {
-    width: 18px;
-    height: 18px;
-    right: 2%;
-    border-radius: 100px;
-    cursor: pointer;
-    background: url(../img/close.webp) 50% 50% / 100% no-repeat;
-    background-color: var(--red);
-    transition: .3s;
-}
-
-.shopping-list-delete:hover {
-    background-color: red;
-    box-shadow: 0 0 5px var(--text);
-    transition: .3s;
 }
 
 .add-order {
@@ -716,8 +727,6 @@ alert.messages-active {
     border: 2px solid var(--dark);
     border-top: 0;
     transition: .3s;
-    background: url(../img/product_none.png) 50% 50% / 105% no-repeat;
-    background-color: var(--red);
 }
 
 /*для категорий сделать границу */
@@ -889,24 +898,6 @@ span.pages-item {
     display: none;
 }
 
-/*Изображения для товаров или слайдера без картинок*/
-.product-none {
-    height: 200px;
-    width: 200px;
-    background-color: var(--red);
-    margin: 20px auto;
-    position: relative;
-}
-
-.product-none span {
-    background: url(../img/product_none.png) 50% 50% / 100% no-repeat;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
 
 /*подвал*/
 .footer {
@@ -1019,7 +1010,6 @@ span.pages-item {
 
 .text-ul li{
     position: relative;
-    padding: 0 0 0 25px;
     margin: 5px 0;
 }
 
@@ -1029,7 +1019,6 @@ span.pages-item {
     left: 0;
     width: 20px;
     height: 20px;
-    background: url(../img/favicon.png) 50% 50% / 20px no-repeat;
 }
 
 @media (max-width:769px) {
@@ -1041,17 +1030,8 @@ span.pages-item {
     .logo {
         flex: 0 1 15%;
         height: 40px;
+        font-size: 30px;
     }
-
-    .logo.dark {
-        background: url(../img/logo/logo_min.png) 50% 50% / 40px no-repeat;
-    }
-
-    .logo.light {
-        background: url(../img/logo/logo_min_black.png) 50% 50% / 40px no-repeat;
-    }
-
-
 
     .header-search {
         flex: 0 1 60%;

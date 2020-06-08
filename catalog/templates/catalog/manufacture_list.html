@@ -3,24 +3,32 @@
 
 {% block keywords %}Производители, {% for manufacture in manufacture_list %}{{ manufacture.name }}, {% endfor %}Rearm Device{% endblock %}
 
-{% block description %}Каталог производителей на сайте Rearm Device{% endblock %} 
-   
+{% block description %}Каталог производителей на сайте Rearm Device{% endblock %}
+
 {% block content_website %}
-    <h1 class="main-h1">Производители</h1>
-    <div class="main-product manufacture">
-        {# Вывожу все категории #}
-        {% for manufacture in manufacture_list %}
-            <article class="product-block">
-                <div class="product-title">
-                    <span>{{ manufacture.name }}</span>
-                </div>
-                    <div class="product-img">
-                        <img src="{{ manufacture.img.url }}" alt="{{ manufacture.name }}">
-                </div>
-            </article>
-        {% empty %}
-            {#Если цикл пустой#}
-            <div class="product-none">Производителей нет</div>
-        {% endfor %}
-    </div>
-{% endblock %} 
+<h1 class="main-h1">Производители</h1>
+<div class="main-product manufacture">
+    {# Вывожу все категории #}
+    {% for manufacture in manufacture_list %}
+    <article class="product-block">
+        <div class="product-title">
+            <span>{{ manufacture.name }}</span>
+        </div>
+        <div class="product-img">
+            <img src="{{ manufacture.img.url }}" alt="{{ manufacture.name }}">
+        </div>
+    </article>
+    {% empty %}
+    <article class="product-block">
+        <div class="product-title">
+            <a href="#">Производителей нет</a>
+        </div>
+        <div class="product-img">
+            <a href="#">
+               {# <img src="{% static 'base/base_common/img/product_none.png' %}" alt="Производителей нет">#}
+            </a>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

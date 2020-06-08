@@ -2,37 +2,41 @@
 {% load static %}
 
 {% block title %}
-    Главная
+Главная
 {% endblock %}
 
 {% block content_website %}
 
-    {% include 'poster/poster_include.html' %}
+{% include 'poster/poster_include.html' %}
 
 
-    <div class="main-content-block">
-        <div class="main-product">
-            {% for product in product_list|slice:":30" %}
-            <article class="product-block">
-                <div class="product-title">
-                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                </div>
-                <div class="product-img">
-                    <a href="{{ product.get_absolute_url }}">
-                        {% for prodimg in product.prodimg.all %}
-                        {% if forloop.counter == 1 %}
-                        <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
-                        {% endif %}
-                        {% endfor %}
-                    </a>
-                </div>
-                <div class="product-info">
-                    <div class="product-price">{{ product.price }}</div>
-                </div>
-            </article>
-            {% empty %}
-            <div class="product-none">Товаров нет</div>
-            {% endfor %}
+<div class="main-content-block">
+    <div class="main-product">
+        {% for product in product_list|slice:":30" %}
+        <article class="product-block">
+            <div class="product-title">
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            </div>
+            <div class="product-img">
+                <a href="{{ product.get_absolute_url }}">
+                    {% for prodimg in product.prodimg.all %}
+                    {% if forloop.counter == 1 %}
+                    <img src="{{ prodimg.img.url }}" alt="{{ product.name }}">
+                    {% endif %}
+                    {% endfor %}
+                </a>
+            </div>
+            <div class="product-info">
+                <div class="product-price">{{ product.price }}</div>
+            </div>
+        </article>
+        {% empty %}
+        <div class="product-img">
+            <a href="#">
+                <img src="{% static 'base/base_common/img/product_none.png' %}" alt="Продуктов нет">
+            </a>
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
