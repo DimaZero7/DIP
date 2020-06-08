@@ -132,15 +132,61 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
+#]
+#
+#MEDIA_URL = '/media/'  # Url путь к медиа фаилам
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+#
+
+
+
+
+
+#AWS_DEFAULT_ACL = None
+AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
+AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('rearmdevice')
+AWS_URL = os.environ.get('postgres://gbthidbnbkkjae:5263e705733981d3a6424a5e60072ad32ae5a555197dd9456ffee801658bc042@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d3lbfoa1nce2ho')
+ 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+
+STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
+    os.path.join(BASE_DIR, "static"), 
 ]
 
-MEDIA_URL = '/media/'  # Url путь к медиа фаилам
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+
+AWS_MEDIA_URL = "{}/{}/".format(AWS_URL, AWS_STORAGE_BUCKET_NAME)
+ 
+MEDIA_URL = AWS_MEDIA_URL
+
+MEDIA_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+MEDIA_ROOT = 'os.path.join(BASE_DIR, 'media')'  # Путь к медиа фаилам (для сервера)
+
+ADMIN_MEDIA_PREFIX = '/media/admin/'
+
+
+
+
+
+
+#heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
+
+
+
+
+
+
 
 LOGIN_URL = '/authorization/login/google-oauth2/'
 LOGIN_REDIRECT_URL = "account:account"
@@ -176,5 +222,3 @@ ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-#heroku pg:info -a ha-app
