@@ -223,3 +223,5 @@ ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+#heroku config:set DISABLE_COLLECTSTATIC=1
