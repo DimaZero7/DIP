@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -151,7 +151,7 @@ USE_TZ = True
 #AWS_DEFAULT_ACL = None
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('rearmdevice')
+AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
 AWS_URL = os.environ.get('postgres://gbthidbnbkkjae:5263e705733981d3a6424a5e60072ad32ae5a555197dd9456ffee801658bc042@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d3lbfoa1nce2ho')
  
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -159,7 +159,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 
-STATIC_URL = 'https://rearmdevice.s3.amazonaws.com/'
+STATIC_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
@@ -171,10 +171,10 @@ STATICFILES_DIRS = [
 # 
 #MEDIA_URL = AWS_MEDIA_URL
 
-MEDIA_URL = 'https://rearmdevice.s3.amazonaws.com/'
+MEDIA_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.s3.amazonaws.com/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 
-ADMIN_MEDIA_PREFIX = '/media/admin/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 
 
