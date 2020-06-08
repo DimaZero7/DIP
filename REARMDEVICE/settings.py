@@ -146,7 +146,7 @@ USE_TZ = True
 AWS_DEFAULT_ACL = None
 
 MEDIA_ROOT = '/media/'
-STATIC_ROOT = '/static/'  
+#STATIC_ROOT = '/static/'  
     
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
@@ -156,8 +156,15 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
-STATIC_URL = S3_URL + STATIC_ROOT
+#STATIC_URL = S3_URL + STATIC_ROOT
 MEDIA_URL = S3_URL + MEDIA_ROOT
+
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"), 
+]
 
 
 #heroku config:set AWS_ACCESS_KEY_ID=AKIAJ4WNXA5M33EDMXUQ AWS_SECRET_ACCESS_KEY=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
