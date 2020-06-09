@@ -201,14 +201,12 @@
 .profile-table .full-price {
     white-space: normal;
     min-width: 100px;
+    position: relative;
 }
 
-.profile-table .shopping-list-delete {
+.profile-table .shopping-list-delete.close {
     position: absolute;
-    right: 20px;
-    width: 20px;
-    height: 30px;
-    border-radius: 0;
+    top: 0;
 }
 
 .profile-table .input-number {}

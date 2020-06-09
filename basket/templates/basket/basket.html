@@ -9,7 +9,7 @@
 
 {% block keywords %}Личный кабинет, Корзина{% endblock %}
 {% block description %}Личный кабинет - {{user.username}} | Корзина {% endblock %}
- 
+
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="basket">
@@ -49,8 +49,9 @@
                         <td class="quantity">
                             <input class="input-number" type="number" value="{{product_in_basket.quantity_nbr}}" name="product_in_basket_{{product_in_basket.id}}" min="1" max="{{product_in_basket.product.warehouse}}">
                         </td>
-                        <td class="full-price summary">{{product_in_basket.total_price}}</td>
-                        <td class="shopping-list-delete" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></td>
+                        <td class="full-price summary">{{product_in_basket.total_price}}
+                            <span class="shopping-list-delete close" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></span>
+                        </td>
                     </tr>
                     {% endfor %}
                     {% else %}
@@ -70,10 +71,10 @@
                 </tfoot>
             </table>
             {% if product_in_basket %}
-        <div class="submit-order">
-            <input type="submit" value="Заказать">
-        </div>
-        {% endif %}
+            <div class="submit-order">
+                <input type="submit" value="Заказать">
+            </div>
+            {% endif %}
         </div>
         {% if product_in_basket %}
         {% endif %}
@@ -85,7 +86,7 @@
 <button class="input-number-button up-value"> + </button>
 -->
 {% endblock %}
- 
+
 {% block addJS %}
 <script>
     $(document).ready(function() {
@@ -105,11 +106,11 @@
             calculateBasketAmount();
         })
         calculateBasketAmount();
-        
-        $('.shopping-list-delete').click(function () {
+
+        $('.shopping-list-delete').click(function() {
             calculateBasketAmount();
         })
-        
+
     });
 
 </script>
