@@ -257,13 +257,14 @@ $(document).ready(function () {
             data: data,
             cache: true,
             success: function () {
-                $(this).closest('tr').find('.status').html('Завершен');
                 alert_open('Заказ завершен');
             },
             error: function () {
                 console.log('error');
             }
         })
+        $(this).closest('tr').find('.status').html('Завершен');
+        $(this).html('');
     })
 
     //Уведомление о том что товаров в корзине нет
