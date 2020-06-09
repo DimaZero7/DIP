@@ -69,19 +69,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="filter-block radio">
-            {% get_prise as price_min_max %}
-            <div class="filter-title">В наличии:</div>
-            <div class="filter-content">
-                <label class="filter-label">
-                    <input type="radio" class="filter-radio first-radio" name="presence" value="yes" title="Да" {% if request.GET.presence == 'yes' %}checked{% endif %}>
-                </label>
-                <label class="filter-label">
-                    <input type="radio" class="filter-radio last-radio" name="presence" value="no" title="Нет" {% if request.GET.presence == 'no' %}checked{% endif %}>
-                </label>
-            </div>
-        </div>
         <input type="submit" class="filter-submit" value="Фильтровать">
     </form>
 </div>

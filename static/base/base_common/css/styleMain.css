@@ -1,4 +1,4 @@
-@font-face{
+@font-face {
     font-family: "steam";
     src: url(../fonts/Steam.otf)
 }
@@ -197,15 +197,18 @@ alert.messages-active {
 
 /*Логотип*/
 .logo {
-    flex: 0 1 20%;
+    width: 200px;
     height: 50px;
-    transition: .3s;
-    color: var(--text);
-    font-size: 25px;
+    padding: 10px 5px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: 'steam'
+    margin: -5px 0;
+    transition: .3s;
+}
+
+.logo img {
+    width: 100%;
+
 }
 
 .logo:hover {
@@ -355,7 +358,7 @@ alert.messages-active {
 }
 
 /*Кнопка закрытия корзины*/
-.close{
+.close {
     position: absolute;
     top: 0;
     right: 0;
@@ -367,7 +370,7 @@ alert.messages-active {
 }
 
 .close::before,
-.close::after{
+.close::after {
     position: absolute;
     content: '';
     width: 15px;
@@ -378,11 +381,11 @@ alert.messages-active {
     border-radius: 10px;
 }
 
-.close::before{
+.close::before {
     transform: rotate(45deg);
 }
 
-.close::after{
+.close::after {
     transform: rotate(-45deg);
 }
 
@@ -673,7 +676,7 @@ alert.messages-active {
     transition: .3s
 }
 
-.product-block.none{
+.product-block.none {
     text-align: center;
     flex: 0 1 100%;
     font-size: 30px;
@@ -974,17 +977,17 @@ span.pages-item {
     margin: 10px 0;
 }
 
-.text-ul{
+.text-ul {
     color: var(--text);
     margin: 0 0 10px 0;
 }
 
-.text-ul li{
+.text-ul li {
     position: relative;
     margin: 5px 0;
 }
 
-.text-ul li::before{
+.text-ul li::before {
     content: '';
     position: absolute;
     left: 0;
@@ -999,9 +1002,10 @@ span.pages-item {
     }
 
     .logo {
-        flex: 0 1 15%;
+        width: 50px;
         height: 40px;
-        font-size: 30px;
+        padding: 5px;
+
     }
 
     .header-search {
@@ -1245,7 +1249,8 @@ span.pages-item {
 @media (max-width:600px) {
     .logo {
         flex: 0 1 10%;
-        min-width: 50px
+        min-width: 50px;
+
     }
 
     .username {

@@ -38,11 +38,6 @@ class CategoryDetail(DetailView, MultipleObjectMixin):
         if self.request.GET.get('prise_min'):
             object_list = object_list.filter(price__lte=self.request.GET.get('prise_max'))
 
-        if self.request.GET.get('presence') == 'yes':
-            object_list = object_list.filter(warehouse__gte=1)
-        elif self.request.GET.get('presence') == 'no':
-            object_list = object_list.filter(warehouse__lte=0)
-
         if self.request.GET.get('warranty'):
             object_list = object_list.filter(warranty__gte=self.request.GET.get('warranty'))
 

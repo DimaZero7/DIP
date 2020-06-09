@@ -77,20 +77,6 @@ $(document).ready(function () {
         $('.header-buttons').toggleClass('buttons-active');
         $('.active-for-mobile').toggleClass('display-icons');
     })
-        function logo() {
-            if ($(window).width() < 769) {
-                $('.logo').html('RD');
-            } else {
-                $('.logo').html('RearmDevice');
-            }
-        }
-
-        logo();
-    
-    $(window).resize(function () {
-        logo();
-    })
-
 
     //Логика спойлеров 
     if ($(window).width() < 769) {

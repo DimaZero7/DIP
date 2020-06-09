@@ -84,6 +84,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    margin: 0 0 10px 0
 }
 
 
@@ -228,14 +229,12 @@
 
 .filter-radio:not(:checked)::after,
 .filter-checkbox:not(:checked)::after {
-    background: url(../img/cross.png) 50% 50% / 60% no-repeat;
     background-color: var(--text);
 
 }
 
 .filter-radio:checked::after,
 .filter-checkbox:checked::after {
-    background: url(../img/check.png) 50% 50% / 60% no-repeat;
     background-color: var(--text);
     box-shadow: 0 0 5px var(--text);
 }
@@ -245,13 +244,11 @@
 }
 
 .first-radio:not(:checked)::after {
-    background: url(../img/check.png) 50% 50% / 60% no-repeat;
     background-color: var(--text);
     box-shadow: 0 0 5px var(--text);
 }
 
 .last-radio:checked::after {
-    background: url(../img/cross.png) 50% 50% / 60% no-repeat;
 }
 
 .filter-radio:checked::after,
@@ -282,7 +279,8 @@
 }
 
 .filter-choice .filter-number {
-    width: 70px;
+    width: 100px;
+    height: 35px;
 }
 
 .filter-number::placeholder {
@@ -324,12 +322,12 @@
 
 .input-number-button::before {
     transform: rotate(-45deg);
-    top: 8px;
+    top: 12px;
 }
 
 .input-number-button::after {
     transform: rotate(45deg);
-    top: 14px;
+    top: 18px;
 }
 
 .input-number-button:focus,
@@ -350,11 +348,11 @@
     background-color: transparent;
     border: 2px solid var(--text);
     color: var(--text);
-    height: 30px;
+    height: 35px;
     width: 100px;
     cursor: pointer;
     transition: .3s;
-    margin: 0 0 5px 0;
+    margin: 21px 0 5px 0;
 }
 
 .filter-submit:hover {

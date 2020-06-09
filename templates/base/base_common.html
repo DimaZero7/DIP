@@ -11,10 +11,9 @@
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/resize.css' %}">
     {% block addCSS %}{% endblock %}
+    <link rel="shortcut icon" href="{% static 'base/base_common/img/favicon.png' %}" type="image/jpg">
     <meta name="keywords" content="Rearm Device, {% block keywords %}{% endblock %}">
     <meta name="description" content="{% block description %}Rearm Device{% endblock %}">
-    <!--Фавикон-->
-    <link rel="shortcut icon" href="{% static 'base/base_common/img/favicon.png' %}" type="image/jpg">
 
     <!--*-->
     <style>
@@ -50,7 +49,8 @@
         .social img,
         .header-profile-icon img:not(:last-child),
         .header-icon img,
-        .text-ul li::before{
+        .text-ul li::before,
+        .logo img{
             filter: invert();
         }
         {% endif %}
@@ -77,6 +77,7 @@
         }
         
     </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 {% block body %}<body>{% endblock %}
     <div class="wrapper">
@@ -107,7 +108,24 @@
                         </div>
                     </div>
                     <div class="header-main">
-                        <a href="{% url 'common:index' %}" class="logo dark">RearmDevice</a>
+                       <script>
+                           $(document).ready(function () {
+                           function logo() {
+                                if ($(window).width() < 769) {
+                                    $('.logo')
+                                        .html("<img src='{% static 'base/base_common/img/logo/logo_min.png' %}'>");
+                                } else {
+                                    $('.logo')
+                                        .html("<img src='{% static 'base/base_common/img/logo/logo_max.png' %}'>");
+                                }
+                            }
+                            logo();
+                            $(window).resize(function () {
+                                logo();
+                            })
+                           })
+                        </script>
+                        <a href="{% url 'common:index' %}" class="logo"></a>
                         <form action="{% url 'common:search' %}" method="get" class="header-search">
                             <input class="header-search-input" type="search" id="search" name="search" placeholder="{% if request.GET.search %}{{request.GET.search}}{% else %} Искать здесь...{% endif %}">
                             <button type="submit" class="header-search-button"></button>
@@ -240,7 +258,6 @@
         </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{% static 'base/base_common/js/jquery.touchSwipe.min.js' %}"></script>
     <script>
         //прелоадер
