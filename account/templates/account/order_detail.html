@@ -14,16 +14,17 @@
 <h1 class="main-h1">Личный кабинет</h1>
 <div class="basket">
     {% include 'account/include_account-nav.html' %}
+    <div class="scroll-table">
     <table class="profile-table">
         <thead>
             <tr class="title">
-                <td colspan="4">Заказы</td>
+                <td colspan="5">Заказы</td>
             </tr>
             <tr class="title-content">
                 <td class="order-id">Номер</td>
                 <td class="">Сумма</td>
                 <td class="">Статус</td>
-                <td class="">Дата создания</td>
+                <td colspan="2" class="">Дата создания</td>
             </tr>
         </thead>
 
@@ -33,8 +34,17 @@
             <tr>
                 <td class="order-id">{{orders_list.id}}</td>
                 <td class="order-price">{{orders_list.total_price}}</td>
-                <td class="">{{orders_list.status}}</td>
+                <td class="status">{{orders_list.status}}</td>
                 <td class="">{{orders_list.created}}</td>
+                {% if orders_list.status_id == 1 %}
+                <td><a href="{% url 'basket:pay' %}">Оплатить</a></td>
+                {% endif %}
+                {% if orders_list.status_id == 2 %}
+                <td class="completion" data-order_id="{{orders_list.id}}" data-href="{% url 'basket:order_completion' %}">Завершить</td>
+                {% endif %}
+                {% if orders_list.status_id == 3 %}
+                <td></td>
+                {% endif %}
             </tr>
             {% endfor %}
             {% else %}
@@ -44,6 +54,7 @@
             {% endif %}
         </tbody>
     </table>
+    </div>
 
 </div>
 

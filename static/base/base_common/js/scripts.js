@@ -176,6 +176,7 @@ $(document).ready(function () {
         if (is_delete) {
             data["is_delete"] = true;
         }
+
         var url = form.attr('action');
         $.ajax({
             url: url,
@@ -237,6 +238,32 @@ $(document).ready(function () {
         $(this).closest('tr').remove();
 
         alert_open('Товар удален из корзины');
+    })
+
+    //Завершение заказа
+    $('.completion').click(function (e) {
+        e.preventDefault();
+
+        var order_id = $(this).data("order_id"); //Получение id заказа
+        var data = {};
+        var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
+        data["csrfmiddlewaretoken"] = csrf_token;
+        data.order_id = order_id;
+
+        var url = $(this).data("href");
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            cache: true,
+            success: function () {
+                $(this).closest('tr').find('.status').html('Завершен');
+                alert_open('Заказ завершен');
+            },
+            error: function () {
+                console.log('error');
+            }
+        })
     })
 
     //Уведомление о том что товаров в корзине нет

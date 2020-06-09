@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -8,7 +8,6 @@ from .forms import UserForBasket
 from .models import *
 
 def basket_add(request):
-#    messages.success(request, 'Товар добавлен в корзину')
     return_dict = dict()
 
     data = request.POST
@@ -16,11 +15,6 @@ def basket_add(request):
     quantity_nbr = data.get("quantity_nbr")
     is_delete = data.get("is_delete")
         
-#    if int(quantity_nbr) > Product.objects.get(id=product_id).warehouse:
-#        messages.error(request, 'Ошибка количества')
-##        return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
-#        pass
-#    else:
     if is_delete == 'true':
         ProductsInBasket.objects.filter(id=product_id).update(is_active=False)
     else:
@@ -97,5 +91,16 @@ def pay(request):
 @login_required(login_url='/authorization/login/')
 def pay_success(request):
     Order.objects.filter(user=request.user, status=1).update(status_id=2)
-    messages.error(request, 'Заказ Оплачен')
+    messages.success(request, 'Заказ Оплачен')
     return redirect('account:order_detail')
+
+
+def order_completion(request):
+    
+    data = request.POST
+    print(data)
+    order_id = data.get("order_id")
+    
+    Order.objects.filter(user=request.user, status=2, id=order_id).update(status_id=3)
+    
+    return HttpResponse()

@@ -293,6 +293,12 @@ label:focus {
     transition: .3s;
 }
 
+.completion, .profile-table td a{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
 @media (max-width:769px) {
 
     .account tbody,
