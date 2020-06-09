@@ -38,7 +38,7 @@
                             {% if user.username %}
                             <button type="submit" class="detail-add-basket" id="addBasket" data-product-id="{{ product.id }}" data-product-title="{{ product.name }}" data-product-price="{{ product.price }}" {% if user.username %} data-user-id="{{user.id}}" {% endif %}>В корзину</button>
                             {% else %}
-                            <a class="detail-add-basket" href="{% url 'admin:login' %}">В корзину</a>
+                            <a class="detail-add-basket" href="{% url 'authorization:login' %}">В корзину</a>
                             {% endif %}
 
                         </div>
@@ -92,10 +92,10 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="detail-li">
+        <!--<div class="detail-li">
                 <div class="detail-li-title spoiler-active arrow arrow">Аналогичные товары</div>
                 <div class="detail-li-content spoiler-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo dolores quis voluptatibus ullam, nisi quibusdam at facilis, molestias ex hic commodi, distinctio minus blanditiis temporibus omnis reiciendis sed odio aliquid.</div>
-            </div>
+            </div>-->
         </div>
     </div>
     {% endblock %}
