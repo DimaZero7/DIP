@@ -8,11 +8,10 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['comment_author', 'comment_text']
+        fields = ['user', 'comment_text']
         widgets = {
-            'comment_author': forms.TextInput(attrs={
-                'placeholder': 'Ваше имя', 'class': 'None', 'maxlength': '50'}),
+            'user': forms.TextInput(),
 
             'comment_text': forms.Textarea(attrs={
-                'placeholder': 'Текст комментария', 'class': 'None', 'cols': '30', 'rows': '10', 'maxlength': '200'}),
+                'placeholder': 'Текст комментария', 'maxlength': '200'}),
         }

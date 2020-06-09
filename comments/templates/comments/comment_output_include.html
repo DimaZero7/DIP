@@ -1,12 +1,15 @@
 <div class="detail-comment">
     {% if product.comment.all %}
-        {% for comment in product.comment.all %}
-            <div class="detail-comment-block">
-                <div class="comment-autor">{{comment.comment_author}}</div>
-                <div class="comment-text">{{comment.comment_text}}</div>
-            </div>
-        {% endfor %}
-        {% else %}
-            <div class="comment-none">Комментариев нет! Станьте первыми </div>
+    {% for comment in product.comment.all %}
+    <div class="detail-comment-block">
+        <div class="comment-block-title">
+            <div class="comment-photo"><img src="{{comment.user.profile.photo.url}}" alt="{{comment.user.username}}"></div>
+            <div class="comment-autor">{{comment.user.username}}</div>
+        </div>
+        <div class="comment-text">{{comment.comment_text}}</div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="comment-none">Комментариев нет! Станьте первыми </div>
     {% endif %}
-</div> 
+</div>

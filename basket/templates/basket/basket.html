@@ -3,9 +3,7 @@
 
 {% block title  %}Личный кабинет {{user.username}} | Корзина{% endblock %}
 
-{% block addCSS %}
-<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">
-{% endblock %}
+{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">{% endblock %}
 
 {% block keywords %}Личный кабинет, Корзина{% endblock %}
 {% block description %}Личный кабинет - {{user.username}} | Корзина {% endblock %}

@@ -38,21 +38,21 @@
                         {% if user.first_name %}
                         {{ user_form.first_name }}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="first_name">
+                        <input type="text" value="Не заполенно" name="first_name" autocomplete="name">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.last_name %}
                         {{ user_form.last_name }}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="last_name">
+                        <input type="text" value="Не заполенно" name="last_name" autocomplete="family-name">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.email %}
                         {{ user_form.email }}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="email">
+                        <input type="text" value="Не заполенно" name="email" autocomplete="email">
                         {% endif %}
                     </td>
                 </tr>
@@ -68,7 +68,7 @@
             <tbody>
                 <tr class="title-content">
                     <td class="">Город</td>
-                    <td class="">Улица</td>
+                    <td class="">Улица/Переулок</td>
                     <td class="">Дом</td>
                     <td class="">Квартира</td>
                 </tr>
@@ -77,28 +77,28 @@
                         {% if user.profile.city %}
                         {{profile_form.city}}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="city" required>
+                        <input type="text" value="Не заполенно" name="city" required autocomplete="country">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.profile.street %}
                         {{profile_form.street}}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="street" required>
+                        <input type="text" value="Не заполенно" name="street" required autocomplete="street-address">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.profile.number_house %}
                         {{profile_form.number_house}}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="number_house" required>
+                        <input type="text" value="Не заполенно" name="number_house" required autocomplete="home">
                         {% endif %}
                     </td>
                     <td class="">
                         {% if user.profile.number_room %}
                         {{profile_form.number_room}}
                         {% else %}
-                        <input type="text" value="Не заполенно" name="number_room" required>
+                        <input type="text" value="Не заполенно" name="number_room">
                         {% endif %}
                     </td>
                 </tr>
@@ -148,3 +148,4 @@
 
 </script>
 {% endblock %}
+

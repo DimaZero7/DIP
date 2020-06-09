@@ -1,6 +1,6 @@
 from django.db import models
-
 from catalog.models import Product
+from django.contrib.auth.models import User
 
 
 class Comment(models.Model):
@@ -8,17 +8,16 @@ class Comment(models.Model):
 
     product = models.ForeignKey(Product,  related_name='comment', on_delete=models.CASCADE)
 
-    comment_author = models.CharField('Автор комментария', max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,  blank=True, null=True, default = None, verbose_name='Пользователь')
 
     comment_text = models.TextField('Текст комментария', max_length=200)
 
+    
     def __str__(self):
-        return self.comment_author
+        return "Комментарий %s к товару %s" % (self.user.username, self.product.name)
 
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
 
         
-#from django.contrib.auth.models import User
-#comment_author = models.ForeignKey(User, on_delete=models.CASCADE,  blank=True, null=True, default = None, verbose_name='Пользователь')

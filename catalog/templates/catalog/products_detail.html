@@ -81,7 +81,6 @@
             <div class="detail-li">
                 <div class="detail-li-title spoiler-active arrow arrow">Отзывы</div>
                 <div class="detail-li-content spoiler-content">
-                    {% include 'comments/comment_output_include.html' %}
                     {% if user.username %}
                     {% include 'comments/comment_input_include.html' %}
                     {% else %}
@@ -90,6 +89,7 @@
                         <a href="{% url 'authorization:login' %}">Войти</a>
                     </div>
                     {% endif %}
+                    {% include 'comments/comment_output_include.html' %}
                 </div>
             </div>
         <!--<div class="detail-li">
