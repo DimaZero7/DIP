@@ -114,6 +114,10 @@
     outline: 0;
 }
 
+.account td input::placeholder{
+    color: var(--text);
+}
+
 .account td input:read-only {
     border: 0;
 }
@@ -262,6 +266,7 @@
     height: 70px;
     object-fit: cover;
     padding: 5px;
+    margin: 5px;
 }
 
 .photo img {
