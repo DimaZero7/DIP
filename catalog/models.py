@@ -79,9 +79,6 @@ class Product(models.Model):
 
     specifications = models.TextField('Характеристики')
 
-    # что входит в комплект с данным товаром
-    set = models.TextField('Комплект поставки')
-
     def get_absolute_url(self):
         """Создание персональной ссылки для товара'"""
 

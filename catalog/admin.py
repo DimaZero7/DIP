@@ -50,7 +50,7 @@ class ProductsAdmin(admin.ModelAdmin):
         ('Общее', {'fields': ['categories', 'manufacture']}),
         ('Наименование товара', {'fields': ['name', 'slug']}),
         ('Основное', {'fields': ['price', 'warehouse', 'warranty']}),
-        ('Описание', {'fields': ['description', 'specifications', 'set']}),
+        ('Описание', {'fields': ['description', 'specifications']}),
     ]
 
     list_filter = ('categories', 'manufacture')

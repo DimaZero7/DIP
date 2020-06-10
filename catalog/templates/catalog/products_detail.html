@@ -68,15 +68,11 @@
         <div class="detail-info spoilers mobil ">
             <div class="detail-li">
                 <div class="detail-li-title spoiler-active arrow">Описание</div>
-                <div class="detail-li-content spoiler-content">{{product.description}}</div>
+                <div class="detail-li-content spoiler-content">{% autoescape off %}{{product.description}}{% endautoescape %}</div>
             </div>
             <div class="detail-li">
                 <div class="detail-li-title spoiler-active arrow arrow">Характеристики</div>
-                <div class="detail-li-content spoiler-content">{{product.specifications}}</div>
-            </div>
-            <div class="detail-li">
-                <div class="detail-li-title spoiler-active arrow arrow">Комплект поставки</div>
-                <div class="detail-li-content spoiler-content">{{product.set}}</div>
+                <div class="detail-li-content spoiler-content">{% autoescape off %}{{product.specifications}}{% endautoescape %}</div>
             </div>
             <div class="detail-li">
                 <div class="detail-li-title spoiler-active arrow arrow">Отзывы</div>
