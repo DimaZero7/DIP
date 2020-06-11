@@ -18,7 +18,7 @@
     {% for product in object_list %}
     <article class="product-block">
         <div class="product-title">
-            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            <a href="{{ product.get_absolute_url }}" title="{{ product.name }}">{{ product.name }}</a>
         </div>
         <div class="product-img">
             <a href="{{ product.get_absolute_url }}">
