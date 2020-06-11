@@ -401,6 +401,26 @@ $(document).ready(function () {
         $('.auth-help').removeClass('active');
     }, 4000);
 
+    
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
+            $('.arrow-top').addClass("arrow-active");
+        } else {
+            $('.arrow-top').removeClass("arrow-active");
+        }
+    });
+    
+    //Плавное перемещение к якорю
+    $("a.arrow-top").click(function () {
+        $("html, body").animate({
+            scrollTop: $($(this).attr("href")).offset().top + "px"
+        }, {
+            duration: 500,
+            easing: "swing"
+        });
+        return false;
+    });
+    
 });
 
 //Взаимодействие со свайпами

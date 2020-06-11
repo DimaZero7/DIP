@@ -70,6 +70,7 @@ img {
     display: flex;
     flex-direction: column;
     position: relative;
+    z-index: 13;
 }
 
 .header-info {
@@ -472,8 +473,62 @@ alert.messages-active {
 .header-resize .header-container {
     box-shadow: 2px 2px 10px white;
     transition: .3s;
+    z-index: 13;
 }
 
+.arrow-top {
+    transform: scale(0);
+    position: fixed;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    background-color: var(--lg);
+    bottom: 5%;
+    right: 1%;
+    opacity: 0.9;
+    transition: .3s;
+}
+
+.arrow-top:hover {
+    cursor: pointer;
+}
+
+.arrow-top.arrow-active {
+    transform: scale(1);
+    transition: .3s;
+}
+
+.arrow-top::before,
+.arrow-top::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 7px;
+    background-color: white;
+    border-radius: 100px;
+    top: 15px;
+}
+
+.arrow-top span {
+    position: absolute;
+    width: 35px;
+    height: 7px;
+    background-color: white;
+    border-radius: 100px;
+    bottom: 18px;
+    left: 7.5px;
+    transform: rotate(90deg);
+}
+
+.arrow-top::before {
+    transform: rotate(-55deg);
+    left: 3px
+}
+
+.arrow-top::after {
+    transform: rotate(55deg);
+    right: 3px;
+}
 
 .username {
     position: absolute;
@@ -594,7 +649,7 @@ alert.messages-active {
     height: 500px;
     border-bottom: 2px solid var(--text);
     border-right: 2px solid var(--text);
-    z-index: 12;
+    z-index: 1;
 }
 
 .main-manu-link {

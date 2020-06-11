@@ -13,21 +13,32 @@
 
 {% block content_website %}
 <h1 class="main-h1">Обатная связь</h1>
-<form action="" method="post" class="auth">
+<form action="{% url 'common:feedback' %}" method="post" class="auth">
     {% csrf_token %}
     <div class="auth-item">
         <label class="auth-label" for="username">
             <span class="auth-span">Имя пользователя</span>
             <span class="auth-input">
            {% if user.username %}
-            <input type="text" name="username" maxlength="150" autocapitalize="none" required value="{{user.username}}" id="username" readonly>
+            <input type="text" name="user" maxlength="150" autocapitalize="none" required value="{{user.username}}" id="username" readonly>
            {% else  %}
-            <input type="text" name="username" maxlength="150" autocapitalize="none" required placeholder="Введите имя" id="username">
+            <input type="text" name="user" maxlength="150" autocapitalize="none" required placeholder="Введите имя" id="username">
             {% endif %}
             </span>
         </label>
     </div>
-
+    <div class="auth-item">
+        <label class="auth-label" for="username">
+            <span class="auth-span">Почта</span>
+            <span class="auth-input">
+           {% if user.username %}
+            <input type="email" name="email" maxlength="150" autocapitalize="none" required value="{{user.email}}" id="email" readonly>
+           {% else  %}
+            <input type="email" name="email" maxlength="150" autocapitalize="none" required placeholder="Введите имя" id="email">
+            {% endif %}
+            </span>
+        </label>
+    </div>
     <div class="auth-item">
         <label class="auth-label" for="message">
             <span class="auth-span">Сообщение</span>

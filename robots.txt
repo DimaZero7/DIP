@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /account/
+Disallow: /poster/
+Disallow: /admin/
+Sitemap: http://rearmdevice.ru/sitemap.xml

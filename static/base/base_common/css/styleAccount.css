@@ -82,12 +82,14 @@
     transition: .3s;
 }
 
-
-
 .profile-table {
     color: white;
     border-collapse: collapse;
     width: 100%;
+}
+
+.profile-table.basket{
+    margin: 0 0 20px 0;
 }
 
 .account .profile-table {
@@ -336,6 +338,17 @@ label:focus {
     resize: vertical;
 }
 
+
+.product-order-title{
+    background-color: var(--dark)
+}
+
+
+
+
+.product-order-content td{
+    height: 0;
+}
 
 @media (max-width:769px) {
 

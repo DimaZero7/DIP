@@ -15,51 +15,57 @@
 <div class="basket">
     {% include 'account/include_account-nav.html' %}
     <div class="scroll-table">
-    <table class="profile-table">
-        <thead>
-            <tr class="title">
-                <td colspan="5">Заказы</td>
-            </tr>
-            <tr class="title-content">
-                <td class="order-id">Номер</td>
-                <td class="">Сумма</td>
-                <td class="">Дата создания</td>
-                <td colspan="2" class="">Статус</td>
-            </tr>
-        </thead>
-
-        <tbody>
-            {% for order in orders %}
-            <tr>
-                <td class="order-id">{{order.id}}</td>
-                <td class="order-price">{{order.total_price}}</td>
-                <td class="">{{order.created}}</td>
-                <td class="status">{{order.status}}</td>
-                {% if order.status_id == 1 %}
-                <td class="pay interaction" data-order_id="{{order.id}}" data-href="{% url 'basket:interaction_order' %}">Оплатить</td>
+        {% for order in orders %}
+        <table class="profile-table basket">
+            <thead>
+                <tr class="title">
+                    <td colspan="5">Заказ № {{order.id}}</td>
+                </tr>
+                <tr class="title-content">
+                    <td class="">Сумма</td>
+                    <td class="">Дата создания</td>
+                    <td colspan="2" class="">Статус</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="order-price">{{order.total_price}}</td>
+                    <td class="">{{order.created}}</td>
+                    <td class="status">{{order.status}}</td>
+                    {% if order.status_id == 1 %}
+                    <td class="pay interaction" data-order_id="{{order.id}}" data-href="{% url 'basket:interaction_order' %}">Оплатить</td>
+                    {% endif %}
+                    {% if order.status_id == 2 %}
+                    <td class="completion interaction" data-order_id="{{order.id}}" data-href="{% url 'basket:interaction_order' %}">Завершить</td>
+                    {% endif %}
+                    {% if order.status_id == 3 %}
+                    <td></td>
+                    {% endif %}
+                </tr>
+                <tr><td class="product-order-title" colspan="5">Товары заказа</td></tr>
+                <tr class="product-order-content">
+                    <td>Название товара</td>
+                    <td>Количество товара</td>
+                    <td>Цена за штуку</td>
+                    <td>Общая цена</td>
+                </tr>
+                {% for product in order.products_in_order.all %}
+                <tr class="product-order-content">
+                    <td>{{ product.product.name }}</td>
+                    <td>{{ product.quantity_nbr }}</td>
+                    <td>{{ product.price_per_item }} ₽</td>
+                    <td>{{ product.total_price }} ₽</td>
+                </tr>
+                {% endfor %}
+                {% if order.comment %}
+                <tr><td class="product-order-title" colspan="5">Комментарий к заказу</td></tr>
+                <tr><td colspan="5">{{order.comment}}</td></tr>
                 {% endif %}
-                {% if order.status_id == 2 %}
-                <td class="completion interaction" data-order_id="{{order.id}}" data-href="{% url 'basket:interaction_order' %}">Завершить</td>
-                {% endif %}
-                {% if order.status_id == 3 %}
-                <td></td>
-                {% endif %}
-            </tr>
-            {% if order.comment %}
-            <tr>
-                <td colspan="5">{{order.comment}}</td>
-            </tr>
-            {% endif %}
-            <tr>
-                <td colspan="5"></td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">Заказов нет</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% empty %}
+                <tr><td colspan="5">Заказов нет</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
 </div>
