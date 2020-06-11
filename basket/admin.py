@@ -15,8 +15,8 @@ class ProductsInOrder(admin.TabularInline):
     
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'total_price', 'status', 'created')
-    readonly_fields = ('user','total_price', 'created')
+    list_display = ('id', 'user', 'total_price', 'status', 'created', 'comment')
+    readonly_fields = ('user','total_price', 'created', 'comment')
     inlines = [
         ProductsInOrder,
     ]

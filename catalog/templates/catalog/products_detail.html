@@ -42,6 +42,8 @@
                             {% endif %}
 
                         </div>
+                        
+                        {% if not product.warehouse == 0 %}
                         <div class="detail-block-servis">Сколько купить?:
                             <div class="detail-quantity">
                                 <input type="number" value="1" name="quantity_nbr" id="quantity_nbr" min="1" max="{{product.warehouse}}">
@@ -50,9 +52,13 @@
                         <div class="detail-block-servis storage">Наличие на складе:
                             <div class="detail-sub-block warehouse">{{product.warehouse}}</div>
                         </div>
+                        {% else %}
+                        <div class="detail-block-servis">Товара нет на складе
+                        </div>
                         <div class="detail-block-servis delivery">Доставка в течение:
                             <div class="detail-sub-block">2</div>
                         </div>
+                        {% endif %}
                         <div class="detail-block-servis warranty">Гарантия:
                             <div class="detail-sub-block">{{product.warranty}}</div>
                         </div>
@@ -88,25 +94,11 @@
                     {% include 'comments/comment_output_include.html' %}
                 </div>
             </div>
-        <!--<div class="detail-li">
-                <div class="detail-li-title spoiler-active arrow arrow">Аналогичные товары</div>
-                <div class="detail-li-content spoiler-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo dolores quis voluptatibus ullam, nisi quibusdam at facilis, molestias ex hic commodi, distinctio minus blanditiis temporibus omnis reiciendis sed odio aliquid.</div>
-            </div>-->
         </div>
     </div>
     {% endblock %}
 
     {% block addJS %}
-    <script>
-        var form = $('#buyProduct');
-        form.on('submit', function(e) {
-            e.preventDefault;
-            if ($('#quantity_nbr').val() > {{product.warehouse}}) {
-                alert_open('Ошибка количества');
-            }
-        })
-
-    </script>
     <script src="{% static 'base/base_common/js/popup.min.js' %}"></script>
     <script>
         $(document).ready(function() {

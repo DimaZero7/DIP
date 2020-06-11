@@ -182,23 +182,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '35-zqovMG1SqMcaIeQMGpS2R' # Google Consumer 
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-ROBOKASSA_TEST_MODE = True
-
-ROBOKASSA_LOGIN = "RearmDevice"
-#ROBOKASSA_PASSWORD1 = "GSKQkhfqR8mQnI35u31P"
-#ROBOKASSA_PASSWORD2 = "l3Bf0lwY6SJOkMGv25ow"
-
-ROBOKASSA_ORDER_MODEL = "Rearmdevice.basket.Order"
-#ROBOKASSA_SUCCESS_TEMPLATE = "success.html"
-#ROBOKASSA_FAIL_TEMPLATE = "fail.html"
-
-#Для тестов
-ROBOKASSA_PASSWORD1 = "ymw3de7YeXwAdf7I02BY"
-ROBOKASSA_PASSWORD2 = "OEYZMbsQhiXU5Qy184B1"
-
-
 import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
-
-#heroku config:set DISABLE_COLLECTSTATIC=1

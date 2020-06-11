@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserForBasket
 from .models import *
+from catalog.models import Product
+from django.db.models import F #Для того что бы производить арифметику с полями бд
 
 def basket_add(request):
     return_dict = dict()
@@ -47,14 +49,16 @@ def order_add(request):
     product_in_basket = ProductsInBasket.objects.filter(user=request.user, is_active=True, order__isnull=True)
     form = UserForBasket(request.POST or None)
     if request.POST:
-        print(request.POST)
         if form.is_valid():
             data = request.POST
             username = data["client_username"]
             total_price = data["total_price"]
+            comment = data["comment"]
             user = User.objects.get(username=username)
              
-            order = Order.objects.create(user=user, status_id = 1, total_price=total_price)                                                                                                        
+            order = Order.objects.create(user=user, status_id = 1, total_price=total_price, comment=comment)
+            print(order)
+            
             for name, value in data.items():
                 if name.startswith("product_in_basket_"):
                     product_in_basket_id = name.split("product_in_basket_")[1]
@@ -63,6 +67,10 @@ def order_add(request):
                     product_in_basket.quantity_nbr = value
                     product_in_basket.order = order
                     product_in_basket.is_active = False
+                    
+                    #Изменяем количество товара на складе при заказе 
+                    product_in_basket.product.warehouse -= int(product_in_basket.quantity_nbr)
+                    product_in_basket.product.save()
                     product_in_basket.save(force_update=True)
                     
                     ProductsInOrder.objects.create(product=product_in_basket.product,
@@ -71,7 +79,7 @@ def order_add(request):
                                                    total_price=product_in_basket.total_price, 
                                                    order = order)
             messages.error(request, 'Заказ создан')
-            return redirect('basket:pay')
+            return redirect('account:order_detail')
         else:
             print("no")
 
@@ -89,18 +97,23 @@ def pay(request):
     return render(request, 'basket/pay.html', context)
 
 @login_required(login_url='/authorization/login/')
+
 def pay_success(request):
     Order.objects.filter(user=request.user, status=1).update(status_id=2)
     messages.success(request, 'Заказ Оплачен')
     return redirect('account:order_detail')
 
 
-def order_completion(request):
-    
+def interaction_order(request):
     data = request.POST
     print(data)
+    order_status = data.get("order_status")
     order_id = data.get("order_id")
     
-    Order.objects.filter(user=request.user, status=2, id=order_id).update(status_id=3)
+    if order_status == 'pay':
+        Order.objects.filter(user=request.user, status=1, id=order_id).update(status_id=2)
+        
+    if order_status == 'completion':
+        Order.objects.filter(user=request.user, status=2, id=order_id).update(status_id=3)
     
     return HttpResponse()

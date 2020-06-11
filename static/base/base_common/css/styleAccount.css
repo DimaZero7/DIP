@@ -122,6 +122,10 @@
     border: 0;
 }
 
+.profile-table tbody{
+    overflow: scroll;
+}
+
 .profile-table td {
     border: 2px solid var(--text);
     text-align: center;
@@ -298,9 +302,35 @@ label:focus {
     transition: .3s;
 }
 
-.completion, .profile-table td a{
+.interaction, .profile-table td a{
     cursor: pointer;
     text-decoration: underline;
+}
+
+.basket-label{
+    margin: 10px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid var(--text);
+}
+
+.basket-span,
+.basket-textarea{
+    color: var(--text);
+    padding: 5px 1%;
+}
+
+.basket-span{
+    background-color: var(--dark);
+    border-bottom: 2px solid var(--text);
+    font-size: 20px;
+}
+
+
+.basket-textarea{
+    background-color: transparent;
+    resize: vertical;
 }
 
 

@@ -16,10 +16,7 @@
     <table class="profile-table">
         <thead>
             <tr class="title">
-                <td colspan="3">Личные даннные</td>
-                <td>
-                    <a class="title-link" href="{% url 'account:editing' %}">Изменить</a>
-                </td>
+                <td colspan="4">Личные даннные</td>
             </tr>
         </thead>
         <tbody class="">
@@ -61,8 +58,7 @@
     <table class="profile-table">
         <thead>
             <tr class="title">
-                <td colspan="3">Адрес доставки</td>
-                <td><a class="title-link" href="{% url 'account:editing' %}">Изменить</a></td>
+                <td colspan="4">Адрес доставки</td>
             </tr>
         </thead>
         <tbody class="">
@@ -104,6 +100,9 @@
             </tr>
         </tbody>
     </table>
+    <div class="submit-order">
+        <a href="{% url 'account:editing' %}">Изменить</a>
+        </div>
 </div>
 
 

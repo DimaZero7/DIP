@@ -10,7 +10,7 @@ def profile_img_name(instance, filename):
 
     return 'profile/{0}/img/{1}'.format(instance.user.username, filename)
 
-
+ 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     city = models.CharField('Город', max_length=50, blank=True)

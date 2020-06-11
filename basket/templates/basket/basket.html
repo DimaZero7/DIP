@@ -3,7 +3,8 @@
 
 {% block title  %}Личный кабинет {{user.username}} | Корзина{% endblock %}
 
-{% block addCSS %}<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">{% endblock %}
+{% block addCSS %}
+<link rel="stylesheet" href="{% static 'base/base_common/css/styleAccount.css' %}">{% endblock %}
 
 {% block keywords %}Личный кабинет, Корзина{% endblock %}
 {% block description %}Личный кабинет - {{user.username}} | Корзина {% endblock %}
@@ -32,9 +33,8 @@
                         <td class="full-price">Полная стоимость</td>
 
                     </tr>
-                    {% if product_in_basket %}
                     {% for product_in_basket in products_in_basket %}
-                    <tr class="content-basket">
+                    <tr class="content-basket"> 
                         <td class="img">
                             {% for prodimg in product_in_basket.product.prodimg.all %}
                             {% if forloop.counter == 1 %}
@@ -51,12 +51,11 @@
                             <span class="shopping-list-delete close" data-product_id="{{product_in_basket.id}}" title="Удалить товар"></span>
                         </td>
                     </tr>
-                    {% endfor %}
-                    {% else %}
+                    {% empty %}
                     <tr>
                         <td colspan="6">Товаров нет</td>
                     </tr>
-                    {% endif %}
+                    {% endfor %}
                 </tbody>
                 <tfoot>
                     <tr class="title-content">
@@ -68,13 +67,16 @@
                     </tr>
                 </tfoot>
             </table>
-            {% if product_in_basket %}
-            <div class="submit-order">
-                <input type="submit" value="Заказать">
-            </div>
-            {% endif %}
         </div>
         {% if product_in_basket %}
+        <label class="basket-label" for="">
+            <span class="basket-span">Комментарий к заказу</span>
+            <textarea class="basket-textarea" name="comment"></textarea>
+        </label>
+        
+        <div class="submit-order">
+            <input type="submit" value="Заказать">
+        </div>
         {% endif %}
     </form>
 </div>

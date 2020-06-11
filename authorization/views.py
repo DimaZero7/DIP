@@ -30,8 +30,3 @@ class Registration(SuccessMessageMixin, FormView):
     def form_valid(self, form):
         form.save()
         return super(Registration, self).form_valid(form)
-    
-#    def form_invalid(self, form):
-#        response = super(SuccessMessageMixin, self).form_invalid(form)
-#        success_message = "Исправте ошибки"
-#        return HttpResponse()

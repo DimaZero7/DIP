@@ -240,33 +240,55 @@ $(document).ready(function () {
         alert_open('Товар удален из корзины');
     })
 
-    //Завершение заказа
-    $('.completion').click(function (e) {
-        e.preventDefault();
-
-        var order_id = $(this).data("order_id"); //Получение id заказа
+    //Взаимодействие с заказом
+    function interaction_order(order_status, url, order_id, replaceable_text){
         var data = {};
         var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
         data["csrfmiddlewaretoken"] = csrf_token;
         data.order_id = order_id;
+        data.order_status = order_status;
 
-        var url = $(this).data("href");
+        var url = url;
         $.ajax({
             url: url,
             type: 'POST',
             data: data,
             cache: true,
-            success: function () {
-                alert_open('Заказ завершен');
+            success: function (data) {
+                console.log('ок');
             },
             error: function () {
                 console.log('error');
             }
         })
-        $(this).closest('tr').find('.status').html('Завершен');
-        $(this).html('');
+        alert_open( "Заказ " + replaceable_text);
+    }
+    
+    //Завершение заказа
+    $('.pay').click(function (e) {
+        e.preventDefault();
+        var order_id = $(this).data("order_id"); //Получение id заказа
+        var url = $(this).data("href");
+        order_status = 'pay'
+        replaceable_text = "оплачен" 
+        interaction_order(order_status, url, order_id, replaceable_text);
+        alert('Переадресация на платежную систему')
+        location.reload();
     })
-
+    
+    //Завершение заказа
+    $('.completion').click(function (e) {
+        e.preventDefault();
+        var order_id = $(this).data("order_id"); //Получение id заказа
+        var url = $(this).data("href");
+        order_status = 'completion'
+        replaceable_text = "завершен"
+        interaction_order(order_status, url, order_id,  replaceable_text);
+        $(this).closest('tr').find('.status').html("Завершен");
+        $(this).html("").removeClass('completion');
+    })
+    
+    
     //Уведомление о том что товаров в корзине нет
     $('.add-order').click(function (e) {
         if ($('.shopping-list-container tr').hasClass('shopping-item')) {

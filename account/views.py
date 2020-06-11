@@ -17,14 +17,18 @@ def account(request):
 
 @login_required(login_url='/authorization/login/')
 def order_detail(request):
-    order = Order.objects.filter(user=request.user).order_by('-created')
-            
+    orders = Order.objects.filter(user=request.user).order_by('-created')  
+
+#    for product in orders:
+#        products_in_orders = Order.products_in_order.all()
+#        for products_in_order in products_in_orders:
+#             print(products_in_orders )
+#    
     context = {
-        "order":order,
+        "orders":orders,
+#        "products_in_order":products_in_order,
     }
-
     return render(request, 'account/order_detail.html', context)
-
 
 @login_required(login_url='/authorization/login/')
 def editing(request):

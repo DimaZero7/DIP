@@ -21,6 +21,7 @@ class Order(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default = 0, verbose_name='Сумма заказа')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')
     status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Статус')
+    comment = models.TextField('Комментариий к заказу')
     
     def __str__(self):
         return "Заказ %s %s" % (self.id, self.status.name)
@@ -35,7 +36,7 @@ class Order(models.Model):
         
 
 class ProductsInOrder(models.Model):
-    order = models.ForeignKey(Order, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Заказ')
+    order = models.ForeignKey(Order, blank=True, on_delete=models.CASCADE, null=True, related_name='products_in_order', verbose_name='Заказ')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Дата добовления')
     product = models.ForeignKey(Product, blank=True, on_delete=models.CASCADE, null=True,  verbose_name='Товар')
     price_per_item = models.IntegerField(default = 1, verbose_name='Цена за одну штуку')
