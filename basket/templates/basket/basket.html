@@ -8,6 +8,7 @@
 
 {% block keywords %}Личный кабинет, Корзина{% endblock %}
 {% block description %}Личный кабинет - {{user.username}} | Корзина {% endblock %}
+{% block basket %}{% endblock %}
 
 {% block content_website %}
 <h1 class="main-h1">Личный кабинет</h1>
@@ -73,10 +74,15 @@
             <span class="basket-span">Комментарий к заказу</span>
             <textarea class="basket-textarea" name="comment"></textarea>
         </label>
-        
+        {% if user.profile.city and user.profile.street and user.profile.number_house %}
         <div class="submit-order">
             <input type="submit" value="Заказать">
         </div>
+        {% else %}
+           <div class="submit-order">
+            <a href="{% url 'account:editing' %}">Заполнить данные</a>
+        </div>
+        {% endif %}
         {% endif %}
     </form>
 </div>
@@ -90,6 +96,7 @@
 {% block addJS %}
 <script>
     $(document).ready(function() {
+        //Считаем сумму заказа
         function calculateBasketAmount() {
             var summ_order = 0;
             $('.summary').each(function() {
@@ -97,6 +104,7 @@
             })
             $('.total-price input').val(summ_order.toFixed(2));
         };
+        //Считаем полную сумму за товар
         $(document).on('change', ".input-number", function() {
             var current_quantity = $(this).val();
             var current_tr = $(this).closest('tr');
@@ -106,11 +114,13 @@
             calculateBasketAmount();
         })
         calculateBasketAmount();
-
-        $('.shopping-list-delete').click(function() {
+        
+        //Пересчет при удаление товара
+        $(document).on("DOMNodeRemoved", function (event) { 
             calculateBasketAmount();
-        })
-
+        
+        });
+        
     });
 
 </script>

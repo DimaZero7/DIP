@@ -175,10 +175,12 @@
                         </form>
                         <div class="header-profile">
                             {% if user.username %}
+                            {% block basket %}
                             <a class="header-profile-icon shopping not-mobil" title="Открыть корзину">
                                 <img src="{% static 'base/base_common/img/header-profile-icon/basket.svg' %}" alt="Корзина">
                                 <span class="counter">{% if product_total_quantity_nbr %}{{product_total_quantity_nbr}}{% else %}0{% endif %}</span>
                             </a>
+                            {% endblock %}
                             <div class="shopping-list">
                                 <div class="container-total-price">
                                     <div class="total-price-title">Корзина</div>

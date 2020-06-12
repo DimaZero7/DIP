@@ -13,7 +13,6 @@
 <div class="account">
     {% include 'account/include_account-nav.html' %}
     <form action="{% url 'account:editing' %}" method="post" enctype="multipart/form-data">
-        
         {% csrf_token %}
         <table class="profile-table">
             <thead>
@@ -75,7 +74,7 @@
                         {% if user.profile.city %}
                         {{profile_form.city}}
                         {% else %}
-                        <input type="text" placeholder="Не заполенно" name="city" required autocomplete="country">
+                        <input type="text" placeholder="Не заполенно" name="city" required >
                         {% endif %}
                     </td>
                     <td class="">

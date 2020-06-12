@@ -124,7 +124,7 @@
     border: 0;
 }
 
-.profile-table tbody {
+.basket .profile-table tbody {
     overflow: scroll;
 }
 
@@ -237,7 +237,6 @@
 
 .submit-order a {
     display: block;
-    width: 100px;
     text-align: center;
 }
 

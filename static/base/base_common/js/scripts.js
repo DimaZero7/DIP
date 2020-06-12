@@ -449,7 +449,7 @@ $(document).ready(function () {
 
 
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 1) {
+        if ($(this).scrollTop() > 300) {
             $('.arrow-top').addClass("arrow-active");
         } else {
             $('.arrow-top').removeClass("arrow-active");
