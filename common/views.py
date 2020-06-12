@@ -11,7 +11,7 @@ from .models import Feedback
 class Index(ListView):
     model = Product
     template_name = 'common/index.html'
-
+    ordering = ['-date']
     
 def about(request):
     return render(request, 'common/about.html')

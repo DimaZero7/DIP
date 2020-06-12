@@ -23,8 +23,9 @@ class CategoryDetail(DetailView, MultipleObjectMixin):
 
     model = Category
     template_name = 'catalog/category_detail.html'
-    paginate_by = 5
-
+    paginate_by = 10
+    ordering = ['-date']
+    
     def get_context_data(self, **kwargs):
 
         object_list = Product.objects.filter(categories__slug=self.kwargs.get('slug'))
