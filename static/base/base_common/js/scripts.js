@@ -78,6 +78,7 @@ $(document).ready(function () {
         $('.active-for-mobile').toggleClass('display-icons');
     })
 
+
     //Логика спойлеров 
     if ($(window).width() < 769) {
         $('.spoilers').addClass('mobil');
@@ -100,6 +101,51 @@ $(document).ready(function () {
     $('.close-basket').click(function () {
         $('.shopping-list').slideUp();
     })
+
+
+    //Взаимодействие с клавиатурой
+    $('body').keydown(function (eventObject) {
+        //Корзина
+        //Escape
+        if (eventObject.which == 27 || (eventObject.ctrlKey && eventObject.which === 66)) {
+            $('.shopping-list').slideUp();
+        }
+
+        //Ctrl + B
+        if (eventObject.ctrlKey && eventObject.which === 66) {
+            $('.shopping-list').slideToggle();
+        }
+
+        //Меню
+        //Escape
+        if (eventObject.which == 27) {
+            if ($(window).width() < 600) {
+                $('body').removeClass('lock');
+                $('.username').removeClass('none');
+            }
+            $('.menu-active').removeClass('active');
+            $('.main-menu').removeClass('check');
+            $('.content').removeClass('resize');
+            $('.header-buttons').removeClass('buttons-active');
+            $('.active-for-mobile').removeClass('display-icons');
+
+        }
+
+        //Ctrl + M
+        if (eventObject.ctrlKey && eventObject.which === 77) {
+            if ($(window).width() < 600) {
+                $('body').toggleClass('lock');
+                $('.username').toggleClass('none');
+            }
+            $('.menu-active').toggleClass('active');
+            $('.main-menu').toggleClass('check');
+            $('.content').toggleClass('resize');
+            $('.header-buttons').toggleClass('buttons-active');
+            $('.active-for-mobile').toggleClass('display-icons');
+        }
+
+
+    });
 
 
     //Логика фильтров
@@ -241,7 +287,7 @@ $(document).ready(function () {
     })
 
     //Взаимодействие с заказом
-    function interaction_order(order_status, url, order_id, replaceable_text){
+    function interaction_order(order_status, url, order_id, replaceable_text) {
         var data = {};
         var csrf_token = $('#csrf_token input[name="csrfmiddlewaretoken"]').val();
         data["csrfmiddlewaretoken"] = csrf_token;
@@ -261,21 +307,21 @@ $(document).ready(function () {
                 console.log('error');
             }
         })
-        alert_open( "Заказ " + replaceable_text);
+        alert_open("Заказ " + replaceable_text);
     }
-    
+
     //Завершение заказа
     $('.pay').click(function (e) {
         e.preventDefault();
         var order_id = $(this).data("order_id"); //Получение id заказа
         var url = $(this).data("href");
         order_status = 'pay'
-        replaceable_text = "оплачен" 
+        replaceable_text = "оплачен"
         interaction_order(order_status, url, order_id, replaceable_text);
         alert('Переадресация на платежную систему')
         location.reload();
     })
-    
+
     //Завершение заказа
     $('.completion').click(function (e) {
         e.preventDefault();
@@ -283,12 +329,12 @@ $(document).ready(function () {
         var url = $(this).data("href");
         order_status = 'completion'
         replaceable_text = "завершен"
-        interaction_order(order_status, url, order_id,  replaceable_text);
+        interaction_order(order_status, url, order_id, replaceable_text);
         $(this).closest('tr').find('.status').html("Завершен");
         $(this).html("").removeClass('completion');
     })
-    
-    
+
+
     //Уведомление о том что товаров в корзине нет
     $('.add-order').click(function (e) {
         if ($('.shopping-list-container tr').hasClass('shopping-item')) {
@@ -401,7 +447,7 @@ $(document).ready(function () {
         $('.auth-help').removeClass('active');
     }, 4000);
 
-    
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 400) {
             $('.arrow-top').addClass("arrow-active");
@@ -409,7 +455,7 @@ $(document).ready(function () {
             $('.arrow-top').removeClass("arrow-active");
         }
     });
-    
+
     //Плавное перемещение к якорю
     $("a.arrow-top").click(function () {
         $("html, body").animate({
@@ -420,7 +466,7 @@ $(document).ready(function () {
         });
         return false;
     });
-    
+
 });
 
 //Взаимодействие со свайпами
