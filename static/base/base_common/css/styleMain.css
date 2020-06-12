@@ -499,7 +499,7 @@ alert.messages-active {
 }
 
 .arrow-top::before,
-.arrow-top span
+.arrow-top span,
 .arrow-top::after{
     position: absolute;
     background-color: var(--text);

@@ -107,7 +107,7 @@ $(document).ready(function () {
     $('body').keydown(function (eventObject) {
         //Корзина
         //Escape
-        if (eventObject.which == 27 || (eventObject.ctrlKey && eventObject.which === 66)) {
+        if (eventObject.which == 27) {
             $('.shopping-list').slideUp();
         }
 
@@ -449,7 +449,7 @@ $(document).ready(function () {
 
 
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 400) {
+        if ($(this).scrollTop() > 1) {
             $('.arrow-top').addClass("arrow-active");
         } else {
             $('.arrow-top').removeClass("arrow-active");
