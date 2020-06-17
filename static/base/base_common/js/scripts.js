@@ -11,8 +11,10 @@
 $(window).scroll(function () {
     if ($(this).scrollTop() > 1 && $(window).width() > 769) {
         $('header').addClass("header-resize");
+        $('.menu-active').addClass('shift');
     } else {
         $('header').removeClass("header-resize");
+        $('.menu-active').removeClass('shift');
     }
 });
 
@@ -70,7 +72,7 @@ $(document).ready(function () {
         if ($(window).width() < 600) {
             $('body').toggleClass('lock');
             $('.username').toggleClass('none');
-        }
+        } 
         $(this).toggleClass('active');
         $('.main-menu').toggleClass('check');
         $('.content').toggleClass('resize');

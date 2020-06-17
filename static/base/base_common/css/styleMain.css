@@ -304,8 +304,10 @@ alert.messages-active {
     width: 100%;
 }
 
+
+
 .profile-photo img {
-    border-radius: 100%;
+    border-radius: 100px;
     object-fit: cover;
     height: 38px;
 }
@@ -633,6 +635,11 @@ alert.messages-active {
 
 .menu-active.active::after {
     transform: rotate(-45deg)
+}
+
+.menu-active.shift{
+    top: -100px;
+    transition: .3s;
 }
 
 /*Меню*/

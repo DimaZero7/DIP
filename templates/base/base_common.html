@@ -6,6 +6,7 @@
     <title>RD | {% block title  %}{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="http-equiv" content="Content-type: text/html; charset=UTF-8">
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleMain.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleSlick.css' %}">
     <link rel="stylesheet" href="{% static 'base/base_common/css/styleDetail.css' %}">
@@ -17,33 +18,23 @@
 
     <!--*-->
     <style>
-        {% if user.is_anonymous %}
-        /*Темная тема*/
+        {% if user.is_anonymous or user.profile.theme == True %}
         :root {
-           --dark: #1d1b36; /* Темный */
-           --mid: #484171; /* Средний */
-           --lg: #9593b5; /* Светлый */
-           --text: #fff; /* Белый */
-        }
-        {% endif %}
-        
-        {% if user.profile.theme == True %}
         /*Темная тема*/
-        :root {
-           --dark: #1d1b36; /* Темный */
-           --mid: #484171; /* Средний */
-           --lg: #9593b5; /* Светлый */
-           --text: #fff; /* Белый */
+           --dark: #1d1b36;
+           --mid: #484171;
+           --lg: #9593b5;
+           --text: #fff;
         }
         {% endif %}
             
         {% if user.profile.theme == False %}
         /*Светлая тема*/
          :root {
-            --dark: #afadfc; /* Темный */
-            --mid: #e3e2fd; /* Средний */
-            --lg: #f8f8ff; /* Светлый */
-            --text: #000; /* Черный */
+            --dark: #afadfc;
+            --mid: #e3e2fd;
+            --lg: #f8f8ff;
+            --text: #000;
              }
         
         .social img,
@@ -65,11 +56,7 @@
             z-index: 10000;
         }
 
-        @media (max-width:769px){
-            .preloader {
-                top: 40px;
-            }
-        }
+        @media (max-width:769px){.preloader {top: 40px;}}
         
         .preloader-spin{
             position: absolute;
@@ -91,34 +78,14 @@
             transform-origin: 50% 50%;
         }
         
-        @keyframes span1{
-            0%{transform: scale(1)}
-            100%{transform: scale(0)}
-        }
+        @keyframes span1{ 0%{transform: scale(1)} 100%{transform: scale(0)} }
+        .preloader span:first-child{ animation: span1 linear 3s; }
         
-        .preloader span:first-child{
-            animation: span1 linear 3s;
-        }
+        @keyframes span2{ 0%{transform: scale(1)} 100%{transform: scale(0)} }
+        .preloader span:nth-child(2){ animation: span2 linear 2s; }
         
-        @keyframes span2{
-            0%{transform: scale(1)}
-            100%{transform: scale(0)}
-        }
-        
-        
-        .preloader span:nth-child(2){
-            animation: span2 linear 2s;
-        }
-        
-        @keyframes span3{
-            0%{transform: scale(1)}
-            100%{transform: scale(0)}
-        }
-        
-        .preloader span:last-child{
-            animation: span3 linear 1s;
-        }
-        
+        @keyframes span3{ 0%{transform: scale(1)} 100%{transform: scale(0)} }
+        .preloader span:last-child{ animation: span3 linear 1s; }
     </style>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
@@ -145,7 +112,7 @@
                                 <ul class="messages alert"></ul>
                             </div>
                             {% endif %}
-                            <a href="{% url 'common:feedback' %}" class="header-icon" title="Телефон">
+                            <a href="tel:+7911645-65-23" class="header-icon" title="Телефон">
                                 <img src="{% static 'base/base_common/img/header-icon/phone.svg' %}" alt="Телефон">
                             </a>
                         </div>
@@ -299,7 +266,7 @@
                                     <a href="mailto:tendetkinalesej@gmail.com"><img src="{% static 'base/base_common/img/footer-icon/mail.svg' %}" alt="mail"></a>
                                 </div>
                                 <ul class="footer-block-ul footer-feed-back">
-                                    <li><a href="#">Телефон</a></li>
+                                    <li><a href="tel:+7911645-65-23">+7911645-65-23</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -320,7 +287,7 @@
         })
     </script>
     <script src="{% static 'base/base_common/js/slick.min.js' %}"></script>
-    <script src="{% static 'base/base_common/js/scripts.js' %}"></script>
+    <script src="{% static 'base/base_common/js/scripts.js' %}" charset="utf-8" type="text/javascript"></script>
     {% block addJS %}{% endblock %}
 </body>
 
