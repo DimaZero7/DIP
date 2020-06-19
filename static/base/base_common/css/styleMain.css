@@ -426,8 +426,10 @@ alert.messages-active {
     overflow: hidden;
 }
 
-.shopping-list-container td:nth-child(3)::after {
-    content: ' ₽'
+.shopping-list-container td:nth-child(3)::after,
+.total-price::after,
+.product-info .product-price::after{
+    content: " ₽"
 }
 
 .container-total-price {
@@ -436,10 +438,6 @@ alert.messages-active {
     border-bottom: 2px solid var(--text);
     padding: 0 20px 0 0;
     font-size: 18px;
-}
-
-.total-price::after {
-    content: ' ₽'
 }
 
 /*Нижнее поле модального ока корзины*/
@@ -925,10 +923,6 @@ span.pages-item {
 .pages-item.next::after {
     transform: rotate(-45deg);
     top: 12px;
-}
-
-.product-info .product-price::after {
-    content: ' ₽'
 }
 
 .product-info .detail-block-servis {

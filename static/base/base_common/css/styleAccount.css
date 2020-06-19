@@ -185,7 +185,7 @@
 .profile-table tbody .full-price::after,
 .profile-table tbody .total-price::after,
 .order-price::after {
-    content: ' ₽'
+    content: " ₽";
 }
 
 .profile-table .quantity {

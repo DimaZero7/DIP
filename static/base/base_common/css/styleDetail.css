@@ -52,7 +52,7 @@
 }
 
 .detail-price::after {
-    content: ' ₽'
+    content: " ₽"
 }
 
 .detail-block-servis {
@@ -281,6 +281,12 @@
 .comment-none a:hover{
     background-color: var(--red);
     transition: .3s;
+}
+
+.photo-none{
+    text-align: center;
+    font-size: 30px;
+    padding: 5px 0
 }
 
 @media (max-width:769px) {

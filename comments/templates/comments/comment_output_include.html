@@ -3,7 +3,13 @@
     {% for comment in product.comment.all %}
     <div class="detail-comment-block">
         <div class="comment-block-title">
-            <div class="comment-photo"><img src="{{comment.user.profile.photo.url}}" alt="{{comment.user.username}}"></div>
+            <div class="comment-photo">
+            {% if comment.user.profile.photo %}
+            <img src="{{comment.user.profile.photo.url}}" alt="{{comment.user.username}}">
+            {% else %}
+            <div title="{{comment.user.username}}" class="photo-none">*</div>
+            {% endif %}
+            </div>
             <div class="comment-autor">{{comment.user.username}}</div>
         </div>
         <div class="comment-text">{{comment.comment_text}}</div>
