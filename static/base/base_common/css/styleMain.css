@@ -480,13 +480,17 @@ alert.messages-active {
     transform: scale(0);
     position: fixed;
     z-index: 2;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: var(--lg);
     bottom: 5%;
     right: 1%;
     opacity: 0.9;
     transition: .3s;
+}
+
+.arrow-top:hover{
+    opacity: 1;
 }
 
 .arrow-top:hover {
@@ -499,36 +503,35 @@ alert.messages-active {
 }
 
 .arrow-top::before,
-.arrow-top span,
 .arrow-top::after{
     position: absolute;
     background-color: var(--text);
     border-radius: 100px;
     height: 7px;
-}
-
-.arrow-top::before,
-.arrow-top::after {
     content: '';
     width: 30px;
     top: 15px;
-}
-
-.arrow-top span {
-    width: 35px;
-    bottom: 18px;
-    left: 7.5px;
-    transform: rotate(90deg);
+    transition: .3s;
 }
 
 .arrow-top::before {
     transform: rotate(-55deg);
-    left: 3px
+    left: -2px
 }
 
 .arrow-top::after {
     transform: rotate(55deg);
-    right: 3px;
+    right: -2px;
+}
+
+.arrow-top:hover::before{
+    transform: rotate(-65deg);
+    left: 0px
+}
+
+.arrow-top:hover::after {
+    transform: rotate(65deg);
+    right: 0px;
 }
 
 .username {
@@ -782,6 +785,7 @@ alert.messages-active {
     padding: 6px 3%;
     font-size: 16px;
     color: var(--text);
+    font-weight: 100;
     transition: .3s;
 }
 

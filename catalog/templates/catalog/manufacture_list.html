@@ -11,9 +11,9 @@
     {# Вывожу все категории #}
     {% for manufacture in manufacture_list %}
     <article class="product-block">
-        <div class="product-title">
+        <h3 class="product-title">
             <span>{{ manufacture.name }}</span>
-        </div>
+        </h3>
         <div class="product-img">
             <img src="{{ manufacture.img.url }}" alt="{{ manufacture.name }}">
         </div>

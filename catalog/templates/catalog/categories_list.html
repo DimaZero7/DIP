@@ -15,9 +15,9 @@
     {# Вывожу все категории #}
     {% for category in categories %}
     <article class="product-block">
-        <div class="product-title">
+        <h3 class="product-title">
             <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-        </div>
+        </h3>
         <div class="product-img">
             <a href="{{ category.get_absolute_url }}">
                 <img src="{{ category.img.url }}" alt="{{ category.name }}">
