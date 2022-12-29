@@ -25,8 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parents[1]
 SECRET_KEY = 'ry0l^uth+7%^#tbt!=v3894s8jttjz79yq20nle4*&c%_dl1r#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-#DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,16 +89,13 @@ WSGI_APPLICATION = 'REARMDEVICE.wsgi.application'
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dapi6da5m1lv2q',
-        'USER': 'nnlffisodsbsfj',
-        'PASSWORD': 'dbaef5be6343cf9d81643575874eddfc50c1e08c4eb66a11a636305f77e79c2e',
-        'HOST': 'ec2-3-222-150-253.compute-1.amazonaws.com',
-        'PORT': '5432',
-        'URL': 'postgres://nnlffisodsbsfj:dbaef5be6343cf9d81643575874eddfc50c1e08c4eb66a11a636305f77e79c2e@ec2-3-222-150-253.compute-1.amazonaws.com:5432/dapi6da5m1lv2q',
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "dip",
+        "USER": "postgres",
+        "PASSWORD": "pass",
+        "HOST": "localhost",
+        "PORT": 5432,
     }
 }
 
@@ -134,38 +130,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
-#]
-#
-#MEDIA_URL = '/media/'  # Url путь к медиа фаилам
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static"),  # Путь к статичным файлам главных шаблонов
+]
+
+MEDIA_URL = '/media/'  # Url путь к медиа фаилам
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Путь к медиа фаилам (для сервера)
 
 AWS_DEFAULT_ACL = None
 
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJ4WNXA5M33EDMXUQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('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')
 AWS_STORAGE_BUCKET_NAME = 'rearmdevice'
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-S3_URL = 'https://'+ AWS_STORAGE_BUCKET_NAME +'.amazonaws.com/'
-
-MEDIA_ROOT = '/media/'
-MEDIA_URL = S3_URL + MEDIA_ROOT
-
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"), 
-]
-
-AWS_S3_REGION_NAME = 'eu-north-1'
 
 LOGIN_URL = '/authorization/login/google-oauth2/'
 LOGIN_REDIRECT_URL = "account:account"
